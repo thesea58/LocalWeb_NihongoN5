@@ -1,0 +1,413 @@
+<<<<<<< ours
+[
+  {
+    "lesson": 20,
+    "kanji": "要ります［ビザが～］",
+    "hira": "いります［ビザが～］",
+    "wordType": "Động từ I",
+    "meaning": "cần [thị thực]"
+  },
+  {
+    "lesson": 20,
+    "kanji": "調べます",
+    "hira": "しらべます",
+    "wordType": "Động từ II",
+    "meaning": "tìm hiểu, điều tra"
+  },
+  {
+    "lesson": 20,
+    "kanji": "直します",
+    "hira": "なおします",
+    "wordType": "Động từ I",
+    "meaning": "sửa chữa"
+  },
+  {
+    "lesson": 20,
+    "kanji": "修理します",
+    "hira": "しゅうりします",
+    "wordType": "Động từ III",
+    "meaning": "sửa chữa"
+  },
+  {
+    "lesson": 20,
+    "kanji": "電話します",
+    "hira": "でんわします",
+    "wordType": "Động từ III",
+    "meaning": "gọi điện thoại"
+  },
+  {
+    "lesson": 20,
+    "kanji": "僕",
+    "hira": "ぼく",
+    "wordType": "Đại từ",
+    "meaning": "tôi (nam)"
+  },
+  {
+    "lesson": 20,
+    "kanji": "君",
+    "hira": "きみ",
+    "wordType": "Đại từ",
+    "meaning": "cậu/bạn (nam)"
+  },
+  {
+    "lesson": 20,
+    "kanji": "～君",
+    "hira": "～くん",
+    "wordType": "Hậu tố",
+    "meaning": "anh/cậu ~"
+  },
+  {
+    "lesson": 20,
+    "kanji": "うん",
+    "hira": "うん",
+    "wordType": "Thán từ",
+    "meaning": "ừ"
+  },
+  {
+    "lesson": 20,
+    "kanji": "ううん",
+    "hira": "ううん",
+    "wordType": "Thán từ",
+    "meaning": "không"
+  },
+  {
+    "lesson": 20,
+    "kanji": "サラリーマン",
+    "hira": "サラリーマン",
+    "wordType": "Danh từ",
+    "meaning": "nhân viên công ty"
+  },
+  {
+    "lesson": 20,
+    "kanji": "言葉",
+    "hira": "ことば",
+    "wordType": "Danh từ",
+    "meaning": "từ, tiếng"
+  },
+  {
+    "lesson": 20,
+    "kanji": "物価",
+    "hira": "ぶっか",
+    "wordType": "Danh từ",
+    "meaning": "giá cả"
+  },
+  {
+    "lesson": 20,
+    "kanji": "着物",
+    "hira": "きもの",
+    "wordType": "Danh từ",
+    "meaning": "kimono"
+  },
+  {
+    "lesson": 20,
+    "kanji": "ビザ",
+    "hira": "ビザ",
+    "wordType": "Danh từ",
+    "meaning": "thị thực"
+  },
+  {
+    "lesson": 20,
+    "kanji": "初め",
+    "hira": "はじめ",
+    "wordType": "Danh từ",
+    "meaning": "ban đầu, đầu tiên"
+  },
+  {
+    "lesson": 20,
+    "kanji": "終わり",
+    "hira": "おわり",
+    "wordType": "Danh từ",
+    "meaning": "kết thúc"
+  },
+  {
+    "lesson": 20,
+    "kanji": "こっち",
+    "hira": "こっち",
+    "wordType": "Đại từ",
+    "meaning": "phía này/chỗ này"
+  },
+  {
+    "lesson": 20,
+    "kanji": "そっち",
+    "hira": "そっち",
+    "wordType": "Đại từ",
+    "meaning": "phía đó/chỗ đó"
+  },
+  {
+    "lesson": 20,
+    "kanji": "あっち",
+    "hira": "あっち",
+    "wordType": "Đại từ",
+    "meaning": "phía kia/chỗ kia"
+  },
+  {
+    "lesson": 20,
+    "kanji": "どっち",
+    "hira": "どっち",
+    "wordType": "Nghi vấn",
+    "meaning": "phía nào/cái nào"
+  },
+  {
+    "lesson": 20,
+    "kanji": "この間",
+    "hira": "このあいだ",
+    "wordType": "Cụm từ",
+    "meaning": "vừa rồi, hôm nọ"
+  },
+  {
+    "lesson": 20,
+    "kanji": "みんなで",
+    "hira": "みんなで",
+    "wordType": "Phó từ",
+    "meaning": "mọi người cùng"
+  },
+  {
+    "lesson": 20,
+    "kanji": "～けど",
+    "hira": "～けど",
+    "wordType": "Liên từ",
+    "meaning": "nhưng"
+  },
+  {
+    "lesson": 20,
+    "kanji": "国へ帰るの？",
+    "hira": "くにへかえるの？",
+    "wordType": "Câu thông thường",
+    "meaning": "cậu có về nước không?"
+  },
+  {
+    "lesson": 20,
+    "kanji": "どうするの？",
+    "hira": "どうするの？",
+    "wordType": "Câu thông thường",
+    "meaning": "cậu sẽ làm gì?"
+  },
+  {
+    "lesson": 20,
+    "kanji": "どうしようかな",
+    "hira": "どうしようかな",
+    "wordType": "Cụm từ",
+    "meaning": "tính sao đây nhỉ"
+  },
+  {
+    "lesson": 20,
+    "kanji": "よかったら",
+    "hira": "よかったら",
+    "wordType": "Cụm từ",
+    "meaning": "nếu được"
+  },
+  {
+    "lesson": 20,
+    "kanji": "いろいろ",
+    "hira": "いろいろ",
+    "wordType": "Phó từ",
+    "meaning": "nhiều thứ"
+  }
+]
+=======
+[
+  {
+    "lesson": 20,
+    "kanji": "要ります［ビザが～］",
+    "hira": "いります［ビザが～］",
+    "wordType": "Động từ I",
+    "meaning": "cần [thị thực]"
+  },
+  {
+    "lesson": 20,
+    "kanji": "調べます",
+    "hira": "しらべます",
+    "wordType": "Động từ II",
+    "meaning": "tìm hiểu, điều tra"
+  },
+  {
+    "lesson": 20,
+    "kanji": "直します",
+    "hira": "なおします",
+    "wordType": "Động từ I",
+    "meaning": "sửa chữa"
+  },
+  {
+    "lesson": 20,
+    "kanji": "修理します",
+    "hira": "しゅうりします",
+    "wordType": "Động từ III",
+    "meaning": "sửa chữa"
+  },
+  {
+    "lesson": 20,
+    "kanji": "電話します",
+    "hira": "でんわします",
+    "wordType": "Động từ III",
+    "meaning": "gọi điện thoại"
+  },
+  {
+    "lesson": 20,
+    "kanji": "僕",
+    "hira": "ぼく",
+    "wordType": "Đại từ",
+    "meaning": "tôi (nam)"
+  },
+  {
+    "lesson": 20,
+    "kanji": "君",
+    "hira": "きみ",
+    "wordType": "Đại từ",
+    "meaning": "cậu/bạn (nam)"
+  },
+  {
+    "lesson": 20,
+    "kanji": "～君",
+    "hira": "～くん",
+    "wordType": "Hậu tố",
+    "meaning": "anh/cậu ~"
+  },
+  {
+    "lesson": 20,
+    "kanji": "うん",
+    "hira": "うん",
+    "wordType": "Thán từ",
+    "meaning": "ừ"
+  },
+  {
+    "lesson": 20,
+    "kanji": "ううん",
+    "hira": "ううん",
+    "wordType": "Thán từ",
+    "meaning": "không"
+  },
+  {
+    "lesson": 20,
+    "kanji": "サラリーマン",
+    "hira": "サラリーマン",
+    "wordType": "Danh từ",
+    "meaning": "nhân viên công ty"
+  },
+  {
+    "lesson": 20,
+    "kanji": "言葉",
+    "hira": "ことば",
+    "wordType": "Danh từ",
+    "meaning": "từ, tiếng"
+  },
+  {
+    "lesson": 20,
+    "kanji": "物価",
+    "hira": "ぶっか",
+    "wordType": "Danh từ",
+    "meaning": "giá cả"
+  },
+  {
+    "lesson": 20,
+    "kanji": "着物",
+    "hira": "きもの",
+    "wordType": "Danh từ",
+    "meaning": "kimono"
+  },
+  {
+    "lesson": 20,
+    "kanji": "ビザ",
+    "hira": "ビザ",
+    "wordType": "Danh từ",
+    "meaning": "thị thực"
+  },
+  {
+    "lesson": 20,
+    "kanji": "初め",
+    "hira": "はじめ",
+    "wordType": "Danh từ",
+    "meaning": "ban đầu, đầu tiên"
+  },
+  {
+    "lesson": 20,
+    "kanji": "終わり",
+    "hira": "おわり",
+    "wordType": "Danh từ",
+    "meaning": "kết thúc"
+  },
+  {
+    "lesson": 20,
+    "kanji": "こっち",
+    "hira": "こっち",
+    "wordType": "Đại từ",
+    "meaning": "phía này/chỗ này"
+  },
+  {
+    "lesson": 20,
+    "kanji": "そっち",
+    "hira": "そっち",
+    "wordType": "Đại từ",
+    "meaning": "phía đó/chỗ đó"
+  },
+  {
+    "lesson": 20,
+    "kanji": "あっち",
+    "hira": "あっち",
+    "wordType": "Đại từ",
+    "meaning": "phía kia/chỗ kia"
+  },
+  {
+    "lesson": 20,
+    "kanji": "どっち",
+    "hira": "どっち",
+    "wordType": "Nghi vấn",
+    "meaning": "phía nào/cái nào"
+  },
+  {
+    "lesson": 20,
+    "kanji": "この間",
+    "hira": "このあいだ",
+    "wordType": "Cụm từ",
+    "meaning": "vừa rồi, hôm nọ"
+  },
+  {
+    "lesson": 20,
+    "kanji": "みんなで",
+    "hira": "みんなで",
+    "wordType": "Phó từ",
+    "meaning": "mọi người cùng"
+  },
+  {
+    "lesson": 20,
+    "kanji": "～けど",
+    "hira": "～けど",
+    "wordType": "Liên từ",
+    "meaning": "nhưng"
+  },
+  {
+    "lesson": 20,
+    "kanji": "国へ帰るの？",
+    "hira": "くにへかえるの？",
+    "wordType": "Câu thông thường",
+    "meaning": "cậu có về nước không?"
+  },
+  {
+    "lesson": 20,
+    "kanji": "どうするの？",
+    "hira": "どうするの？",
+    "wordType": "Câu thông thường",
+    "meaning": "cậu sẽ làm gì?"
+  },
+  {
+    "lesson": 20,
+    "kanji": "どうしようかな",
+    "hira": "どうしようかな",
+    "wordType": "Cụm từ",
+    "meaning": "tính sao đây nhỉ"
+  },
+  {
+    "lesson": 20,
+    "kanji": "よかったら",
+    "hira": "よかったら",
+    "wordType": "Cụm từ",
+    "meaning": "nếu được"
+  },
+  {
+    "lesson": 20,
+    "kanji": "いろいろ",
+    "hira": "いろいろ",
+    "wordType": "Phó từ",
+    "meaning": "nhiều thứ"
+  }
+]
+>>>>>>> theirs

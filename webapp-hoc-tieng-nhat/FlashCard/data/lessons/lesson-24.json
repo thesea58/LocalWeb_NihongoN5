@@ -1,0 +1,259 @@
+<<<<<<< ours
+[
+  {
+    "lesson": 24,
+    "kanji": "くれます",
+    "hira": "くれます",
+    "wordType": "Động từ II",
+    "meaning": "cho tôi/người nhà tôi"
+  },
+  {
+    "lesson": 24,
+    "kanji": "連れて行きます",
+    "hira": "つれていきます",
+    "wordType": "Động từ I",
+    "meaning": "dẫn/đưa đi"
+  },
+  {
+    "lesson": 24,
+    "kanji": "連れて来ます",
+    "hira": "つれてきます",
+    "wordType": "Động từ III",
+    "meaning": "dẫn/đưa đến"
+  },
+  {
+    "lesson": 24,
+    "kanji": "送ります［人を～］",
+    "hira": "おくります［ひとを～］",
+    "wordType": "Động từ I",
+    "meaning": "đưa [ai] đi"
+  },
+  {
+    "lesson": 24,
+    "kanji": "紹介します",
+    "hira": "しょうかいします",
+    "wordType": "Động từ III",
+    "meaning": "giới thiệu"
+  },
+  {
+    "lesson": 24,
+    "kanji": "案内します",
+    "hira": "あんないします",
+    "wordType": "Động từ III",
+    "meaning": "hướng dẫn"
+  },
+  {
+    "lesson": 24,
+    "kanji": "説明します",
+    "hira": "せつめいします",
+    "wordType": "Động từ III",
+    "meaning": "giải thích"
+  },
+  {
+    "lesson": 24,
+    "kanji": "入れます［コーヒーを～］",
+    "hira": "いれます［コーヒーを～］",
+    "wordType": "Động từ II",
+    "meaning": "pha [cà phê]"
+  },
+  {
+    "lesson": 24,
+    "kanji": "おじいさん／おじいちゃん",
+    "hira": "おじいさん／おじいちゃん",
+    "wordType": "Danh từ",
+    "meaning": "ông/ông nội, ngoại"
+  },
+  {
+    "lesson": 24,
+    "kanji": "おばあさん／おばあちゃん",
+    "hira": "おばあさん／おばあちゃん",
+    "wordType": "Danh từ",
+    "meaning": "bà/bà nội, ngoại"
+  },
+  {
+    "lesson": 24,
+    "kanji": "準備",
+    "hira": "じゅんび",
+    "wordType": "Danh từ",
+    "meaning": "chuẩn bị"
+  },
+  {
+    "lesson": 24,
+    "kanji": "意味",
+    "hira": "いみ",
+    "wordType": "Danh từ",
+    "meaning": "ý nghĩa"
+  },
+  {
+    "lesson": 24,
+    "kanji": "［お］菓子",
+    "hira": "［お］かし",
+    "wordType": "Danh từ",
+    "meaning": "bánh kẹo"
+  },
+  {
+    "lesson": 24,
+    "kanji": "全部",
+    "hira": "ぜんぶ",
+    "wordType": "Danh từ/Phó từ",
+    "meaning": "toàn bộ"
+  },
+  {
+    "lesson": 24,
+    "kanji": "自分で",
+    "hira": "じぶんで",
+    "wordType": "Phó từ",
+    "meaning": "tự mình"
+  },
+  {
+    "lesson": 24,
+    "kanji": "他に",
+    "hira": "ほかに",
+    "wordType": "Phó từ",
+    "meaning": "ngoài ra"
+  },
+  {
+    "lesson": 24,
+    "kanji": "ワゴン車",
+    "hira": "ワゴンしゃ",
+    "wordType": "Danh từ",
+    "meaning": "xe wagon/xe van"
+  },
+  {
+    "lesson": 24,
+    "kanji": "［お］弁当",
+    "hira": "［お］べんとう",
+    "wordType": "Danh từ",
+    "meaning": "cơm hộp"
+  }
+]
+=======
+[
+  {
+    "lesson": 24,
+    "kanji": "くれます",
+    "hira": "くれます",
+    "wordType": "Động từ II",
+    "meaning": "cho tôi/người nhà tôi"
+  },
+  {
+    "lesson": 24,
+    "kanji": "連れて行きます",
+    "hira": "つれていきます",
+    "wordType": "Động từ I",
+    "meaning": "dẫn/đưa đi"
+  },
+  {
+    "lesson": 24,
+    "kanji": "連れて来ます",
+    "hira": "つれてきます",
+    "wordType": "Động từ III",
+    "meaning": "dẫn/đưa đến"
+  },
+  {
+    "lesson": 24,
+    "kanji": "送ります［人を～］",
+    "hira": "おくります［ひとを～］",
+    "wordType": "Động từ I",
+    "meaning": "đưa [ai] đi"
+  },
+  {
+    "lesson": 24,
+    "kanji": "紹介します",
+    "hira": "しょうかいします",
+    "wordType": "Động từ III",
+    "meaning": "giới thiệu"
+  },
+  {
+    "lesson": 24,
+    "kanji": "案内します",
+    "hira": "あんないします",
+    "wordType": "Động từ III",
+    "meaning": "hướng dẫn"
+  },
+  {
+    "lesson": 24,
+    "kanji": "説明します",
+    "hira": "せつめいします",
+    "wordType": "Động từ III",
+    "meaning": "giải thích"
+  },
+  {
+    "lesson": 24,
+    "kanji": "入れます［コーヒーを～］",
+    "hira": "いれます［コーヒーを～］",
+    "wordType": "Động từ II",
+    "meaning": "pha [cà phê]"
+  },
+  {
+    "lesson": 24,
+    "kanji": "おじいさん／おじいちゃん",
+    "hira": "おじいさん／おじいちゃん",
+    "wordType": "Danh từ",
+    "meaning": "ông/ông nội, ngoại"
+  },
+  {
+    "lesson": 24,
+    "kanji": "おばあさん／おばあちゃん",
+    "hira": "おばあさん／おばあちゃん",
+    "wordType": "Danh từ",
+    "meaning": "bà/bà nội, ngoại"
+  },
+  {
+    "lesson": 24,
+    "kanji": "準備",
+    "hira": "じゅんび",
+    "wordType": "Danh từ",
+    "meaning": "chuẩn bị"
+  },
+  {
+    "lesson": 24,
+    "kanji": "意味",
+    "hira": "いみ",
+    "wordType": "Danh từ",
+    "meaning": "ý nghĩa"
+  },
+  {
+    "lesson": 24,
+    "kanji": "［お］菓子",
+    "hira": "［お］かし",
+    "wordType": "Danh từ",
+    "meaning": "bánh kẹo"
+  },
+  {
+    "lesson": 24,
+    "kanji": "全部",
+    "hira": "ぜんぶ",
+    "wordType": "Danh từ/Phó từ",
+    "meaning": "toàn bộ"
+  },
+  {
+    "lesson": 24,
+    "kanji": "自分で",
+    "hira": "じぶんで",
+    "wordType": "Phó từ",
+    "meaning": "tự mình"
+  },
+  {
+    "lesson": 24,
+    "kanji": "他に",
+    "hira": "ほかに",
+    "wordType": "Phó từ",
+    "meaning": "ngoài ra"
+  },
+  {
+    "lesson": 24,
+    "kanji": "ワゴン車",
+    "hira": "ワゴンしゃ",
+    "wordType": "Danh từ",
+    "meaning": "xe wagon/xe van"
+  },
+  {
+    "lesson": 24,
+    "kanji": "［お］弁当",
+    "hira": "［お］べんとう",
+    "wordType": "Danh từ",
+    "meaning": "cơm hộp"
+  }
+]
+>>>>>>> theirs

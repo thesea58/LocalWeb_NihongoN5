@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện Hiragana &amp; Katakana</title>
+    <link rel="stylesheet" href="./hiragana.css">
+</head>
+<body>
+    <header class="page-header">
+        <nav class="page-nav" aria-label="Điều hướng chính">
+            <a href="./index.html">Flash Card</a>
+            <a href="./hiragana.html" aria-current="page">Luyện Kana</a>
+        </nav>
+        <div class="hero">
+            <p class="eyebrow">ひらがな・トレーニング</p>
+            <h1>Học Hiragana &amp; Katakana qua từ vựng</h1>
+            <p>
+                Chọn luyện 10, 20, 30, 40 hoặc toàn bộ từ trong danh sách.
+                Mỗi lượt đều được xáo trộn ngẫu nhiên.
+            </p>
+        </div>
+    </header>
+
+    <main class="practice-shell">
+        <section id="setup-panel" class="panel setup-panel" aria-labelledby="setup-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">Thiết lập lượt học</p>
+                    <h2 id="setup-title">Bạn muốn luyện bộ nào?</h2>
+                </div>
+                <span id="session-badge" class="session-badge">10 từ / lượt</span>
+            </div>
+
+            <div class="setup-options-grid">
+                <div>
+                    <label class="field-label" for="list-select">Danh sách từ vựng</label>
+                    <select id="list-select" class="list-select">
+                        <option>Đang tải danh sách...</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="field-label" for="session-size-select">Số từ mỗi lượt</label>
+                    <select id="session-size-select" class="list-select">
+                        <option value="10" selected>10 từ</option>
+                        <option value="20">20 từ</option>
+                        <option value="30">30 từ</option>
+                        <option value="40">40 từ</option>
+                        <option value="all">Tất cả</option>
+                    </select>
+                </div>
+            </div>
+
+            <fieldset class="mode-fieldset">
+                <legend>Chọn dạng bài tập</legend>
+                <div class="mode-grid">
+                    <button
+                        type="button"
+                        class="mode-card is-active"
+                        data-mode="multiple-choice"
+                        aria-pressed="true"
+                    >
+                        <span class="mode-icon" aria-hidden="true">A・B・C</span>
+                        <strong>Trắc nghiệm</strong>
+                        <span>Luân phiên Kana, Kanji và nghĩa tiếng Việt.</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="mode-card"
+                        data-mode="assemble"
+                        aria-pressed="false"
+                    >
+                        <span class="mode-icon" aria-hidden="true">か + な</span>
+                        <strong>Ghép từ</strong>
+                        <span>Sắp xếp các ký tự để tạo thành cách đọc đúng.</span>
+                    </button>
+                </div>
+            </fieldset>
+
+            <button id="start-button" type="button" class="primary-button">
+                Bắt đầu luyện 10 từ
+            </button>
+            <p id="setup-status" class="status-message" role="status" aria-live="polite"></p>
+        </section>
+
+        <section id="exercise-panel" class="panel exercise-panel" aria-labelledby="question-prompt" hidden>
+            <div class="exercise-topbar">
+                <div>
+                    <span id="mode-label" class="mode-label">Trắc nghiệm</span>
+                    <strong id="active-list-label">Danh sách từ vựng</strong>
+                </div>
+                <div class="score-box">
+                    <span>Điểm</span>
+                    <strong><span id="score-value">0</span>/<span id="score-total">10</span></strong>
+                </div>
+            </div>
+
+            <div class="progress-row">
+                <span id="progress-text">Câu 1 / 10</span>
+                <div class="progress-track" aria-hidden="true">
+                    <span id="progress-bar"></span>
+                </div>
+            </div>
+
+            <article class="question-card">
+                <p id="word-type" class="word-type"></p>
+                <h2 id="question-prompt">Từ vựng</h2>
+                <p id="question-meaning" class="question-meaning"></p>
+
+                <div id="answer-area" class="answer-area"></div>
+
+                <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+                <div class="question-actions">
+                    <button id="leave-session-button" type="button" class="text-button">
+                        Đổi bộ / dạng bài
+                    </button>
+                    <button id="next-button" type="button" class="primary-button" disabled>
+                        Câu tiếp theo
+                    </button>
+                </div>
+            </article>
+        </section>
+
+        <section id="result-panel" class="panel result-panel" aria-labelledby="result-title" hidden>
+            <p class="section-kicker">Hoàn thành lượt học</p>
+            <h2 id="result-title">Kết quả của bạn</h2>
+            <div class="result-score">
+                <strong id="final-score">0/10</strong>
+                <span id="result-message">Cùng luyện thêm nhé!</span>
+            </div>
+            <div id="mistake-list" class="mistake-list"></div>
+            <div class="result-actions">
+                <button id="back-to-setup-button" type="button" class="text-button">
+                    Chọn bài khác
+                </button>
+                <button id="restart-button" type="button" class="primary-button">
+                    Luyện lượt mới
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        Phím tắt: <kbd>1</kbd>–<kbd>4</kbd> chọn đáp án,
+        <kbd>Enter</kbd> kiểm tra hoặc sang câu tiếp theo.
+    </footer>
+
+    <script src="./hiragana.js"></script>
+</body>
+</html>

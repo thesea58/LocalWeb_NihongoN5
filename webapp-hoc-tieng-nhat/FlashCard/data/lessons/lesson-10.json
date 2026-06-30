@@ -1,0 +1,595 @@
+<<<<<<< ours
+[
+  {
+    "lesson": 10,
+    "kanji": "います",
+    "hira": "います",
+    "wordType": "Động từ II",
+    "meaning": "có, ở (người/động vật)"
+  },
+  {
+    "lesson": 10,
+    "kanji": "あります",
+    "hira": "あります",
+    "wordType": "Động từ I",
+    "meaning": "có, ở (đồ vật)"
+  },
+  {
+    "lesson": 10,
+    "kanji": "いろいろ［な］",
+    "hira": "いろいろ［な］",
+    "wordType": "Tính từ な",
+    "meaning": "nhiều loại, đa dạng"
+  },
+  {
+    "lesson": 10,
+    "kanji": "男の人",
+    "hira": "おとこのひと",
+    "wordType": "Danh từ",
+    "meaning": "người đàn ông"
+  },
+  {
+    "lesson": 10,
+    "kanji": "女の人",
+    "hira": "おんなのひと",
+    "wordType": "Danh từ",
+    "meaning": "người phụ nữ"
+  },
+  {
+    "lesson": 10,
+    "kanji": "男の子",
+    "hira": "おとこのこ",
+    "wordType": "Danh từ",
+    "meaning": "cậu bé"
+  },
+  {
+    "lesson": 10,
+    "kanji": "女の子",
+    "hira": "おんなのこ",
+    "wordType": "Danh từ",
+    "meaning": "cô bé"
+  },
+  {
+    "lesson": 10,
+    "kanji": "犬",
+    "hira": "いぬ",
+    "wordType": "Danh từ",
+    "meaning": "chó"
+  },
+  {
+    "lesson": 10,
+    "kanji": "猫",
+    "hira": "ねこ",
+    "wordType": "Danh từ",
+    "meaning": "mèo"
+  },
+  {
+    "lesson": 10,
+    "kanji": "木",
+    "hira": "き",
+    "wordType": "Danh từ",
+    "meaning": "cây, gỗ"
+  },
+  {
+    "lesson": 10,
+    "kanji": "物",
+    "hira": "もの",
+    "wordType": "Danh từ",
+    "meaning": "vật, đồ vật"
+  },
+  {
+    "lesson": 10,
+    "kanji": "フィルム",
+    "hira": "フィルム",
+    "wordType": "Danh từ",
+    "meaning": "phim"
+  },
+  {
+    "lesson": 10,
+    "kanji": "電池",
+    "hira": "でんち",
+    "wordType": "Danh từ",
+    "meaning": "pin"
+  },
+  {
+    "lesson": 10,
+    "kanji": "箱",
+    "hira": "はこ",
+    "wordType": "Danh từ",
+    "meaning": "hộp"
+  },
+  {
+    "lesson": 10,
+    "kanji": "スイッチ",
+    "hira": "スイッチ",
+    "wordType": "Danh từ",
+    "meaning": "công tắc"
+  },
+  {
+    "lesson": 10,
+    "kanji": "冷蔵庫",
+    "hira": "れいぞうこ",
+    "wordType": "Danh từ",
+    "meaning": "tủ lạnh"
+  },
+  {
+    "lesson": 10,
+    "kanji": "テーブル",
+    "hira": "テーブル",
+    "wordType": "Danh từ",
+    "meaning": "bàn"
+  },
+  {
+    "lesson": 10,
+    "kanji": "ベッド",
+    "hira": "ベッド",
+    "wordType": "Danh từ",
+    "meaning": "giường"
+  },
+  {
+    "lesson": 10,
+    "kanji": "棚",
+    "hira": "たな",
+    "wordType": "Danh từ",
+    "meaning": "giá sách, kệ"
+  },
+  {
+    "lesson": 10,
+    "kanji": "ドア",
+    "hira": "ドア",
+    "wordType": "Danh từ",
+    "meaning": "cửa"
+  },
+  {
+    "lesson": 10,
+    "kanji": "窓",
+    "hira": "まど",
+    "wordType": "Danh từ",
+    "meaning": "cửa sổ"
+  },
+  {
+    "lesson": 10,
+    "kanji": "ポスト",
+    "hira": "ポスト",
+    "wordType": "Danh từ",
+    "meaning": "hộp thư"
+  },
+  {
+    "lesson": 10,
+    "kanji": "ビル",
+    "hira": "ビル",
+    "wordType": "Danh từ",
+    "meaning": "tòa nhà"
+  },
+  {
+    "lesson": 10,
+    "kanji": "公園",
+    "hira": "こうえん",
+    "wordType": "Danh từ",
+    "meaning": "công viên"
+  },
+  {
+    "lesson": 10,
+    "kanji": "喫茶店",
+    "hira": "きっさてん",
+    "wordType": "Danh từ",
+    "meaning": "quán giải khát, quán cà phê"
+  },
+  {
+    "lesson": 10,
+    "kanji": "本屋",
+    "hira": "ほんや",
+    "wordType": "Danh từ",
+    "meaning": "hiệu sách"
+  },
+  {
+    "lesson": 10,
+    "kanji": "乗り場",
+    "hira": "のりば",
+    "wordType": "Danh từ",
+    "meaning": "bến/điểm lên xe"
+  },
+  {
+    "lesson": 10,
+    "kanji": "県",
+    "hira": "けん",
+    "wordType": "Danh từ",
+    "meaning": "tỉnh"
+  },
+  {
+    "lesson": 10,
+    "kanji": "上",
+    "hira": "うえ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "trên"
+  },
+  {
+    "lesson": 10,
+    "kanji": "下",
+    "hira": "した",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "dưới"
+  },
+  {
+    "lesson": 10,
+    "kanji": "前",
+    "hira": "まえ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "trước"
+  },
+  {
+    "lesson": 10,
+    "kanji": "後ろ",
+    "hira": "うしろ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "sau"
+  },
+  {
+    "lesson": 10,
+    "kanji": "右",
+    "hira": "みぎ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "phải"
+  },
+  {
+    "lesson": 10,
+    "kanji": "左",
+    "hira": "ひだり",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "trái"
+  },
+  {
+    "lesson": 10,
+    "kanji": "中",
+    "hira": "なか",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "trong, giữa"
+  },
+  {
+    "lesson": 10,
+    "kanji": "外",
+    "hira": "そと",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "ngoài"
+  },
+  {
+    "lesson": 10,
+    "kanji": "隣",
+    "hira": "となり",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "bên cạnh"
+  },
+  {
+    "lesson": 10,
+    "kanji": "近く",
+    "hira": "ちかく",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "gần"
+  },
+  {
+    "lesson": 10,
+    "kanji": "間",
+    "hira": "あいだ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "ở giữa"
+  },
+  {
+    "lesson": 10,
+    "kanji": "～や～［など］",
+    "hira": "～や～［など］",
+    "wordType": "Mẫu liệt kê",
+    "meaning": "~ và ~ [v.v.]"
+  },
+  {
+    "lesson": 10,
+    "kanji": "一番～",
+    "hira": "いちばん～",
+    "wordType": "Phó từ",
+    "meaning": "~ nhất"
+  },
+  {
+    "lesson": 10,
+    "kanji": "～段目",
+    "hira": "～だんめ",
+    "wordType": "Cách đếm",
+    "meaning": "ngăn/tầng thứ ~"
+  }
+]
+=======
+[
+  {
+    "lesson": 10,
+    "kanji": "います",
+    "hira": "います",
+    "wordType": "Động từ II",
+    "meaning": "có, ở (người/động vật)"
+  },
+  {
+    "lesson": 10,
+    "kanji": "あります",
+    "hira": "あります",
+    "wordType": "Động từ I",
+    "meaning": "có, ở (đồ vật)"
+  },
+  {
+    "lesson": 10,
+    "kanji": "いろいろ［な］",
+    "hira": "いろいろ［な］",
+    "wordType": "Tính từ な",
+    "meaning": "nhiều loại, đa dạng"
+  },
+  {
+    "lesson": 10,
+    "kanji": "男の人",
+    "hira": "おとこのひと",
+    "wordType": "Danh từ",
+    "meaning": "người đàn ông"
+  },
+  {
+    "lesson": 10,
+    "kanji": "女の人",
+    "hira": "おんなのひと",
+    "wordType": "Danh từ",
+    "meaning": "người phụ nữ"
+  },
+  {
+    "lesson": 10,
+    "kanji": "男の子",
+    "hira": "おとこのこ",
+    "wordType": "Danh từ",
+    "meaning": "cậu bé"
+  },
+  {
+    "lesson": 10,
+    "kanji": "女の子",
+    "hira": "おんなのこ",
+    "wordType": "Danh từ",
+    "meaning": "cô bé"
+  },
+  {
+    "lesson": 10,
+    "kanji": "犬",
+    "hira": "いぬ",
+    "wordType": "Danh từ",
+    "meaning": "chó"
+  },
+  {
+    "lesson": 10,
+    "kanji": "猫",
+    "hira": "ねこ",
+    "wordType": "Danh từ",
+    "meaning": "mèo"
+  },
+  {
+    "lesson": 10,
+    "kanji": "木",
+    "hira": "き",
+    "wordType": "Danh từ",
+    "meaning": "cây, gỗ"
+  },
+  {
+    "lesson": 10,
+    "kanji": "物",
+    "hira": "もの",
+    "wordType": "Danh từ",
+    "meaning": "vật, đồ vật"
+  },
+  {
+    "lesson": 10,
+    "kanji": "フィルム",
+    "hira": "フィルム",
+    "wordType": "Danh từ",
+    "meaning": "phim"
+  },
+  {
+    "lesson": 10,
+    "kanji": "電池",
+    "hira": "でんち",
+    "wordType": "Danh từ",
+    "meaning": "pin"
+  },
+  {
+    "lesson": 10,
+    "kanji": "箱",
+    "hira": "はこ",
+    "wordType": "Danh từ",
+    "meaning": "hộp"
+  },
+  {
+    "lesson": 10,
+    "kanji": "スイッチ",
+    "hira": "スイッチ",
+    "wordType": "Danh từ",
+    "meaning": "công tắc"
+  },
+  {
+    "lesson": 10,
+    "kanji": "冷蔵庫",
+    "hira": "れいぞうこ",
+    "wordType": "Danh từ",
+    "meaning": "tủ lạnh"
+  },
+  {
+    "lesson": 10,
+    "kanji": "テーブル",
+    "hira": "テーブル",
+    "wordType": "Danh từ",
+    "meaning": "bàn"
+  },
+  {
+    "lesson": 10,
+    "kanji": "ベッド",
+    "hira": "ベッド",
+    "wordType": "Danh từ",
+    "meaning": "giường"
+  },
+  {
+    "lesson": 10,
+    "kanji": "棚",
+    "hira": "たな",
+    "wordType": "Danh từ",
+    "meaning": "giá sách, kệ"
+  },
+  {
+    "lesson": 10,
+    "kanji": "ドア",
+    "hira": "ドア",
+    "wordType": "Danh từ",
+    "meaning": "cửa"
+  },
+  {
+    "lesson": 10,
+    "kanji": "窓",
+    "hira": "まど",
+    "wordType": "Danh từ",
+    "meaning": "cửa sổ"
+  },
+  {
+    "lesson": 10,
+    "kanji": "ポスト",
+    "hira": "ポスト",
+    "wordType": "Danh từ",
+    "meaning": "hộp thư"
+  },
+  {
+    "lesson": 10,
+    "kanji": "ビル",
+    "hira": "ビル",
+    "wordType": "Danh từ",
+    "meaning": "tòa nhà"
+  },
+  {
+    "lesson": 10,
+    "kanji": "公園",
+    "hira": "こうえん",
+    "wordType": "Danh từ",
+    "meaning": "công viên"
+  },
+  {
+    "lesson": 10,
+    "kanji": "喫茶店",
+    "hira": "きっさてん",
+    "wordType": "Danh từ",
+    "meaning": "quán giải khát, quán cà phê"
+  },
+  {
+    "lesson": 10,
+    "kanji": "本屋",
+    "hira": "ほんや",
+    "wordType": "Danh từ",
+    "meaning": "hiệu sách"
+  },
+  {
+    "lesson": 10,
+    "kanji": "乗り場",
+    "hira": "のりば",
+    "wordType": "Danh từ",
+    "meaning": "bến/điểm lên xe"
+  },
+  {
+    "lesson": 10,
+    "kanji": "県",
+    "hira": "けん",
+    "wordType": "Danh từ",
+    "meaning": "tỉnh"
+  },
+  {
+    "lesson": 10,
+    "kanji": "上",
+    "hira": "うえ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "trên"
+  },
+  {
+    "lesson": 10,
+    "kanji": "下",
+    "hira": "した",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "dưới"
+  },
+  {
+    "lesson": 10,
+    "kanji": "前",
+    "hira": "まえ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "trước"
+  },
+  {
+    "lesson": 10,
+    "kanji": "後ろ",
+    "hira": "うしろ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "sau"
+  },
+  {
+    "lesson": 10,
+    "kanji": "右",
+    "hira": "みぎ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "phải"
+  },
+  {
+    "lesson": 10,
+    "kanji": "左",
+    "hira": "ひだり",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "trái"
+  },
+  {
+    "lesson": 10,
+    "kanji": "中",
+    "hira": "なか",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "trong, giữa"
+  },
+  {
+    "lesson": 10,
+    "kanji": "外",
+    "hira": "そと",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "ngoài"
+  },
+  {
+    "lesson": 10,
+    "kanji": "隣",
+    "hira": "となり",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "bên cạnh"
+  },
+  {
+    "lesson": 10,
+    "kanji": "近く",
+    "hira": "ちかく",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "gần"
+  },
+  {
+    "lesson": 10,
+    "kanji": "間",
+    "hira": "あいだ",
+    "wordType": "Danh từ chỉ vị trí",
+    "meaning": "ở giữa"
+  },
+  {
+    "lesson": 10,
+    "kanji": "～や～［など］",
+    "hira": "～や～［など］",
+    "wordType": "Mẫu liệt kê",
+    "meaning": "~ và ~ [v.v.]"
+  },
+  {
+    "lesson": 10,
+    "kanji": "一番～",
+    "hira": "いちばん～",
+    "wordType": "Phó từ",
+    "meaning": "~ nhất"
+  },
+  {
+    "lesson": 10,
+    "kanji": "～段目",
+    "hira": "～だんめ",
+    "wordType": "Cách đếm",
+    "meaning": "ngăn/tầng thứ ~"
+  }
+]
+>>>>>>> theirs

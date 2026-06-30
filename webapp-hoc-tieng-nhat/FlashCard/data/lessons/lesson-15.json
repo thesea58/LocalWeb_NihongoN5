@@ -1,0 +1,385 @@
+<<<<<<< ours
+[
+  {
+    "lesson": 15,
+    "kanji": "立ちます",
+    "hira": "たちます",
+    "wordType": "Động từ I",
+    "meaning": "đứng"
+  },
+  {
+    "lesson": 15,
+    "kanji": "座ります",
+    "hira": "すわります",
+    "wordType": "Động từ I",
+    "meaning": "ngồi"
+  },
+  {
+    "lesson": 15,
+    "kanji": "使います",
+    "hira": "つかいます",
+    "wordType": "Động từ I",
+    "meaning": "dùng, sử dụng"
+  },
+  {
+    "lesson": 15,
+    "kanji": "置きます",
+    "hira": "おきます",
+    "wordType": "Động từ I",
+    "meaning": "đặt, để"
+  },
+  {
+    "lesson": 15,
+    "kanji": "作ります",
+    "hira": "つくります",
+    "wordType": "Động từ I",
+    "meaning": "làm, chế tạo"
+  },
+  {
+    "lesson": 15,
+    "kanji": "売ります",
+    "hira": "うります",
+    "wordType": "Động từ I",
+    "meaning": "bán"
+  },
+  {
+    "lesson": 15,
+    "kanji": "知ります",
+    "hira": "しります",
+    "wordType": "Động từ I",
+    "meaning": "biết"
+  },
+  {
+    "lesson": 15,
+    "kanji": "住みます",
+    "hira": "すみます",
+    "wordType": "Động từ I",
+    "meaning": "sống, ở"
+  },
+  {
+    "lesson": 15,
+    "kanji": "研究します",
+    "hira": "けんきゅうします",
+    "wordType": "Động từ III",
+    "meaning": "nghiên cứu"
+  },
+  {
+    "lesson": 15,
+    "kanji": "知っています",
+    "hira": "しっています",
+    "wordType": "Cụm động từ",
+    "meaning": "biết"
+  },
+  {
+    "lesson": 15,
+    "kanji": "住んでいます",
+    "hira": "すんでいます",
+    "wordType": "Cụm động từ",
+    "meaning": "đang sống"
+  },
+  {
+    "lesson": 15,
+    "kanji": "資料",
+    "hira": "しりょう",
+    "wordType": "Danh từ",
+    "meaning": "tài liệu"
+  },
+  {
+    "lesson": 15,
+    "kanji": "カタログ",
+    "hira": "カタログ",
+    "wordType": "Danh từ",
+    "meaning": "ca-ta-lô"
+  },
+  {
+    "lesson": 15,
+    "kanji": "時刻表",
+    "hira": "じこくひょう",
+    "wordType": "Danh từ",
+    "meaning": "bảng giờ chạy tàu"
+  },
+  {
+    "lesson": 15,
+    "kanji": "服",
+    "hira": "ふく",
+    "wordType": "Danh từ",
+    "meaning": "quần áo"
+  },
+  {
+    "lesson": 15,
+    "kanji": "製品",
+    "hira": "せいひん",
+    "wordType": "Danh từ",
+    "meaning": "sản phẩm"
+  },
+  {
+    "lesson": 15,
+    "kanji": "ソフト",
+    "hira": "ソフト",
+    "wordType": "Danh từ",
+    "meaning": "phần mềm"
+  },
+  {
+    "lesson": 15,
+    "kanji": "専門",
+    "hira": "せんもん",
+    "wordType": "Danh từ",
+    "meaning": "chuyên môn"
+  },
+  {
+    "lesson": 15,
+    "kanji": "歯医者",
+    "hira": "はいしゃ",
+    "wordType": "Danh từ",
+    "meaning": "nha sĩ"
+  },
+  {
+    "lesson": 15,
+    "kanji": "床屋",
+    "hira": "とこや",
+    "wordType": "Danh từ",
+    "meaning": "hiệu cắt tóc"
+  },
+  {
+    "lesson": 15,
+    "kanji": "プレイガイド",
+    "hira": "プレイガイド",
+    "wordType": "Danh từ",
+    "meaning": "quầy bán vé"
+  },
+  {
+    "lesson": 15,
+    "kanji": "独身",
+    "hira": "どくしん",
+    "wordType": "Danh từ",
+    "meaning": "độc thân"
+  },
+  {
+    "lesson": 15,
+    "kanji": "特に",
+    "hira": "とくに",
+    "wordType": "Phó từ",
+    "meaning": "đặc biệt"
+  },
+  {
+    "lesson": 15,
+    "kanji": "思い出します",
+    "hira": "おもいだします",
+    "wordType": "Động từ I",
+    "meaning": "nhớ lại"
+  },
+  {
+    "lesson": 15,
+    "kanji": "ご家族",
+    "hira": "ごかぞく",
+    "wordType": "Danh từ",
+    "meaning": "gia đình (người khác)"
+  },
+  {
+    "lesson": 15,
+    "kanji": "いらっしゃいます",
+    "hira": "いらっしゃいます",
+    "wordType": "Động từ I",
+    "meaning": "có/ở (kính ngữ)"
+  },
+  {
+    "lesson": 15,
+    "kanji": "高校",
+    "hira": "こうこう",
+    "wordType": "Danh từ",
+    "meaning": "trường trung học phổ thông"
+  }
+]
+=======
+[
+  {
+    "lesson": 15,
+    "kanji": "立ちます",
+    "hira": "たちます",
+    "wordType": "Động từ I",
+    "meaning": "đứng"
+  },
+  {
+    "lesson": 15,
+    "kanji": "座ります",
+    "hira": "すわります",
+    "wordType": "Động từ I",
+    "meaning": "ngồi"
+  },
+  {
+    "lesson": 15,
+    "kanji": "使います",
+    "hira": "つかいます",
+    "wordType": "Động từ I",
+    "meaning": "dùng, sử dụng"
+  },
+  {
+    "lesson": 15,
+    "kanji": "置きます",
+    "hira": "おきます",
+    "wordType": "Động từ I",
+    "meaning": "đặt, để"
+  },
+  {
+    "lesson": 15,
+    "kanji": "作ります",
+    "hira": "つくります",
+    "wordType": "Động từ I",
+    "meaning": "làm, chế tạo"
+  },
+  {
+    "lesson": 15,
+    "kanji": "売ります",
+    "hira": "うります",
+    "wordType": "Động từ I",
+    "meaning": "bán"
+  },
+  {
+    "lesson": 15,
+    "kanji": "知ります",
+    "hira": "しります",
+    "wordType": "Động từ I",
+    "meaning": "biết"
+  },
+  {
+    "lesson": 15,
+    "kanji": "住みます",
+    "hira": "すみます",
+    "wordType": "Động từ I",
+    "meaning": "sống, ở"
+  },
+  {
+    "lesson": 15,
+    "kanji": "研究します",
+    "hira": "けんきゅうします",
+    "wordType": "Động từ III",
+    "meaning": "nghiên cứu"
+  },
+  {
+    "lesson": 15,
+    "kanji": "知っています",
+    "hira": "しっています",
+    "wordType": "Cụm động từ",
+    "meaning": "biết"
+  },
+  {
+    "lesson": 15,
+    "kanji": "住んでいます",
+    "hira": "すんでいます",
+    "wordType": "Cụm động từ",
+    "meaning": "đang sống"
+  },
+  {
+    "lesson": 15,
+    "kanji": "資料",
+    "hira": "しりょう",
+    "wordType": "Danh từ",
+    "meaning": "tài liệu"
+  },
+  {
+    "lesson": 15,
+    "kanji": "カタログ",
+    "hira": "カタログ",
+    "wordType": "Danh từ",
+    "meaning": "ca-ta-lô"
+  },
+  {
+    "lesson": 15,
+    "kanji": "時刻表",
+    "hira": "じこくひょう",
+    "wordType": "Danh từ",
+    "meaning": "bảng giờ chạy tàu"
+  },
+  {
+    "lesson": 15,
+    "kanji": "服",
+    "hira": "ふく",
+    "wordType": "Danh từ",
+    "meaning": "quần áo"
+  },
+  {
+    "lesson": 15,
+    "kanji": "製品",
+    "hira": "せいひん",
+    "wordType": "Danh từ",
+    "meaning": "sản phẩm"
+  },
+  {
+    "lesson": 15,
+    "kanji": "ソフト",
+    "hira": "ソフト",
+    "wordType": "Danh từ",
+    "meaning": "phần mềm"
+  },
+  {
+    "lesson": 15,
+    "kanji": "専門",
+    "hira": "せんもん",
+    "wordType": "Danh từ",
+    "meaning": "chuyên môn"
+  },
+  {
+    "lesson": 15,
+    "kanji": "歯医者",
+    "hira": "はいしゃ",
+    "wordType": "Danh từ",
+    "meaning": "nha sĩ"
+  },
+  {
+    "lesson": 15,
+    "kanji": "床屋",
+    "hira": "とこや",
+    "wordType": "Danh từ",
+    "meaning": "hiệu cắt tóc"
+  },
+  {
+    "lesson": 15,
+    "kanji": "プレイガイド",
+    "hira": "プレイガイド",
+    "wordType": "Danh từ",
+    "meaning": "quầy bán vé"
+  },
+  {
+    "lesson": 15,
+    "kanji": "独身",
+    "hira": "どくしん",
+    "wordType": "Danh từ",
+    "meaning": "độc thân"
+  },
+  {
+    "lesson": 15,
+    "kanji": "特に",
+    "hira": "とくに",
+    "wordType": "Phó từ",
+    "meaning": "đặc biệt"
+  },
+  {
+    "lesson": 15,
+    "kanji": "思い出します",
+    "hira": "おもいだします",
+    "wordType": "Động từ I",
+    "meaning": "nhớ lại"
+  },
+  {
+    "lesson": 15,
+    "kanji": "ご家族",
+    "hira": "ごかぞく",
+    "wordType": "Danh từ",
+    "meaning": "gia đình (người khác)"
+  },
+  {
+    "lesson": 15,
+    "kanji": "いらっしゃいます",
+    "hira": "いらっしゃいます",
+    "wordType": "Động từ I",
+    "meaning": "có/ở (kính ngữ)"
+  },
+  {
+    "lesson": 15,
+    "kanji": "高校",
+    "hira": "こうこう",
+    "wordType": "Danh từ",
+    "meaning": "trường trung học phổ thông"
+  }
+]
+>>>>>>> theirs

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "verbs-conjugation-n5",
+    "name": "Động từ N5 - Chia thể",
+    "description": "Động từ N5 kèm các thể て, る, ない và た.",
+    "file": "./data/verbs-conjugation-n5.json",
+    "count": 135
+  },
+  {
+    "id": "verbs-basic",
+    "name": "Động từ cơ bản",
+    "description": "Danh sách động từ cơ bản dùng trong giao tiếp.",
+    "file": "./data/verbs-basic.json",
+    "count": 73
+  },
+  {
+    "id": "adjectives-n5",
+    "name": "Tính từ N5 tổng hợp",
+    "description": "Danh sách tính từ い và な thường gặp.",
+    "file": "./data/adjectives-n5.json",
+    "count": 61
+  },
+  {
+    "id": "adjectives-na",
+    "name": "Tính từ な mở rộng",
+    "description": "Danh sách tính từ な để luyện tập thêm.",
+    "file": "./data/adjectives-na.json",
+    "count": 39
+  },
+  {
+    "id": "minna-lesson-10",
+    "name": "Minna no Nihongo - Bài 10",
+    "description": "Từ vựng và loại từ của bài 10.",
+    "file": "./data/lessons/lesson-10.json",
+    "count": 42
+  },
+  {
+    "id": "minna-lesson-11",
+    "name": "Minna no Nihongo - Bài 11",
+    "description": "Từ vựng và loại từ của bài 11.",
+    "file": "./data/lessons/lesson-11.json",
+    "count": 53
+  },
+  {
+    "id": "minna-lesson-12",
+    "name": "Minna no Nihongo - Bài 12",
+    "description": "Từ vựng và loại từ của bài 12.",
+    "file": "./data/lessons/lesson-12.json",
+    "count": 40
+  },
+  {
+    "id": "minna-lesson-13",
+    "name": "Minna no Nihongo - Bài 13",
+    "description": "Từ vựng và loại từ của bài 13.",
+    "file": "./data/lessons/lesson-13.json",
+    "count": 38
+  },
+  {
+    "id": "minna-lesson-14",
+    "name": "Minna no Nihongo - Bài 14",
+    "description": "Từ vựng và loại từ của bài 14.",
+    "file": "./data/lessons/lesson-14.json",
+    "count": 40
+  },
+  {
+    "id": "minna-lesson-15",
+    "name": "Minna no Nihongo - Bài 15",
+    "description": "Từ vựng và loại từ của bài 15.",
+    "file": "./data/lessons/lesson-15.json",
+    "count": 27
+  },
+  {
+    "id": "minna-lesson-16",
+    "name": "Minna no Nihongo - Bài 16",
+    "description": "Từ vựng và loại từ của bài 16.",
+    "file": "./data/lessons/lesson-16.json",
+    "count": 44
+  },
+  {
+    "id": "minna-lesson-17",
+    "name": "Minna no Nihongo - Bài 17",
+    "description": "Từ vựng và loại từ của bài 17.",
+    "file": "./data/lessons/lesson-17.json",
+    "count": 38
+  },
+  {
+    "id": "minna-lesson-18",
+    "name": "Minna no Nihongo - Bài 18",
+    "description": "Từ vựng và loại từ của bài 18.",
+    "file": "./data/lessons/lesson-18.json",
+    "count": 28
+  },
+  {
+    "id": "minna-lesson-19",
+    "name": "Minna no Nihongo - Bài 19",
+    "description": "Từ vựng và loại từ của bài 19.",
+    "file": "./data/lessons/lesson-19.json",
+    "count": 30
+  },
+  {
+    "id": "minna-lesson-20",
+    "name": "Minna no Nihongo - Bài 20",
+    "description": "Từ vựng và loại từ của bài 20.",
+    "file": "./data/lessons/lesson-20.json",
+    "count": 29
+  },
+  {
+    "id": "minna-lesson-21",
+    "name": "Minna no Nihongo - Bài 21",
+    "description": "Từ vựng và loại từ của bài 21.",
+    "file": "./data/lessons/lesson-21.json",
+    "count": 36
+  },
+  {
+    "id": "minna-lesson-22",
+    "name": "Minna no Nihongo - Bài 22",
+    "description": "Từ vựng và loại từ của bài 22.",
+    "file": "./data/lessons/lesson-22.json",
+    "count": 12
+  },
+  {
+    "id": "minna-lesson-23",
+    "name": "Minna no Nihongo - Bài 23",
+    "description": "Từ vựng và loại từ của bài 23.",
+    "file": "./data/lessons/lesson-23.json",
+    "count": 29
+  },
+  {
+    "id": "minna-lesson-24",
+    "name": "Minna no Nihongo - Bài 24",
+    "description": "Từ vựng và loại từ của bài 24.",
+    "file": "./data/lessons/lesson-24.json",
+    "count": 18
+  },
+  {
+    "id": "minna-lesson-25",
+    "name": "Minna no Nihongo - Bài 25",
+    "description": "Từ vựng và loại từ của bài 25.",
+    "file": "./data/lessons/lesson-25.json",
+    "count": 17
+  }
+]

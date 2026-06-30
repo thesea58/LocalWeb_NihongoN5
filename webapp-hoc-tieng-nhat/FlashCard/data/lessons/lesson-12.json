@@ -1,0 +1,282 @@
+[
+  {
+    "lesson": 12,
+    "kanji": "簡単［な］",
+    "hira": "かんたん［な］",
+    "wordType": "Tính từ な",
+    "meaning": "đơn giản, dễ"
+  },
+  {
+    "lesson": 12,
+    "kanji": "近い",
+    "hira": "ちかい",
+    "wordType": "Tính từ い",
+    "meaning": "gần"
+  },
+  {
+    "lesson": 12,
+    "kanji": "遠い",
+    "hira": "とおい",
+    "wordType": "Tính từ い",
+    "meaning": "xa"
+  },
+  {
+    "lesson": 12,
+    "kanji": "速い・早い",
+    "hira": "はやい",
+    "wordType": "Tính từ い",
+    "meaning": "nhanh, sớm"
+  },
+  {
+    "lesson": 12,
+    "kanji": "遅い",
+    "hira": "おそい",
+    "wordType": "Tính từ い",
+    "meaning": "chậm, muộn"
+  },
+  {
+    "lesson": 12,
+    "kanji": "多い［人が～］",
+    "hira": "おおい［ひとが～］",
+    "wordType": "Tính từ い",
+    "meaning": "nhiều [người]"
+  },
+  {
+    "lesson": 12,
+    "kanji": "少ない［人が～］",
+    "hira": "すくない［ひとが～］",
+    "wordType": "Tính từ い",
+    "meaning": "ít [người]"
+  },
+  {
+    "lesson": 12,
+    "kanji": "暖かい・温かい",
+    "hira": "あたたかい",
+    "wordType": "Tính từ い",
+    "meaning": "ấm"
+  },
+  {
+    "lesson": 12,
+    "kanji": "涼しい",
+    "hira": "すずしい",
+    "wordType": "Tính từ い",
+    "meaning": "mát"
+  },
+  {
+    "lesson": 12,
+    "kanji": "甘い",
+    "hira": "あまい",
+    "wordType": "Tính từ い",
+    "meaning": "ngọt"
+  },
+  {
+    "lesson": 12,
+    "kanji": "辛い",
+    "hira": "からい",
+    "wordType": "Tính từ い",
+    "meaning": "cay"
+  },
+  {
+    "lesson": 12,
+    "kanji": "重い",
+    "hira": "おもい",
+    "wordType": "Tính từ い",
+    "meaning": "nặng"
+  },
+  {
+    "lesson": 12,
+    "kanji": "軽い",
+    "hira": "かるい",
+    "wordType": "Tính từ い",
+    "meaning": "nhẹ"
+  },
+  {
+    "lesson": 12,
+    "kanji": "いい［コーヒーが～］",
+    "hira": "いい［コーヒーが～］",
+    "wordType": "Tính từ い",
+    "meaning": "thích/chọn [cà phê]"
+  },
+  {
+    "lesson": 12,
+    "kanji": "季節",
+    "hira": "きせつ",
+    "wordType": "Danh từ",
+    "meaning": "mùa"
+  },
+  {
+    "lesson": 12,
+    "kanji": "春",
+    "hira": "はる",
+    "wordType": "Danh từ",
+    "meaning": "mùa xuân"
+  },
+  {
+    "lesson": 12,
+    "kanji": "夏",
+    "hira": "なつ",
+    "wordType": "Danh từ",
+    "meaning": "mùa hè"
+  },
+  {
+    "lesson": 12,
+    "kanji": "秋",
+    "hira": "あき",
+    "wordType": "Danh từ",
+    "meaning": "mùa thu"
+  },
+  {
+    "lesson": 12,
+    "kanji": "冬",
+    "hira": "ふゆ",
+    "wordType": "Danh từ",
+    "meaning": "mùa đông"
+  },
+  {
+    "lesson": 12,
+    "kanji": "天気",
+    "hira": "てんき",
+    "wordType": "Danh từ",
+    "meaning": "thời tiết"
+  },
+  {
+    "lesson": 12,
+    "kanji": "雨",
+    "hira": "あめ",
+    "wordType": "Danh từ",
+    "meaning": "mưa"
+  },
+  {
+    "lesson": 12,
+    "kanji": "雪",
+    "hira": "ゆき",
+    "wordType": "Danh từ",
+    "meaning": "tuyết"
+  },
+  {
+    "lesson": 12,
+    "kanji": "曇り",
+    "hira": "くもり",
+    "wordType": "Danh từ",
+    "meaning": "trời nhiều mây"
+  },
+  {
+    "lesson": 12,
+    "kanji": "ホテル",
+    "hira": "ホテル",
+    "wordType": "Danh từ",
+    "meaning": "khách sạn"
+  },
+  {
+    "lesson": 12,
+    "kanji": "空港",
+    "hira": "くうこう",
+    "wordType": "Danh từ",
+    "meaning": "sân bay"
+  },
+  {
+    "lesson": 12,
+    "kanji": "海",
+    "hira": "うみ",
+    "wordType": "Danh từ",
+    "meaning": "biển, đại dương"
+  },
+  {
+    "lesson": 12,
+    "kanji": "世界",
+    "hira": "せかい",
+    "wordType": "Danh từ",
+    "meaning": "thế giới"
+  },
+  {
+    "lesson": 12,
+    "kanji": "パーティー",
+    "hira": "パーティー",
+    "wordType": "Danh từ",
+    "meaning": "tiệc"
+  },
+  {
+    "lesson": 12,
+    "kanji": "［お］祭り",
+    "hira": "［お］まつり",
+    "wordType": "Danh từ",
+    "meaning": "lễ hội"
+  },
+  {
+    "lesson": 12,
+    "kanji": "すき焼き",
+    "hira": "すきやき",
+    "wordType": "Danh từ",
+    "meaning": "món sukiyaki"
+  },
+  {
+    "lesson": 12,
+    "kanji": "刺身",
+    "hira": "さしみ",
+    "wordType": "Danh từ",
+    "meaning": "sashimi"
+  },
+  {
+    "lesson": 12,
+    "kanji": "［お］寿司",
+    "hira": "［お］すし",
+    "wordType": "Danh từ",
+    "meaning": "sushi"
+  },
+  {
+    "lesson": 12,
+    "kanji": "天ぷら",
+    "hira": "てんぷら",
+    "wordType": "Danh từ",
+    "meaning": "tempura"
+  },
+  {
+    "lesson": 12,
+    "kanji": "生け花",
+    "hira": "いけばな",
+    "wordType": "Danh từ",
+    "meaning": "nghệ thuật cắm hoa"
+  },
+  {
+    "lesson": 12,
+    "kanji": "紅葉",
+    "hira": "もみじ",
+    "wordType": "Danh từ",
+    "meaning": "lá đỏ"
+  },
+  {
+    "lesson": 12,
+    "kanji": "どちら",
+    "hira": "どちら",
+    "wordType": "Nghi vấn",
+    "meaning": "cái nào"
+  },
+  {
+    "lesson": 12,
+    "kanji": "どちらも",
+    "hira": "どちらも",
+    "wordType": "Đại từ",
+    "meaning": "cả hai"
+  },
+  {
+    "lesson": 12,
+    "kanji": "一番",
+    "hira": "いちばん",
+    "wordType": "Phó từ",
+    "meaning": "nhất"
+  },
+  {
+    "lesson": 12,
+    "kanji": "ずっと",
+    "hira": "ずっと",
+    "wordType": "Phó từ",
+    "meaning": "hơn hẳn"
+  },
+  {
+    "lesson": 12,
+    "kanji": "初めて",
+    "hira": "はじめて",
+    "wordType": "Phó từ",
+    "meaning": "lần đầu tiên"
+  }
+]
