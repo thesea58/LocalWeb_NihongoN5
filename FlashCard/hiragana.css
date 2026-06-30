@@ -316,6 +316,13 @@ a:focus-visible {
     box-shadow: inset 0 0 0 1px rgb(73 60 53 / 8%);
 }
 
+.question-heading {
+    display: grid;
+    grid-template-columns: minmax(44px, 1fr) auto minmax(44px, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .word-type {
     min-height: 1.1rem;
     margin: 0;
@@ -325,6 +332,47 @@ a:focus-visible {
     letter-spacing: 0.08em;
     text-align: center;
     text-transform: uppercase;
+}
+
+.review-button {
+    display: inline-flex;
+    align-items: center;
+    justify-self: end;
+    gap: 0.4rem;
+    min-height: 38px;
+    padding: 0.45rem 0.65rem;
+    border: 1px solid #d2c9bf;
+    border-radius: 10px;
+    background: #fff;
+    color: #6a6570;
+    font-size: 0.78rem;
+    font-weight: 750;
+}
+
+.review-button:hover {
+    border-color: #d45f45;
+    background: #fff6f2;
+    color: #9e3725;
+}
+
+.review-button.is-active {
+    border-color: #d45f45;
+    background: #fbe0d8;
+    color: #9e3725;
+    box-shadow: inset 0 0 0 1px #d45f45;
+}
+
+.bookmark-icon {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.review-button.is-active .bookmark-icon {
+    fill: currentColor;
 }
 
 .question-card h2 {
@@ -516,11 +564,16 @@ a:focus-visible {
 
 .mistake-item {
     display: grid;
-    grid-template-columns: minmax(100px, 0.7fr) 1fr;
+    grid-template-columns: minmax(100px, 0.7fr) 1fr auto;
+    align-items: center;
     gap: 1rem;
     padding: 0.8rem 1rem;
     border-radius: 12px;
     background: #fff6f2;
+}
+
+.mistake-item.is-marked {
+    background: #f2fbf9;
 }
 
 .mistake-item strong {
@@ -530,6 +583,17 @@ a:focus-visible {
 .mistake-item span {
     color: #6a6570;
     font-size: 0.88rem;
+}
+
+.review-status {
+    padding: 0.3rem 0.5rem;
+    border-radius: 999px;
+    background: #dff3ef;
+    color: #247168;
+    font-size: 0.72rem;
+    font-style: normal;
+    font-weight: 750;
+    white-space: nowrap;
 }
 
 .page-footer {
@@ -583,6 +647,22 @@ a:focus-visible {
         grid-template-columns: 1fr;
     }
 
+    .review-button {
+        width: 38px;
+        padding: 0.45rem;
+    }
+
+    .review-button-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
     .question-actions .primary-button,
     .question-actions .text-button,
     .result-actions .primary-button,
@@ -593,5 +673,10 @@ a:focus-visible {
     .mistake-item {
         grid-template-columns: 1fr;
         gap: 0.25rem;
+    }
+
+    .review-status {
+        justify-self: start;
+        margin-top: 0.25rem;
     }
 }

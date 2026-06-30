@@ -11,6 +11,7 @@ const hiraganaPractice = {
   questionIndex: 0,
   score: 0,
   answered: false,
+  markedForReview: false,
   results: [],
   availableTokens: [],
   selectedTokens: [],
@@ -419,6 +420,8 @@ const hiraganaPractice = {
     const currentNumber = hiraganaPractice.questionIndex + 1;
 
     hiraganaPractice.answered = false;
+    hiraganaPractice.markedForReview = false;
+    hiraganaPractice.updateReviewButton();
     hiraganaPractice.get("#score-value").textContent = String(
       hiraganaPractice.score,
     );
@@ -452,6 +455,35 @@ const hiraganaPractice = {
           : question.meaning;
       hiraganaPractice.renderAssembly(question);
     }
+  },
+
+  updateReviewButton: () => {
+    const reviewButton = hiraganaPractice.get("#review-button");
+    const isMarked = hiraganaPractice.markedForReview;
+    reviewButton.classList.toggle("is-active", isMarked);
+    reviewButton.setAttribute("aria-pressed", String(isMarked));
+    const actionLabel = isMarked
+      ? "Bỏ đánh dấu xem lại"
+      : "Đánh dấu câu này để xem lại";
+    reviewButton.setAttribute("aria-label", actionLabel);
+    reviewButton.title = actionLabel;
+    hiraganaPractice.get(".review-button-label").textContent = isMarked
+      ? "Đã đánh dấu"
+      : "Xem lại";
+  },
+
+  toggleReview: () => {
+    hiraganaPractice.markedForReview = !hiraganaPractice.markedForReview;
+
+    if (hiraganaPractice.answered) {
+      const currentResult =
+        hiraganaPractice.results[hiraganaPractice.questionIndex];
+      if (currentResult) {
+        currentResult.markedForReview = hiraganaPractice.markedForReview;
+      }
+    }
+
+    hiraganaPractice.updateReviewButton();
   },
 
   renderMultipleChoice: (question) => {
@@ -688,6 +720,7 @@ const hiraganaPractice = {
       response,
       correctAnswer,
       prompt,
+      markedForReview: hiraganaPractice.markedForReview,
     });
     hiraganaPractice.get("#score-value").textContent = String(
       hiraganaPractice.score,
@@ -721,38 +754,63 @@ const hiraganaPractice = {
   renderResult: () => {
     const total = hiraganaPractice.questions.length;
     const percentage = hiraganaPractice.score / total;
+    const markedCount = hiraganaPractice.results.filter(
+      (result) => result.markedForReview,
+    ).length;
     hiraganaPractice.get("#final-score").textContent =
       `${hiraganaPractice.score}/${total}`;
     hiraganaPractice.get("#result-message").textContent =
-      percentage === 1
-        ? "Tuyệt vời, bạn đã nhớ toàn bộ!"
-        : percentage >= 0.7
-          ? "Rất tốt, chỉ cần ôn thêm một chút."
-          : "Không sao, mỗi lượt là một lần nhớ lâu hơn.";
+      percentage === 1 && markedCount
+        ? "Bạn đã trả lời đúng toàn bộ. Hãy ôn lại các câu đã đánh dấu."
+        : percentage === 1
+          ? "Tuyệt vời, bạn đã nhớ toàn bộ!"
+          : percentage >= 0.7
+            ? "Rất tốt, chỉ cần ôn thêm một chút."
+            : "Không sao, mỗi lượt là một lần nhớ lâu hơn.";
 
     const mistakeList = hiraganaPractice.get("#mistake-list");
-    const mistakes = hiraganaPractice.results.filter(
-      (result) => !result.isCorrect,
+    const reviewItems = hiraganaPractice.results.filter(
+      (result) => !result.isCorrect || result.markedForReview,
     );
-    if (!mistakes.length) {
+    if (!reviewItems.length) {
       const perfectMessage = document.createElement("p");
       perfectMessage.textContent = "Không có từ nào cần ôn lại trong lượt này.";
       mistakeList.replaceChildren(perfectMessage);
     } else {
       const fragment = document.createDocumentFragment();
-      mistakes.forEach(({ prompt: resultPrompt, response, correctAnswer }) => {
-        const item = document.createElement("div");
-        item.className = "mistake-item";
+      reviewItems.forEach(
+        ({
+          prompt: resultPrompt,
+          response,
+          correctAnswer,
+          isCorrect,
+          markedForReview,
+        }) => {
+          const item = document.createElement("div");
+          item.className = "mistake-item";
+          if (isCorrect) {
+            item.classList.add("is-marked");
+          }
 
-        const prompt = document.createElement("strong");
-        prompt.textContent = resultPrompt;
+          const prompt = document.createElement("strong");
+          prompt.textContent = resultPrompt;
 
-        const detail = document.createElement("span");
-        detail.textContent =
-          `Bạn trả lời: ${response || "—"} · Đáp án: ${correctAnswer}`;
-        item.append(prompt, detail);
-        fragment.append(item);
-      });
+          const detail = document.createElement("span");
+          detail.textContent = isCorrect
+            ? `Bạn đã trả lời đúng: ${correctAnswer}`
+            : `Bạn trả lời: ${response || "—"} · Đáp án: ${correctAnswer}`;
+          item.append(prompt, detail);
+
+          if (markedForReview) {
+            const reviewStatus = document.createElement("em");
+            reviewStatus.className = "review-status";
+            reviewStatus.textContent = "Đã đánh dấu xem lại";
+            item.append(reviewStatus);
+          }
+
+          fragment.append(item);
+        },
+      );
       mistakeList.replaceChildren(fragment);
     }
 
@@ -775,6 +833,9 @@ const hiraganaPractice = {
     hiraganaPractice
       .get("#next-button")
       .addEventListener("click", hiraganaPractice.nextQuestion);
+    hiraganaPractice
+      .get("#review-button")
+      .addEventListener("click", hiraganaPractice.toggleReview);
     hiraganaPractice
       .get("#leave-session-button")
       .addEventListener("click", () => hiraganaPractice.showPanel("setup"));

@@ -103,7 +103,27 @@
             </div>
 
             <article class="question-card">
-                <p id="word-type" class="word-type"></p>
+                <div class="question-heading">
+                    <span aria-hidden="true"></span>
+                    <p id="word-type" class="word-type"></p>
+                    <button
+                        id="review-button"
+                        type="button"
+                        class="review-button"
+                        aria-pressed="false"
+                        aria-label="Đánh dấu câu này để xem lại"
+                        title="Đánh dấu câu này để xem lại"
+                    >
+                        <span class="review-button-label">Xem lại</span>
+                        <svg
+                            class="bookmark-icon"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7a1.75 1.75 0 0 1 1.75 1.75v15l-5.25-3.5-5.25 3.5v-15Z"></path>
+                        </svg>
+                    </button>
+                </div>
                 <h2 id="question-prompt">Từ vựng</h2>
                 <p id="question-meaning" class="question-meaning"></p>
 
