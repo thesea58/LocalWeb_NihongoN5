@@ -1,5 +1,12 @@
 [
   {
+    "id": "kanji-n5-jlpt-2010-2025",
+    "name": "Hán tự N5 JLPT 2010-2025",
+    "description": "Hán tự N5 theo các đề JLPT, kèm cách đọc, Hán Việt và ý nghĩa.",
+    "file": "./data/kanji-n5-jlpt-2010-2025.json",
+    "count": 133
+  },
+  {
     "id": "verbs-conjugation-n5",
     "name": "Động từ N5 - Chia thể",
     "description": "Động từ N5 kèm các thể て, る, ない và た.",
