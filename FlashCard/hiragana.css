@@ -310,6 +310,7 @@ a:focus-visible {
 }
 
 .question-card {
+    position: relative;
     padding: clamp(1rem, 3vw, 2rem);
     border-radius: 18px;
     background: #fffdf9;
@@ -334,10 +335,16 @@ a:focus-visible {
     text-transform: uppercase;
 }
 
+.question-tools {
+    display: grid;
+    justify-self: end;
+    gap: 0.45rem;
+}
+
 .review-button {
     display: inline-flex;
     align-items: center;
-    justify-self: end;
+    justify-content: center;
     gap: 0.4rem;
     min-height: 38px;
     padding: 0.45rem 0.65rem;
@@ -373,6 +380,95 @@ a:focus-visible {
 
 .review-button.is-active .bookmark-icon {
     fill: currentColor;
+}
+
+.detail-button {
+    min-height: 34px;
+    padding: 0.4rem 0.65rem;
+    border: 1px solid #d2c9bf;
+    border-radius: 10px;
+    background: #fff;
+    color: #6a6570;
+    font-size: 0.76rem;
+    font-weight: 750;
+}
+
+.detail-button:hover,
+.detail-button[aria-expanded="true"] {
+    border-color: #2e8b82;
+    background: #edf8f6;
+    color: #176a62;
+}
+
+.word-detail-bubble {
+    position: absolute;
+    top: 4.25rem;
+    left: clamp(1rem, 3vw, 2rem);
+    z-index: 4;
+    width: min(300px, calc(100% - 2rem));
+    padding: 0.95rem 1rem;
+    border: 1px solid #b9d7d3;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 16px 34px rgb(38 31 27 / 18%);
+    color: #312c35;
+}
+
+.word-detail-bubble::before {
+    position: absolute;
+    top: -0.45rem;
+    left: 1.35rem;
+    width: 0.85rem;
+    height: 0.85rem;
+    border-top: 1px solid #b9d7d3;
+    border-left: 1px solid #b9d7d3;
+    background: #ffffff;
+    content: "";
+    transform: rotate(45deg);
+}
+
+.word-detail-kicker {
+    margin: 0 0 0.25rem;
+    color: #2e8b82;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.word-detail-bubble h3 {
+    margin: 0;
+    font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.detail-reading {
+    margin: 0.3rem 0 0.7rem;
+    color: #68616c;
+    font-size: 1rem;
+    font-weight: 750;
+}
+
+.detail-list {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0.35rem 0.65rem;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.35;
+}
+
+.detail-list dt {
+    color: #756f7a;
+    font-weight: 800;
+}
+
+.detail-list dd {
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
 }
 
 .question-card h2 {
@@ -647,9 +743,23 @@ a:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    .review-button {
+    .question-tools {
+        gap: 0.35rem;
+    }
+
+    .review-button,
+    .detail-button {
         width: 38px;
         padding: 0.45rem;
+    }
+
+    .detail-button {
+        font-size: 0;
+    }
+
+    .detail-button::before {
+        font-size: 0.9rem;
+        content: "i";
     }
 
     .review-button-label {
@@ -661,6 +771,22 @@ a:focus-visible {
         clip: rect(0, 0, 0, 0);
         white-space: nowrap;
         border: 0;
+    }
+
+    .word-detail-bubble {
+        top: 4.75rem;
+        left: 0.75rem;
+        right: 0.75rem;
+        width: auto;
+    }
+
+    .word-detail-bubble h3 {
+        font-size: 1.55rem;
+    }
+
+    .detail-list {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
     }
 
     .question-actions .primary-button,

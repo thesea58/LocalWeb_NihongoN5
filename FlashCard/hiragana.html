@@ -106,24 +106,47 @@
                 <div class="question-heading">
                     <span aria-hidden="true"></span>
                     <p id="word-type" class="word-type"></p>
-                    <button
-                        id="review-button"
-                        type="button"
-                        class="review-button"
-                        aria-pressed="false"
-                        aria-label="Đánh dấu câu này để xem lại"
-                        title="Đánh dấu câu này để xem lại"
-                    >
-                        <span class="review-button-label">Xem lại</span>
-                        <svg
-                            class="bookmark-icon"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
+                    <div class="question-tools">
+                        <button
+                            id="review-button"
+                            type="button"
+                            class="review-button"
+                            aria-pressed="false"
+                            aria-label="Đánh dấu câu này để xem lại"
+                            title="Đánh dấu câu này để xem lại"
                         >
-                            <path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7a1.75 1.75 0 0 1 1.75 1.75v15l-5.25-3.5-5.25 3.5v-15Z"></path>
-                        </svg>
-                    </button>
+                            <span class="review-button-label">Xem lại</span>
+                            <svg
+                                class="bookmark-icon"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7a1.75 1.75 0 0 1 1.75 1.75v15l-5.25-3.5-5.25 3.5v-15Z"></path>
+                            </svg>
+                        </button>
+                        <button
+                            id="detail-button"
+                            type="button"
+                            class="detail-button"
+                            aria-expanded="false"
+                            aria-controls="word-detail-bubble"
+                            title="Xem chi tiết từ vựng"
+                        >
+                            Chi tiết
+                        </button>
+                    </div>
                 </div>
+                <aside
+                    id="word-detail-bubble"
+                    class="word-detail-bubble"
+                    aria-live="polite"
+                    hidden
+                >
+                    <p class="word-detail-kicker">Chi tiết từ vựng</p>
+                    <h3 id="detail-kanji"></h3>
+                    <p id="detail-reading" class="detail-reading"></p>
+                    <dl id="detail-list" class="detail-list"></dl>
+                </aside>
                 <h2 id="question-prompt">Từ vựng</h2>
                 <p id="question-meaning" class="question-meaning"></p>
 

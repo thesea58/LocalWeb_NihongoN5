@@ -12,6 +12,7 @@ const hiraganaPractice = {
   score: 0,
   answered: false,
   markedForReview: false,
+  detailExpanded: false,
   results: [],
   availableTokens: [],
   selectedTokens: [],
@@ -421,7 +422,10 @@ const hiraganaPractice = {
 
     hiraganaPractice.answered = false;
     hiraganaPractice.markedForReview = false;
+    hiraganaPractice.detailExpanded = false;
     hiraganaPractice.updateReviewButton();
+    hiraganaPractice.updateDetailBubble(question);
+    hiraganaPractice.updateDetailButton();
     hiraganaPractice.get("#score-value").textContent = String(
       hiraganaPractice.score,
     );
@@ -484,6 +488,121 @@ const hiraganaPractice = {
     }
 
     hiraganaPractice.updateReviewButton();
+  },
+
+  updateDetailButton: () => {
+    const detailButton = hiraganaPractice.get("#detail-button");
+    const detailBubble = hiraganaPractice.get("#word-detail-bubble");
+    if (!detailButton || !detailBubble) {
+      return;
+    }
+
+    detailButton.setAttribute(
+      "aria-expanded",
+      String(hiraganaPractice.detailExpanded),
+    );
+    detailBubble.hidden = !hiraganaPractice.detailExpanded;
+  },
+
+  getDetailLabel: (key) => {
+    const labels = {
+      kanji: "Từ/Kanji",
+      hira: "Cách đọc",
+      meaning: "Nghĩa",
+      wordType: "Loại/Hán Việt",
+      lesson: "Bài",
+      group: "Nhóm",
+      exam: "Kỳ thi",
+      section: "Phần",
+      imagePage: "Trang ảnh",
+      "Vて": "Thể て",
+      "Vる": "Thể từ điển",
+      "Vない": "Thể ない",
+      "Vた": "Thể た",
+    };
+
+    return labels[key] || key;
+  },
+
+  formatDetailValue: (value) => {
+    if (Array.isArray(value)) {
+      return value.filter(Boolean).join(" / ");
+    }
+
+    if (value && typeof value === "object") {
+      return JSON.stringify(value);
+    }
+
+    return String(value);
+  },
+
+  updateDetailBubble: (question) => {
+    const kanji = hiraganaPractice.get("#detail-kanji");
+    const reading = hiraganaPractice.get("#detail-reading");
+    const list = hiraganaPractice.get("#detail-list");
+    if (!question || !kanji || !reading || !list) {
+      return;
+    }
+
+    kanji.textContent = question.kanji;
+    reading.textContent = question.hira;
+
+    const priorityKeys = [
+      "meaning",
+      "wordType",
+      "lesson",
+      "group",
+      "Vて",
+      "Vる",
+      "Vない",
+      "Vた",
+      "exam",
+      "section",
+      "imagePage",
+    ];
+    const hiddenKeys = new Set(["kanji", "hira", "answer"]);
+    const keys = [
+      ...priorityKeys.filter((key) =>
+        Object.prototype.hasOwnProperty.call(question, key),
+      ),
+      ...Object.keys(question).filter(
+        (key) => !hiddenKeys.has(key) && !priorityKeys.includes(key),
+      ),
+    ];
+    const rows = keys
+      .map((key) => [hiraganaPractice.getDetailLabel(key), question[key]])
+      .filter(
+        ([, value]) =>
+          value !== undefined &&
+          value !== null &&
+          String(value).trim() !== "",
+      );
+
+    list.replaceChildren(
+      ...rows.flatMap(([label, value]) => {
+        const term = document.createElement("dt");
+        term.textContent = label;
+
+        const description = document.createElement("dd");
+        description.textContent = hiraganaPractice.formatDetailValue(value);
+
+        return [term, description];
+      }),
+    );
+  },
+
+  toggleDetail: () => {
+    hiraganaPractice.detailExpanded = !hiraganaPractice.detailExpanded;
+    hiraganaPractice.updateDetailButton();
+  },
+
+  closeDetail: () => {
+    if (!hiraganaPractice.detailExpanded) {
+      return;
+    }
+
+    hiraganaPractice.detailExpanded = false;
+    hiraganaPractice.updateDetailButton();
   },
 
   renderMultipleChoice: (question) => {
@@ -836,6 +955,25 @@ const hiraganaPractice = {
     hiraganaPractice
       .get("#review-button")
       .addEventListener("click", hiraganaPractice.toggleReview);
+    hiraganaPractice
+      .get("#detail-button")
+      .addEventListener("click", (event) => {
+        event.stopPropagation();
+        hiraganaPractice.toggleDetail();
+      });
+    document.addEventListener("click", (event) => {
+      const detailButton = hiraganaPractice.get("#detail-button");
+      const detailBubble = hiraganaPractice.get("#word-detail-bubble");
+      if (
+        !hiraganaPractice.detailExpanded ||
+        detailButton?.contains(event.target) ||
+        detailBubble?.contains(event.target)
+      ) {
+        return;
+      }
+
+      hiraganaPractice.closeDetail();
+    });
     hiraganaPractice
       .get("#leave-session-button")
       .addEventListener("click", () => hiraganaPractice.showPanel("setup"));
