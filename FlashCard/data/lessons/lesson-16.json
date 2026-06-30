@@ -1,0 +1,310 @@
+[
+  {
+    "lesson": 16,
+    "kanji": "乗ります［電車に～］",
+    "hira": "のります［でんしゃに～］",
+    "wordType": "Động từ I",
+    "meaning": "lên [tàu]"
+  },
+  {
+    "lesson": 16,
+    "kanji": "降ります［電車を～］",
+    "hira": "おります［でんしゃを～］",
+    "wordType": "Động từ II",
+    "meaning": "xuống [tàu]"
+  },
+  {
+    "lesson": 16,
+    "kanji": "乗り換えます",
+    "hira": "のりかえます",
+    "wordType": "Động từ II",
+    "meaning": "chuyển tàu"
+  },
+  {
+    "lesson": 16,
+    "kanji": "浴びます［シャワーを～］",
+    "hira": "あびます［シャワーを～］",
+    "wordType": "Động từ II",
+    "meaning": "tắm [vòi hoa sen]"
+  },
+  {
+    "lesson": 16,
+    "kanji": "入れます",
+    "hira": "いれます",
+    "wordType": "Động từ II",
+    "meaning": "cho vào, bỏ vào"
+  },
+  {
+    "lesson": 16,
+    "kanji": "出します",
+    "hira": "だします",
+    "wordType": "Động từ I",
+    "meaning": "lấy ra, rút"
+  },
+  {
+    "lesson": 16,
+    "kanji": "入ります［大学に～］",
+    "hira": "はいります［だいがくに～］",
+    "wordType": "Động từ I",
+    "meaning": "vào/nhập học [đại học]"
+  },
+  {
+    "lesson": 16,
+    "kanji": "出ます［大学を～］",
+    "hira": "でます［だいがくを～］",
+    "wordType": "Động từ II",
+    "meaning": "ra/tốt nghiệp [đại học]"
+  },
+  {
+    "lesson": 16,
+    "kanji": "押します",
+    "hira": "おします",
+    "wordType": "Động từ I",
+    "meaning": "bấm, ấn"
+  },
+  {
+    "lesson": 16,
+    "kanji": "若い",
+    "hira": "わかい",
+    "wordType": "Tính từ い",
+    "meaning": "trẻ"
+  },
+  {
+    "lesson": 16,
+    "kanji": "長い",
+    "hira": "ながい",
+    "wordType": "Tính từ い",
+    "meaning": "dài"
+  },
+  {
+    "lesson": 16,
+    "kanji": "短い",
+    "hira": "みじかい",
+    "wordType": "Tính từ い",
+    "meaning": "ngắn"
+  },
+  {
+    "lesson": 16,
+    "kanji": "明るい",
+    "hira": "あかるい",
+    "wordType": "Tính từ い",
+    "meaning": "sáng"
+  },
+  {
+    "lesson": 16,
+    "kanji": "暗い",
+    "hira": "くらい",
+    "wordType": "Tính từ い",
+    "meaning": "tối"
+  },
+  {
+    "lesson": 16,
+    "kanji": "背が高い",
+    "hira": "せがたかい",
+    "wordType": "Cụm tính từ",
+    "meaning": "cao"
+  },
+  {
+    "lesson": 16,
+    "kanji": "頭がいい",
+    "hira": "あたまがいい",
+    "wordType": "Cụm tính từ",
+    "meaning": "thông minh"
+  },
+  {
+    "lesson": 16,
+    "kanji": "体",
+    "hira": "からだ",
+    "wordType": "Danh từ",
+    "meaning": "cơ thể"
+  },
+  {
+    "lesson": 16,
+    "kanji": "頭",
+    "hira": "あたま",
+    "wordType": "Danh từ",
+    "meaning": "đầu"
+  },
+  {
+    "lesson": 16,
+    "kanji": "髪",
+    "hira": "かみ",
+    "wordType": "Danh từ",
+    "meaning": "tóc"
+  },
+  {
+    "lesson": 16,
+    "kanji": "顔",
+    "hira": "かお",
+    "wordType": "Danh từ",
+    "meaning": "mặt"
+  },
+  {
+    "lesson": 16,
+    "kanji": "目",
+    "hira": "め",
+    "wordType": "Danh từ",
+    "meaning": "mắt"
+  },
+  {
+    "lesson": 16,
+    "kanji": "耳",
+    "hira": "みみ",
+    "wordType": "Danh từ",
+    "meaning": "tai"
+  },
+  {
+    "lesson": 16,
+    "kanji": "口",
+    "hira": "くち",
+    "wordType": "Danh từ",
+    "meaning": "miệng"
+  },
+  {
+    "lesson": 16,
+    "kanji": "歯",
+    "hira": "は",
+    "wordType": "Danh từ",
+    "meaning": "răng"
+  },
+  {
+    "lesson": 16,
+    "kanji": "おなか",
+    "hira": "おなか",
+    "wordType": "Danh từ",
+    "meaning": "bụng"
+  },
+  {
+    "lesson": 16,
+    "kanji": "足",
+    "hira": "あし",
+    "wordType": "Danh từ",
+    "meaning": "chân"
+  },
+  {
+    "lesson": 16,
+    "kanji": "サービス",
+    "hira": "サービス",
+    "wordType": "Danh từ",
+    "meaning": "dịch vụ"
+  },
+  {
+    "lesson": 16,
+    "kanji": "ジョギング",
+    "hira": "ジョギング",
+    "wordType": "Danh từ",
+    "meaning": "chạy bộ"
+  },
+  {
+    "lesson": 16,
+    "kanji": "シャワー",
+    "hira": "シャワー",
+    "wordType": "Danh từ",
+    "meaning": "vòi hoa sen"
+  },
+  {
+    "lesson": 16,
+    "kanji": "緑",
+    "hira": "みどり",
+    "wordType": "Danh từ",
+    "meaning": "màu xanh lá"
+  },
+  {
+    "lesson": 16,
+    "kanji": "［お］寺",
+    "hira": "［お］てら",
+    "wordType": "Danh từ",
+    "meaning": "chùa"
+  },
+  {
+    "lesson": 16,
+    "kanji": "神社",
+    "hira": "じんじゃ",
+    "wordType": "Danh từ",
+    "meaning": "đền Thần đạo"
+  },
+  {
+    "lesson": 16,
+    "kanji": "留学生",
+    "hira": "りゅうがくせい",
+    "wordType": "Danh từ",
+    "meaning": "du học sinh"
+  },
+  {
+    "lesson": 16,
+    "kanji": "～番",
+    "hira": "～ばん",
+    "wordType": "Trợ số từ",
+    "meaning": "số ~"
+  },
+  {
+    "lesson": 16,
+    "kanji": "どうやって",
+    "hira": "どうやって",
+    "wordType": "Nghi vấn",
+    "meaning": "làm thế nào"
+  },
+  {
+    "lesson": 16,
+    "kanji": "どの～",
+    "hira": "どの～",
+    "wordType": "Nghi vấn",
+    "meaning": "~ nào"
+  },
+  {
+    "lesson": 16,
+    "kanji": "いいえ、まだまだです",
+    "hira": "いいえ、まだまだです",
+    "wordType": "Cụm từ",
+    "meaning": "không, tôi còn kém lắm"
+  },
+  {
+    "lesson": 16,
+    "kanji": "まず",
+    "hira": "まず",
+    "wordType": "Phó từ",
+    "meaning": "trước hết"
+  },
+  {
+    "lesson": 16,
+    "kanji": "次に",
+    "hira": "つぎに",
+    "wordType": "Phó từ",
+    "meaning": "tiếp theo"
+  },
+  {
+    "lesson": 16,
+    "kanji": "キャッシュカード",
+    "hira": "キャッシュカード",
+    "wordType": "Danh từ",
+    "meaning": "thẻ ngân hàng"
+  },
+  {
+    "lesson": 16,
+    "kanji": "暗証番号",
+    "hira": "あんしょうばんごう",
+    "wordType": "Danh từ",
+    "meaning": "mã số bí mật"
+  },
+  {
+    "lesson": 16,
+    "kanji": "金額",
+    "hira": "きんがく",
+    "wordType": "Danh từ",
+    "meaning": "số tiền"
+  },
+  {
+    "lesson": 16,
+    "kanji": "確認",
+    "hira": "かくにん",
+    "wordType": "Danh từ",
+    "meaning": "xác nhận"
+  },
+  {
+    "lesson": 16,
+    "kanji": "ボタン",
+    "hira": "ボタン",
+    "wordType": "Danh từ",
+    "meaning": "nút"
+  }
+]

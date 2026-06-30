@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash card</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body data-default-list="adjectives-n5">
+    <div class="card">
+        <div class="card__box">
+            <p class="name">Đang tải...</p>
+            <p class="meaning hide">Đáp án</p>
+            <p class="app-status" role="status" aria-live="polite"></p>
+            <div class="result-wrapper">
+                <form id="fCheck">
+                    <input type="text" class="inputResult" aria-label="Nhập cách đọc">
+                    <button
+                        type="submit"
+                        class="button button-check"
+                        aria-keyshortcuts="Enter 3"
+                        title="Shortcut: Enter or 3"
+                    >
+                        Check <kbd class="shortcut-key">Enter</kbd>
+                    </button>
+                    <!-- Add the index next to the button -->
+                    <span class="index">Index: 1</span> <!-- Change "1" to a dynamic value if needed -->
+                </form>
+            </div>
+            <div class="button-wrapper">
+                <button
+                    class="button button-show"
+                    aria-keyshortcuts="1"
+                    title="Shortcut: 1"
+                >
+                    Show <kbd class="shortcut-key">1</kbd>
+                </button>
+                <button
+                    class="button button-next"
+                    aria-keyshortcuts="2"
+                    title="Shortcut: 2"
+                >
+                    Next <kbd class="shortcut-key">2</kbd>
+                </button>
+                <input min="1" placeholder="from" type="number" id="from" class="input" aria-label="Từ vị trí"/>
+                <input min="1" placeholder="to" type="number" id="to" class="input" aria-label="Đến vị trí"/>
+                <button
+                    class="button button-submit"
+                    aria-keyshortcuts="Enter 4"
+                    title="Shortcut: Enter or 4"
+                >
+                    Submit <kbd class="shortcut-key">4</kbd>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <aside class="right-sidebar" aria-label="Thông tin và danh sách từ vựng">
+        <section class="app-guide" aria-labelledby="app-guide-title">
+            <h2 id="app-guide-title">Flash Card</h2>
+            <a class="practice-link" href="./hiragana.html">
+                Mở trang luyện Kana →
+            </a>
+            <p>
+                Ứng dụng giúp luyện từ vựng tiếng Nhật bằng cách nhập cách đọc,
+                kiểm tra đáp án và chuyển qua các thẻ ngẫu nhiên.
+            </p>
+
+            <h3>Gợi ý phím tắt</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Phím</th>
+                        <th scope="col">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><kbd>1</kbd></td>
+                        <td>Hiện đáp án</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>2</kbd></td>
+                        <td>Chuyển sang thẻ tiếp theo</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>3</kbd></td>
+                        <td>Kiểm tra đáp án</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>4</kbd></td>
+                        <td>Áp dụng khoảng thẻ</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Enter</kbd></td>
+                        <td>Check tại ô đáp án; Submit tại ô From/To</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="shortcut-note">
+                Khi đang nhập liệu, các phím số vẫn được dùng để gõ bình thường.
+            </p>
+        </section>
+
+        <section class="vocabulary-browser" aria-labelledby="vocabulary-browser-title">
+            <h2 id="vocabulary-browser-title">Danh sách từ vựng</h2>
+            <p class="active-list-label">
+                Đang học: <strong id="active-list-name">Đang tải...</strong>
+            </p>
+            <div id="vocabulary-tree" class="vocabulary-tree" role="tree" aria-live="polite">
+                <p class="tree-status">Đang tải danh sách...</p>
+            </div>
+        </section>
+    </aside>
+
+    <script src="./index.js"></script>
+    <script src="./keyboard-shortcuts.js"></script>
+</body>
+</html>

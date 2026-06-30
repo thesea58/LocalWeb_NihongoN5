@@ -1,0 +1,373 @@
+[
+  {
+    "lesson": 11,
+    "kanji": "います［子どもが～］",
+    "hira": "います［こどもが～］",
+    "wordType": "Động từ II",
+    "meaning": "có [con]"
+  },
+  {
+    "lesson": 11,
+    "kanji": "います［日本に～］",
+    "hira": "います［にほんに～］",
+    "wordType": "Động từ II",
+    "meaning": "ở [Nhật]"
+  },
+  {
+    "lesson": 11,
+    "kanji": "かかります",
+    "hira": "かかります",
+    "wordType": "Động từ I",
+    "meaning": "mất, tốn (thời gian/tiền)"
+  },
+  {
+    "lesson": 11,
+    "kanji": "休みます［会社を～］",
+    "hira": "やすみます［かいしゃを～］",
+    "wordType": "Động từ I",
+    "meaning": "nghỉ [làm]"
+  },
+  {
+    "lesson": 11,
+    "kanji": "一つ",
+    "hira": "ひとつ",
+    "wordType": "Số đếm",
+    "meaning": "một cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "二つ",
+    "hira": "ふたつ",
+    "wordType": "Số đếm",
+    "meaning": "hai cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "三つ",
+    "hira": "みっつ",
+    "wordType": "Số đếm",
+    "meaning": "ba cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "四つ",
+    "hira": "よっつ",
+    "wordType": "Số đếm",
+    "meaning": "bốn cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "五つ",
+    "hira": "いつつ",
+    "wordType": "Số đếm",
+    "meaning": "năm cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "六つ",
+    "hira": "むっつ",
+    "wordType": "Số đếm",
+    "meaning": "sáu cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "七つ",
+    "hira": "ななつ",
+    "wordType": "Số đếm",
+    "meaning": "bảy cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "八つ",
+    "hira": "やっつ",
+    "wordType": "Số đếm",
+    "meaning": "tám cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "九つ",
+    "hira": "ここのつ",
+    "wordType": "Số đếm",
+    "meaning": "chín cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "十",
+    "hira": "とお",
+    "wordType": "Số đếm",
+    "meaning": "mười cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "いくつ",
+    "hira": "いくつ",
+    "wordType": "Nghi vấn",
+    "meaning": "mấy cái, bao nhiêu cái"
+  },
+  {
+    "lesson": 11,
+    "kanji": "一人",
+    "hira": "ひとり",
+    "wordType": "Số đếm người",
+    "meaning": "một người"
+  },
+  {
+    "lesson": 11,
+    "kanji": "二人",
+    "hira": "ふたり",
+    "wordType": "Số đếm người",
+    "meaning": "hai người"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～人",
+    "hira": "～にん",
+    "wordType": "Số đếm người",
+    "meaning": "~ người"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～台",
+    "hira": "～だい",
+    "wordType": "Trợ số từ",
+    "meaning": "~ cái (máy móc, xe cộ)"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～枚",
+    "hira": "～まい",
+    "wordType": "Trợ số từ",
+    "meaning": "~ tờ/tấm"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～回",
+    "hira": "～かい",
+    "wordType": "Trợ số từ",
+    "meaning": "~ lần"
+  },
+  {
+    "lesson": 11,
+    "kanji": "りんご",
+    "hira": "りんご",
+    "wordType": "Danh từ",
+    "meaning": "táo"
+  },
+  {
+    "lesson": 11,
+    "kanji": "みかん",
+    "hira": "みかん",
+    "wordType": "Danh từ",
+    "meaning": "quýt"
+  },
+  {
+    "lesson": 11,
+    "kanji": "サンドイッチ",
+    "hira": "サンドイッチ",
+    "wordType": "Danh từ",
+    "meaning": "bánh sandwich"
+  },
+  {
+    "lesson": 11,
+    "kanji": "カレー［ライス］",
+    "hira": "カレー［ライス］",
+    "wordType": "Danh từ",
+    "meaning": "cơm cà-ri"
+  },
+  {
+    "lesson": 11,
+    "kanji": "アイスクリーム",
+    "hira": "アイスクリーム",
+    "wordType": "Danh từ",
+    "meaning": "kem"
+  },
+  {
+    "lesson": 11,
+    "kanji": "切手",
+    "hira": "きって",
+    "wordType": "Danh từ",
+    "meaning": "tem"
+  },
+  {
+    "lesson": 11,
+    "kanji": "葉書",
+    "hira": "はがき",
+    "wordType": "Danh từ",
+    "meaning": "bưu thiếp"
+  },
+  {
+    "lesson": 11,
+    "kanji": "封筒",
+    "hira": "ふうとう",
+    "wordType": "Danh từ",
+    "meaning": "phong bì"
+  },
+  {
+    "lesson": 11,
+    "kanji": "速達",
+    "hira": "そくたつ",
+    "wordType": "Danh từ",
+    "meaning": "chuyển phát nhanh"
+  },
+  {
+    "lesson": 11,
+    "kanji": "書留",
+    "hira": "かきとめ",
+    "wordType": "Danh từ",
+    "meaning": "thư bảo đảm"
+  },
+  {
+    "lesson": 11,
+    "kanji": "エアメール",
+    "hira": "エアメール",
+    "wordType": "Danh từ",
+    "meaning": "thư hàng không"
+  },
+  {
+    "lesson": 11,
+    "kanji": "船便",
+    "hira": "ふなびん",
+    "wordType": "Danh từ",
+    "meaning": "gửi bằng đường biển"
+  },
+  {
+    "lesson": 11,
+    "kanji": "両親",
+    "hira": "りょうしん",
+    "wordType": "Danh từ",
+    "meaning": "bố mẹ"
+  },
+  {
+    "lesson": 11,
+    "kanji": "兄弟",
+    "hira": "きょうだい",
+    "wordType": "Danh từ",
+    "meaning": "anh chị em"
+  },
+  {
+    "lesson": 11,
+    "kanji": "兄",
+    "hira": "あに",
+    "wordType": "Danh từ",
+    "meaning": "anh trai của mình"
+  },
+  {
+    "lesson": 11,
+    "kanji": "お兄さん",
+    "hira": "おにいさん",
+    "wordType": "Danh từ",
+    "meaning": "anh trai của người khác"
+  },
+  {
+    "lesson": 11,
+    "kanji": "姉",
+    "hira": "あね",
+    "wordType": "Danh từ",
+    "meaning": "chị gái của mình"
+  },
+  {
+    "lesson": 11,
+    "kanji": "お姉さん",
+    "hira": "おねえさん",
+    "wordType": "Danh từ",
+    "meaning": "chị gái của người khác"
+  },
+  {
+    "lesson": 11,
+    "kanji": "弟",
+    "hira": "おとうと",
+    "wordType": "Danh từ",
+    "meaning": "em trai của mình"
+  },
+  {
+    "lesson": 11,
+    "kanji": "弟さん",
+    "hira": "おとうとさん",
+    "wordType": "Danh từ",
+    "meaning": "em trai của người khác"
+  },
+  {
+    "lesson": 11,
+    "kanji": "妹",
+    "hira": "いもうと",
+    "wordType": "Danh từ",
+    "meaning": "em gái của mình"
+  },
+  {
+    "lesson": 11,
+    "kanji": "妹さん",
+    "hira": "いもうとさん",
+    "wordType": "Danh từ",
+    "meaning": "em gái của người khác"
+  },
+  {
+    "lesson": 11,
+    "kanji": "外国",
+    "hira": "がいこく",
+    "wordType": "Danh từ",
+    "meaning": "nước ngoài"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～時間",
+    "hira": "～じかん",
+    "wordType": "Khoảng thời gian",
+    "meaning": "~ tiếng"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～週間",
+    "hira": "～しゅうかん",
+    "wordType": "Khoảng thời gian",
+    "meaning": "~ tuần"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～か月",
+    "hira": "～かげつ",
+    "wordType": "Khoảng thời gian",
+    "meaning": "~ tháng"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～年",
+    "hira": "～ねん",
+    "wordType": "Khoảng thời gian",
+    "meaning": "~ năm"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～ぐらい",
+    "hira": "～ぐらい",
+    "wordType": "Phó từ",
+    "meaning": "khoảng"
+  },
+  {
+    "lesson": 11,
+    "kanji": "どのくらい",
+    "hira": "どのくらい",
+    "wordType": "Nghi vấn",
+    "meaning": "bao lâu"
+  },
+  {
+    "lesson": 11,
+    "kanji": "全部で",
+    "hira": "ぜんぶで",
+    "wordType": "Phó từ",
+    "meaning": "tổng cộng"
+  },
+  {
+    "lesson": 11,
+    "kanji": "みんな",
+    "hira": "みんな",
+    "wordType": "Đại từ",
+    "meaning": "tất cả"
+  },
+  {
+    "lesson": 11,
+    "kanji": "～だけ",
+    "hira": "～だけ",
+    "wordType": "Trợ từ",
+    "meaning": "chỉ ~"
+  }
+]

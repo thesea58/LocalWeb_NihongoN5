@@ -1,0 +1,268 @@
+[
+  {
+    "lesson": 13,
+    "kanji": "遊びます",
+    "hira": "あそびます",
+    "wordType": "Động từ I",
+    "meaning": "chơi"
+  },
+  {
+    "lesson": 13,
+    "kanji": "泳ぎます",
+    "hira": "およぎます",
+    "wordType": "Động từ I",
+    "meaning": "bơi"
+  },
+  {
+    "lesson": 13,
+    "kanji": "迎えます",
+    "hira": "むかえます",
+    "wordType": "Động từ II",
+    "meaning": "đón"
+  },
+  {
+    "lesson": 13,
+    "kanji": "疲れます",
+    "hira": "つかれます",
+    "wordType": "Động từ II",
+    "meaning": "mệt"
+  },
+  {
+    "lesson": 13,
+    "kanji": "出します［手紙を～］",
+    "hira": "だします［てがみを～］",
+    "wordType": "Động từ I",
+    "meaning": "gửi [thư]"
+  },
+  {
+    "lesson": 13,
+    "kanji": "入ります［喫茶店に～］",
+    "hira": "はいります［きっさてんに～］",
+    "wordType": "Động từ I",
+    "meaning": "vào [quán giải khát]"
+  },
+  {
+    "lesson": 13,
+    "kanji": "出ます［喫茶店を～］",
+    "hira": "でます［きっさてんを～］",
+    "wordType": "Động từ II",
+    "meaning": "ra khỏi [quán giải khát]"
+  },
+  {
+    "lesson": 13,
+    "kanji": "結婚します",
+    "hira": "けっこんします",
+    "wordType": "Động từ III",
+    "meaning": "kết hôn"
+  },
+  {
+    "lesson": 13,
+    "kanji": "買い物します",
+    "hira": "かいものします",
+    "wordType": "Động từ III",
+    "meaning": "mua sắm"
+  },
+  {
+    "lesson": 13,
+    "kanji": "食事します",
+    "hira": "しょくじします",
+    "wordType": "Động từ III",
+    "meaning": "ăn cơm/dùng bữa"
+  },
+  {
+    "lesson": 13,
+    "kanji": "散歩します［公園を～］",
+    "hira": "さんぽします［こうえんを～］",
+    "wordType": "Động từ III",
+    "meaning": "đi dạo [công viên]"
+  },
+  {
+    "lesson": 13,
+    "kanji": "大変［な］",
+    "hira": "たいへん［な］",
+    "wordType": "Tính từ な",
+    "meaning": "vất vả, khó khăn"
+  },
+  {
+    "lesson": 13,
+    "kanji": "欲しい",
+    "hira": "ほしい",
+    "wordType": "Tính từ い",
+    "meaning": "muốn có"
+  },
+  {
+    "lesson": 13,
+    "kanji": "寂しい",
+    "hira": "さびしい",
+    "wordType": "Tính từ い",
+    "meaning": "cô đơn"
+  },
+  {
+    "lesson": 13,
+    "kanji": "広い",
+    "hira": "ひろい",
+    "wordType": "Tính từ い",
+    "meaning": "rộng"
+  },
+  {
+    "lesson": 13,
+    "kanji": "狭い",
+    "hira": "せまい",
+    "wordType": "Tính từ い",
+    "meaning": "chật, hẹp"
+  },
+  {
+    "lesson": 13,
+    "kanji": "市役所",
+    "hira": "しやくしょ",
+    "wordType": "Danh từ",
+    "meaning": "tòa thị chính"
+  },
+  {
+    "lesson": 13,
+    "kanji": "プール",
+    "hira": "プール",
+    "wordType": "Danh từ",
+    "meaning": "bể bơi"
+  },
+  {
+    "lesson": 13,
+    "kanji": "川",
+    "hira": "かわ",
+    "wordType": "Danh từ",
+    "meaning": "sông"
+  },
+  {
+    "lesson": 13,
+    "kanji": "経済",
+    "hira": "けいざい",
+    "wordType": "Danh từ",
+    "meaning": "kinh tế"
+  },
+  {
+    "lesson": 13,
+    "kanji": "美術",
+    "hira": "びじゅつ",
+    "wordType": "Danh từ",
+    "meaning": "mỹ thuật"
+  },
+  {
+    "lesson": 13,
+    "kanji": "釣り",
+    "hira": "つり",
+    "wordType": "Danh từ",
+    "meaning": "câu cá"
+  },
+  {
+    "lesson": 13,
+    "kanji": "スキー",
+    "hira": "スキー",
+    "wordType": "Danh từ",
+    "meaning": "trượt tuyết"
+  },
+  {
+    "lesson": 13,
+    "kanji": "会議",
+    "hira": "かいぎ",
+    "wordType": "Danh từ",
+    "meaning": "cuộc họp"
+  },
+  {
+    "lesson": 13,
+    "kanji": "登録",
+    "hira": "とうろく",
+    "wordType": "Danh từ",
+    "meaning": "đăng ký"
+  },
+  {
+    "lesson": 13,
+    "kanji": "週末",
+    "hira": "しゅうまつ",
+    "wordType": "Danh từ",
+    "meaning": "cuối tuần"
+  },
+  {
+    "lesson": 13,
+    "kanji": "～ごろ",
+    "hira": "～ごろ",
+    "wordType": "Phó từ",
+    "meaning": "khoảng (thời điểm)"
+  },
+  {
+    "lesson": 13,
+    "kanji": "何か",
+    "hira": "なにか",
+    "wordType": "Đại từ",
+    "meaning": "cái gì đó"
+  },
+  {
+    "lesson": 13,
+    "kanji": "どこか",
+    "hira": "どこか",
+    "wordType": "Đại từ",
+    "meaning": "đâu đó"
+  },
+  {
+    "lesson": 13,
+    "kanji": "おなかがすきました",
+    "hira": "おなかがすきました",
+    "wordType": "Cụm từ",
+    "meaning": "đói bụng rồi"
+  },
+  {
+    "lesson": 13,
+    "kanji": "おなかがいっぱいです",
+    "hira": "おなかがいっぱいです",
+    "wordType": "Cụm từ",
+    "meaning": "no rồi"
+  },
+  {
+    "lesson": 13,
+    "kanji": "のどがかわきました",
+    "hira": "のどがかわきました",
+    "wordType": "Cụm từ",
+    "meaning": "khát rồi"
+  },
+  {
+    "lesson": 13,
+    "kanji": "そうしましょう",
+    "hira": "そうしましょう",
+    "wordType": "Cụm từ",
+    "meaning": "nhất trí, làm như vậy đi"
+  },
+  {
+    "lesson": 13,
+    "kanji": "ご注文は？",
+    "hira": "ごちゅうもんは？",
+    "wordType": "Cụm từ",
+    "meaning": "anh/chị dùng món gì?"
+  },
+  {
+    "lesson": 13,
+    "kanji": "定食",
+    "hira": "ていしょく",
+    "wordType": "Danh từ",
+    "meaning": "cơm suất"
+  },
+  {
+    "lesson": 13,
+    "kanji": "牛どん",
+    "hira": "ぎゅうどん",
+    "wordType": "Danh từ",
+    "meaning": "cơm thịt bò"
+  },
+  {
+    "lesson": 13,
+    "kanji": "少々お待ちください",
+    "hira": "しょうしょうおまちください",
+    "wordType": "Cụm từ",
+    "meaning": "xin chờ một chút"
+  },
+  {
+    "lesson": 13,
+    "kanji": "別々に",
+    "hira": "べつべつに",
+    "wordType": "Phó từ",
+    "meaning": "riêng từng người"
+  }
+]
