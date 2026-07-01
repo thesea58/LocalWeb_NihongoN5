@@ -13,6 +13,7 @@ const hiraganaPractice = {
   answered: false,
   markedForReview: false,
   detailExpanded: false,
+  meaningExpanded: false,
   results: [],
   availableTokens: [],
   selectedTokens: [],
@@ -214,6 +215,41 @@ const hiraganaPractice = {
     return questions.slice(0, limit);
   },
 
+  updateQuestionMeaningVisibility: () => {
+    const meaning = hiraganaPractice.get("#question-meaning");
+    if (!meaning) {
+      return;
+    }
+
+    meaning.classList.toggle("is-collapsed", !hiraganaPractice.meaningExpanded);
+    meaning.setAttribute("aria-expanded", String(hiraganaPractice.meaningExpanded));
+    meaning.setAttribute(
+      "aria-label",
+      hiraganaPractice.meaningExpanded
+        ? "Nhấn để ẩn nghĩa"
+        : "Nhấn để hiện nghĩa",
+    );
+    meaning.title = hiraganaPractice.meaningExpanded
+      ? "Nhấn để ẩn nghĩa"
+      : "Nhấn để hiện nghĩa";
+  },
+
+  toggleQuestionMeaning: () => {
+    hiraganaPractice.meaningExpanded = !hiraganaPractice.meaningExpanded;
+    hiraganaPractice.updateQuestionMeaningVisibility();
+  },
+
+  setQuestionMeaning: (text) => {
+    const meaning = hiraganaPractice.get("#question-meaning");
+    if (!meaning) {
+      return;
+    }
+
+    meaning.textContent = text;
+    hiraganaPractice.meaningExpanded = false;
+    hiraganaPractice.updateQuestionMeaningVisibility();
+  },
+
   updateSessionSizeLabels: () => {
     const sessionSize = hiraganaPractice.get("#session-size-select").value;
     const label = sessionSize === "all" ? "Tất cả từ" : `${sessionSize} từ`;
@@ -291,6 +327,9 @@ const hiraganaPractice = {
     typeof word.kanji === "string" &&
     /[\u3400-\u9fff]/u.test(word.kanji),
 
+  isKanjiKanaDrill: (word) =>
+    Array.isArray(word?.kanjipatu) && Array.isArray(word?.hirapatu),
+
   getAnswerFieldValue: (word, field) => {
     if (field === "kana") {
       return hiraganaPractice.getExerciseReading(word.hira);
@@ -304,48 +343,97 @@ const hiraganaPractice = {
     return "";
   },
 
-  getChoiceAnswers: (challenge) => {
-    const possibleAnswers = new Set();
-    hiraganaPractice.sourceData.forEach((word) => {
-      const answer = hiraganaPractice.getAnswerFieldValue(
-        word,
-        challenge.answerField,
-      );
-      if (answer && answer !== challenge.answer) {
-        possibleAnswers.add(answer);
+  getChoiceAnswers: (question, challenge) => {
+    const normalizeChoice = (value) => {
+      if (challenge.answerField === "kana") {
+        return hiraganaPractice.getExerciseReading(value);
       }
-    });
+
+      return String(value).trim();
+    };
+
+    const sourceChoices = (() => {
+      if (
+        challenge.answerField === "kana" &&
+        Array.isArray(question.hirapatu) &&
+        question.hirapatu.length
+      ) {
+        return question.hirapatu;
+      }
+
+      if (
+        challenge.answerField === "kanji" &&
+        Array.isArray(question.kanjipatu) &&
+        question.kanjipatu.length
+      ) {
+        return question.kanjipatu;
+      }
+
+      const possibleAnswers = new Set();
+      hiraganaPractice.sourceData.forEach((word) => {
+        const answer = hiraganaPractice.getAnswerFieldValue(
+          word,
+          challenge.answerField,
+        );
+        if (answer && answer !== challenge.answer) {
+          possibleAnswers.add(answer);
+        }
+      });
+
+      return [...possibleAnswers];
+    })();
 
     const distractors = hiraganaPractice
-      .shuffle([...possibleAnswers])
+      .shuffle(sourceChoices.map(normalizeChoice))
+      .filter((choice) => choice && choice !== challenge.answer)
       .slice(0, 3);
     if (distractors.length < 3) {
       return [];
     }
+
     return hiraganaPractice.shuffle([challenge.answer, ...distractors]);
   },
 
   buildMultipleChoiceChallenge: (question) => {
-    const definitions = [
-      {
-        id: "kana-to-meaning",
-        direction: "Kana → Tiếng Việt",
-        prompt: question.answer,
-        answer: question.meaning,
-        answerField: "meaning",
-        answerLabel: "nghĩa tiếng Việt",
-      },
-      {
-        id: "meaning-to-kana",
-        direction: "Tiếng Việt → Kana",
-        prompt: question.meaning,
-        answer: question.answer,
-        answerField: "kana",
-        answerLabel: "cách đọc Kana",
-      },
-    ];
+    const definitions = hiraganaPractice.isKanjiKanaDrill(question)
+      ? [
+          {
+            id: "kanji-to-kana",
+            direction: "Kanji → Kana",
+            prompt: question.kanji,
+            answer: question.answer,
+            answerField: "kana",
+            answerLabel: "cách đọc Kana",
+          },
+          {
+            id: "kana-to-kanji",
+            direction: "Kana → Kanji",
+            prompt: question.answer,
+            answer: question.kanji,
+            answerField: "kanji",
+            answerLabel: "Kanji",
+          },
+        ]
+      : [
+          {
+            id: "kana-to-meaning",
+            direction: "Kana → Tiếng Việt",
+            prompt: question.answer,
+            answer: question.meaning,
+            answerField: "meaning",
+            answerLabel: "nghĩa tiếng Việt",
+          },
+          {
+            id: "meaning-to-kana",
+            direction: "Tiếng Việt → Kana",
+            prompt: question.meaning,
+            answer: question.answer,
+            answerField: "kana",
+            answerLabel: "cách đọc Kana",
+          },
+        ];
 
-    if (hiraganaPractice.hasUsefulKanji(question)) {
+    if (hiraganaPractice.hasUsefulKanji(question) && !hiraganaPractice.isKanjiKanaDrill(question)) {
       definitions.push(
         {
           id: "kanji-to-kana",
@@ -385,7 +473,7 @@ const hiraganaPractice = {
     const viableChallenges = definitions
       .map((definition) => ({
         ...definition,
-        choices: hiraganaPractice.getChoiceAnswers(definition),
+        choices: hiraganaPractice.getChoiceAnswers(question, definition),
       }))
       .filter((challenge) => challenge.choices.length === 4);
     const withoutImmediateRepeat = viableChallenges.filter(
@@ -423,9 +511,11 @@ const hiraganaPractice = {
     hiraganaPractice.answered = false;
     hiraganaPractice.markedForReview = false;
     hiraganaPractice.detailExpanded = false;
+    hiraganaPractice.meaningExpanded = false;
     hiraganaPractice.updateReviewButton();
     hiraganaPractice.updateDetailBubble(question);
     hiraganaPractice.updateDetailButton();
+    hiraganaPractice.updateQuestionMeaningVisibility();
     hiraganaPractice.get("#score-value").textContent = String(
       hiraganaPractice.score,
     );
@@ -450,13 +540,15 @@ const hiraganaPractice = {
         ? `${question.wordType} · ${kanaType}`
         : kanaType;
       hiraganaPractice.get("#question-prompt").textContent =
-        hiraganaPractice.getPrompt(question);
+        hiraganaPractice.isKanjiKanaDrill(question)
+          ? question.kanji
+          : hiraganaPractice.getPrompt(question);
 
-      const kanjiReading = hiraganaPractice.getExerciseReading(question.kanji);
-      hiraganaPractice.get("#question-meaning").textContent =
-        kanjiReading === question.answer
-          ? "Hãy ghép cách đọc Kana đúng"
-          : question.meaning;
+      hiraganaPractice.setQuestionMeaning(
+        hiraganaPractice.isKanjiKanaDrill(question)
+          ? "Hãy ghép cách đọc đúng"
+          : question.meaning,
+      );
       hiraganaPractice.renderAssembly(question);
     }
   },
@@ -613,8 +705,11 @@ const hiraganaPractice = {
       ? `${question.wordType} · ${challenge.direction}`
       : challenge.direction;
     hiraganaPractice.get("#question-prompt").textContent = challenge.prompt;
-    hiraganaPractice.get("#question-meaning").textContent =
-      `Chọn ${challenge.answerLabel} phù hợp`;
+    hiraganaPractice.setQuestionMeaning(
+      hiraganaPractice.isKanjiKanaDrill(question)
+        ? `Chọn ${challenge.answerLabel} phù hợp`
+        : `Chọn ${challenge.answerLabel} phù hợp`,
+    );
 
     const answerArea = hiraganaPractice.get("#answer-area");
     const choiceGrid = document.createElement("div");
@@ -955,6 +1050,17 @@ const hiraganaPractice = {
     hiraganaPractice
       .get("#review-button")
       .addEventListener("click", hiraganaPractice.toggleReview);
+    hiraganaPractice
+      .get("#question-meaning")
+      .addEventListener("click", hiraganaPractice.toggleQuestionMeaning);
+    hiraganaPractice
+      .get("#question-meaning")
+      .addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          hiraganaPractice.toggleQuestionMeaning();
+        }
+      });
     hiraganaPractice
       .get("#detail-button")
       .addEventListener("click", (event) => {
