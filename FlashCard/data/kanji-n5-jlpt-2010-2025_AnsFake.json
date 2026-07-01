@@ -1,0 +1,2529 @@
+[
+  {
+    "kanji": "前",
+    "hira": "まえ",
+    "wordType": "TIỀN",
+    "meaning": "Trước",
+    "exam": "N5 7/2025",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "後",
+      "中",
+      "外"
+    ],
+    "hirapatu": [
+      "あと",
+      "なか",
+      "そと"
+    ]
+  },
+  {
+    "kanji": "飲みます",
+    "hira": "のみます",
+    "wordType": "ẨM",
+    "meaning": "Uống",
+    "exam": "N5 7/2025",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "休みます",
+      "読みます",
+      "立ちます"
+    ],
+    "hirapatu": [
+      "よみます",
+      "みます",
+      "たちます"
+    ]
+  },
+  {
+    "kanji": "店",
+    "hira": "みせ",
+    "wordType": "ĐIẾM",
+    "meaning": "Cửa hàng",
+    "exam": "N5 7/2025",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "駅",
+      "家",
+      "会社"
+    ],
+    "hirapatu": [
+      "みず",
+      "みみ",
+      "みち"
+    ]
+  },
+  {
+    "kanji": "天気",
+    "hira": "てんき",
+    "wordType": "THIÊN KHÍ",
+    "meaning": "Thời tiết",
+    "exam": "N5 7/2025",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "電気",
+      "元気",
+      "空"
+    ],
+    "hirapatu": [
+      "でんき",
+      "げんき",
+      "ゆき"
+    ]
+  },
+  {
+    "kanji": "生まれました",
+    "hira": "うまれました",
+    "wordType": "SINH",
+    "meaning": "Được sinh ra",
+    "exam": "N5 7/2025",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "飲みました",
+      "会いました",
+      "行きました"
+    ],
+    "hirapatu": [
+      "のみました",
+      "あいました",
+      "いきました"
+    ]
+  },
+  {
+    "kanji": "古い",
+    "hira": "ふるい",
+    "wordType": "CỔ",
+    "meaning": "Cũ",
+    "exam": "N5 7/2025",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "青い",
+      "安い",
+      "高い"
+    ],
+    "hirapatu": [
+      "あおい",
+      "やすい",
+      "たかい"
+    ]
+  },
+  {
+    "kanji": "四月",
+    "hira": "しがつ",
+    "wordType": "TỨ NGUYỆT",
+    "meaning": "Tháng tư",
+    "exam": "N5 7/2025",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "九月",
+      "来月",
+      "先月"
+    ],
+    "hirapatu": [
+      "しちがつ",
+      "くがつ",
+      "ごがつ"
+    ]
+  },
+  {
+    "kanji": "花",
+    "hira": "はな",
+    "wordType": "HOA",
+    "meaning": "Hoa",
+    "exam": "N5 7/2025",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "鼻",
+      "話",
+      "草"
+    ],
+    "hirapatu": [
+      "はなし",
+      "はし",
+      "はなす"
+    ]
+  },
+  {
+    "kanji": "新聞",
+    "hira": "しんぶん",
+    "wordType": "TÂN VĂN",
+    "meaning": "Báo",
+    "exam": "N5 7/2025",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "雑誌",
+      "本",
+      "手紙"
+    ],
+    "hirapatu": [
+      "しんせつ",
+      "しんぱい",
+      "せんしゅう"
+    ]
+  },
+  {
+    "kanji": "北口",
+    "hira": "きたぐち",
+    "wordType": "BẮC KHẨU",
+    "meaning": "Cửa Bắc",
+    "exam": "N5 7/2025",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "西口",
+      "東口",
+      "南口"
+    ],
+    "hirapatu": [
+      "にしぐち",
+      "ひがしぐち",
+      "みなみぐち"
+    ]
+  },
+  {
+    "kanji": "立ちます",
+    "hira": "たちます",
+    "wordType": "LẬP",
+    "meaning": "Đứng",
+    "exam": "N5 7/2025",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "飲みます",
+      "休みます",
+      "出します"
+    ],
+    "hirapatu": [
+      "たべます",
+      "のみます",
+      "だします"
+    ]
+  },
+  {
+    "kanji": "六千円",
+    "hira": "ろくせんえん",
+    "wordType": "LỤC THIÊN VIÊN",
+    "meaning": "6000 yên",
+    "exam": "N5 7/2025",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "六万円",
+      "五千円",
+      "千円"
+    ],
+    "hirapatu": [
+      "ろくまんえん",
+      "せんえん",
+      "ごせんえん"
+    ]
+  },
+  {
+    "kanji": "会社",
+    "hira": "かいしゃ",
+    "wordType": "HỘI XÃ",
+    "meaning": "Công ty",
+    "exam": "N5 12/2024",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "学校",
+      "銀行",
+      "病院"
+    ],
+    "hirapatu": [
+      "かいしゃいん",
+      "がっこう",
+      "でんしゃ"
+    ]
+  },
+  {
+    "kanji": "足",
+    "hira": "あし",
+    "wordType": "TÚC",
+    "meaning": "Chân",
+    "exam": "N5 12/2024",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "手",
+      "目",
+      "口"
+    ],
+    "hirapatu": [
+      "いし",
+      "うし",
+      "あめ"
+    ]
+  },
+  {
+    "kanji": "国",
+    "hira": "くに",
+    "wordType": "QUỐC",
+    "meaning": "Đất nước",
+    "exam": "N5 12/2024",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "口",
+      "日",
+      "田"
+    ],
+    "hirapatu": [
+      "くち",
+      "くも",
+      "くるま"
+    ]
+  },
+  {
+    "kanji": "土よう日",
+    "hira": "どようび",
+    "wordType": "THỔ DIỆU NHẬT",
+    "meaning": "Thứ bảy",
+    "exam": "N5 12/2024",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "火よう日",
+      "月よう日",
+      "水よう日"
+    ],
+    "hirapatu": [
+      "かようび",
+      "げつようび",
+      "すいようび"
+    ]
+  },
+  {
+    "kanji": "休みます",
+    "hira": "やすみます",
+    "wordType": "HƯU",
+    "meaning": "Nghỉ ngơi",
+    "exam": "N5 12/2024",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "飲みます",
+      "読みます",
+      "立ちます"
+    ],
+    "hirapatu": [
+      "のみます",
+      "よみます",
+      "みます"
+    ]
+  },
+  {
+    "kanji": "少なかった",
+    "hira": "すくなかった",
+    "wordType": "THIẾU",
+    "meaning": "Ít (quá khứ)",
+    "exam": "N5 12/2024",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "小さかった",
+      "高かった",
+      "安かった"
+    ],
+    "hirapatu": [
+      "ちいさかった",
+      "やすかった",
+      "たかかった"
+    ]
+  },
+  {
+    "kanji": "出します",
+    "hira": "だします",
+    "wordType": "XUẤT",
+    "meaning": "Đưa ra, gửi",
+    "exam": "N5 12/2024",
+    "section": "Mondai 1",
+    "imagePage": 1,
+    "kanjipatu": [
+      "話します",
+      "出ます",
+      "飲みます"
+    ],
+    "hirapatu": [
+      "のみます",
+      "たちます",
+      "よみます"
+    ]
+  },
+  {
+    "kanji": "友達",
+    "hira": "ともだち",
+    "wordType": "HỮU ĐẠT",
+    "meaning": "Bạn bè",
+    "exam": "N5 12/2024",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "学生",
+      "先生",
+      "家族"
+    ],
+    "hirapatu": [
+      "とけい",
+      "となり",
+      "とり"
+    ]
+  },
+  {
+    "kanji": "食べたい",
+    "hira": "たべたい",
+    "wordType": "THỰC",
+    "meaning": "Muốn ăn",
+    "exam": "N5 12/2024",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "飲みたい",
+      "行きたい",
+      "見たい"
+    ],
+    "hirapatu": [
+      "のみたい",
+      "いきたい",
+      "みたい"
+    ]
+  },
+  {
+    "kanji": "英語",
+    "hira": "えいご",
+    "wordType": "ANH NGỮ",
+    "meaning": "Tiếng Anh",
+    "exam": "N5 12/2024",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "日本語",
+      "中国語",
+      "韓国語"
+    ],
+    "hirapatu": [
+      "にほんご",
+      "ちゅうごくご",
+      "かんこくご"
+    ]
+  },
+  {
+    "kanji": "中",
+    "hira": "なか",
+    "wordType": "TRUNG",
+    "meaning": "Trong",
+    "exam": "N5 12/2024",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "外",
+      "前",
+      "後"
+    ],
+    "hirapatu": [
+      "はな",
+      "なつ",
+      "さかな"
+    ]
+  },
+  {
+    "kanji": "毎週",
+    "hira": "まいしゅう",
+    "wordType": "MỖI CHU",
+    "meaning": "Mỗi tuần",
+    "exam": "N5 12/2024",
+    "section": "Mondai 2",
+    "imagePage": 1,
+    "kanjipatu": [
+      "今週",
+      "先週",
+      "来週"
+    ],
+    "hirapatu": [
+      "らいしゅう",
+      "こんしゅう",
+      "せんしゅう"
+    ]
+  },
+  {
+    "kanji": "店",
+    "hira": "みせ",
+    "wordType": "ĐIẾM",
+    "meaning": "Cửa hàng",
+    "exam": "N5 7/2024",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "駅",
+      "家",
+      "会社"
+    ],
+    "hirapatu": [
+      "みず",
+      "みみ",
+      "みち"
+    ]
+  },
+  {
+    "kanji": "外国",
+    "hira": "がいこく",
+    "wordType": "NGOẠI QUỐC",
+    "meaning": "Nước ngoài",
+    "exam": "N5 7/2024",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "国",
+      "学校",
+      "会社"
+    ],
+    "hirapatu": [
+      "がっこう",
+      "がくせい",
+      "かいしゃ"
+    ]
+  },
+  {
+    "kanji": "話",
+    "hira": "はなし",
+    "wordType": "THOẠI",
+    "meaning": "Câu chuyện",
+    "exam": "N5 7/2024",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "花",
+      "鼻",
+      "橋"
+    ],
+    "hirapatu": [
+      "はな",
+      "はし",
+      "はなす"
+    ]
+  },
+  {
+    "kanji": "読みます",
+    "hira": "よみます",
+    "wordType": "ĐỘC",
+    "meaning": "Đọc",
+    "exam": "N5 7/2024",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "飲みます",
+      "休みます",
+      "立ちます"
+    ],
+    "hirapatu": [
+      "のみます",
+      "みます",
+      "たちます"
+    ]
+  },
+  {
+    "kanji": "北側",
+    "hira": "きたがわ",
+    "wordType": "BẮC TRẮC",
+    "meaning": "Phía bắc",
+    "exam": "N5 7/2024",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "西側",
+      "東側",
+      "南側"
+    ],
+    "hirapatu": [
+      "にしがわ",
+      "ひがしがわ",
+      "みなみがわ"
+    ]
+  },
+  {
+    "kanji": "九月",
+    "hira": "くがつ",
+    "wordType": "CỬU NGUYỆT",
+    "meaning": "Tháng chín",
+    "exam": "N5 7/2024",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "四月",
+      "来月",
+      "先月"
+    ],
+    "hirapatu": [
+      "しがつ",
+      "ろくがつ",
+      "ごがつ"
+    ]
+  },
+  {
+    "kanji": "来なかった",
+    "hira": "こなかった",
+    "wordType": "LAI",
+    "meaning": "Không đến (quá khứ)",
+    "exam": "N5 7/2024",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "行かなかった",
+      "食べなかった",
+      "飲まなかった"
+    ],
+    "hirapatu": [
+      "いかなかった",
+      "たべなかった",
+      "のまなかった"
+    ]
+  },
+  {
+    "kanji": "天気",
+    "hira": "てんき",
+    "wordType": "THIÊN KHÍ",
+    "meaning": "Thời tiết",
+    "exam": "N5 7/2024",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "電気",
+      "元気",
+      "空"
+    ],
+    "hirapatu": [
+      "でんき",
+      "げんき",
+      "ゆき"
+    ]
+  },
+  {
+    "kanji": "空",
+    "hira": "そら",
+    "wordType": "KHÔNG",
+    "meaning": "Bầu trời",
+    "exam": "N5 7/2024",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "海",
+      "雲",
+      "雨"
+    ],
+    "hirapatu": [
+      "そと",
+      "そこ",
+      "そば"
+    ]
+  },
+  {
+    "kanji": "立ちます",
+    "hira": "たちます",
+    "wordType": "LẬP",
+    "meaning": "Đứng",
+    "exam": "N5 7/2024",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "飲みます",
+      "休みます",
+      "出します"
+    ],
+    "hirapatu": [
+      "たべます",
+      "のみます",
+      "だします"
+    ]
+  },
+  {
+    "kanji": "学生",
+    "hira": "がくせい",
+    "wordType": "HỌC SINH",
+    "meaning": "Học sinh",
+    "exam": "N5 7/2024",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "先生",
+      "会社員",
+      "留学生"
+    ],
+    "hirapatu": [
+      "がっこう",
+      "がいこく",
+      "せんせい"
+    ]
+  },
+  {
+    "kanji": "降ります",
+    "hira": "おります",
+    "wordType": "GIÁNG",
+    "meaning": "Xuống (xe)",
+    "exam": "N5 7/2024",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "入ります",
+      "帰ります",
+      "飲みます"
+    ],
+    "hirapatu": [
+      "のみます",
+      "たちます",
+      "だします"
+    ]
+  },
+  {
+    "kanji": "水",
+    "hira": "みず",
+    "wordType": "THỦY",
+    "meaning": "Nước",
+    "exam": "N5 12/2022",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "木",
+      "火",
+      "川"
+    ],
+    "hirapatu": [
+      "みせ",
+      "みち",
+      "みみ"
+    ]
+  },
+  {
+    "kanji": "入ります",
+    "hira": "はいります",
+    "wordType": "NHẬP",
+    "meaning": "Vào",
+    "exam": "N5 12/2022",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "降ります",
+      "帰ります",
+      "飲みます"
+    ],
+    "hirapatu": [
+      "はなします",
+      "かえります",
+      "おります"
+    ]
+  },
+  {
+    "kanji": "会社",
+    "hira": "かいしゃ",
+    "wordType": "HỘI XÃ",
+    "meaning": "Công ty",
+    "exam": "N5 12/2022",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "学校",
+      "銀行",
+      "病院"
+    ],
+    "hirapatu": [
+      "かいしゃいん",
+      "がっこう",
+      "でんしゃ"
+    ]
+  },
+  {
+    "kanji": "休みます",
+    "hira": "やすみます",
+    "wordType": "HƯU",
+    "meaning": "Nghỉ ngơi",
+    "exam": "N5 12/2022",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "飲みます",
+      "読みます",
+      "立ちます"
+    ],
+    "hirapatu": [
+      "のみます",
+      "よみます",
+      "みます"
+    ]
+  },
+  {
+    "kanji": "お母さん",
+    "hira": "おかあさん",
+    "wordType": "MẪU",
+    "meaning": "Mẹ (của người khác)",
+    "exam": "N5 12/2022",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "お父さん",
+      "お兄さん",
+      "お姉さん"
+    ],
+    "hirapatu": [
+      "おとうさん",
+      "おにいさん",
+      "おねえさん"
+    ]
+  },
+  {
+    "kanji": "少ない",
+    "hira": "すくない",
+    "wordType": "THIẾU",
+    "meaning": "Ít",
+    "exam": "N5 12/2022",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "小さい",
+      "新しい",
+      "大きい"
+    ],
+    "hirapatu": [
+      "やすい",
+      "ちいさい",
+      "くろい"
+    ]
+  },
+  {
+    "kanji": "四月",
+    "hira": "しがつ",
+    "wordType": "TỨ NGUYỆT",
+    "meaning": "Tháng tư",
+    "exam": "N5 12/2022",
+    "section": "Mondai 1",
+    "imagePage": 2,
+    "kanjipatu": [
+      "九月",
+      "来月",
+      "先月"
+    ],
+    "hirapatu": [
+      "しちがつ",
+      "くがつ",
+      "ごがつ"
+    ]
+  },
+  {
+    "kanji": "聞きます",
+    "hira": "ききます",
+    "wordType": "VĂN",
+    "meaning": "Nghe, hỏi",
+    "exam": "N5 12/2022",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "書きます",
+      "行きます",
+      "歩きます"
+    ],
+    "hirapatu": [
+      "かきます",
+      "きます",
+      "いきます"
+    ]
+  },
+  {
+    "kanji": "夕ごはん",
+    "hira": "ゆうごはん",
+    "wordType": "TỊCH - PHẠN",
+    "meaning": "Bữa tối",
+    "exam": "N5 12/2022",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "朝ごはん",
+      "昼ごはん",
+      "ご飯"
+    ],
+    "hirapatu": [
+      "あさごはん",
+      "ひるごはん",
+      "ごはん"
+    ]
+  },
+  {
+    "kanji": "今週",
+    "hira": "こんしゅう",
+    "wordType": "KIM CHU",
+    "meaning": "Tuần này",
+    "exam": "N5 12/2022",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "毎週",
+      "先週",
+      "来週"
+    ],
+    "hirapatu": [
+      "せんしゅう",
+      "まいしゅう",
+      "らいしゅう"
+    ]
+  },
+  {
+    "kanji": "西口",
+    "hira": "にしぐち",
+    "wordType": "TÂY KHẨU",
+    "meaning": "Cửa Tây",
+    "exam": "N5 12/2022",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "北口",
+      "東口",
+      "南口"
+    ],
+    "hirapatu": [
+      "きたぐち",
+      "ひがしぐち",
+      "みなみぐち"
+    ]
+  },
+  {
+    "kanji": "青い",
+    "hira": "あおい",
+    "wordType": "THANH",
+    "meaning": "Xanh",
+    "exam": "N5 12/2022",
+    "section": "Mondai 2",
+    "imagePage": 2,
+    "kanjipatu": [
+      "古い",
+      "安い",
+      "高い"
+    ],
+    "hirapatu": [
+      "あかい",
+      "おおい",
+      "ふるい"
+    ]
+  },
+  {
+    "kanji": "国",
+    "hira": "くに",
+    "wordType": "QUỐC",
+    "meaning": "Đất nước",
+    "exam": "N5 12/2021",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "口",
+      "日",
+      "田"
+    ],
+    "hirapatu": [
+      "くち",
+      "くも",
+      "くるま"
+    ]
+  },
+  {
+    "kanji": "お父さん",
+    "hira": "おとうさん",
+    "wordType": "PHỤ",
+    "meaning": "Bố (của người khác)",
+    "exam": "N5 12/2021",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "お母さん",
+      "お兄さん",
+      "お姉さん"
+    ],
+    "hirapatu": [
+      "おかあさん",
+      "おにいさん",
+      "おねえさん"
+    ]
+  },
+  {
+    "kanji": "百人",
+    "hira": "ひゃくにん",
+    "wordType": "BÁCH NHÂN",
+    "meaning": "100 người",
+    "exam": "N5 12/2021",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "一人",
+      "二人",
+      "五分"
+    ],
+    "hirapatu": [
+      "じゅっぷん",
+      "はんぶん",
+      "ろっぽん"
+    ]
+  },
+  {
+    "kanji": "立ちます",
+    "hira": "たちます",
+    "wordType": "LẬP",
+    "meaning": "Đứng",
+    "exam": "N5 12/2021",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "飲みます",
+      "休みます",
+      "出します"
+    ],
+    "hirapatu": [
+      "たべます",
+      "のみます",
+      "だします"
+    ]
+  },
+  {
+    "kanji": "五分",
+    "hira": "ごふん",
+    "wordType": "NGŨ PHÂN",
+    "meaning": "5 phút",
+    "exam": "N5 12/2021",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "半分",
+      "十分",
+      "百人"
+    ],
+    "hirapatu": [
+      "ふたり",
+      "はんぶん",
+      "ろっぽん"
+    ]
+  },
+  {
+    "kanji": "少ない",
+    "hira": "すくない",
+    "wordType": "THIẾU",
+    "meaning": "Ít",
+    "exam": "N5 12/2021",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "小さい",
+      "新しい",
+      "大きい"
+    ],
+    "hirapatu": [
+      "やすい",
+      "ちいさい",
+      "くろい"
+    ]
+  },
+  {
+    "kanji": "出ます",
+    "hira": "でます",
+    "wordType": "XUẤT",
+    "meaning": "Ra",
+    "exam": "N5 12/2021",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "出します",
+      "見ます",
+      "来ます"
+    ],
+    "hirapatu": [
+      "みます",
+      "きます",
+      "ねます"
+    ]
+  },
+  {
+    "kanji": "電車",
+    "hira": "でんしゃ",
+    "wordType": "ĐIỆN XA",
+    "meaning": "Tàu điện",
+    "exam": "N5 12/2021",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "自転車",
+      "地下鉄",
+      "飛行機"
+    ],
+    "hirapatu": [
+      "じてんしゃ",
+      "ちかてつ",
+      "ひこうき"
+    ]
+  },
+  {
+    "kanji": "手",
+    "hira": "て",
+    "wordType": "THỦ",
+    "meaning": "Tay",
+    "exam": "N5 12/2021",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "足",
+      "目",
+      "口"
+    ],
+    "hirapatu": [
+      "め",
+      "あし",
+      "くち"
+    ]
+  },
+  {
+    "kanji": "火よう日",
+    "hira": "かようび",
+    "wordType": "HỎA DIỆU NHẬT",
+    "meaning": "Thứ ba",
+    "exam": "N5 12/2021",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "土よう日",
+      "月よう日",
+      "水よう日"
+    ],
+    "hirapatu": [
+      "どようび",
+      "げつようび",
+      "すいようび"
+    ]
+  },
+  {
+    "kanji": "安い",
+    "hira": "やすい",
+    "wordType": "AN",
+    "meaning": "Rẻ",
+    "exam": "N5 12/2021",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "古い",
+      "青い",
+      "高い"
+    ],
+    "hirapatu": [
+      "ふるい",
+      "あおい",
+      "たかい"
+    ]
+  },
+  {
+    "kanji": "話します",
+    "hira": "はなします",
+    "wordType": "THOẠI",
+    "meaning": "Nói chuyện",
+    "exam": "N5 12/2021",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "出します",
+      "飲みます",
+      "立ちます"
+    ],
+    "hirapatu": [
+      "はいります",
+      "だします",
+      "やすみます"
+    ]
+  },
+  {
+    "kanji": "雨",
+    "hira": "あめ",
+    "wordType": "VŨ",
+    "meaning": "Mưa",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "雪",
+      "雲",
+      "風"
+    ],
+    "hirapatu": [
+      "あね",
+      "うみ",
+      "あさ"
+    ]
+  },
+  {
+    "kanji": "書きます",
+    "hira": "かきます",
+    "wordType": "THƯ",
+    "meaning": "Viết",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "聞きます",
+      "行きます",
+      "歩きます"
+    ],
+    "hirapatu": [
+      "かいます",
+      "ききます",
+      "いきます"
+    ]
+  },
+  {
+    "kanji": "中",
+    "hira": "なか",
+    "wordType": "TRUNG",
+    "meaning": "Trong",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "外",
+      "前",
+      "後"
+    ],
+    "hirapatu": [
+      "はな",
+      "なつ",
+      "さかな"
+    ]
+  },
+  {
+    "kanji": "小さい",
+    "hira": "ちいさい",
+    "wordType": "TIỂU",
+    "meaning": "Nhỏ",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "少ない",
+      "新しい",
+      "大きい"
+    ],
+    "hirapatu": [
+      "ちかい",
+      "すくない",
+      "おおきい"
+    ]
+  },
+  {
+    "kanji": "火よう日",
+    "hira": "かようび",
+    "wordType": "HỎA DIỆU NHẬT",
+    "meaning": "Thứ ba",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "土よう日",
+      "月よう日",
+      "水よう日"
+    ],
+    "hirapatu": [
+      "どようび",
+      "げつようび",
+      "すいようび"
+    ]
+  },
+  {
+    "kanji": "空",
+    "hira": "そら",
+    "wordType": "KHÔNG",
+    "meaning": "Bầu trời",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "海",
+      "雲",
+      "雨"
+    ],
+    "hirapatu": [
+      "そと",
+      "そこ",
+      "そば"
+    ]
+  },
+  {
+    "kanji": "百人",
+    "hira": "ひゃくにん",
+    "wordType": "BÁCH NHÂN",
+    "meaning": "100 người",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "一人",
+      "二人",
+      "五分"
+    ],
+    "hirapatu": [
+      "じゅっぷん",
+      "はんぶん",
+      "ろっぽん"
+    ]
+  },
+  {
+    "kanji": "魚",
+    "hira": "さかな",
+    "wordType": "NGƯ",
+    "meaning": "Cá",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "肉",
+      "鳥",
+      "猫"
+    ],
+    "hirapatu": [
+      "さくら",
+      "さとう",
+      "かさ"
+    ]
+  },
+  {
+    "kanji": "半分",
+    "hira": "はんぶん",
+    "wordType": "BÁN PHẦN",
+    "meaning": "Một nửa",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "五分",
+      "十分",
+      "百人"
+    ],
+    "hirapatu": [
+      "さんぼん",
+      "ろっぽん",
+      "いっぽん"
+    ]
+  },
+  {
+    "kanji": "間",
+    "hira": "あいだ",
+    "wordType": "GIAN",
+    "meaning": "Khoảng, giữa",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "前",
+      "後",
+      "中"
+    ],
+    "hirapatu": [
+      "あした",
+      "あそこ",
+      "あたま"
+    ]
+  },
+  {
+    "kanji": "三つ",
+    "hira": "みっつ",
+    "wordType": "TAM",
+    "meaning": "Ba cái",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "九つ",
+      "四つ",
+      "五つ"
+    ],
+    "hirapatu": [
+      "よっつ",
+      "いつつ",
+      "ここのつ"
+    ]
+  },
+  {
+    "kanji": "天気",
+    "hira": "てんき",
+    "wordType": "THIÊN KHÍ",
+    "meaning": "Thời tiết",
+    "exam": "N5 2018",
+    "section": "Mondai 1",
+    "imagePage": 3,
+    "kanjipatu": [
+      "電気",
+      "元気",
+      "空"
+    ],
+    "hirapatu": [
+      "でんき",
+      "げんき",
+      "ゆき"
+    ]
+  },
+  {
+    "kanji": "川",
+    "hira": "かわ",
+    "wordType": "XUYÊN",
+    "meaning": "Sông",
+    "exam": "N5 2018",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "海",
+      "山",
+      "池"
+    ],
+    "hirapatu": [
+      "かお",
+      "かさ",
+      "かべ"
+    ]
+  },
+  {
+    "kanji": "学校",
+    "hira": "がっこう",
+    "wordType": "HỌC HIỆU",
+    "meaning": "Trường học",
+    "exam": "N5 2018",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "会社",
+      "銀行",
+      "病院"
+    ],
+    "hirapatu": [
+      "がいこく",
+      "がくせい",
+      "ぎんこう"
+    ]
+  },
+  {
+    "kanji": "見ます",
+    "hira": "みます",
+    "wordType": "KIẾN",
+    "meaning": "Xem, nhìn",
+    "exam": "N5 2018",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "出ます",
+      "来ます",
+      "寝ます"
+    ],
+    "hirapatu": [
+      "のみます",
+      "よみます",
+      "でます"
+    ]
+  },
+  {
+    "kanji": "高い",
+    "hira": "たかい",
+    "wordType": "CAO",
+    "meaning": "Cao, đắt",
+    "exam": "N5 2018",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "古い",
+      "青い",
+      "安い"
+    ],
+    "hirapatu": [
+      "あかい",
+      "ちかい",
+      "ふるい"
+    ]
+  },
+  {
+    "kanji": "会社",
+    "hira": "かいしゃ",
+    "wordType": "HỘI XÃ",
+    "meaning": "Công ty",
+    "exam": "N5 2018",
+    "section": "Mondai 2",
+    "imagePage": 3,
+    "kanjipatu": [
+      "学校",
+      "銀行",
+      "病院"
+    ],
+    "hirapatu": [
+      "かいしゃいん",
+      "がっこう",
+      "でんしゃ"
+    ]
+  },
+  {
+    "kanji": "言わない",
+    "hira": "いわない",
+    "wordType": "NGÔN",
+    "meaning": "Không nói",
+    "exam": "Không rõ kỳ thi (tiếp trang trước)",
+    "section": "Không rõ",
+    "imagePage": 4,
+    "kanjipatu": [
+      "行かない",
+      "食べない",
+      "飲まない"
+    ],
+    "hirapatu": [
+      "いかない",
+      "たべない",
+      "のまない"
+    ]
+  },
+  {
+    "kanji": "来月",
+    "hira": "らいげつ",
+    "wordType": "LAI NGUYỆT",
+    "meaning": "Tháng tới",
+    "exam": "Không rõ kỳ thi (tiếp trang trước)",
+    "section": "Không rõ",
+    "imagePage": 4,
+    "kanjipatu": [
+      "四月",
+      "九月",
+      "先月"
+    ],
+    "hirapatu": [
+      "せんげつ",
+      "いちがつ",
+      "ろくがつ"
+    ]
+  },
+  {
+    "kanji": "先週",
+    "hira": "せんしゅう",
+    "wordType": "TIÊN CHU",
+    "meaning": "Tuần trước",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "毎週",
+      "今週",
+      "来週"
+    ],
+    "hirapatu": [
+      "こんしゅう",
+      "まいしゅう",
+      "らいしゅう"
+    ]
+  },
+  {
+    "kanji": "後",
+    "hira": "あと",
+    "wordType": "HẬU",
+    "meaning": "Sau",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "前",
+      "中",
+      "外"
+    ],
+    "hirapatu": [
+      "そと",
+      "おと",
+      "うしろ"
+    ]
+  },
+  {
+    "kanji": "言います",
+    "hira": "いいます",
+    "wordType": "NGÔN",
+    "meaning": "Nói",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "買います",
+      "飲みます",
+      "立ちます"
+    ],
+    "hirapatu": [
+      "いきます",
+      "かいます",
+      "のみます"
+    ]
+  },
+  {
+    "kanji": "山",
+    "hira": "やま",
+    "wordType": "SƠN",
+    "meaning": "Núi",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "川",
+      "海",
+      "空"
+    ],
+    "hirapatu": [
+      "やすみ",
+      "やさい",
+      "やね"
+    ]
+  },
+  {
+    "kanji": "多い",
+    "hira": "おおい",
+    "wordType": "ĐA",
+    "meaning": "Nhiều",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "古い",
+      "青い",
+      "安い"
+    ],
+    "hirapatu": [
+      "おおきい",
+      "あおい",
+      "ふるい"
+    ]
+  },
+  {
+    "kanji": "学校",
+    "hira": "がっこう",
+    "wordType": "HỌC HIỆU",
+    "meaning": "Trường học",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "会社",
+      "銀行",
+      "病院"
+    ],
+    "hirapatu": [
+      "がいこく",
+      "がくせい",
+      "ぎんこう"
+    ]
+  },
+  {
+    "kanji": "六本",
+    "hira": "ろっぽん",
+    "wordType": "LỤC BỔN",
+    "meaning": "Sáu cái (đồ dài)",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "三本",
+      "一本",
+      "百人"
+    ],
+    "hirapatu": [
+      "いっぽん",
+      "はんぶん",
+      "さんぼん"
+    ]
+  },
+  {
+    "kanji": "新聞",
+    "hira": "しんぶん",
+    "wordType": "TÂN VĂN",
+    "meaning": "Báo",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "雑誌",
+      "本",
+      "手紙"
+    ],
+    "hirapatu": [
+      "しんせつ",
+      "しんぱい",
+      "せんしゅう"
+    ]
+  },
+  {
+    "kanji": "安い",
+    "hira": "やすい",
+    "wordType": "AN",
+    "meaning": "Rẻ",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "古い",
+      "青い",
+      "高い"
+    ],
+    "hirapatu": [
+      "ふるい",
+      "あおい",
+      "たかい"
+    ]
+  },
+  {
+    "kanji": "外",
+    "hira": "そと",
+    "wordType": "NGOẠI",
+    "meaning": "Bên ngoài",
+    "exam": "N5 7/2017",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "中",
+      "前",
+      "後"
+    ],
+    "hirapatu": [
+      "そら",
+      "そこ",
+      "そば"
+    ]
+  },
+  {
+    "kanji": "飲みました",
+    "hira": "のみました",
+    "wordType": "ẨM",
+    "meaning": "Đã uống",
+    "exam": "N5 7/2017",
+    "section": "Mondai 2",
+    "imagePage": 4,
+    "kanjipatu": [
+      "会いました",
+      "行きました",
+      "食べました"
+    ],
+    "hirapatu": [
+      "あいました",
+      "いきました",
+      "たべました"
+    ]
+  },
+  {
+    "kanji": "車",
+    "hira": "くるま",
+    "wordType": "XA",
+    "meaning": "Xe hơi",
+    "exam": "N5 7/2017",
+    "section": "Mondai 2",
+    "imagePage": 4,
+    "kanjipatu": [
+      "電車",
+      "自転車",
+      "飛行機"
+    ],
+    "hirapatu": [
+      "くに",
+      "くも",
+      "くち"
+    ]
+  },
+  {
+    "kanji": "千円",
+    "hira": "せんえん",
+    "wordType": "THIÊN VIÊN",
+    "meaning": "1000 yên",
+    "exam": "N5 7/2017",
+    "section": "Mondai 2",
+    "imagePage": 4,
+    "kanjipatu": [
+      "百円",
+      "六千円",
+      "五千円"
+    ],
+    "hirapatu": [
+      "ごせんえん",
+      "ろくせんえん",
+      "ろくまんえん"
+    ]
+  },
+  {
+    "kanji": "半分",
+    "hira": "はんぶん",
+    "wordType": "BÁN PHẦN",
+    "meaning": "Một nửa",
+    "exam": "N5 7/2017",
+    "section": "Mondai 2",
+    "imagePage": 4,
+    "kanjipatu": [
+      "五分",
+      "十分",
+      "百人"
+    ],
+    "hirapatu": [
+      "さんぼん",
+      "ろっぽん",
+      "いっぽん"
+    ]
+  },
+  {
+    "kanji": "来ません",
+    "hira": "きません",
+    "wordType": "LAI",
+    "meaning": "Không đến",
+    "exam": "N5 7/2017",
+    "section": "Mondai 2",
+    "imagePage": 4,
+    "kanjipatu": [
+      "行きません",
+      "食べません",
+      "飲みません"
+    ],
+    "hirapatu": [
+      "いきません",
+      "たべません",
+      "のみません"
+    ]
+  },
+  {
+    "kanji": "会いました",
+    "hira": "あいました",
+    "wordType": "HỘI",
+    "meaning": "Đã gặp",
+    "exam": "N5 7/2017",
+    "section": "Mondai 2",
+    "imagePage": 4,
+    "kanjipatu": [
+      "飲みました",
+      "行きました",
+      "食べました"
+    ],
+    "hirapatu": [
+      "いきました",
+      "のみました",
+      "たべました"
+    ]
+  },
+  {
+    "kanji": "同じ",
+    "hira": "おなじ",
+    "wordType": "ĐỒNG",
+    "meaning": "Giống nhau",
+    "exam": "N5 7/2017",
+    "section": "Mondai 2",
+    "imagePage": 4,
+    "kanjipatu": [
+      "違う",
+      "一緒",
+      "別"
+    ],
+    "hirapatu": [
+      "おなか",
+      "おかね",
+      "おとうと"
+    ]
+  },
+  {
+    "kanji": "水",
+    "hira": "みず",
+    "wordType": "THỦY",
+    "meaning": "Nước",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "木",
+      "火",
+      "川"
+    ],
+    "hirapatu": [
+      "みせ",
+      "みち",
+      "みみ"
+    ]
+  },
+  {
+    "kanji": "学校",
+    "hira": "がっこう",
+    "wordType": "HỌC HIỆU",
+    "meaning": "Trường học",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "会社",
+      "銀行",
+      "病院"
+    ],
+    "hirapatu": [
+      "がいこく",
+      "がくせい",
+      "ぎんこう"
+    ]
+  },
+  {
+    "kanji": "安い",
+    "hira": "やすい",
+    "wordType": "AN",
+    "meaning": "Rẻ",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "古い",
+      "青い",
+      "高い"
+    ],
+    "hirapatu": [
+      "ふるい",
+      "あおい",
+      "たかい"
+    ]
+  },
+  {
+    "kanji": "少ない",
+    "hira": "すくない",
+    "wordType": "THIẾU",
+    "meaning": "Ít",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "小さい",
+      "新しい",
+      "大きい"
+    ],
+    "hirapatu": [
+      "やすい",
+      "ちいさい",
+      "くろい"
+    ]
+  },
+  {
+    "kanji": "六万円",
+    "hira": "ろくまんえん",
+    "wordType": "LỤC VẠN VIÊN",
+    "meaning": "60,000 yên",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "六千円",
+      "一万円",
+      "五千円"
+    ],
+    "hirapatu": [
+      "ろくせんえん",
+      "いちまんえん",
+      "せんえん"
+    ]
+  },
+  {
+    "kanji": "左",
+    "hira": "ひだり",
+    "wordType": "TẢ",
+    "meaning": "Trái",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "右",
+      "上",
+      "下"
+    ],
+    "hirapatu": [
+      "ひとり",
+      "ひる",
+      "ひがし"
+    ]
+  },
+  {
+    "kanji": "三本",
+    "hira": "さんぼん",
+    "wordType": "TAM BỔN",
+    "meaning": "Ba cái (vật thon dài)",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "六本",
+      "一本",
+      "百人"
+    ],
+    "hirapatu": [
+      "はんぶん",
+      "ろっぽん",
+      "いっぽん"
+    ]
+  },
+  {
+    "kanji": "先月",
+    "hira": "せんげつ",
+    "wordType": "TIÊN NGUYỆT",
+    "meaning": "Tháng trước",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "四月",
+      "九月",
+      "来月"
+    ],
+    "hirapatu": [
+      "らいげつ",
+      "いちがつ",
+      "ろくがつ"
+    ]
+  },
+  {
+    "kanji": "山",
+    "hira": "やま",
+    "wordType": "SƠN",
+    "meaning": "Núi",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "川",
+      "海",
+      "空"
+    ],
+    "hirapatu": [
+      "やすみ",
+      "やさい",
+      "やね"
+    ]
+  },
+  {
+    "kanji": "九つ",
+    "hira": "ここのつ",
+    "wordType": "CỬU",
+    "meaning": "Chín cái",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "三つ",
+      "四つ",
+      "五つ"
+    ],
+    "hirapatu": [
+      "みっつ",
+      "よっつ",
+      "いつつ"
+    ]
+  },
+  {
+    "kanji": "お金",
+    "hira": "おかね",
+    "wordType": "KIM",
+    "meaning": "Tiền",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "千円",
+      "百円",
+      "一万円"
+    ],
+    "hirapatu": [
+      "おかあさん",
+      "おなじ",
+      "おなか"
+    ]
+  },
+  {
+    "kanji": "飲みます",
+    "hira": "のみます",
+    "wordType": "ẨM",
+    "meaning": "Uống",
+    "exam": "N5 12/2012",
+    "section": "Mondai 1",
+    "imagePage": 4,
+    "kanjipatu": [
+      "休みます",
+      "読みます",
+      "立ちます"
+    ],
+    "hirapatu": [
+      "よみます",
+      "みます",
+      "たちます"
+    ]
+  },
+  {
+    "kanji": "高い",
+    "hira": "たかい",
+    "wordType": "CAO",
+    "meaning": "Cao, đắt",
+    "exam": "N5 12/2012",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "古い",
+      "青い",
+      "安い"
+    ],
+    "hirapatu": [
+      "あかい",
+      "ちかい",
+      "ふるい"
+    ]
+  },
+  {
+    "kanji": "英語",
+    "hira": "えいご",
+    "wordType": "ANH NGỮ",
+    "meaning": "Tiếng Anh",
+    "exam": "N5 12/2012",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "日本語",
+      "中国語",
+      "韓国語"
+    ],
+    "hirapatu": [
+      "にほんご",
+      "ちゅうごくご",
+      "かんこくご"
+    ]
+  },
+  {
+    "kanji": "休み",
+    "hira": "やすみ",
+    "wordType": "HƯU",
+    "meaning": "Nghỉ ngơi",
+    "exam": "N5 12/2012",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "休みます",
+      "休みました",
+      "休まない"
+    ],
+    "hirapatu": [
+      "やすい",
+      "やすみます",
+      "やすみました"
+    ]
+  },
+  {
+    "kanji": "生まれました",
+    "hira": "うまれました",
+    "wordType": "SINH",
+    "meaning": "Đã sinh ra",
+    "exam": "N5 12/2012",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "飲みました",
+      "会いました",
+      "行きました"
+    ],
+    "hirapatu": [
+      "のみました",
+      "あいました",
+      "いきました"
+    ]
+  },
+  {
+    "kanji": "雨",
+    "hira": "あめ",
+    "wordType": "VŨ",
+    "meaning": "Mưa",
+    "exam": "N5 12/2012",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "雪",
+      "雲",
+      "風"
+    ],
+    "hirapatu": [
+      "あね",
+      "うみ",
+      "あさ"
+    ]
+  },
+  {
+    "kanji": "間",
+    "hira": "あいだ",
+    "wordType": "GIAN",
+    "meaning": "Khoảng, giữa",
+    "exam": "N5 12/2012",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "前",
+      "後",
+      "中"
+    ],
+    "hirapatu": [
+      "あした",
+      "あそこ",
+      "あたま"
+    ]
+  },
+  {
+    "kanji": "家",
+    "hira": "いえ",
+    "wordType": "GIA",
+    "meaning": "Nhà",
+    "exam": "N5 12/2012",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "店",
+      "駅",
+      "学校"
+    ],
+    "hirapatu": [
+      "うえ",
+      "えき",
+      "いけ"
+    ]
+  },
+  {
+    "kanji": "白い",
+    "hira": "しろい",
+    "wordType": "BẠCH",
+    "meaning": "Trắng",
+    "exam": "N5 12/2012",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "古い",
+      "青い",
+      "安い"
+    ],
+    "hirapatu": [
+      "くろい",
+      "ふるい",
+      "あおい"
+    ]
+  },
+  {
+    "kanji": "先週",
+    "hira": "せんしゅう",
+    "wordType": "TIÊN CHU",
+    "meaning": "Tuần trước",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "毎週",
+      "今週",
+      "来週"
+    ],
+    "hirapatu": [
+      "こんしゅう",
+      "まいしゅう",
+      "らいしゅう"
+    ]
+  },
+  {
+    "kanji": "後",
+    "hira": "あと",
+    "wordType": "HẬU",
+    "meaning": "Sau",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "前",
+      "中",
+      "外"
+    ],
+    "hirapatu": [
+      "そと",
+      "おと",
+      "うしろ"
+    ]
+  },
+  {
+    "kanji": "言います",
+    "hira": "いいます",
+    "wordType": "NGÔN",
+    "meaning": "Nói",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "買います",
+      "飲みます",
+      "立ちます"
+    ],
+    "hirapatu": [
+      "いきます",
+      "かいます",
+      "のみます"
+    ]
+  },
+  {
+    "kanji": "山",
+    "hira": "やま",
+    "wordType": "SƠN",
+    "meaning": "Núi",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "川",
+      "海",
+      "空"
+    ],
+    "hirapatu": [
+      "やすみ",
+      "やさい",
+      "やね"
+    ]
+  },
+  {
+    "kanji": "多い",
+    "hira": "おおい",
+    "wordType": "ĐA",
+    "meaning": "Nhiều",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "古い",
+      "青い",
+      "安い"
+    ],
+    "hirapatu": [
+      "おおきい",
+      "あおい",
+      "ふるい"
+    ]
+  },
+  {
+    "kanji": "学校",
+    "hira": "がっこう",
+    "wordType": "HỌC HIỆU",
+    "meaning": "Trường học",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "会社",
+      "銀行",
+      "病院"
+    ],
+    "hirapatu": [
+      "がいこく",
+      "がくせい",
+      "ぎんこう"
+    ]
+  },
+  {
+    "kanji": "六本",
+    "hira": "ろっぽん",
+    "wordType": "LỤC BỔN",
+    "meaning": "Sáu cái (đồ dài)",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "三本",
+      "一本",
+      "百人"
+    ],
+    "hirapatu": [
+      "いっぽん",
+      "はんぶん",
+      "さんぼん"
+    ]
+  },
+  {
+    "kanji": "新聞",
+    "hira": "しんぶん",
+    "wordType": "TÂN VĂN",
+    "meaning": "Báo",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "雑誌",
+      "本",
+      "手紙"
+    ],
+    "hirapatu": [
+      "しんせつ",
+      "しんぱい",
+      "せんしゅう"
+    ]
+  },
+  {
+    "kanji": "安い",
+    "hira": "やすい",
+    "wordType": "AN",
+    "meaning": "Rẻ",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "古い",
+      "青い",
+      "高い"
+    ],
+    "hirapatu": [
+      "ふるい",
+      "あおい",
+      "たかい"
+    ]
+  },
+  {
+    "kanji": "外",
+    "hira": "そと",
+    "wordType": "NGOẠI",
+    "meaning": "Bên ngoài",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 1",
+    "imagePage": 5,
+    "kanjipatu": [
+      "中",
+      "前",
+      "後"
+    ],
+    "hirapatu": [
+      "そら",
+      "そこ",
+      "そば"
+    ]
+  },
+  {
+    "kanji": "飲みました",
+    "hira": "のみました",
+    "wordType": "ẨM",
+    "meaning": "Đã uống",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "会いました",
+      "行きました",
+      "食べました"
+    ],
+    "hirapatu": [
+      "あいました",
+      "いきました",
+      "たべました"
+    ]
+  },
+  {
+    "kanji": "車",
+    "hira": "くるま",
+    "wordType": "XA",
+    "meaning": "Xe hơi",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "電車",
+      "自転車",
+      "飛行機"
+    ],
+    "hirapatu": [
+      "くに",
+      "くも",
+      "くち"
+    ]
+  },
+  {
+    "kanji": "千円",
+    "hira": "せんえん",
+    "wordType": "THIÊN VIÊN",
+    "meaning": "1000 yên",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "百円",
+      "六千円",
+      "五千円"
+    ],
+    "hirapatu": [
+      "ごせんえん",
+      "ろくせんえん",
+      "ろくまんえん"
+    ]
+  },
+  {
+    "kanji": "半分",
+    "hira": "はんぶん",
+    "wordType": "BÁN PHẦN",
+    "meaning": "Một nửa",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "五分",
+      "十分",
+      "百人"
+    ],
+    "hirapatu": [
+      "さんぼん",
+      "ろっぽん",
+      "いっぽん"
+    ]
+  },
+  {
+    "kanji": "来ません",
+    "hira": "きません",
+    "wordType": "LAI",
+    "meaning": "Không đến",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "行きません",
+      "食べません",
+      "飲みません"
+    ],
+    "hirapatu": [
+      "いきません",
+      "たべません",
+      "のみません"
+    ]
+  },
+  {
+    "kanji": "会いました",
+    "hira": "あいました",
+    "wordType": "HỘI",
+    "meaning": "Đã gặp",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "飲みました",
+      "行きました",
+      "食べました"
+    ],
+    "hirapatu": [
+      "いきました",
+      "のみました",
+      "たべました"
+    ]
+  },
+  {
+    "kanji": "同じ",
+    "hira": "おなじ",
+    "wordType": "ĐỒNG",
+    "meaning": "Giống nhau",
+    "exam": "N5 2010-2011",
+    "section": "Mondai 2",
+    "imagePage": 5,
+    "kanjipatu": [
+      "違う",
+      "一緒",
+      "別"
+    ],
+    "hirapatu": [
+      "おなか",
+      "おかね",
+      "おとうと"
+    ]
+  }
+]
