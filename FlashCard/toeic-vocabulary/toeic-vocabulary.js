@@ -1,6 +1,6 @@
 "use strict";
 
-const DATA_URL = "../../data/Eng-Ja-Vi/toeic_tsl_1_500_vocabularies_with_readings.json";
+const DATA_URL = "../data/Eng-Ja-Vi/toeic_tsl_1_500_vocabularies_with_readings.json";
 const STORAGE_KEY = "toeic-vocabulary-current-rank";
 const QUEUE_KEY = "toeic-vocabulary-random-queue";
 
@@ -60,56 +60,6 @@ function getExamples(word) {
   };
 }
 
-function fisherYatesShuffle(items) {
-  const shuffled = [...items];
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const randomIndex = Math.floor(Math.random() * (index + 1));
-    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
-  }
-  return shuffled;
-}
-
-function persistRandomQueue() {
-  try {
-    sessionStorage.setItem(
-      QUEUE_KEY,
-      JSON.stringify({ total: vocabularies.length, queue: randomQueue }),
-    );
-  } catch (error) {
-    console.warn("Không thể lưu hàng đợi ngẫu nhiên:", error);
-  }
-}
-
-function createRandomQueue(excludedIndex) {
-  const candidates = vocabularies
-    .map((_, index) => index)
-    .filter((index) => index !== excludedIndex);
-  randomQueue = fisherYatesShuffle(candidates);
-  persistRandomQueue();
-}
-
-function restoreRandomQueue() {
-  try {
-    const stored = JSON.parse(sessionStorage.getItem(QUEUE_KEY) || "null");
-    if (
-      stored &&
-      stored.total === vocabularies.length &&
-      Array.isArray(stored.queue) &&
-      stored.queue.every(
-        (index) => Number.isInteger(index) && index >= 0 && index < vocabularies.length,
-      )
-    ) {
-      randomQueue = [...new Set(stored.queue)];
-    }
-  } catch (error) {
-    console.warn("Không thể khôi phục hàng đợi ngẫu nhiên:", error);
-  }
-
-  if (randomQueue.length === 0) {
-    createRandomQueue(currentIndex);
-  }
-}
-
 function validatePayload(payload) {
   if (!payload || !Array.isArray(payload.vocabularies)) {
     throw new Error("JSON không có mảng vocabularies hợp lệ.");
@@ -129,40 +79,60 @@ function validatePayload(payload) {
       example_sentences: getExamples(word),
     }));
 
-  if (validWords.length === 0) {
+  if (!validWords.length) {
     throw new Error("Không tìm thấy từ vựng hợp lệ trong file JSON.");
   }
 
   return validWords.sort((left, right) => left.rank - right.rank);
 }
 
-async function loadData() {
-  try {
-    const response = await fetch(DATA_URL, { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(`Không tải được JSON (${response.status}).`);
-    }
+function shuffle(items) {
+  const result = [...items];
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [result[index], result[randomIndex]] = [result[randomIndex], result[index]];
+  }
+  return result;
+}
 
-    const payload = await response.json();
-    initializeVocabulary(validatePayload(payload));
+function persistRandomQueue() {
+  try {
+    sessionStorage.setItem(
+      QUEUE_KEY,
+      JSON.stringify({ total: vocabularies.length, queue: randomQueue }),
+    );
   } catch (error) {
-    console.error(error);
-    showLoadError(error);
+    console.warn("Không thể lưu hàng đợi ngẫu nhiên:", error);
   }
 }
 
-function initializeVocabulary(words) {
-  vocabularies = words;
-  elements.totalWords.textContent = vocabularies.length.toLocaleString("vi-VN");
-  elements.idInput.max = String(vocabularies.length);
+function createRandomQueue(excludedIndex) {
+  randomQueue = shuffle(
+    vocabularies.map((_, index) => index).filter((index) => index !== excludedIndex),
+  );
+  persistRandomQueue();
+}
 
-  const savedRank = Number(localStorage.getItem(STORAGE_KEY));
-  const savedIndex = vocabularies.findIndex((word) => Number(word.rank) === savedRank);
-  currentIndex = savedIndex >= 0 ? savedIndex : 0;
+function restoreRandomQueue() {
+  try {
+    const stored = JSON.parse(sessionStorage.getItem(QUEUE_KEY) || "null");
+    const isValid =
+      stored &&
+      stored.total === vocabularies.length &&
+      Array.isArray(stored.queue) &&
+      stored.queue.every(
+        (index) => Number.isInteger(index) && index >= 0 && index < vocabularies.length,
+      );
 
-  restoreRandomQueue();
-  setControlsDisabled(false);
-  renderCurrentWord(false);
+    randomQueue = isValid ? [...new Set(stored.queue)] : [];
+  } catch (error) {
+    console.warn("Không thể khôi phục hàng đợi ngẫu nhiên:", error);
+    randomQueue = [];
+  }
+
+  if (!randomQueue.length) {
+    createRandomQueue(currentIndex);
+  }
 }
 
 function setControlsDisabled(disabled) {
@@ -173,6 +143,33 @@ function setControlsDisabled(disabled) {
   elements.idInput.disabled = disabled;
 }
 
+function initializeVocabulary(words) {
+  vocabularies = words;
+  elements.totalWords.textContent = vocabularies.length.toLocaleString("vi-VN");
+  elements.idInput.max = String(vocabularies.length);
+
+  const savedRank = Number(localStorage.getItem(STORAGE_KEY));
+  const savedIndex = vocabularies.findIndex((word) => word.rank === savedRank);
+  currentIndex = savedIndex >= 0 ? savedIndex : 0;
+
+  restoreRandomQueue();
+  setControlsDisabled(false);
+  renderCurrentWord(false);
+}
+
+async function loadData() {
+  try {
+    const response = await fetch(DATA_URL, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`Không tải được JSON (${response.status}).`);
+    }
+    initializeVocabulary(validatePayload(await response.json()));
+  } catch (error) {
+    console.error(error);
+    showLoadError(error);
+  }
+}
+
 function showLoadError(error) {
   setControlsDisabled(true);
   elements.cardHost.innerHTML = `
@@ -180,10 +177,7 @@ function showLoadError(error) {
       <div>
         <h2>Không thể tải dữ liệu</h2>
         <p>${escapeHtml(error.message)}</p>
-        <p>
-          Hãy chạy website bằng local server, hoặc chọn thủ công file<br />
-          <code>toeic_tsl_1_500_vocabularies_with_readings.json</code>.
-        </p>
+        <p>Hãy chạy website bằng web server hoặc chọn thủ công file JSON.</p>
         <button id="chooseFileButton" class="file-button" type="button">Chọn file JSON</button>
       </div>
     </div>
@@ -195,8 +189,7 @@ function showLoadError(error) {
 }
 
 function renderExampleSection(examples) {
-  const hasExample = examples.japanese || examples.english || examples.vietnamese;
-  if (!hasExample) {
+  if (!examples.japanese && !examples.english && !examples.vietnamese) {
     return `
       <section class="translation-panel example-panel" aria-label="Câu ví dụ">
         <p class="section-label">例文 · Câu ví dụ</p>
@@ -213,13 +206,9 @@ function renderExampleSection(examples) {
           <div class="example-heading japanese-row">
             <p class="section-label">日本語</p>
             ${examples.japanese ? `
-              <button
-                class="speak-button example-speak"
-                type="button"
-                data-speak="example-japanese"
-                aria-label="Nghe câu ví dụ tiếng Nhật"
-                title="Nghe câu ví dụ tiếng Nhật"
-              >🔊</button>
+              <button class="speak-button example-speak" type="button"
+                data-speak="example-japanese" aria-label="Nghe câu ví dụ tiếng Nhật"
+                title="Nghe câu ví dụ tiếng Nhật">🔊</button>
             ` : ""}
           </div>
           <p class="japanese-text example-japanese">${escapeHtml(examples.japanese || "—")}</p>
@@ -229,13 +218,9 @@ function renderExampleSection(examples) {
           <div class="example-heading english-row">
             <p class="section-label">English</p>
             ${examples.english ? `
-              <button
-                class="speak-button example-speak"
-                type="button"
-                data-speak="example-english"
-                aria-label="Nghe câu ví dụ tiếng Anh"
-                title="Nghe câu ví dụ tiếng Anh"
-              >🔊</button>
+              <button class="speak-button example-speak" type="button"
+                data-speak="example-english" aria-label="Nghe câu ví dụ tiếng Anh"
+                title="Nghe câu ví dụ tiếng Anh">🔊</button>
             ` : ""}
           </div>
           <p class="example-english">${escapeHtml(examples.english || "—")}</p>
@@ -255,11 +240,11 @@ function renderCurrentWord(animate = true) {
   if (!word) return;
 
   const examples = getExamples(word);
-  viewedRanks.add(Number(word.rank));
+  viewedRanks.add(word.rank);
   localStorage.setItem(STORAGE_KEY, String(word.rank));
   elements.idInput.value = String(word.rank);
-
   elements.cardHost.classList.remove("animate-card");
+
   elements.cardHost.innerHTML = `
     <div class="card-topline">
       <span class="word-id">ID ${padId(word.rank)}</span>
@@ -271,13 +256,8 @@ function renderCurrentWord(animate = true) {
         <p class="section-label">日本語 · Japanese</p>
         <div class="japanese-row">
           <h2 id="japaneseWord" class="japanese-text japanese-main">${escapeHtml(word.japanese)}</h2>
-          <button
-            class="speak-button"
-            type="button"
-            data-speak="japanese"
-            aria-label="Nghe phát âm tiếng Nhật"
-            title="Nghe tiếng Nhật"
-          >🔊</button>
+          <button class="speak-button" type="button" data-speak="japanese"
+            aria-label="Nghe phát âm tiếng Nhật" title="Nghe tiếng Nhật">🔊</button>
         </div>
         <p class="hiragana">${escapeHtml(word.japanese_hiragana || "—")}</p>
       </section>
@@ -287,13 +267,8 @@ function renderCurrentWord(animate = true) {
           <p class="section-label">English</p>
           <div class="english-row">
             <h3 id="englishWord" class="english-word english-secondary">${escapeHtml(word.english)}</h3>
-            <button
-              class="speak-button"
-              type="button"
-              data-speak="english"
-              aria-label="Nghe phát âm tiếng Anh"
-              title="Nghe tiếng Anh"
-            >🔊</button>
+            <button class="speak-button" type="button" data-speak="english"
+              aria-label="Nghe phát âm tiếng Anh" title="Nghe tiếng Anh">🔊</button>
           </div>
           <p class="pronunciation">${escapeHtml(word.english_pronunciation_ipa || "—")}</p>
         </section>
@@ -311,7 +286,8 @@ function renderCurrentWord(animate = true) {
       <span class="shortcut-hint">
         <kbd>←</kbd><kbd>→</kbd> chuyển từ · <kbd>R</kbd> ngẫu nhiên · <kbd>/</kbd> tìm kiếm
       </span>
-      <button id="copyButton" class="copy-button" type="button" aria-label="Sao chép từ vựng" title="Sao chép">⧉</button>
+      <button id="copyButton" class="copy-button" type="button"
+        aria-label="Sao chép từ vựng" title="Sao chép">⧉</button>
     </footer>
   `;
 
@@ -326,16 +302,12 @@ function renderCurrentWord(animate = true) {
     .querySelector('[data-speak="english"]')
     .addEventListener("click", () => speak(word.english, "en-US"));
 
-  const japaneseExampleButton = elements.cardHost.querySelector(
-    '[data-speak="example-japanese"]',
-  );
+  const japaneseExampleButton = elements.cardHost.querySelector('[data-speak="example-japanese"]');
   if (japaneseExampleButton) {
     japaneseExampleButton.addEventListener("click", () => speak(examples.japanese, "ja-JP"));
   }
 
-  const englishExampleButton = elements.cardHost.querySelector(
-    '[data-speak="example-english"]',
-  );
+  const englishExampleButton = elements.cardHost.querySelector('[data-speak="example-english"]');
   if (englishExampleButton) {
     englishExampleButton.addEventListener("click", () => speak(examples.english, "en-US"));
   }
@@ -356,20 +328,17 @@ function updateNavigationStatus() {
 }
 
 function moveBy(offset) {
-  if (vocabularies.length === 0) return;
+  if (!vocabularies.length) return;
   currentIndex = (currentIndex + offset + vocabularies.length) % vocabularies.length;
   renderCurrentWord();
 }
 
 function showRandomWord() {
   if (vocabularies.length <= 1) return;
-
-  if (randomQueue.length === 0) {
-    createRandomQueue(currentIndex);
-  }
+  if (!randomQueue.length) createRandomQueue(currentIndex);
 
   let nextIndex = randomQueue.pop();
-  if (nextIndex === currentIndex && randomQueue.length > 0) {
+  if (nextIndex === currentIndex && randomQueue.length) {
     const alternative = randomQueue.pop();
     randomQueue.unshift(nextIndex);
     nextIndex = alternative;
@@ -381,8 +350,7 @@ function showRandomWord() {
 }
 
 function jumpToRank(rank) {
-  const numericRank = Number(rank);
-  const index = vocabularies.findIndex((word) => Number(word.rank) === numericRank);
+  const index = vocabularies.findIndex((word) => word.rank === Number(rank));
   if (index < 0) {
     showToast(`Không tìm thấy ID ${rank}.`);
     return;
@@ -403,7 +371,7 @@ function renderSearchResults(query) {
   const matches = vocabularies
     .filter((word) => {
       const examples = getExamples(word);
-      const searchable = [
+      return [
         word.rank,
         word.english,
         word.english_pronunciation_ipa,
@@ -415,9 +383,8 @@ function renderSearchResults(query) {
         examples.vietnamese,
       ]
         .map(normalizeText)
-        .join(" ");
-
-      return searchable.includes(normalizedQuery);
+        .join(" ")
+        .includes(normalizedQuery);
     })
     .slice(0, 10);
 
@@ -436,9 +403,9 @@ function renderSearchResults(query) {
     : '<div class="result-meaning" style="padding: 14px;">Không tìm thấy từ phù hợp.</div>';
 
   elements.searchResults.classList.add("is-open");
-  elements.searchResults
-    .querySelectorAll("[data-rank]")
-    .forEach((button) => button.addEventListener("click", () => jumpToRank(button.dataset.rank)));
+  elements.searchResults.querySelectorAll("[data-rank]").forEach((button) => {
+    button.addEventListener("click", () => jumpToRank(button.dataset.rank));
+  });
 }
 
 function closeSearchResults() {
@@ -536,8 +503,7 @@ elements.jsonFileInput.addEventListener("change", async (event) => {
   if (!file) return;
 
   try {
-    const payload = JSON.parse(await file.text());
-    initializeVocabulary(validatePayload(payload));
+    initializeVocabulary(validatePayload(JSON.parse(await file.text())));
     showToast("Đã tải file JSON thành công.");
   } catch (error) {
     showLoadError(error);
