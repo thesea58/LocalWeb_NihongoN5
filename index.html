@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bộ công cụ học tiếng Nhật N5 và từ vựng TOEIC." />
+  <title>日本語 Study</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #172033;
+      background: #f5f7ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 32px 18px;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(91, 91, 214, 0.18), transparent 30rem),
+        radial-gradient(circle at 90% 90%, rgba(19, 167, 123, 0.16), transparent 30rem),
+        linear-gradient(135deg, #f5f7ff, #eefaf6);
+    }
+    main { width: min(1040px, 100%); margin: 0 auto; }
+    header { max-width: 760px; margin-bottom: 30px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #4f46e5;
+      font-size: 0.8rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+    .intro { margin: 16px 0 0; color: #667085; font-size: 1.05rem; line-height: 1.7; }
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.86);
+      color: inherit;
+      box-shadow: 0 20px 55px rgba(73, 80, 140, 0.13);
+      text-decoration: none;
+      backdrop-filter: blur(16px);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+    .app-card:hover,
+    .app-card:focus-visible {
+      outline: none;
+      transform: translateY(-4px);
+      box-shadow: 0 26px 65px rgba(73, 80, 140, 0.2);
+    }
+    .app-icon { font-size: 2.2rem; }
+    .app-card h2 { margin: 22px 0 8px; font-size: 1.45rem; }
+    .app-card p { margin: 0; color: #667085; line-height: 1.65; }
+    .open-label { margin-top: auto; padding-top: 24px; color: #4f46e5; font-weight: 800; }
+    footer { margin-top: 28px; color: #667085; font-size: 0.85rem; }
+    @media (max-width: 780px) { .app-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Japanese learning tools</p>
+      <h1>日本語 Study</h1>
+      <p class="intro">Chọn một trong ba công cụ học. Tất cả trang sử dụng cùng một menu để bạn chuyển bài nhanh chóng.</p>
+    </header>
+
+    <section class="app-grid" aria-label="Danh sách ứng dụng">
+      <a class="app-card" href="/FlashCard/">
+        <span class="app-icon" aria-hidden="true">🗂️</span>
+        <h2>Flash Card</h2>
+        <p>Học Kanji, cách đọc và nghĩa bằng thẻ ngẫu nhiên theo từng danh sách N5.</p>
+        <span class="open-label">Mở Flash Card →</span>
+      </a>
+
+      <a class="app-card" href="/FlashCard/hiragana.html">
+        <span class="app-icon" aria-hidden="true">あ</span>
+        <h2>Luyện Kana</h2>
+        <p>Luyện Hiragana và Katakana bằng câu hỏi trắc nghiệm hoặc ghép ký tự.</p>
+        <span class="open-label">Mở Luyện Kana →</span>
+      </a>
+
+      <a class="app-card" href="/FlashCard/toeic-vocabulary/">
+        <span class="app-icon" aria-hidden="true">英</span>
+        <h2>TOEIC Vocabulary</h2>
+        <p>Học từ vựng TOEIC theo thứ tự Nhật, Anh, Việt, kèm phát âm và câu ví dụ.</p>
+        <span class="open-label">Mở TOEIC Vocabulary →</span>
+      </a>
+    </section>
+
+    <footer>Static site tối ưu cho Cloudflare Pages.</footer>
+  </main>
+</body>
+</html>
