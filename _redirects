@@ -1,5 +1,6 @@
 /flashcard /FlashCard/ 301
 /kana /FlashCard/hiragana.html 301
 /toeic /FlashCard/toeic-vocabulary/ 301
+/FlashCard/tinhtu_na.html /FlashCard/ 301
 /toeic-vocabulary /FlashCard/toeic-vocabulary/ 301
 /toeic-vocabulary/* /FlashCard/toeic-vocabulary/:splat 301
