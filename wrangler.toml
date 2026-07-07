@@ -1,3 +1,9 @@
 name = "localweb-nihongo-n5"
 compatibility_date = "2026-07-07"
-pages_build_output_dir = "."
+workers_dev = true
+preview_urls = true
+
+[assets]
+directory = "."
+html_handling = "auto-trailing-slash"
+not_found_handling = "none"
