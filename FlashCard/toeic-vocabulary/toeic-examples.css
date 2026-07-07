@@ -1,0 +1,59 @@
+.japanese-main {
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.english-secondary {
+  font-size: clamp(2rem, 5vw, 3.7rem);
+}
+
+.example-panel {
+  min-height: 0;
+}
+
+.example-list {
+  display: grid;
+  gap: 18px;
+}
+
+.example-item + .example-item {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.example-heading {
+  justify-content: flex-start;
+}
+
+.example-heading .section-label {
+  margin: 0;
+}
+
+.example-speak {
+  width: 34px;
+  height: 34px;
+}
+
+.example-japanese,
+.example-english,
+.example-vietnamese,
+.example-empty {
+  margin: 8px 0 0;
+  line-height: 1.65;
+}
+
+.example-japanese {
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+}
+
+.example-english {
+  font-size: 1.08rem;
+  font-weight: 650;
+}
+
+.example-vietnamese,
+.example-empty {
+  color: var(--muted);
+  font-size: 1rem;
+}
