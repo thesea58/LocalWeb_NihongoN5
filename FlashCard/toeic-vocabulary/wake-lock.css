@@ -1,0 +1,13 @@
+.tool-mode + .tool-mode {
+  margin-top: 10px;
+}
+
+.tool-status.is-error .tool-status__dot {
+  background: #dc2626;
+  box-shadow: 0 0 0 5px rgba(220, 38, 38, 0.1);
+}
+
+.tool-switch input:disabled + .tool-switch__track {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
