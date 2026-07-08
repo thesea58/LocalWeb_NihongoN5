@@ -206,15 +206,17 @@
     }, delay);
   }
 
+  function stopCurrentSpeech() {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+
   function stopAutoPlay() {
     autoPlaying = false;
     runToken += 1;
     clearScheduledAction();
-
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
-
+    stopCurrentSpeech();
     updateRunningState(false);
   }
 
@@ -250,6 +252,22 @@
     schedule(() => playNextRandomWord(token), getIntervalMilliseconds(), token);
   }
 
+  function readCurrentDisplayedWord(token) {
+    if (!autoPlaying || token !== runToken) {
+      return;
+    }
+
+    const englishWord = document.getElementById("englishWord")?.textContent.trim();
+
+    if (!englishWord) {
+      statusText.textContent = "Đang chờ từ vừa chuyển tới...";
+      schedule(() => readCurrentDisplayedWord(token), 180, token);
+      return;
+    }
+
+    readEnglishWord(englishWord, 1, token);
+  }
+
   function playNextRandomWord(token) {
     if (!autoPlaying || token !== runToken) {
       return;
@@ -264,18 +282,21 @@
     renderRepeatProgress(0);
     statusText.textContent = "Đang chọn từ ngẫu nhiên...";
     randomButton.click();
+    schedule(() => readCurrentDisplayedWord(token), WORD_CHANGE_DELAY_MS, token);
+  }
 
-    schedule(() => {
-      const englishWord = document.getElementById("englishWord")?.textContent.trim();
+  function continueAutoPlayFromManualWordChange() {
+    if (!autoPlaying) {
+      return;
+    }
 
-      if (!englishWord) {
-        statusText.textContent = "Chưa lấy được từ tiếng Anh. Đang thử lại...";
-        schedule(() => playNextRandomWord(token), 700, token);
-        return;
-      }
-
-      readEnglishWord(englishWord, 1, token);
-    }, WORD_CHANGE_DELAY_MS, token);
+    runToken += 1;
+    const token = runToken;
+    clearScheduledAction();
+    stopCurrentSpeech();
+    renderRepeatProgress(0);
+    statusText.textContent = "Đã chuyển từ thủ công. Đang đọc từ mới...";
+    schedule(() => readCurrentDisplayedWord(token), WORD_CHANGE_DELAY_MS, token);
   }
 
   function startAutoPlay() {
@@ -322,6 +343,7 @@
   repeatCountSelect.addEventListener("change", handleSettingsChange);
   repeatIntervalSelect.addEventListener("change", handleSettingsChange);
   stopButton.addEventListener("click", stopAutoPlay);
+  document.addEventListener("toeic:manual-word-change", continueAutoPlayFromManualWordChange);
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !panel.hidden) {
