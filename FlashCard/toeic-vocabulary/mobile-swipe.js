@@ -31,6 +31,17 @@
     card.classList.remove("is-swiping");
   }
 
+  function notifyManualWordChange(direction) {
+    document.dispatchEvent(
+      new CustomEvent("toeic:manual-word-change", {
+        detail: {
+          source: "swipe",
+          direction,
+        },
+      }),
+    );
+  }
+
   card.addEventListener(
     "touchstart",
     (event) => {
@@ -80,8 +91,10 @@
 
       if (deltaX < 0 && !nextButton.disabled) {
         nextButton.click();
+        notifyManualWordChange("next");
       } else if (deltaX > 0 && !previousButton.disabled) {
         previousButton.click();
+        notifyManualWordChange("previous");
       }
     },
     { passive: true },
