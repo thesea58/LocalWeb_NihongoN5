@@ -111,18 +111,16 @@
       .sort((left, right) => right.score - left.score)[0]?.voice || null;
   }
 
-  window.speak = function speakWithMatchingVoice(text, language) {
+  function createUtterance(text, language) {
     const content = String(text || "").trim();
     if (!content) {
-      return;
+      return null;
     }
 
     const targetLanguage = languageSettings[language] ? language : "en-US";
     const settings = languageSettings[targetLanguage];
     const utterance = new SpeechSynthesisUtterance(content);
     const selectedVoice = findBestVoice(targetLanguage);
-
-    synthesis.cancel();
 
     utterance.lang = targetLanguage;
     utterance.rate = settings.rate;
@@ -134,6 +132,17 @@
       utterance.lang = selectedVoice.lang || targetLanguage;
     }
 
+    return utterance;
+  }
+
+  window.speak = function speakWithMatchingVoice(text, language) {
+    const utterance = createUtterance(text, language);
+    if (!utterance) {
+      return null;
+    }
+
+    synthesis.cancel();
+
     utterance.onerror = (event) => {
       if (event.error !== "interrupted" && event.error !== "canceled") {
         console.warn("Không thể phát âm:", event.error);
@@ -141,6 +150,42 @@
     };
 
     synthesis.speak(utterance);
+    return utterance;
+  };
+
+  window.speakAsync = function speakWithMatchingVoiceAsync(text, language) {
+    const utterance = createUtterance(text, language);
+    if (!utterance) {
+      return Promise.resolve(false);
+    }
+
+    synthesis.cancel();
+
+    return new Promise((resolve) => {
+      let settled = false;
+      const safetyTimeout = Math.min(30000, Math.max(8000, utterance.text.length * 450));
+      const timeoutId = window.setTimeout(() => finish(false), safetyTimeout);
+
+      function finish(completed) {
+        if (settled) {
+          return;
+        }
+
+        settled = true;
+        window.clearTimeout(timeoutId);
+        resolve(completed);
+      }
+
+      utterance.onend = () => finish(true);
+      utterance.onerror = (event) => {
+        if (event.error !== "interrupted" && event.error !== "canceled") {
+          console.warn("Không thể phát âm:", event.error);
+        }
+        finish(false);
+      };
+
+      synthesis.speak(utterance);
+    });
   };
 
   refreshVoices();
