@@ -78,13 +78,13 @@
 
         <div class="tool-settings" aria-label="Thiết lập Auto Play">
           <label class="tool-setting">
-            <span>Số lần đọc</span>
-            <select id="repeatCountSelect" aria-label="Số lần đọc mỗi từ">
-              <option value="1">1 lần</option>
-              <option value="2">2 lần</option>
-              <option value="3">3 lần</option>
-              <option value="4">4 lần</option>
-              <option value="5">5 lần</option>
+            <span>Số lượt Anh–Việt</span>
+            <select id="repeatCountSelect" aria-label="Số lượt đọc Anh và Việt cho mỗi từ">
+              <option value="1">1 lượt</option>
+              <option value="2">2 lượt</option>
+              <option value="3">3 lượt</option>
+              <option value="4">4 lượt</option>
+              <option value="5">5 lượt</option>
             </select>
           </label>
 
@@ -105,7 +105,7 @@
           <span id="toolStatusText">Auto Play đang tắt.</span>
         </div>
 
-        <div id="toolRepeatProgress" class="tool-repeat-progress" aria-label="Tiến độ số lần đọc"></div>
+        <div id="toolRepeatProgress" class="tool-repeat-progress" aria-label="Tiến độ số lượt Anh–Việt"></div>
 
         <button id="toolStopButton" class="tool-stop-button" type="button" hidden>Dừng Auto Play</button>
       </div>
@@ -158,7 +158,7 @@
   function updateDescription() {
     const repeatCount = getRepeatCount();
     const intervalSeconds = getIntervalSeconds();
-    description.textContent = `Chọn từ ngẫu nhiên, đọc tiếng Anh ${repeatCount} lần, mỗi lần cách nhau ${intervalSeconds} giây.`;
+    description.textContent = `Đọc xen kẽ English → Tiếng Việt ${repeatCount} lượt, cách nhau ${intervalSeconds} giây.`;
   }
 
   function renderRepeatProgress(completedCount = 0) {
@@ -167,7 +167,10 @@
       { length: repeatCount },
       (_, index) => `<span class="${index < completedCount ? "is-done" : ""}"></span>`,
     ).join("");
-    progress.setAttribute("aria-label", `Đã đọc ${completedCount} trên ${repeatCount} lần`);
+    progress.setAttribute(
+      "aria-label",
+      `Đã hoàn thành ${completedCount} trên ${repeatCount} lượt Anh–Việt`,
+    );
   }
 
   function setPanelOpen(open) {
@@ -212,6 +215,21 @@
     }
   }
 
+  function speakText(text, language) {
+    if (typeof window.speak === "function") {
+      window.speak(text, language);
+      return;
+    }
+
+    if ("speechSynthesis" in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = language;
+      utterance.rate = language === "vi-VN" ? 0.88 : 0.9;
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
   function stopAutoPlay() {
     autoPlaying = false;
     runToken += 1;
@@ -220,36 +238,44 @@
     updateRunningState(false);
   }
 
-  function readEnglishWord(word, repeatNumber, token) {
+  function readVietnameseWord(words, repeatNumber, token) {
     if (!autoPlaying || token !== runToken) {
       return;
     }
 
     const repeatCount = getRepeatCount();
+    statusText.textContent = `Lượt ${repeatNumber}/${repeatCount} · Tiếng Việt: ${words.vietnamese}`;
+    speakText(words.vietnamese, "vi-VN");
     renderRepeatProgress(repeatNumber);
-    statusText.textContent = `Đang đọc ${repeatNumber}/${repeatCount}: ${word}`;
-
-    if (typeof window.speak === "function") {
-      window.speak(word, "en-US");
-    } else if ("speechSynthesis" in window) {
-      const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = "en-US";
-      utterance.rate = 0.9;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
 
     if (repeatNumber < repeatCount) {
       schedule(
-        () => readEnglishWord(word, repeatNumber + 1, token),
+        () => readEnglishWord(words, repeatNumber + 1, token),
         getIntervalMilliseconds(),
         token,
       );
       return;
     }
 
-    statusText.textContent = `Đã đọc ${repeatCount} lần: ${word}. Chuẩn bị từ tiếp theo...`;
+    statusText.textContent = `Đã hoàn thành ${repeatCount} lượt Anh–Việt. Chuẩn bị từ tiếp theo...`;
     schedule(() => playNextRandomWord(token), getIntervalMilliseconds(), token);
+  }
+
+  function readEnglishWord(words, repeatNumber, token) {
+    if (!autoPlaying || token !== runToken) {
+      return;
+    }
+
+    const repeatCount = getRepeatCount();
+    renderRepeatProgress(repeatNumber - 1);
+    statusText.textContent = `Lượt ${repeatNumber}/${repeatCount} · English: ${words.english}`;
+    speakText(words.english, "en-US");
+
+    schedule(
+      () => readVietnameseWord(words, repeatNumber, token),
+      getIntervalMilliseconds(),
+      token,
+    );
   }
 
   function readCurrentDisplayedWord(token) {
@@ -258,14 +284,22 @@
     }
 
     const englishWord = document.getElementById("englishWord")?.textContent.trim();
+    const vietnameseWord = document.getElementById("vietnameseWord")?.textContent.trim();
 
-    if (!englishWord) {
+    if (!englishWord || !vietnameseWord) {
       statusText.textContent = "Đang chờ từ vừa chuyển tới...";
       schedule(() => readCurrentDisplayedWord(token), 180, token);
       return;
     }
 
-    readEnglishWord(englishWord, 1, token);
+    readEnglishWord(
+      {
+        english: englishWord,
+        vietnamese: vietnameseWord,
+      },
+      1,
+      token,
+    );
   }
 
   function playNextRandomWord(token) {
@@ -320,7 +354,7 @@
     renderRepeatProgress(0);
 
     if (autoPlaying) {
-      statusText.textContent = "Thiết lập mới sẽ áp dụng ngay từ lần đọc tiếp theo.";
+      statusText.textContent = "Thiết lập mới sẽ áp dụng ngay từ lượt tiếp theo.";
     }
   }
 
