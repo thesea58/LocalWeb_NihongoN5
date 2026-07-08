@@ -8,13 +8,38 @@
     return;
   }
 
-  const REPEAT_COUNT = 3;
-  const REPEAT_INTERVAL_MS = 3000;
   const WORD_CHANGE_DELAY_MS = 450;
+  const SETTINGS_KEY = "toeic-auto-play-settings";
+  const DEFAULT_SETTINGS = {
+    repeatCount: 3,
+    intervalSeconds: 3,
+  };
 
   let autoPlaying = false;
   let timerId = null;
   let runToken = 0;
+
+  function loadSettings() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "null");
+      const repeatCount = Number(stored?.repeatCount);
+      const intervalSeconds = Number(stored?.intervalSeconds);
+
+      return {
+        repeatCount: [1, 2, 3, 4, 5].includes(repeatCount)
+          ? repeatCount
+          : DEFAULT_SETTINGS.repeatCount,
+        intervalSeconds: [1, 2, 3, 5, 8].includes(intervalSeconds)
+          ? intervalSeconds
+          : DEFAULT_SETTINGS.intervalSeconds,
+      };
+    } catch (error) {
+      console.warn("Không thể tải thiết lập Auto Play:", error);
+      return { ...DEFAULT_SETTINGS };
+    }
+  }
+
+  const settings = loadSettings();
 
   const dock = document.createElement("div");
   dock.className = "tool-dock";
@@ -42,7 +67,7 @@
         <div class="tool-mode__row">
           <div>
             <p class="tool-mode__name">Auto Play</p>
-            <p class="tool-mode__description">Chọn từ ngẫu nhiên, đọc tiếng Anh 3 lần, mỗi lần cách nhau 3 giây.</p>
+            <p id="autoPlayDescription" class="tool-mode__description"></p>
           </div>
 
           <label class="tool-switch" aria-label="Bật hoặc tắt Auto Play">
@@ -51,14 +76,36 @@
           </label>
         </div>
 
+        <div class="tool-settings" aria-label="Thiết lập Auto Play">
+          <label class="tool-setting">
+            <span>Số lần đọc</span>
+            <select id="repeatCountSelect" aria-label="Số lần đọc mỗi từ">
+              <option value="1">1 lần</option>
+              <option value="2">2 lần</option>
+              <option value="3">3 lần</option>
+              <option value="4">4 lần</option>
+              <option value="5">5 lần</option>
+            </select>
+          </label>
+
+          <label class="tool-setting">
+            <span>Khoảng cách</span>
+            <select id="repeatIntervalSelect" aria-label="Khoảng cách giữa các lần đọc">
+              <option value="1">1 giây</option>
+              <option value="2">2 giây</option>
+              <option value="3">3 giây</option>
+              <option value="5">5 giây</option>
+              <option value="8">8 giây</option>
+            </select>
+          </label>
+        </div>
+
         <div id="toolStatus" class="tool-status">
           <span class="tool-status__dot" aria-hidden="true"></span>
           <span id="toolStatusText">Auto Play đang tắt.</span>
         </div>
 
-        <div id="toolRepeatProgress" class="tool-repeat-progress" aria-label="Tiến độ số lần đọc">
-          <span></span><span></span><span></span>
-        </div>
+        <div id="toolRepeatProgress" class="tool-repeat-progress" aria-label="Tiến độ số lần đọc"></div>
 
         <button id="toolStopButton" class="tool-stop-button" type="button" hidden>Dừng Auto Play</button>
       </div>
@@ -74,18 +121,59 @@
   const stopButton = document.getElementById("toolStopButton");
   const status = document.getElementById("toolStatus");
   const statusText = document.getElementById("toolStatusText");
-  const progressItems = [...document.querySelectorAll("#toolRepeatProgress span")];
+  const description = document.getElementById("autoPlayDescription");
+  const progress = document.getElementById("toolRepeatProgress");
+  const repeatCountSelect = document.getElementById("repeatCountSelect");
+  const repeatIntervalSelect = document.getElementById("repeatIntervalSelect");
+
+  repeatCountSelect.value = String(settings.repeatCount);
+  repeatIntervalSelect.value = String(settings.intervalSeconds);
+
+  function getRepeatCount() {
+    return Number(repeatCountSelect.value) || DEFAULT_SETTINGS.repeatCount;
+  }
+
+  function getIntervalSeconds() {
+    return Number(repeatIntervalSelect.value) || DEFAULT_SETTINGS.intervalSeconds;
+  }
+
+  function getIntervalMilliseconds() {
+    return getIntervalSeconds() * 1000;
+  }
+
+  function saveSettings() {
+    try {
+      localStorage.setItem(
+        SETTINGS_KEY,
+        JSON.stringify({
+          repeatCount: getRepeatCount(),
+          intervalSeconds: getIntervalSeconds(),
+        }),
+      );
+    } catch (error) {
+      console.warn("Không thể lưu thiết lập Auto Play:", error);
+    }
+  }
+
+  function updateDescription() {
+    const repeatCount = getRepeatCount();
+    const intervalSeconds = getIntervalSeconds();
+    description.textContent = `Chọn từ ngẫu nhiên, đọc tiếng Anh ${repeatCount} lần, mỗi lần cách nhau ${intervalSeconds} giây.`;
+  }
+
+  function renderRepeatProgress(completedCount = 0) {
+    const repeatCount = getRepeatCount();
+    progress.innerHTML = Array.from(
+      { length: repeatCount },
+      (_, index) => `<span class="${index < completedCount ? "is-done" : ""}"></span>`,
+    ).join("");
+    progress.setAttribute("aria-label", `Đã đọc ${completedCount} trên ${repeatCount} lần`);
+  }
 
   function setPanelOpen(open) {
     panel.hidden = !open;
     bubble.setAttribute("aria-expanded", String(open));
     bubble.setAttribute("aria-label", open ? "Đóng bảng công cụ" : "Mở bảng công cụ");
-  }
-
-  function updateRepeatProgress(repeatNumber = 0) {
-    progressItems.forEach((item, index) => {
-      item.classList.toggle("is-done", index < repeatNumber);
-    });
   }
 
   function updateRunningState(running) {
@@ -96,7 +184,7 @@
 
     if (!running) {
       statusText.textContent = "Auto Play đang tắt.";
-      updateRepeatProgress(0);
+      renderRepeatProgress(0);
     }
   }
 
@@ -135,8 +223,9 @@
       return;
     }
 
-    updateRepeatProgress(repeatNumber);
-    statusText.textContent = `Đang đọc ${repeatNumber}/${REPEAT_COUNT}: ${word}`;
+    const repeatCount = getRepeatCount();
+    renderRepeatProgress(repeatNumber);
+    statusText.textContent = `Đang đọc ${repeatNumber}/${repeatCount}: ${word}`;
 
     if (typeof window.speak === "function") {
       window.speak(word, "en-US");
@@ -148,17 +237,17 @@
       window.speechSynthesis.speak(utterance);
     }
 
-    if (repeatNumber < REPEAT_COUNT) {
+    if (repeatNumber < repeatCount) {
       schedule(
         () => readEnglishWord(word, repeatNumber + 1, token),
-        REPEAT_INTERVAL_MS,
+        getIntervalMilliseconds(),
         token,
       );
       return;
     }
 
-    statusText.textContent = `Đã đọc 3 lần: ${word}. Chuẩn bị từ tiếp theo...`;
-    schedule(() => playNextRandomWord(token), REPEAT_INTERVAL_MS, token);
+    statusText.textContent = `Đã đọc ${repeatCount} lần: ${word}. Chuẩn bị từ tiếp theo...`;
+    schedule(() => playNextRandomWord(token), getIntervalMilliseconds(), token);
   }
 
   function playNextRandomWord(token) {
@@ -172,7 +261,7 @@
       return;
     }
 
-    updateRepeatProgress(0);
+    renderRepeatProgress(0);
     statusText.textContent = "Đang chọn từ ngẫu nhiên...";
     randomButton.click();
 
@@ -204,6 +293,16 @@
     playNextRandomWord(token);
   }
 
+  function handleSettingsChange() {
+    saveSettings();
+    updateDescription();
+    renderRepeatProgress(0);
+
+    if (autoPlaying) {
+      statusText.textContent = "Thiết lập mới sẽ áp dụng ngay từ lần đọc tiếp theo.";
+    }
+  }
+
   bubble.addEventListener("click", () => {
     setPanelOpen(panel.hidden);
   });
@@ -220,6 +319,8 @@
     }
   });
 
+  repeatCountSelect.addEventListener("change", handleSettingsChange);
+  repeatIntervalSelect.addEventListener("change", handleSettingsChange);
   stopButton.addEventListener("click", stopAutoPlay);
 
   document.addEventListener("keydown", (event) => {
@@ -237,5 +338,7 @@
 
   window.addEventListener("beforeunload", stopAutoPlay);
 
+  updateDescription();
+  renderRepeatProgress(0);
   updateRunningState(false);
 })();
