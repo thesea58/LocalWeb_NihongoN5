@@ -89,8 +89,8 @@
           </label>
 
           <label class="tool-setting">
-            <span>Khoảng cách</span>
-            <select id="repeatIntervalSelect" aria-label="Khoảng cách giữa các lần đọc">
+            <span>Thời gian chờ</span>
+            <select id="repeatIntervalSelect" aria-label="Thời gian chờ sau khi đọc xong">
               <option value="1">1 giây</option>
               <option value="2">2 giây</option>
               <option value="3">3 giây</option>
@@ -158,7 +158,7 @@
   function updateDescription() {
     const repeatCount = getRepeatCount();
     const intervalSeconds = getIntervalSeconds();
-    description.textContent = `Đọc xen kẽ English → Tiếng Việt ${repeatCount} lượt, cách nhau ${intervalSeconds} giây.`;
+    description.textContent = `Đọc xen kẽ English → Tiếng Việt ${repeatCount} lượt. Sau khi đọc xong mới chờ ${intervalSeconds} giây.`;
   }
 
   function renderRepeatProgress(completedCount = 0) {
@@ -215,19 +215,24 @@
     }
   }
 
-  function speakText(text, language) {
-    if (typeof window.speak === "function") {
-      window.speak(text, language);
-      return;
+  async function speakText(text, language) {
+    if (typeof window.speakAsync === "function") {
+      return window.speakAsync(text, language);
     }
 
-    if ("speechSynthesis" in window) {
+    if (!("speechSynthesis" in window)) {
+      return false;
+    }
+
+    return new Promise((resolve) => {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = language;
       utterance.rate = language === "vi-VN" ? 0.88 : 0.9;
+      utterance.onend = () => resolve(true);
+      utterance.onerror = () => resolve(false);
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(utterance);
-    }
+    });
   }
 
   function stopAutoPlay() {
@@ -238,17 +243,23 @@
     updateRunningState(false);
   }
 
-  function readVietnameseWord(words, repeatNumber, token) {
+  async function readVietnameseWord(words, repeatNumber, token) {
     if (!autoPlaying || token !== runToken) {
       return;
     }
 
     const repeatCount = getRepeatCount();
     statusText.textContent = `Lượt ${repeatNumber}/${repeatCount} · Tiếng Việt: ${words.vietnamese}`;
-    speakText(words.vietnamese, "vi-VN");
+    await speakText(words.vietnamese, "vi-VN");
+
+    if (!autoPlaying || token !== runToken) {
+      return;
+    }
+
     renderRepeatProgress(repeatNumber);
 
     if (repeatNumber < repeatCount) {
+      statusText.textContent = `Đã đọc xong tiếng Việt. Chờ ${getIntervalSeconds()} giây...`;
       schedule(
         () => readEnglishWord(words, repeatNumber + 1, token),
         getIntervalMilliseconds(),
@@ -257,11 +268,11 @@
       return;
     }
 
-    statusText.textContent = `Đã hoàn thành ${repeatCount} lượt Anh–Việt. Chuẩn bị từ tiếp theo...`;
+    statusText.textContent = `Đã hoàn thành ${repeatCount} lượt Anh–Việt. Chờ ${getIntervalSeconds()} giây để sang từ tiếp theo...`;
     schedule(() => playNextRandomWord(token), getIntervalMilliseconds(), token);
   }
 
-  function readEnglishWord(words, repeatNumber, token) {
+  async function readEnglishWord(words, repeatNumber, token) {
     if (!autoPlaying || token !== runToken) {
       return;
     }
@@ -269,8 +280,13 @@
     const repeatCount = getRepeatCount();
     renderRepeatProgress(repeatNumber - 1);
     statusText.textContent = `Lượt ${repeatNumber}/${repeatCount} · English: ${words.english}`;
-    speakText(words.english, "en-US");
+    await speakText(words.english, "en-US");
 
+    if (!autoPlaying || token !== runToken) {
+      return;
+    }
+
+    statusText.textContent = `Đã đọc xong tiếng Anh. Chờ ${getIntervalSeconds()} giây...`;
     schedule(
       () => readVietnameseWord(words, repeatNumber, token),
       getIntervalMilliseconds(),
