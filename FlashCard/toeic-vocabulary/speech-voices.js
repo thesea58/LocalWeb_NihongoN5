@@ -7,6 +7,14 @@
 
   const synthesis = window.speechSynthesis;
   let availableVoices = [];
+  let lastEnglishAccent = "";
+
+  const englishAccents = [
+    { language: "en-US", label: "Mỹ" },
+    { language: "en-GB", label: "Anh" },
+    { language: "en-CA", label: "Canada" },
+    { language: "en-AU", label: "Úc" },
+  ];
 
   const languageSettings = {
     "ja-JP": {
@@ -37,6 +45,41 @@
         "David",
       ],
     },
+    "en-GB": {
+      languagePrefix: "en",
+      rate: 0.9,
+      preferredNames: [
+        "Google UK English",
+        "Microsoft Sonia",
+        "Microsoft Ryan",
+        "Daniel",
+        "Serena",
+        "Kate",
+      ],
+    },
+    "en-CA": {
+      languagePrefix: "en",
+      rate: 0.9,
+      preferredNames: [
+        "Microsoft Clara",
+        "Microsoft Liam",
+        "Canada",
+        "Canadian",
+      ],
+    },
+    "en-AU": {
+      languagePrefix: "en",
+      rate: 0.9,
+      preferredNames: [
+        "Google Australian English",
+        "Microsoft Natasha",
+        "Microsoft William",
+        "Karen",
+        "Lee",
+        "Australia",
+        "Australian",
+      ],
+    },
     "vi-VN": {
       languagePrefix: "vi",
       rate: 0.88,
@@ -60,6 +103,14 @@
 
   function refreshVoices() {
     availableVoices = synthesis.getVoices();
+  }
+
+  function randomItem(items) {
+    if (!items.length) {
+      return null;
+    }
+
+    return items[Math.floor(Math.random() * items.length)];
   }
 
   function getVoiceScore(voice, targetLanguage, settings) {
@@ -111,25 +162,94 @@
       .sort((left, right) => right.score - left.score)[0]?.voice || null;
   }
 
+  function getEnglishAccentBuckets() {
+    if (!availableVoices.length) {
+      refreshVoices();
+    }
+
+    return englishAccents
+      .map((accent) => ({
+        ...accent,
+        voices: availableVoices.filter(
+          (voice) => normalizeLanguage(voice.lang) === normalizeLanguage(accent.language),
+        ),
+      }))
+      .filter((accent) => accent.voices.length > 0);
+  }
+
+  function chooseRandomEnglishVoice() {
+    const accentBuckets = getEnglishAccentBuckets();
+
+    if (accentBuckets.length > 0) {
+      const differentAccents = accentBuckets.filter(
+        (accent) => accent.language !== lastEnglishAccent,
+      );
+      const selectableAccents = differentAccents.length > 0
+        ? differentAccents
+        : accentBuckets;
+      const selectedAccent = randomItem(selectableAccents);
+      const selectedVoice = randomItem(selectedAccent.voices);
+
+      lastEnglishAccent = selectedAccent.language;
+
+      return {
+        voice: selectedVoice,
+        language: selectedVoice.lang || selectedAccent.language,
+        accentLabel: selectedAccent.label,
+      };
+    }
+
+    const fallbackEnglishVoices = availableVoices.filter((voice) =>
+      normalizeLanguage(voice.lang).startsWith("en"),
+    );
+    const fallbackVoice = randomItem(fallbackEnglishVoices);
+
+    return {
+      voice: fallbackVoice,
+      language: fallbackVoice?.lang || "en-US",
+      accentLabel: "English",
+    };
+  }
+
   function createUtterance(text, language) {
     const content = String(text || "").trim();
     if (!content) {
       return null;
     }
 
-    const targetLanguage = languageSettings[language] ? language : "en-US";
+    const normalizedLanguage = normalizeLanguage(language);
+    const isEnglish = normalizedLanguage.startsWith("en");
+    const targetLanguage = languageSettings[language]
+      ? language
+      : isEnglish
+        ? "en-US"
+        : "en-US";
     const settings = languageSettings[targetLanguage];
     const utterance = new SpeechSynthesisUtterance(content);
-    const selectedVoice = findBestVoice(targetLanguage);
+    const englishSelection = isEnglish ? chooseRandomEnglishVoice() : null;
+    const selectedVoice = englishSelection?.voice || findBestVoice(targetLanguage);
 
-    utterance.lang = targetLanguage;
+    utterance.lang = englishSelection?.language || targetLanguage;
     utterance.rate = settings.rate;
     utterance.pitch = 1;
     utterance.volume = 1;
 
     if (selectedVoice) {
       utterance.voice = selectedVoice;
-      utterance.lang = selectedVoice.lang || targetLanguage;
+      utterance.lang = selectedVoice.lang || utterance.lang;
+    }
+
+    if (isEnglish) {
+      utterance.toeicAccent = englishSelection?.accentLabel || "English";
+      document.dispatchEvent(
+        new CustomEvent("toeic:english-accent-selected", {
+          detail: {
+            accent: utterance.toeicAccent,
+            language: utterance.lang,
+            voiceName: selectedVoice?.name || "Giọng mặc định",
+          },
+        }),
+      );
     }
 
     return utterance;
@@ -186,6 +306,14 @@
 
       synthesis.speak(utterance);
     });
+  };
+
+  window.getToeicEnglishAccents = function getToeicEnglishAccents() {
+    return getEnglishAccentBuckets().map((accent) => ({
+      language: accent.language,
+      label: accent.label,
+      voiceCount: accent.voices.length,
+    }));
   };
 
   refreshVoices();
