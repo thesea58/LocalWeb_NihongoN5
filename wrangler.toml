@@ -1,9 +1,12 @@
 name = "localweb-nihongo-n5"
+main = "worker/index.js"
 compatibility_date = "2026-07-07"
 workers_dev = true
 preview_urls = true
 
 [assets]
 directory = "."
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
 html_handling = "auto-trailing-slash"
 not_found_handling = "none"

@@ -11,6 +11,7 @@
   <link href="./tool-panel.css" rel="stylesheet" />
   <link href="./wake-lock.css" rel="stylesheet" />
   <link href="./meaning-reveal.css" rel="stylesheet" />
+  <link href="./auth.css" rel="stylesheet" />
   <script defer src="../site-menu.js"></script>
 </head>
 <body>
@@ -21,9 +22,15 @@
         <h1>Học từ vựng Nhật · Anh · Việt</h1>
         <p class="subtitle">Chọn bộ dữ liệu, nghe phát âm, xem câu ví dụ và chuyển từ ngẫu nhiên không lặp liên tục.</p>
       </div>
-      <div class="stats-pill" aria-label="Thống kê danh sách">
-        <strong id="totalWords">0</strong>
-        <span>từ vựng trong bộ đang chọn</span>
+      <div class="account-cluster">
+        <div class="stats-pill" aria-label="Thống kê danh sách">
+          <strong id="totalWords">0</strong>
+          <span>từ vựng trong bộ đang chọn</span>
+        </div>
+        <button id="accountButton" class="account-button" type="button" aria-haspopup="dialog">
+          <span class="account-dot" aria-hidden="true"></span>
+          <span id="accountButtonText">Đang kiểm tra...</span>
+        </button>
       </div>
     </header>
 
@@ -69,9 +76,33 @@
     </nav>
   </main>
 
+  <dialog id="loginDialog" class="login-dialog" aria-labelledby="loginTitle">
+    <form id="loginForm" class="login-form">
+      <div class="login-heading">
+        <div>
+          <p class="eyebrow">Đồng bộ học tập</p>
+          <h2 id="loginTitle">Đăng nhập</h2>
+        </div>
+        <button id="loginCloseButton" class="dialog-close" type="button" aria-label="Đóng">✕</button>
+      </div>
+      <p class="login-description">Đăng nhập bằng tài khoản được tạo sẵn để đồng bộ thiết lập giữa các thiết bị.</p>
+      <label class="login-field">
+        <span>Tên đăng nhập</span>
+        <input id="loginUsername" name="username" type="text" autocomplete="username" minlength="3" maxlength="64" required />
+      </label>
+      <label class="login-field">
+        <span>Mật khẩu</span>
+        <input id="loginPassword" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="256" required />
+      </label>
+      <p id="loginStatus" class="login-status" role="status" aria-live="polite"></p>
+      <button id="loginSubmitButton" class="login-submit" type="submit">Đăng nhập và đồng bộ</button>
+    </form>
+  </dialog>
+
   <input id="jsonFileInput" type="file" accept="application/json,.json" hidden />
   <div id="toast" class="toast" role="status"></div>
   <script defer src="./storage-service.js"></script>
+  <script defer src="./remote-storage.js"></script>
   <script defer src="./vietnamese-glossary-loader.js"></script>
   <script defer src="./dataset-selector.js"></script>
   <script defer src="./toeic-vocabulary.js"></script>
@@ -80,5 +111,6 @@
   <script defer src="./tool-panel.js"></script>
   <script defer src="./wake-lock.js"></script>
   <script defer src="./meaning-reveal.js"></script>
+  <script defer src="./auth-client.js"></script>
 </body>
 </html>

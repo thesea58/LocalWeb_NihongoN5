@@ -45,10 +45,15 @@
         }
       },
 
-      set(key, value) {
+      set(key, value, options = {}) {
         if (!storage) return false;
         try {
           storage.setItem(`${PREFIX}${key}`, JSON.stringify(value));
+          if (kind === "local" && !options.silent) {
+            document.dispatchEvent(
+              new CustomEvent("toeic:setting-changed", { detail: { key, value } }),
+            );
+          }
           return true;
         } catch (error) {
           console.warn(`Không thể lưu thiết lập ${key}:`, error);
