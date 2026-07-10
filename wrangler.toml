@@ -13,4 +13,4 @@ not_found_handling = "none"
 [[d1_databases]]
 binding = "DB"
 database_name = "nihongo-user-data"
-database_id = "DATABASE_ID_CUA_BAN"
+database_id = "3ed1b0a1-684a-4f2a-81c0-7fde38f02ac7"
