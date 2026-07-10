@@ -1,10 +1,15 @@
 .toolbar {
-  grid-template-columns: minmax(250px, 0.9fr) minmax(260px, 1.4fr) 150px;
+  grid-template-columns:
+    minmax(250px, 0.9fr)
+    minmax(190px, 0.65fr)
+    minmax(250px, 1.3fr)
+    140px;
 }
 
 .dataset-field {
   position: relative;
   display: block;
+  min-width: 0;
 }
 
 .dataset-label {
@@ -47,9 +52,17 @@
   opacity: 0.68;
 }
 
+.category-select:disabled {
+  cursor: not-allowed;
+}
+
 @media (max-width: 900px) {
   .toolbar {
-    grid-template-columns: minmax(230px, 0.9fr) minmax(220px, 1.1fr) 130px;
+    grid-template-columns:
+      minmax(220px, 0.9fr)
+      minmax(170px, 0.65fr)
+      minmax(210px, 1.1fr)
+      125px;
   }
 }
 
