@@ -1,0 +1,37 @@
+#vietnameseWord.vietnamese-delayed-reveal {
+  animation: toeicVietnameseMeaningReveal 2s ease-out both;
+  will-change: opacity, filter, transform;
+}
+
+@keyframes toeicVietnameseMeaningReveal {
+  0%,
+  65% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(5px);
+    user-select: none;
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #vietnameseWord.vietnamese-delayed-reveal {
+    animation-name: toeicVietnameseMeaningRevealReduced;
+  }
+
+  @keyframes toeicVietnameseMeaningRevealReduced {
+    0%,
+    85% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
