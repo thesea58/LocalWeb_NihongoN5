@@ -6,12 +6,19 @@
   },
   "datasets": [
     {
+      "id": "toeic-600-essential-en-vi",
+      "label": "600 Essential Words · Anh–Việt",
+      "short_label": "600 Essential · EN–VI",
+      "description": "Dữ liệu Anh–Việt từ Excel; trường tiếng Nhật để trống. File nguồn hiện có 598 từ.",
+      "url": "../data/Eng-Ja-Vi/toeic_600_essential_words_en_vi.json?vietnamese=original",
+      "default": true
+    },
+    {
       "id": "toeic-tsl-1-500-english-reviewed",
       "label": "TOEIC TSL 1–500 · Việt theo English",
       "short_label": "TOEIC 1–500 · VI theo English",
       "description": "Nghĩa tiếng Việt được ưu tiên diễn giải từ headword và ngữ cảnh tiếng Anh.",
-      "url": "../data/Eng-Ja-Vi/toeic_tsl_1_500_vocabularies_with_readings.json?vietnamese=english-reviewed",
-      "default": true
+      "url": "../data/Eng-Ja-Vi/toeic_tsl_1_500_vocabularies_with_readings.json?vietnamese=english-reviewed"
     },
     {
       "id": "toeic-tsl-1-500-original",
@@ -19,13 +26,6 @@
       "short_label": "TOEIC 1–500 · Bản gốc",
       "description": "Giữ nguyên nghĩa tiếng Việt trong file JSON gốc.",
       "url": "../data/Eng-Ja-Vi/toeic_tsl_1_500_vocabularies_with_readings.json?vietnamese=original"
-    },
-    {
-      "id": "toeic-600-essential-en-vi",
-      "label": "600 Essential Words · Anh–Việt",
-      "short_label": "600 Essential · EN–VI",
-      "description": "Dữ liệu Anh–Việt từ Excel; trường tiếng Nhật để trống. File nguồn hiện có 598 từ.",
-      "url": "../data/Eng-Ja-Vi/toeic_600_essential_words_en_vi.json?vietnamese=original"
     }
   ]
 }
