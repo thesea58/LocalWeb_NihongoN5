@@ -10,6 +10,7 @@
 
   const WORD_CHANGE_DELAY_MS = 450;
   const SETTINGS_KEY = "toeic-auto-play-settings";
+  const settingsStore = window.toeicStorage?.local;
   const DEFAULT_SETTINGS = {
     repeatCount: 3,
     intervalSeconds: 3,
@@ -21,7 +22,7 @@
 
   function loadSettings() {
     try {
-      const stored = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "null");
+      const stored = settingsStore?.get(SETTINGS_KEY, null);
       const repeatCount = Number(stored?.repeatCount);
       const intervalSeconds = Number(stored?.intervalSeconds);
 
@@ -142,17 +143,10 @@
   }
 
   function saveSettings() {
-    try {
-      localStorage.setItem(
-        SETTINGS_KEY,
-        JSON.stringify({
-          repeatCount: getRepeatCount(),
-          intervalSeconds: getIntervalSeconds(),
-        }),
-      );
-    } catch (error) {
-      console.warn("Không thể lưu thiết lập Auto Play:", error);
-    }
+    settingsStore?.set(SETTINGS_KEY, {
+      repeatCount: getRepeatCount(),
+      intervalSeconds: getIntervalSeconds(),
+    });
   }
 
   function updateDescription() {
@@ -331,12 +325,16 @@
 
     renderRepeatProgress(0);
     statusText.textContent = "Đang chọn từ ngẫu nhiên...";
-    randomButton.click();
+    if (typeof window.toeicVocabularyApp?.showRandomWord === "function") {
+      window.toeicVocabularyApp.showRandomWord("autoplay");
+    } else {
+      randomButton.click();
+    }
     schedule(() => readCurrentDisplayedWord(token), WORD_CHANGE_DELAY_MS, token);
   }
 
-  function continueAutoPlayFromManualWordChange() {
-    if (!autoPlaying) {
+  function continueAutoPlayFromManualWordChange(event) {
+    if (!autoPlaying || event.detail?.source === "autoplay") {
       return;
     }
 
@@ -393,7 +391,7 @@
   repeatCountSelect.addEventListener("change", handleSettingsChange);
   repeatIntervalSelect.addEventListener("change", handleSettingsChange);
   stopButton.addEventListener("click", stopAutoPlay);
-  document.addEventListener("toeic:manual-word-change", continueAutoPlayFromManualWordChange);
+  document.addEventListener("toeic:word-change", continueAutoPlayFromManualWordChange);
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !panel.hidden) {

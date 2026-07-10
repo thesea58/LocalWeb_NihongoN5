@@ -9,13 +9,8 @@
   }
 
   const STORAGE_KEY = "toeic-delay-vietnamese-meaning";
-  let enabled = false;
-
-  try {
-    enabled = localStorage.getItem(STORAGE_KEY) === "true";
-  } catch (error) {
-    console.warn("Không thể đọc thiết lập đoán nghĩa:", error);
-  }
+  const settingsStore = window.toeicStorage?.local;
+  let enabled = settingsStore?.get(STORAGE_KEY, false) === true;
 
   panel.insertAdjacentHTML(
     "beforeend",
@@ -46,11 +41,7 @@
   const statusText = document.getElementById("meaningRevealStatusText");
 
   function savePreference() {
-    try {
-      localStorage.setItem(STORAGE_KEY, String(enabled));
-    } catch (error) {
-      console.warn("Không thể lưu thiết lập đoán nghĩa:", error);
-    }
+    settingsStore?.set(STORAGE_KEY, enabled);
   }
 
   function updateStatus() {

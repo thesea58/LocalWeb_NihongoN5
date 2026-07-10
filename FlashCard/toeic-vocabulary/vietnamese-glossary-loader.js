@@ -1,1 +1,64 @@
-(()=>{"use strict";if("function"!=typeof window.fetch)return;const t=window.fetch.bind(window);let n=null;function e(t){try{const n=new URL(function(t){return"string"==typeof t||t instanceof URL?String(t):t?.url||""}(t),window.location.href);return n.pathname.endsWith("/toeic_tsl_1_500_vocabularies_with_readings.json")?n:null}catch(t){return console.warn("Không thể kiểm tra URL dữ liệu TOEIC:",t),null}}async function r(){return n||(n=t("../data/Eng-Ja-Vi/toeic_vietnamese_english_glossary.json",{cache:"no-store"}).then(t=>{if(!t.ok)throw new Error(`Không tải được glossary tiếng Việt (${t.status}).`);return t.json()}).then(t=>{if(!t||"object"!=typeof t.translations)throw new Error("Glossary tiếng Việt không đúng cấu trúc.");return t.translations}).catch(t=>(n=null,console.warn("Sử dụng nghĩa tiếng Việt gốc vì glossary không tải được:",t),null))),n}window.fetch=async function(n,i){const s=await t(n,i),o=e(n);if(!s.ok||!o)return s;if("original"===o.searchParams.get("vietnamese"))return s;try{const[t,n]=await Promise.all([s.clone().json(),r()]);return n?function(t,n){const e=new Headers(t.headers);return e.delete("content-length"),e.delete("content-encoding"),e.set("content-type","application/json; charset=utf-8"),new Response(JSON.stringify(n),{status:t.status,statusText:t.statusText,headers:e})}(s,function(t,n){if(!t||!Array.isArray(t.vocabularies)||!n)return t;let e=0;const r=t.vocabularies.map(t=>{const r=String(t?.rank??t?.id??""),i=n[r];return"string"==typeof i&&i.trim()?(e+=1,{...t,vietnamese:i.trim(),translation_review:"english-reviewed",vietnamese_translation_source:"english-headword-and-toeic-context"}):t});return{...t,vocabularies:r,vietnamese_glossary:{source_language:"English",applied_count:e,loaded_at:(new Date).toISOString()}}}(t,n)):s}catch(t){return console.warn("Không thể áp dụng glossary tiếng Việt theo tiếng Anh:",t),s}}})();
+(() => {
+  "use strict";
+
+  const GLOSSARY_URL = "../data/Eng-Ja-Vi/toeic_vietnamese_english_glossary.json";
+  let glossaryPromise = null;
+
+  async function loadGlossary() {
+    if (!glossaryPromise) {
+      glossaryPromise = fetch(GLOSSARY_URL, { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Không tải được glossary tiếng Việt (${response.status}).`);
+          }
+          return response.json();
+        })
+        .then((payload) => {
+          if (!payload || typeof payload.translations !== "object") {
+            throw new Error("Glossary tiếng Việt không đúng cấu trúc.");
+          }
+          return payload.translations;
+        })
+        .catch((error) => {
+          glossaryPromise = null;
+          console.warn("Sử dụng nghĩa tiếng Việt gốc:", error);
+          return null;
+        });
+    }
+
+    return glossaryPromise;
+  }
+
+  async function applyEnglishReviewedVietnamese(payload) {
+    const translations = await loadGlossary();
+    if (!payload || !Array.isArray(payload.vocabularies) || !translations) {
+      return payload;
+    }
+
+    let appliedCount = 0;
+    const vocabularies = payload.vocabularies.map((word) => {
+      const rank = String(word?.rank ?? word?.id ?? "");
+      const translated = translations[rank];
+      if (typeof translated !== "string" || !translated.trim()) return word;
+
+      appliedCount += 1;
+      return {
+        ...word,
+        vietnamese: translated.trim(),
+        translation_review: "english-reviewed",
+        vietnamese_translation_source: "english-headword-and-toeic-context",
+      };
+    });
+
+    return {
+      ...payload,
+      vocabularies,
+      vietnamese_glossary: {
+        source_language: "English",
+        applied_count: appliedCount,
+      },
+    };
+  }
+
+  window.toeicVietnameseGlossary = { applyEnglishReviewedVietnamese };
+})();

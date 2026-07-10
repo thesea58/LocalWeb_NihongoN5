@@ -37,7 +37,7 @@
 
       <div class="field-wrap">
         <span class="field-icon" aria-hidden="true">⌕</span>
-        <input id="searchInput" class="search-input" type="search" autocomplete="off" placeholder="Tìm 日本語, English hoặc tiếng Việt..." aria-label="Tìm từ vựng" aria-controls="searchResults" />
+        <input id="searchInput" class="search-input" type="search" autocomplete="off" placeholder="Tìm 日本語, English hoặc tiếng Việt..." aria-label="Tìm từ vựng" aria-controls="searchResults" aria-expanded="false" />
         <div id="searchResults" class="search-results" role="listbox"></div>
       </div>
       <input id="idInput" class="id-input" type="number" min="1" inputmode="numeric" placeholder="Đi tới ID" aria-label="Chuyển tới ID" />
@@ -57,7 +57,7 @@
         <span id="positionText">Từ 0 / 0</span>
         <span id="randomRemaining">Ngẫu nhiên: đang chuẩn bị</span>
       </div>
-      <div class="progress-track">
+      <div id="positionProgress" class="progress-track" role="progressbar" aria-label="Vị trí trong danh sách" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
         <div id="progressFill" class="progress-fill"></div>
       </div>
     </div>
@@ -71,6 +71,7 @@
 
   <input id="jsonFileInput" type="file" accept="application/json,.json" hidden />
   <div id="toast" class="toast" role="status"></div>
+  <script defer src="./storage-service.js"></script>
   <script defer src="./vietnamese-glossary-loader.js"></script>
   <script defer src="./dataset-selector.js"></script>
   <script defer src="./toeic-vocabulary.js"></script>

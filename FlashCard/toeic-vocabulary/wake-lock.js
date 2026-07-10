@@ -9,7 +9,8 @@
   }
 
   const STORAGE_KEY = "toeic-keep-screen-awake";
-  let enabled = localStorage.getItem(STORAGE_KEY) !== "false";
+  const settingsStore = window.toeicStorage?.local;
+  let enabled = settingsStore?.get(STORAGE_KEY, false) === true;
   let wakeLock = null;
   let requesting = false;
 
@@ -48,11 +49,7 @@
   }
 
   function savePreference() {
-    try {
-      localStorage.setItem(STORAGE_KEY, String(enabled));
-    } catch (error) {
-      console.warn("Không thể lưu thiết lập màn hình:", error);
-    }
+    settingsStore?.set(STORAGE_KEY, enabled);
   }
 
   async function releaseWakeLock() {

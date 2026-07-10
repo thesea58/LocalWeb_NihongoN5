@@ -1,8 +1,9 @@
 "use strict";
 
-const DATA_URL = "../data/Eng-Ja-Vi/toeic_tsl_1_500_vocabularies_with_readings.json";
-const STORAGE_KEY = "toeic-vocabulary-current-rank";
-const QUEUE_KEY = "toeic-vocabulary-random-queue";
+const CURRENT_RANK_KEY = "toeic.current-rank";
+const QUEUE_KEY = "toeic.random-queue";
+const localStore = window.toeicStorage?.local;
+const sessionStore = window.toeicStorage?.session;
 
 const elements = {
   cardHost: document.getElementById("cardHost"),
@@ -16,6 +17,7 @@ const elements = {
   positionText: document.getElementById("positionText"),
   randomRemaining: document.getElementById("randomRemaining"),
   progressFill: document.getElementById("progressFill"),
+  positionProgress: document.getElementById("positionProgress"),
   jsonFileInput: document.getElementById("jsonFileInput"),
   toast: document.getElementById("toast"),
 };
@@ -96,14 +98,7 @@ function shuffle(items) {
 }
 
 function persistRandomQueue() {
-  try {
-    sessionStorage.setItem(
-      QUEUE_KEY,
-      JSON.stringify({ total: vocabularies.length, queue: randomQueue }),
-    );
-  } catch (error) {
-    console.warn("Không thể lưu hàng đợi ngẫu nhiên:", error);
-  }
+  sessionStore?.set(QUEUE_KEY, { total: vocabularies.length, queue: randomQueue });
 }
 
 function createRandomQueue(excludedIndex) {
@@ -115,7 +110,7 @@ function createRandomQueue(excludedIndex) {
 
 function restoreRandomQueue() {
   try {
-    const stored = JSON.parse(sessionStorage.getItem(QUEUE_KEY) || "null");
+    const stored = sessionStore?.get(QUEUE_KEY, null);
     const isValid =
       stored &&
       stored.total === vocabularies.length &&
@@ -148,7 +143,7 @@ function initializeVocabulary(words) {
   elements.totalWords.textContent = vocabularies.length.toLocaleString("vi-VN");
   elements.idInput.max = String(vocabularies.length);
 
-  const savedRank = Number(localStorage.getItem(STORAGE_KEY));
+  const savedRank = Number(localStore?.get(CURRENT_RANK_KEY, 0));
   const savedIndex = vocabularies.findIndex((word) => word.rank === savedRank);
   currentIndex = savedIndex >= 0 ? savedIndex : 0;
 
@@ -159,11 +154,14 @@ function initializeVocabulary(words) {
 
 async function loadData() {
   try {
-    const response = await fetch(DATA_URL, { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(`Không tải được JSON (${response.status}).`);
-    }
-    initializeVocabulary(validatePayload(await response.json()));
+    const payload = window.toeicDatasetService
+      ? await window.toeicDatasetService.loadSelectedPayload()
+      : await fetch("../data/Eng-Ja-Vi/toeic_tsl_1_500_vocabularies_with_readings.json", { cache: "no-store" })
+          .then((response) => {
+            if (!response.ok) throw new Error(`Không tải được JSON (${response.status}).`);
+            return response.json();
+          });
+    initializeVocabulary(validatePayload(payload));
   } catch (error) {
     console.error(error);
     showLoadError(error);
@@ -241,7 +239,7 @@ function renderCurrentWord(animate = true) {
 
   const examples = getExamples(word);
   viewedRanks.add(word.rank);
-  localStorage.setItem(STORAGE_KEY, String(word.rank));
+  localStore?.set(CURRENT_RANK_KEY, word.rank);
   elements.idInput.value = String(word.rank);
   elements.cardHost.classList.remove("animate-card");
 
@@ -322,6 +320,8 @@ function updateNavigationStatus() {
   elements.positionText.textContent = `Từ ${currentIndex + 1} / ${vocabularies.length}`;
   elements.randomRemaining.textContent = `Ngẫu nhiên: còn ${randomQueue.length} từ chưa lặp`;
   elements.progressFill.style.width = `${progress}%`;
+  elements.positionProgress?.setAttribute("aria-valuemax", String(vocabularies.length));
+  elements.positionProgress?.setAttribute("aria-valuenow", String(currentIndex + 1));
   elements.previousButton.disabled = vocabularies.length <= 1;
   elements.nextButton.disabled = vocabularies.length <= 1;
   document.title = `${word.japanese} · ${word.english} · ID ${padId(word.rank)} | TOEIC Vocabulary`;
@@ -329,11 +329,24 @@ function updateNavigationStatus() {
 
 function moveBy(offset) {
   if (!vocabularies.length) return;
-  currentIndex = (currentIndex + offset + vocabularies.length) % vocabularies.length;
-  renderCurrentWord();
+  setCurrentIndex(
+    (currentIndex + offset + vocabularies.length) % vocabularies.length,
+    "navigation",
+  );
 }
 
-function showRandomWord() {
+function setCurrentIndex(nextIndex, source = "unknown") {
+  if (!Number.isInteger(nextIndex) || nextIndex < 0 || nextIndex >= vocabularies.length) return;
+  currentIndex = nextIndex;
+  renderCurrentWord();
+  document.dispatchEvent(
+    new CustomEvent("toeic:word-change", {
+      detail: { index: currentIndex, rank: vocabularies[currentIndex]?.rank, source },
+    }),
+  );
+}
+
+function showRandomWord(source = "random") {
   if (vocabularies.length <= 1) return;
   if (!randomQueue.length) createRandomQueue(currentIndex);
 
@@ -344,21 +357,19 @@ function showRandomWord() {
     nextIndex = alternative;
   }
 
-  currentIndex = nextIndex;
   persistRandomQueue();
-  renderCurrentWord();
+  setCurrentIndex(nextIndex, source);
 }
 
-function jumpToRank(rank) {
+function jumpToRank(rank, source = "jump") {
   const index = vocabularies.findIndex((word) => word.rank === Number(rank));
   if (index < 0) {
     showToast(`Không tìm thấy ID ${rank}.`);
     return;
   }
 
-  currentIndex = index;
   closeSearchResults();
-  renderCurrentWord();
+  setCurrentIndex(index, source);
 }
 
 function renderSearchResults(query) {
@@ -403,6 +414,7 @@ function renderSearchResults(query) {
     : '<div class="result-meaning" style="padding: 14px;">Không tìm thấy từ phù hợp.</div>';
 
   elements.searchResults.classList.add("is-open");
+  elements.searchInput.setAttribute("aria-expanded", "true");
   elements.searchResults.querySelectorAll("[data-rank]").forEach((button) => {
     button.addEventListener("click", () => jumpToRank(button.dataset.rank));
   });
@@ -411,9 +423,14 @@ function renderSearchResults(query) {
 function closeSearchResults() {
   elements.searchResults.classList.remove("is-open");
   elements.searchResults.innerHTML = "";
+  elements.searchInput.setAttribute("aria-expanded", "false");
 }
 
 function speak(text, language) {
+  if (typeof window.speak === "function") {
+    window.speak(text, language);
+    return;
+  }
   if (!("speechSynthesis" in window)) {
     showToast("Trình duyệt này chưa hỗ trợ phát âm.");
     return;
@@ -461,17 +478,17 @@ function showToast(message) {
 
 elements.previousButton.addEventListener("click", () => moveBy(-1));
 elements.nextButton.addEventListener("click", () => moveBy(1));
-elements.randomButton.addEventListener("click", showRandomWord);
+elements.randomButton.addEventListener("click", () => showRandomWord("button-random"));
 
 elements.idInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    jumpToRank(elements.idInput.value);
+    jumpToRank(elements.idInput.value, "id-input");
     elements.idInput.blur();
   }
 });
 
 elements.idInput.addEventListener("change", () => {
-  if (elements.idInput.value) jumpToRank(elements.idInput.value);
+  if (elements.idInput.value) jumpToRank(elements.idInput.value, "id-input");
 });
 
 elements.searchInput.addEventListener("input", (event) => {
@@ -495,7 +512,7 @@ document.addEventListener("keydown", (event) => {
 
   if (event.key === "ArrowLeft") moveBy(-1);
   if (event.key === "ArrowRight") moveBy(1);
-  if (event.key.toLocaleLowerCase() === "r") showRandomWord();
+  if (event.key.toLocaleLowerCase() === "r") showRandomWord("keyboard-random");
 });
 
 elements.jsonFileInput.addEventListener("change", async (event) => {
@@ -511,3 +528,9 @@ elements.jsonFileInput.addEventListener("change", async (event) => {
 });
 
 loadData();
+
+window.toeicVocabularyApp = {
+  showRandomWord,
+  jumpToRank,
+  getCurrentWord: () => vocabularies[currentIndex] || null,
+};
