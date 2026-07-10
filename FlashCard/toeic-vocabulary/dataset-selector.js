@@ -3,14 +3,22 @@
 
   const MANIFEST_URL = "../data/Eng-Ja-Vi/toeic_datasets.json";
   const STORAGE_KEY = "toeic.selected-dataset";
+  const DEFAULT_DATASET_VERSION_KEY = "toeic.dataset-default-version";
+  const CURRENT_DEFAULT_VERSION = "toeic-600-essential-en-vi-v1";
   const LOCAL_FILE_ID = "__local_file__";
   const FALLBACK_DATASETS = [
+    {
+      id: "toeic-600-essential-en-vi",
+      label: "600 Essential Words · Anh–Việt",
+      description: "Dữ liệu Anh–Việt từ Excel; trường tiếng Nhật để trống.",
+      url: "../data/Eng-Ja-Vi/toeic_600_essential_words_en_vi.json?vietnamese=original",
+      default: true,
+    },
     {
       id: "toeic-tsl-1-500-english-reviewed",
       label: "TOEIC TSL 1–500 · Việt theo English",
       description: "Nghĩa tiếng Việt được ưu tiên diễn giải từ tiếng Anh.",
       url: "../data/Eng-Ja-Vi/toeic_tsl_1_500_vocabularies_with_readings.json?vietnamese=english-reviewed",
-      default: true,
     },
     {
       id: "toeic-tsl-1-500-original",
@@ -57,11 +65,17 @@
       datasets = FALLBACK_DATASETS.map((item) => ({ ...item }));
     }
 
-    const savedId = storage?.get(STORAGE_KEY, "") || "";
+    const defaultDataset = datasets.find((item) => item.default) || datasets[0];
+    const savedDefaultVersion = storage?.get(DEFAULT_DATASET_VERSION_KEY, "") || "";
+    const savedId = savedDefaultVersion === CURRENT_DEFAULT_VERSION
+      ? storage?.get(STORAGE_KEY, "") || ""
+      : "";
+
     selectedDataset = datasets.find((item) => item.id === savedId)
-      || datasets.find((item) => item.default)
-      || datasets[0];
+      || defaultDataset;
+
     storage?.set(STORAGE_KEY, selectedDataset.id);
+    storage?.set(DEFAULT_DATASET_VERSION_KEY, CURRENT_DEFAULT_VERSION);
     renderOptions();
     return selectedDataset;
   }
@@ -106,6 +120,7 @@
     if (!nextDataset || nextDataset.id === selectedDataset?.id) return;
     selectedDataset = nextDataset;
     storage?.set(STORAGE_KEY, nextDataset.id);
+    storage?.set(DEFAULT_DATASET_VERSION_KEY, CURRENT_DEFAULT_VERSION);
     select.disabled = true;
     window.location.reload();
   });
