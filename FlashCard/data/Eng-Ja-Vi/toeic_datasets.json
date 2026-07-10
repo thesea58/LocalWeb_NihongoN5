@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "TOEIC vocabulary datasets",
-    "version": "2026-07-09",
+    "version": "2026-07-10",
     "description": "Danh sách bộ dữ liệu có thể chọn trên trang TOEIC Vocabulary."
   },
   "datasets": [
@@ -19,6 +19,13 @@
       "short_label": "TOEIC 1–500 · Bản gốc",
       "description": "Giữ nguyên nghĩa tiếng Việt trong file JSON gốc.",
       "url": "../data/Eng-Ja-Vi/toeic_tsl_1_500_vocabularies_with_readings.json?vietnamese=original"
+    },
+    {
+      "id": "toeic-600-essential-en-vi",
+      "label": "600 Essential Words · Anh–Việt",
+      "short_label": "600 Essential · EN–VI",
+      "description": "Dữ liệu Anh–Việt từ Excel; trường tiếng Nhật để trống. File nguồn hiện có 598 từ.",
+      "url": "../data/Eng-Ja-Vi/toeic_600_essential_words_en_vi.json?vietnamese=original"
     }
   ]
 }
