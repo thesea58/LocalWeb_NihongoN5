@@ -137,5 +137,9 @@
   });
 
   const ready = initialize();
-  window.toeicDatasetService = { ready, loadSelectedPayload };
+  window.toeicDatasetService = {
+    ready,
+    loadSelectedPayload,
+    getSelectedDataset: () => selectedDataset ? { ...selectedDataset } : null,
+  };
 })();

@@ -11,6 +11,8 @@ const SETTING_KEYS = new Set([
   "toeic-delay-vietnamese-meaning",
 ]);
 const PROGRESS_STATUSES = new Set(["new", "learning", "known", "review"]);
+const REVIEW_RESULTS = new Set(["forgot", "hard", "good", "easy"]);
+const REVIEW_MODES = new Set(["flashcard", "meaning", "listening", "typing", "quiz"]);
 
 function bytesToHex(bytes) {
   return [...new Uint8Array(bytes)].map((value) => value.toString(16).padStart(2, "0")).join("");
@@ -105,6 +107,65 @@ function errorResponse(request, env, message, status = 400, code = "request_erro
   return json(request, env, { error: { code, message } }, status);
 }
 
+function clampNumber(value, min, max, fallback = min) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return fallback;
+  return Math.max(min, Math.min(max, number));
+}
+
+function roundDays(value) {
+  return Math.round(value * 10000) / 10000;
+}
+
+function addDays(date, days) {
+  return new Date(date.getTime() + days * 86400000).toISOString();
+}
+
+function computeReviewProgress(existing, reviewResult, responseMs, reviewMode) {
+  const now = new Date();
+  const previousInterval = clampNumber(existing?.interval_days, 0, 3650, 0);
+  const previousEase = clampNumber(existing?.ease_factor, 1.3, 4, 2.5);
+  let intervalDays = 1;
+  let easeFactor = previousEase;
+  let status = "learning";
+
+  if (reviewResult === "forgot") {
+    intervalDays = 10 / 1440;
+    easeFactor = Math.max(1.3, previousEase - 0.25);
+    status = "review";
+  } else if (reviewResult === "hard") {
+    intervalDays = previousInterval > 0 ? Math.max(1, previousInterval * 1.2) : 1;
+    easeFactor = Math.max(1.3, previousEase - 0.15);
+    status = "learning";
+  } else if (reviewResult === "good") {
+    intervalDays = previousInterval > 0 ? previousInterval * previousEase : 3;
+    status = "known";
+  } else {
+    intervalDays = previousInterval > 0 ? previousInterval * 3.5 : 5;
+    easeFactor = Math.min(4, previousEase + 0.15);
+    status = "known";
+  }
+
+  const correctDelta = reviewResult === "forgot" ? 0 : 1;
+  const wrongDelta = reviewResult === "forgot" ? 1 : 0;
+
+  return {
+    status,
+    correct_count: clampNumber(existing?.correct_count, 0, 100000, 0) + correctDelta,
+    wrong_count: clampNumber(existing?.wrong_count, 0, 100000, 0) + wrongDelta,
+    next_review_at: addDays(now, intervalDays),
+    review_count: clampNumber(existing?.review_count, 0, 100000, 0) + 1,
+    last_reviewed_at: now.toISOString(),
+    last_result: reviewResult,
+    last_review_mode: reviewMode,
+    last_response_ms: responseMs,
+    interval_days: roundDays(intervalDays),
+    ease_factor: roundDays(easeFactor),
+    previousInterval,
+    previousEase,
+  };
+}
+
 async function readJson(request) {
   const contentLength = Number(request.headers.get("Content-Length") || 0);
   if (contentLength > 20000) throw new Error("Payload quá lớn.");
@@ -150,12 +211,16 @@ async function currentUser(request, env) {
   ).bind(tokenHash).first();
 }
 
-function sessionCookie(token) {
-  return `${SESSION_COOKIE}=${encodeURIComponent(token)}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=${SESSION_DAYS * 86400}`;
+function cookieSecureAttribute(request) {
+  return new URL(request.url).protocol === "https:" ? " Secure;" : "";
 }
 
-function expiredSessionCookie() {
-  return `${SESSION_COOKIE}=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0`;
+function sessionCookie(request, token) {
+  return `${SESSION_COOKIE}=${encodeURIComponent(token)}; HttpOnly;${cookieSecureAttribute(request)} SameSite=Strict; Path=/; Max-Age=${SESSION_DAYS * 86400}`;
+}
+
+function expiredSessionCookie(request) {
+  return `${SESSION_COOKIE}=; HttpOnly;${cookieSecureAttribute(request)} SameSite=Strict; Path=/; Max-Age=0`;
 }
 
 async function handleLogin(request, env) {
@@ -219,7 +284,7 @@ async function handleLogin(request, env) {
     env,
     { user: { id: user.id, username: user.username, displayName: user.display_name || user.username } },
     200,
-    { "Set-Cookie": sessionCookie(token) },
+    { "Set-Cookie": sessionCookie(request, token) },
   );
 }
 
@@ -228,7 +293,7 @@ async function handleLogout(request, env) {
   if (token) {
     await env.DB.prepare("DELETE FROM user_sessions WHERE token_hash = ?1").bind(await sha256(token)).run();
   }
-  return json(request, env, { success: true }, 200, { "Set-Cookie": expiredSessionCookie() });
+  return json(request, env, { success: true }, 200, { "Set-Cookie": expiredSessionCookie(request) });
 }
 
 async function requireUser(request, env) {
@@ -279,7 +344,9 @@ async function putSettings(request, env, user) {
 
 async function getProgress(request, env, user, datasetId) {
   const result = await env.DB.prepare(
-    `SELECT word_rank, status, correct_count, wrong_count, next_review_at, updated_at
+    `SELECT word_rank, status, correct_count, wrong_count, next_review_at, updated_at,
+            review_count, last_reviewed_at, last_result, last_review_mode,
+            last_response_ms, interval_days, ease_factor
      FROM vocabulary_progress WHERE user_id = ?1 AND dataset_id = ?2 ORDER BY word_rank`,
   ).bind(user.id, datasetId).all();
   return json(request, env, { datasetId, progress: result.results || [] });
@@ -287,8 +354,103 @@ async function getProgress(request, env, user, datasetId) {
 
 async function putProgress(request, env, user, datasetId, rank) {
   const body = await readJson(request);
+  const reviewResult = String(body.reviewResult || "");
+  const requestedReviewMode = String(body.reviewMode || "");
+  const reviewMode = REVIEW_MODES.has(requestedReviewMode) ? requestedReviewMode : "flashcard";
+  if (!Number.isInteger(rank) || rank < 1 || rank > 100000) {
+    return errorResponse(request, env, "Tiến độ không hợp lệ.");
+  }
+
+  if (REVIEW_RESULTS.has(reviewResult)) {
+    const existing = await env.DB.prepare(
+      `SELECT word_rank, status, correct_count, wrong_count, next_review_at, updated_at,
+              review_count, last_reviewed_at, last_result, last_review_mode,
+              last_response_ms, interval_days, ease_factor
+       FROM vocabulary_progress
+       WHERE user_id = ?1 AND dataset_id = ?2 AND word_rank = ?3`,
+    ).bind(user.id, datasetId, rank).first();
+    const responseMs = Math.round(clampNumber(body.responseMs, 0, 3600000, 0));
+    const next = computeReviewProgress(existing, reviewResult, responseMs, reviewMode);
+
+    await env.DB.batch([
+      env.DB.prepare(
+        `INSERT INTO vocabulary_progress
+           (user_id, dataset_id, word_rank, status, correct_count, wrong_count,
+            next_review_at, review_count, last_reviewed_at, last_result,
+            last_review_mode, last_response_ms, interval_days, ease_factor, updated_at)
+         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, CURRENT_TIMESTAMP)
+         ON CONFLICT(user_id, dataset_id, word_rank) DO UPDATE SET
+           status = excluded.status,
+           correct_count = excluded.correct_count,
+           wrong_count = excluded.wrong_count,
+           next_review_at = excluded.next_review_at,
+           review_count = excluded.review_count,
+           last_reviewed_at = excluded.last_reviewed_at,
+           last_result = excluded.last_result,
+           last_review_mode = excluded.last_review_mode,
+           last_response_ms = excluded.last_response_ms,
+           interval_days = excluded.interval_days,
+           ease_factor = excluded.ease_factor,
+           updated_at = CURRENT_TIMESTAMP`,
+      ).bind(
+        user.id,
+        datasetId,
+        rank,
+        next.status,
+        next.correct_count,
+        next.wrong_count,
+        next.next_review_at,
+        next.review_count,
+        next.last_reviewed_at,
+        next.last_result,
+        next.last_review_mode,
+        next.last_response_ms,
+        next.interval_days,
+        next.ease_factor,
+      ),
+      env.DB.prepare(
+        `INSERT INTO review_events
+           (user_id, dataset_id, word_rank, review_result, review_mode, response_ms,
+            previous_status, next_status, previous_interval_days, next_interval_days,
+            previous_ease_factor, next_ease_factor)
+         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12)`,
+      ).bind(
+        user.id,
+        datasetId,
+        rank,
+        reviewResult,
+        reviewMode,
+        responseMs,
+        existing?.status || null,
+        next.status,
+        next.previousInterval,
+        next.interval_days,
+        next.previousEase,
+        next.ease_factor,
+      ),
+    ]);
+
+    return json(request, env, {
+      success: true,
+      progress: {
+        word_rank: rank,
+        status: next.status,
+        correct_count: next.correct_count,
+        wrong_count: next.wrong_count,
+        next_review_at: next.next_review_at,
+        review_count: next.review_count,
+        last_reviewed_at: next.last_reviewed_at,
+        last_result: next.last_result,
+        last_review_mode: next.last_review_mode,
+        last_response_ms: next.last_response_ms,
+        interval_days: next.interval_days,
+        ease_factor: next.ease_factor,
+      },
+    });
+  }
+
   const status = String(body.status || "");
-  if (!PROGRESS_STATUSES.has(status) || !Number.isInteger(rank) || rank < 1 || rank > 100000) {
+  if (!PROGRESS_STATUSES.has(status)) {
     return errorResponse(request, env, "Tiến độ không hợp lệ.");
   }
   const correctCount = Math.max(0, Math.min(100000, Number(body.correctCount) || 0));

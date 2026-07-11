@@ -128,6 +128,23 @@
     document.dispatchEvent(new CustomEvent("toeic:auth-change", { detail: { user: null } }));
   }
 
+  async function getProgress(datasetId) {
+    if (!user) return { datasetId, progress: [] };
+    return api(`/progress/${encodeURIComponent(datasetId)}`);
+  }
+
+  async function recordReview(datasetId, rank, review) {
+    if (!user) {
+      const error = new Error("Vui lòng đăng nhập để đồng bộ tiến độ.");
+      error.code = "authentication_required";
+      throw error;
+    }
+    return api(`/progress/${encodeURIComponent(datasetId)}/${Number(rank)}`, {
+      method: "PUT",
+      body: JSON.stringify(review),
+    });
+  }
+
   document.addEventListener("toeic:setting-changed", (event) => {
     scheduleSetting(event.detail?.key, event.detail?.value);
   });
@@ -146,6 +163,8 @@
     logout,
     flush,
     syncFromServer,
+    getProgress,
+    recordReview,
     getState: () => ({ available, user }),
   };
 })();

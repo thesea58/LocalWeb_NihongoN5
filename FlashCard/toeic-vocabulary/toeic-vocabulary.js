@@ -2,6 +2,14 @@
 
 const CURRENT_RANK_KEY = "toeic.current-rank";
 const QUEUE_KEY = "toeic.random-queue";
+const SELECTED_DATASET_KEY = "toeic.selected-dataset";
+const PROGRESS_KEY_PREFIX = "toeic.progress.";
+const REVIEW_OPTIONS = [
+  { result: "forgot", label: "Quên", detail: "ôn lại sau 10 phút" },
+  { result: "hard", label: "Khó nhớ", detail: "ôn lại ngày mai" },
+  { result: "good", label: "Nhớ", detail: "giãn cách ôn tập" },
+  { result: "easy", label: "Dễ", detail: "giãn cách dài hơn" },
+];
 const localStore = window.toeicStorage?.local;
 const sessionStore = window.toeicStorage?.session;
 
@@ -26,7 +34,39 @@ let vocabularies = [];
 let currentIndex = 0;
 let randomQueue = [];
 let viewedRanks = new Set();
+let progressByRank = new Map();
+let currentDatasetId = "";
+let studyMode = "all";
+let reviewStartedAt = Date.now();
+let sessionReviewCount = 0;
+let progressLoadToken = 0;
 let toastTimer = null;
+
+function createReviewDashboard() {
+  const controls = document.querySelector(".controls");
+  if (!controls || document.querySelector(".review-dashboard")) return;
+
+  const dashboard = document.createElement("section");
+  dashboard.className = "review-dashboard";
+  dashboard.setAttribute("aria-label", "Lịch ôn tập");
+  dashboard.innerHTML = `
+    <div class="review-stats">
+      <span><strong id="dueCount">0</strong> từ cần ôn</span>
+      <span><strong id="weakCount">0</strong> từ yếu</span>
+      <span><strong id="reviewedCount">0</strong> từ đã ghi nhận</span>
+    </div>
+    <div class="review-mode-tabs" role="tablist" aria-label="Chọn chế độ ôn">
+      <button class="review-mode-button is-active" type="button" data-review-mode="all">Tất cả</button>
+      <button class="review-mode-button" type="button" data-review-mode="due">Ôn hôm nay</button>
+      <button class="review-mode-button" type="button" data-review-mode="weak">Từ khó</button>
+    </div>
+  `;
+  controls.before(dashboard);
+  elements.dueCount = dashboard.querySelector("#dueCount");
+  elements.weakCount = dashboard.querySelector("#weakCount");
+  elements.reviewedCount = dashboard.querySelector("#reviewedCount");
+  elements.reviewModeButtons = [...dashboard.querySelectorAll("[data-review-mode]")];
+}
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -47,6 +87,155 @@ function normalizeText(value) {
 
 function padId(rank) {
   return String(rank).padStart(3, "0");
+}
+
+function resolveDatasetId() {
+  return window.toeicDatasetService?.getSelectedDataset?.()?.id
+    || localStore?.get(SELECTED_DATASET_KEY, "")
+    || "toeic-default";
+}
+
+function localProgressKey(datasetId = currentDatasetId) {
+  return `${PROGRESS_KEY_PREFIX}${datasetId || "toeic-default"}`;
+}
+
+function normalizeProgressRow(row) {
+  const rank = Number(row?.word_rank ?? row?.wordRank);
+  if (!Number.isInteger(rank) || rank < 1) return null;
+  return {
+    word_rank: rank,
+    status: String(row.status || "new"),
+    correct_count: Math.max(0, Number(row.correct_count ?? row.correctCount) || 0),
+    wrong_count: Math.max(0, Number(row.wrong_count ?? row.wrongCount) || 0),
+    next_review_at: row.next_review_at ?? row.nextReviewAt ?? null,
+    updated_at: row.updated_at ?? row.updatedAt ?? null,
+    review_count: Math.max(0, Number(row.review_count ?? row.reviewCount) || 0),
+    last_reviewed_at: row.last_reviewed_at ?? row.lastReviewedAt ?? null,
+    last_result: row.last_result ?? row.lastResult ?? null,
+    last_review_mode: row.last_review_mode ?? row.lastReviewMode ?? null,
+    last_response_ms: Math.max(0, Number(row.last_response_ms ?? row.lastResponseMs) || 0),
+    interval_days: Math.max(0, Number(row.interval_days ?? row.intervalDays) || 0),
+    ease_factor: Math.max(1.3, Number(row.ease_factor ?? row.easeFactor) || 2.5),
+  };
+}
+
+function loadLocalProgress(datasetId) {
+  const stored = localStore?.get(localProgressKey(datasetId), {});
+  const rows = Array.isArray(stored) ? stored : Object.values(stored || {});
+  return new Map(rows.map(normalizeProgressRow).filter(Boolean).map((row) => [row.word_rank, row]));
+}
+
+function saveLocalProgress() {
+  if (!currentDatasetId) return;
+  localStore?.set(localProgressKey(), Object.fromEntries(progressByRank));
+}
+
+function isDue(progress) {
+  if (!progress?.next_review_at) return false;
+  const dueAt = new Date(progress.next_review_at).getTime();
+  return Number.isFinite(dueAt) && dueAt <= Date.now();
+}
+
+function isWeak(progress) {
+  if (!progress) return false;
+  return progress.status === "review"
+    || progress.status === "learning"
+    || progress.last_result === "forgot"
+    || progress.last_result === "hard"
+    || progress.wrong_count > progress.correct_count;
+}
+
+function getStudyTargets(mode = studyMode) {
+  if (!vocabularies.length || mode === "all") return vocabularies;
+  const targets = vocabularies.filter((word) => {
+    const progress = progressByRank.get(word.rank);
+    return mode === "due" ? isDue(progress) : isWeak(progress);
+  });
+  return targets.sort((left, right) => {
+    const leftProgress = progressByRank.get(left.rank);
+    const rightProgress = progressByRank.get(right.rank);
+    if (mode === "due") {
+      return String(leftProgress?.next_review_at || "").localeCompare(String(rightProgress?.next_review_at || ""));
+    }
+    return (rightProgress?.wrong_count || 0) - (leftProgress?.wrong_count || 0);
+  });
+}
+
+function updateReviewSummary() {
+  const rows = [...progressByRank.values()];
+  const dueCount = rows.filter(isDue).length;
+  const weakCount = rows.filter(isWeak).length;
+  if (elements.dueCount) elements.dueCount.textContent = String(dueCount);
+  if (elements.weakCount) elements.weakCount.textContent = String(weakCount);
+  if (elements.reviewedCount) elements.reviewedCount.textContent = String(rows.length);
+  elements.reviewModeButtons?.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.reviewMode === studyMode);
+  });
+}
+
+function formatNextReview(progress) {
+  if (!progress?.next_review_at) return "Chưa có lịch ôn";
+  const dueAt = new Date(progress.next_review_at).getTime();
+  if (!Number.isFinite(dueAt)) return "Chưa có lịch ôn";
+  const diffMs = dueAt - Date.now();
+  if (diffMs <= 0) return "Đến hạn ôn";
+  const minutes = Math.ceil(diffMs / 60000);
+  if (minutes < 60) return `Ôn lại sau ${minutes} phút`;
+  const hours = Math.ceil(minutes / 60);
+  if (hours < 24) return `Ôn lại sau ${hours} giờ`;
+  return `Ôn lại sau ${Math.ceil(hours / 24)} ngày`;
+}
+
+function reviewStatusText(progress) {
+  if (!progress) return "Chưa đánh giá";
+  const labels = {
+    new: "Mới",
+    learning: "Đang học",
+    known: "Đã nhớ",
+    review: "Cần ôn lại",
+  };
+  return labels[progress.status] || "Đang học";
+}
+
+function computeLocalReview(existing, reviewResult, responseMs) {
+  const previousInterval = Math.max(0, Number(existing?.interval_days) || 0);
+  const previousEase = Math.max(1.3, Number(existing?.ease_factor) || 2.5);
+  let intervalDays = 1;
+  let easeFactor = previousEase;
+  let status = "learning";
+
+  if (reviewResult === "forgot") {
+    intervalDays = 10 / 1440;
+    easeFactor = Math.max(1.3, previousEase - 0.25);
+    status = "review";
+  } else if (reviewResult === "hard") {
+    intervalDays = previousInterval > 0 ? Math.max(1, previousInterval * 1.2) : 1;
+    easeFactor = Math.max(1.3, previousEase - 0.15);
+  } else if (reviewResult === "good") {
+    intervalDays = previousInterval > 0 ? previousInterval * previousEase : 3;
+    status = "known";
+  } else {
+    intervalDays = previousInterval > 0 ? previousInterval * 3.5 : 5;
+    easeFactor = Math.min(4, previousEase + 0.15);
+    status = "known";
+  }
+
+  const now = new Date();
+  return {
+    word_rank: vocabularies[currentIndex]?.rank,
+    status,
+    correct_count: Math.max(0, Number(existing?.correct_count) || 0) + (reviewResult === "forgot" ? 0 : 1),
+    wrong_count: Math.max(0, Number(existing?.wrong_count) || 0) + (reviewResult === "forgot" ? 1 : 0),
+    next_review_at: new Date(now.getTime() + intervalDays * 86400000).toISOString(),
+    updated_at: now.toISOString(),
+    review_count: Math.max(0, Number(existing?.review_count) || 0) + 1,
+    last_reviewed_at: now.toISOString(),
+    last_result: reviewResult,
+    last_review_mode: "flashcard",
+    last_response_ms: responseMs,
+    interval_days: Math.round(intervalDays * 10000) / 10000,
+    ease_factor: Math.round(easeFactor * 10000) / 10000,
+  };
 }
 
 function getExamples(word) {
@@ -138,10 +327,41 @@ function setControlsDisabled(disabled) {
   elements.idInput.disabled = disabled;
 }
 
+async function hydrateProgress() {
+  if (!vocabularies.length) return;
+  const token = progressLoadToken + 1;
+  progressLoadToken = token;
+  currentDatasetId = resolveDatasetId();
+  progressByRank = loadLocalProgress(currentDatasetId);
+  updateReviewSummary();
+  renderCurrentWord(false);
+
+  const remote = window.toeicRemoteStorage;
+  try {
+    await remote?.ready;
+    if (progressLoadToken !== token || !remote?.getState?.().user) return;
+    const payload = await remote.getProgress(currentDatasetId);
+    if (progressLoadToken !== token) return;
+    progressByRank = new Map(
+      (payload.progress || [])
+        .map(normalizeProgressRow)
+        .filter(Boolean)
+        .map((row) => [row.word_rank, row]),
+    );
+    saveLocalProgress();
+    updateReviewSummary();
+    renderCurrentWord(false);
+  } catch (error) {
+    console.warn("Không thể đồng bộ tiến độ ôn tập:", error);
+  }
+}
+
 function initializeVocabulary(words) {
   vocabularies = words;
   elements.totalWords.textContent = vocabularies.length.toLocaleString("vi-VN");
   elements.idInput.max = String(vocabularies.length);
+  currentDatasetId = resolveDatasetId();
+  progressByRank = loadLocalProgress(currentDatasetId);
 
   const savedRank = Number(localStore?.get(CURRENT_RANK_KEY, 0));
   const savedIndex = vocabularies.findIndex((word) => word.rank === savedRank);
@@ -150,6 +370,7 @@ function initializeVocabulary(words) {
   restoreRandomQueue();
   setControlsDisabled(false);
   renderCurrentWord(false);
+  hydrateProgress();
 }
 
 async function loadData() {
@@ -233,6 +454,40 @@ function renderExampleSection(examples) {
   `;
 }
 
+function renderReviewPanel(word) {
+  const progress = progressByRank.get(word.rank);
+  const correct = progress?.correct_count || 0;
+  const wrong = progress?.wrong_count || 0;
+  const syncState = window.toeicRemoteStorage?.getState?.();
+  const syncText = syncState?.user ? "Đồng bộ D1" : "Lưu trên máy";
+
+  return `
+    <section class="review-panel" aria-label="Đánh giá ghi nhớ">
+      <div class="review-panel-head">
+        <div>
+          <p class="section-label">Retrieval practice</p>
+          <h3>${reviewStatusText(progress)}</h3>
+        </div>
+        <div class="review-next">${formatNextReview(progress)}</div>
+      </div>
+      <div class="review-metrics" aria-label="Thống kê từ này">
+        <span>Đúng <strong>${correct}</strong></span>
+        <span>Sai <strong>${wrong}</strong></span>
+        <span>Lần ôn <strong>${progress?.review_count || 0}</strong></span>
+        <span>${syncText}</span>
+      </div>
+      <div class="review-actions" aria-label="Đánh giá kết quả nhớ lại">
+        ${REVIEW_OPTIONS.map((option) => `
+          <button class="review-action is-${option.result}" type="button" data-review-result="${option.result}">
+            <strong>${option.label}</strong>
+            <span>${option.detail}</span>
+          </button>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderCurrentWord(animate = true) {
   const word = vocabularies[currentIndex];
   if (!word) return;
@@ -278,6 +533,7 @@ function renderCurrentWord(animate = true) {
       </div>
 
       ${renderExampleSection(examples)}
+      ${renderReviewPanel(word)}
     </div>
 
     <footer class="card-footer">
@@ -288,6 +544,7 @@ function renderCurrentWord(animate = true) {
         aria-label="Sao chép từ vựng" title="Sao chép">⧉</button>
     </footer>
   `;
+  reviewStartedAt = Date.now();
 
   if (animate) {
     requestAnimationFrame(() => elements.cardHost.classList.add("animate-card"));
@@ -311,14 +568,22 @@ function renderCurrentWord(animate = true) {
   }
 
   document.getElementById("copyButton").addEventListener("click", copyCurrentWord);
+  elements.cardHost.querySelectorAll("[data-review-result]").forEach((button) => {
+    button.addEventListener("click", () => handleReviewResult(button.dataset.reviewResult));
+  });
   updateNavigationStatus();
 }
 
 function updateNavigationStatus() {
   const word = vocabularies[currentIndex];
+  if (!word) return;
   const progress = ((currentIndex + 1) / vocabularies.length) * 100;
   elements.positionText.textContent = `Từ ${currentIndex + 1} / ${vocabularies.length}`;
   elements.randomRemaining.textContent = `Ngẫu nhiên: còn ${randomQueue.length} từ chưa lặp`;
+  if (studyMode !== "all") {
+    const label = studyMode === "due" ? "Ôn hôm nay" : "Từ khó";
+    elements.randomRemaining.textContent = `${label}: ${getStudyTargets().length} từ`;
+  }
   elements.progressFill.style.width = `${progress}%`;
   elements.positionProgress?.setAttribute("aria-valuemax", String(vocabularies.length));
   elements.positionProgress?.setAttribute("aria-valuenow", String(currentIndex + 1));
@@ -327,8 +592,23 @@ function updateNavigationStatus() {
   document.title = `${word.japanese} · ${word.english} · ID ${padId(word.rank)} | TOEIC Vocabulary`;
 }
 
+function moveByStudyTargets(offset) {
+  const targets = getStudyTargets();
+  if (!targets.length) {
+    showToast(studyMode === "due" ? "Chưa có từ đến hạn ôn." : "Chưa có từ khó.");
+    return true;
+  }
+  const currentRank = vocabularies[currentIndex]?.rank;
+  const targetIndex = targets.findIndex((word) => word.rank === currentRank);
+  const nextPosition = targetIndex >= 0 ? targetIndex + offset : 0;
+  const nextTarget = targets[(nextPosition + targets.length) % targets.length];
+  jumpToRank(nextTarget.rank, `${studyMode}-navigation`);
+  return true;
+}
+
 function moveBy(offset) {
   if (!vocabularies.length) return;
+  if (studyMode !== "all" && moveByStudyTargets(offset)) return;
   setCurrentIndex(
     (currentIndex + offset + vocabularies.length) % vocabularies.length,
     "navigation",
@@ -348,6 +628,16 @@ function setCurrentIndex(nextIndex, source = "unknown") {
 
 function showRandomWord(source = "random") {
   if (vocabularies.length <= 1) return;
+  if (studyMode !== "all") {
+    const targets = getStudyTargets().filter((word) => word.rank !== vocabularies[currentIndex]?.rank);
+    if (!targets.length) {
+      showToast(studyMode === "due" ? "Chưa có từ đến hạn ôn." : "Chưa có từ khó.");
+      return;
+    }
+    const nextWord = targets[Math.floor(Math.random() * targets.length)];
+    jumpToRank(nextWord.rank, source);
+    return;
+  }
   if (!randomQueue.length) createRandomQueue(currentIndex);
 
   let nextIndex = randomQueue.pop();
@@ -359,6 +649,64 @@ function showRandomWord(source = "random") {
 
   persistRandomQueue();
   setCurrentIndex(nextIndex, source);
+}
+
+function selectReviewMode(mode) {
+  studyMode = ["all", "due", "weak"].includes(mode) ? mode : "all";
+  updateReviewSummary();
+  const targets = getStudyTargets();
+  if (studyMode !== "all") {
+    if (!targets.length) {
+      showToast(studyMode === "due" ? "Chưa có từ đến hạn ôn." : "Chưa có từ khó.");
+    } else {
+      jumpToRank(targets[0].rank, `${studyMode}-mode`);
+    }
+  }
+  updateNavigationStatus();
+}
+
+async function handleReviewResult(reviewResult) {
+  if (!REVIEW_OPTIONS.some((option) => option.result === reviewResult)) return;
+  const word = vocabularies[currentIndex];
+  if (!word) return;
+
+  const responseMs = Math.max(0, Date.now() - reviewStartedAt);
+  const existing = progressByRank.get(word.rank);
+  const optimistic = computeLocalReview(existing, reviewResult, responseMs);
+  optimistic.word_rank = word.rank;
+  progressByRank.set(word.rank, optimistic);
+  sessionReviewCount += 1;
+  saveLocalProgress();
+  updateReviewSummary();
+  renderCurrentWord(false);
+
+  const remote = window.toeicRemoteStorage;
+  if (!remote?.getState?.().user) {
+    showToast("Đã lưu tiến độ trên máy. Đăng nhập để đồng bộ D1.");
+  } else {
+    try {
+      const payload = await remote.recordReview(currentDatasetId, word.rank, {
+        reviewResult,
+        reviewMode: "flashcard",
+        responseMs,
+      });
+      const synced = normalizeProgressRow(payload.progress);
+      if (synced) {
+        progressByRank.set(word.rank, synced);
+        saveLocalProgress();
+        updateReviewSummary();
+        renderCurrentWord(false);
+      }
+      showToast("Đã đồng bộ lịch ôn tập.");
+    } catch (error) {
+      console.warn(error);
+      showToast("Đã lưu trên máy; chưa đồng bộ D1.");
+    }
+  }
+
+  if (studyMode !== "all") {
+    window.setTimeout(() => moveByStudyTargets(1), 250);
+  }
 }
 
 function jumpToRank(rank, source = "jump") {
@@ -476,6 +824,11 @@ function showToast(message) {
   toastTimer = setTimeout(() => elements.toast.classList.remove("is-visible"), 1800);
 }
 
+createReviewDashboard();
+elements.reviewModeButtons?.forEach((button) => {
+  button.addEventListener("click", () => selectReviewMode(button.dataset.reviewMode));
+});
+
 elements.previousButton.addEventListener("click", () => moveBy(-1));
 elements.nextButton.addEventListener("click", () => moveBy(1));
 elements.randomButton.addEventListener("click", () => showRandomWord("button-random"));
@@ -497,6 +850,10 @@ elements.searchInput.addEventListener("input", (event) => {
 
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".field-wrap")) closeSearchResults();
+});
+
+document.addEventListener("toeic:auth-change", () => {
+  hydrateProgress();
 });
 
 document.addEventListener("keydown", (event) => {
