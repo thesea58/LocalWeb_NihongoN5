@@ -14,6 +14,7 @@ const elements = {
   loginButton: document.getElementById("loginButton"),
   logoutButton: document.getElementById("logoutButton"),
   categorySelect: document.getElementById("categorySelect"),
+  modeSelect: document.getElementById("modeSelect"),
   directionSelect: document.getElementById("directionSelect"),
   startButton: document.getElementById("startButton"),
   integrityFill: document.getElementById("integrityFill"),
@@ -23,7 +24,6 @@ const elements = {
   cardPanel: document.getElementById("cardPanel"),
   repairQueueText: document.getElementById("repairQueueText"),
   lastFeedback: document.getElementById("lastFeedback"),
-  officeStage: document.querySelector(".office-stage"),
 };
 
 const state = {
@@ -198,6 +198,25 @@ function blankSentence(word) {
   return `${escapeHtml(sentence)} <mark>______</mark>`;
 }
 
+function vietnameseSentence(word) {
+  return word.example_sentences?.vietnamese
+    || `Câu này cần ghép từ có nghĩa: ${word.vietnamese}.`;
+}
+
+function gameMode() {
+  return elements.modeSelect.value || "mission";
+}
+
+function modeMessage(mode) {
+  const messages = {
+    mission: "Nhiệm vụ hỗn hợp: ghép nghĩa, tự nhớ và sửa lỗi theo vòng.",
+    context: "Context Repair: chỉ chọn đáp án đúng trong ngữ cảnh.",
+    recall: "Recall Sprint: nhập từ tiếng Anh, không có lựa chọn.",
+    weak: "Repair Queue: ưu tiên các từ đã sai, khó hoặc đến hạn ôn.",
+  };
+  return messages[mode] || messages.mission;
+}
+
 function makeChoices(word) {
   const sameCategory = state.words.filter((item) =>
     item.rank !== word.rank
@@ -236,9 +255,17 @@ function isDueOrWeak(word) {
 }
 
 function buildMissionWords() {
+  const mode = gameMode();
   const category = elements.categorySelect.value;
   const categoryWords = state.words.filter((word) => category === "__all__" || word.category === category);
-  const weak = shuffle(categoryWords.filter(isDueOrWeak)).slice(0, 6);
+  const weakPool = shuffle(categoryWords.filter(isDueOrWeak));
+  if (mode === "weak") {
+    const weakRanks = new Set(weakPool.map((word) => word.rank));
+    const fillerCount = Math.max(0, MISSION_SIZE - weakPool.length);
+    const filler = shuffle(categoryWords.filter((word) => !weakRanks.has(word.rank))).slice(0, fillerCount);
+    return [...weakPool, ...filler].slice(0, MISSION_SIZE);
+  }
+  const weak = weakPool.slice(0, 6);
   const weakRanks = new Set(weak.map((word) => word.rank));
   const newWords = shuffle(categoryWords.filter((word) => !state.progress.has(word.rank) && !weakRanks.has(word.rank))).slice(0, 4);
   const selectedRanks = new Set([...weak, ...newWords].map((word) => word.rank));
@@ -249,7 +276,6 @@ function buildMissionWords() {
 function updateStatus() {
   const integrity = Math.max(0, Math.round(((MISSION_SIZE - state.wrong) / MISSION_SIZE) * 100));
   elements.integrityFill.style.width = `${integrity}%`;
-  elements.officeStage.classList.toggle("is-stable", integrity >= 85);
   elements.missionProgress.textContent = `${Math.min(state.missionIndex, MISSION_SIZE)}/${MISSION_SIZE}`;
   elements.comboText.textContent = `×${state.combo.toFixed(1)}`;
   elements.scoreText.textContent = String(state.score);
@@ -257,6 +283,7 @@ function updateStatus() {
 }
 
 function startMission() {
+  const mode = gameMode();
   state.missionWords = buildMissionWords();
   state.currentStage = "context";
   state.missionIndex = 0;
@@ -270,14 +297,16 @@ function startMission() {
   state.repairQueue = [];
   state.weakWords = new Map();
   state.recentWords = [];
-  elements.lastFeedback.textContent = "Nhiệm vụ bắt đầu. Khôi phục dữ liệu trước giờ họp.";
+  elements.lastFeedback.textContent = modeMessage(mode);
   updateStatus();
   showNextContext();
 }
 
 function showNextContext() {
+  const mode = gameMode();
   if (
-    state.missionIndex > 0
+    (mode === "mission" || mode === "weak")
+    && state.missionIndex > 0
     && state.missionIndex % 3 === 0
     && state.lastRecallIndex !== state.missionIndex
     && state.recentWords.length
@@ -287,7 +316,11 @@ function showNextContext() {
     return;
   }
   if (state.missionIndex >= state.missionWords.length) {
-    showFinalRecovery();
+    if (mode === "mission" || mode === "weak") {
+      showFinalRecovery();
+    } else {
+      showResults();
+    }
     return;
   }
   const delayedRepair = state.repairQueue.find((item) => item.due <= state.missionIndex);
@@ -299,10 +332,14 @@ function showNextContext() {
     state.missionIndex += 1;
   }
   state.currentStage = "context";
-  state.currentChoices = makeChoices(state.currentWord);
   state.answered = false;
   state.stageStartedAt = Date.now();
-  renderContextQuestion();
+  if (mode === "recall") {
+    showRecallGate(state.currentWord);
+  } else {
+    state.currentChoices = makeChoices(state.currentWord);
+    renderContextQuestion();
+  }
   updateStatus();
 }
 
@@ -369,9 +406,15 @@ async function answerContext(rank) {
   }
 
   const feedback = document.getElementById("feedback");
-  feedback.innerHTML = correct
+  const sentenceMeaning = `
+    <p class="sentence-translation is-revealed">
+      <span>Nghĩa câu</span>
+      ${escapeHtml(vietnameseSentence(word))}
+    </p>
+  `;
+  feedback.innerHTML = (correct
     ? `<strong>Đúng.</strong> ${escapeHtml(word.english)} ${escapeHtml(word.english_pronunciation_ipa || "")}: ${escapeHtml(word.vietnamese)}`
-    : `<strong>Cần sửa.</strong> ${escapeHtml(word.english)} nghĩa là ${escapeHtml(word.vietnamese)}. Từ này đã được đưa vào Repair Queue.`;
+    : `<strong>Cần sửa.</strong> ${escapeHtml(word.english)} nghĩa là ${escapeHtml(word.vietnamese)}. Từ này đã được đưa vào Repair Queue.`) + sentenceMeaning;
   feedback.insertAdjacentHTML("afterend", `<button class="next-button" type="button">Tiếp tục</button>`);
   feedback.parentElement.querySelector(".next-button").addEventListener("click", showNextContext);
   updateStatus();

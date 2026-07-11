@@ -122,6 +122,7 @@ h1 {
 
 .mission-control {
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 14px;
   padding: 14px;
   border-radius: 16px;
@@ -129,8 +130,9 @@ h1 {
 
 .mission-control label {
   display: grid;
+  flex: 1 1 210px;
   gap: 6px;
-  min-width: min(280px, 100%);
+  min-width: min(220px, 100%);
   color: var(--muted);
   font-size: 0.82rem;
   font-weight: 750;
@@ -183,24 +185,6 @@ h1 {
   transition: width 180ms ease;
 }
 
-.office-stage {
-  overflow: hidden;
-  margin-bottom: 14px;
-  border-radius: 18px;
-}
-
-.office-art {
-  display: block;
-  width: 100%;
-  min-height: 180px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 18px;
-  background: linear-gradient(180deg, #dbeafe, #f8fafc);
-  box-shadow: var(--shadow);
-}
-
-.office-stage.is-stable #serverLight { fill: #16a34a; }
-
 .card-panel {
   min-height: 360px;
   padding: clamp(20px, 4vw, 34px);
@@ -243,6 +227,32 @@ h1 {
   border-radius: 8px;
   background: rgba(79, 70, 229, 0.13);
   color: var(--primary);
+}
+
+.sentence-translation {
+  margin: -4px 0 0;
+  padding: 12px 14px;
+  border-left: 4px solid rgba(79, 70, 229, 0.35);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text);
+  line-height: 1.55;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.sentence-translation span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.feedback .sentence-translation {
+  margin-top: 12px;
 }
 
 .word-meta,
