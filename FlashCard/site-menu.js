@@ -5,10 +5,13 @@
     { key: "flashcard", label: "Flash Card", href: "/FlashCard/" },
     { key: "kana", label: "Luyện Kana", href: "/FlashCard/hiragana.html" },
     { key: "toeic", label: "TOEIC Vocabulary", href: "/FlashCard/toeic-vocabulary/" },
+    { key: "deadline-dash", label: "Dead_line Dash", href: "/FlashCard/toeic-vocabulary/games/deadline-dash/" },
   ];
 
   const pathname = window.location.pathname.toLowerCase();
-  const currentKey = pathname.includes("toeic-vocabulary")
+  const currentKey = pathname.includes("deadline-dash")
+    ? "deadline-dash"
+    : pathname.includes("toeic-vocabulary")
     ? "toeic"
     : pathname.includes("hiragana")
       ? "kana"

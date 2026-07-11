@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dead_line Dash - game ôn 600 từ Essential Words for the TOEIC theo ngữ cảnh văn phòng." />
+  <title>Dead_line Dash | TOEIC Essential Words</title>
+  <link href="./deadline-dash.css" rel="stylesheet" />
+  <script defer src="../../../site-menu.js"></script>
+</head>
+<body>
+  <main class="game-shell">
+    <header class="game-header">
+      <div>
+        <p class="eyebrow">Dead_line Dash</p>
+        <h1>Giải cứu văn phòng TOEIC</h1>
+      </div>
+      <section class="account-panel" aria-label="Tài khoản đồng bộ">
+        <div>
+          <span id="syncState" class="sync-state">Đang kiểm tra phiên...</span>
+          <strong id="accountName">Lưu trên máy</strong>
+        </div>
+        <form id="loginForm" class="login-row">
+          <input id="usernameInput" type="text" autocomplete="username" placeholder="Tên đăng nhập" />
+          <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Mật khẩu" />
+          <button id="loginButton" type="submit">Đăng nhập</button>
+          <button id="logoutButton" type="button" hidden>Đăng xuất</button>
+        </form>
+      </section>
+    </header>
+
+    <section class="mission-control" aria-label="Điều khiển nhiệm vụ">
+      <label>
+        <span>Phòng ban</span>
+        <select id="categorySelect" disabled>
+          <option>Đang tải dữ liệu...</option>
+        </select>
+      </label>
+      <label>
+        <span>Độ khó</span>
+        <select id="directionSelect">
+          <option value="en-vi">English → Vietnamese</option>
+          <option value="mixed">Tự động tăng dần</option>
+          <option value="vi-en">Vietnamese → English</option>
+        </select>
+      </label>
+      <button id="startButton" class="primary-action" type="button" disabled>Bắt đầu nhiệm vụ</button>
+    </section>
+
+    <section class="status-board" aria-label="Trạng thái nhiệm vụ">
+      <div class="status-item">
+        <span>Data Integrity</span>
+        <div class="integrity-track" aria-hidden="true"><div id="integrityFill"></div></div>
+      </div>
+      <div class="status-item"><span>Tiến độ</span><strong id="missionProgress">0/12</strong></div>
+      <div class="status-item"><span>Combo</span><strong id="comboText">×1.0</strong></div>
+      <div class="status-item"><span>Điểm</span><strong id="scoreText">0</strong></div>
+    </section>
+
+    <section class="office-stage" aria-label="Khu văn phòng">
+      <svg class="office-art" viewBox="0 0 900 230" role="img" aria-label="Văn phòng đang được khôi phục dữ liệu">
+        <defs>
+          <linearGradient id="screenGlow" x1="0" x2="1">
+            <stop offset="0" stop-color="#14b8a6" />
+            <stop offset="1" stop-color="#6366f1" />
+          </linearGradient>
+        </defs>
+        <rect x="20" y="28" width="860" height="168" rx="18" fill="#ffffff" opacity="0.75" />
+        <rect x="58" y="60" width="180" height="104" rx="10" fill="#172033" />
+        <rect x="76" y="78" width="144" height="16" rx="5" fill="url(#screenGlow)" />
+        <rect x="76" y="106" width="98" height="10" rx="4" fill="#7dd3fc" opacity="0.8" />
+        <rect x="76" y="126" width="124" height="10" rx="4" fill="#a7f3d0" opacity="0.8" />
+        <rect x="282" y="72" width="122" height="92" rx="8" fill="#e2e8f0" />
+        <path d="M294 92h98M294 116h72M294 140h88" stroke="#64748b" stroke-width="8" stroke-linecap="round" />
+        <rect x="448" y="55" width="156" height="116" rx="13" fill="#f8fafc" stroke="#cbd5e1" />
+        <path d="M468 82h116M468 110h88M468 138h104" stroke="#475569" stroke-width="9" stroke-linecap="round" />
+        <circle id="serverLight" cx="674" cy="86" r="13" fill="#ef4444" />
+        <rect x="650" y="112" width="154" height="54" rx="10" fill="#334155" />
+        <path d="M676 130h78M676 150h102" stroke="#e2e8f0" stroke-width="7" stroke-linecap="round" />
+        <path d="M44 196h812" stroke="#94a3b8" stroke-width="10" stroke-linecap="round" opacity="0.4" />
+      </svg>
+    </section>
+
+    <section id="cardPanel" class="card-panel" aria-live="polite">
+      <div class="empty-state">
+        <h2>Sẵn sàng khôi phục dữ liệu</h2>
+        <p>Chọn phòng ban rồi bắt đầu nhiệm vụ 12 từ. Game ưu tiên ngữ cảnh văn phòng, tự nhớ lại từ và ôn lại những từ trả lời sai.</p>
+      </div>
+    </section>
+
+    <section class="repair-strip" aria-label="Repair Queue">
+      <span>Repair Queue</span>
+      <strong id="repairQueueText">0 từ</strong>
+      <span id="lastFeedback">Chưa có dữ liệu sửa lỗi.</span>
+    </section>
+  </main>
+
+  <script defer src="./deadline-dash.js"></script>
+</body>
+</html>

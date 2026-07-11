@@ -4,3 +4,5 @@
 /FlashCard/tinhtu_na.html /FlashCard/ 301
 /toeic-vocabulary /FlashCard/toeic-vocabulary/ 301
 /toeic-vocabulary/* /FlashCard/toeic-vocabulary/:splat 301
+/deadline-dash /FlashCard/toeic-vocabulary/games/deadline-dash/ 301
+/dead_line-dash /FlashCard/toeic-vocabulary/games/deadline-dash/ 301
