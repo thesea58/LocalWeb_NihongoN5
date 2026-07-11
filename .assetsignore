@@ -8,3 +8,4 @@ wrangler.toml
 CLOUDFLARE_DEPLOY.md
 README.md
 *.md
+wrangler-tail-login.*

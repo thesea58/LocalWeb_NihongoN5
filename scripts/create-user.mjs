@@ -1,6 +1,6 @@
 import { webcrypto } from "node:crypto";
 
-const ITERATIONS = 120000;
+const ITERATIONS = 100000;
 const username = String(process.env.NIHONGO_USERNAME || "").trim();
 const password = String(process.env.NIHONGO_PASSWORD || "");
 const displayName = String(process.env.NIHONGO_DISPLAY_NAME || username).trim();

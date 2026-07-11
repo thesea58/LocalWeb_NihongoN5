@@ -2,7 +2,7 @@ const SESSION_COOKIE = "nihongo_session";
 const SESSION_DAYS = 30;
 const MAX_LOGIN_FAILURES = 5;
 const LOCK_MINUTES = 15;
-const PASSWORD_ITERATIONS = 120000;
+const PASSWORD_ITERATIONS = 100000;
 const SETTING_KEYS = new Set([
   "toeic.current-rank",
   "toeic.selected-dataset",
