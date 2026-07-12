@@ -4,6 +4,12 @@ const DATASET_ID = "toeic-600-essential-en-vi";
 const DATASET_URL = "../../../data/Eng-Ja-Vi/toeic_600_essential_words_en_vi.json?v=deadline-dash";
 const LOCAL_PROGRESS_KEY = "deadline-dash.progress.v1";
 const MISSION_SIZE = 12;
+const REVIEW_OPTIONS = [
+  { result: "forgot", label: "Quên", detail: "ôn lại sau 10 phút" },
+  { result: "hard", label: "Khó nhớ", detail: "ôn lại ngày mai" },
+  { result: "good", label: "Nhớ", detail: "giãn cách ôn tập" },
+  { result: "easy", label: "Dễ", detail: "giãn cách dài hơn" },
+];
 
 const elements = {
   syncState: document.getElementById("syncState"),
@@ -158,16 +164,42 @@ async function recordReview(word, result, responseMs) {
     review_count: 0,
     status: "new",
   };
+  const previousInterval = Math.max(0, Number(current.interval_days) || 0);
+  const previousEase = Math.max(1.3, Number(current.ease_factor) || 2.5);
+  let intervalDays = 1;
+  let easeFactor = previousEase;
+  let status = "learning";
+
+  if (result === "forgot") {
+    intervalDays = 10 / 1440;
+    easeFactor = Math.max(1.3, previousEase - 0.25);
+    status = "review";
+  } else if (result === "hard") {
+    intervalDays = previousInterval > 0 ? Math.max(1, previousInterval * 1.2) : 1;
+    easeFactor = Math.max(1.3, previousEase - 0.15);
+  } else if (result === "good") {
+    intervalDays = previousInterval > 0 ? previousInterval * previousEase : 3;
+    status = "known";
+  } else {
+    intervalDays = previousInterval > 0 ? previousInterval * 3.5 : 5;
+    easeFactor = Math.min(4, previousEase + 0.15);
+    status = "known";
+  }
+
+  const reviewedAt = new Date();
   const optimistic = {
     ...current,
     word_rank: word.rank,
-    status: result === "forgot" ? "review" : result === "hard" ? "learning" : "known",
+    status,
     correct_count: (current.correct_count || 0) + (result === "forgot" ? 0 : 1),
     wrong_count: (current.wrong_count || 0) + (result === "forgot" ? 1 : 0),
     review_count: (current.review_count || 0) + 1,
     last_result: result,
     last_response_ms: responseMs,
-    last_reviewed_at: new Date().toISOString(),
+    next_review_at: new Date(reviewedAt.getTime() + intervalDays * 86400000).toISOString(),
+    last_reviewed_at: reviewedAt.toISOString(),
+    interval_days: Math.round(intervalDays * 10000) / 10000,
+    ease_factor: Math.round(easeFactor * 10000) / 10000,
   };
   state.progress.set(word.rank, optimistic);
   saveLocalProgress();
@@ -209,6 +241,7 @@ function gameMode() {
 
 function modeMessage(mode) {
   const messages = {
+    meaning: "Meaning Quiz: chọn nghĩa tiếng Việt đúng của từ tiếng Anh.",
     mission: "Nhiệm vụ hỗn hợp: ghép nghĩa, tự nhớ và sửa lỗi theo vòng.",
     context: "Context Repair: chỉ chọn đáp án đúng trong ngữ cảnh.",
     recall: "Recall Sprint: nhập từ tiếng Anh, không có lựa chọn.",
@@ -217,7 +250,7 @@ function modeMessage(mode) {
   return messages[mode] || messages.mission;
 }
 
-function makeChoices(word) {
+function makeChoices(word, uniqueBy = "english") {
   const sameCategory = state.words.filter((item) =>
     item.rank !== word.rank
     && item.category === word.category
@@ -226,10 +259,10 @@ function makeChoices(word) {
   const categoryFallback = state.words.filter((item) => item.rank !== word.rank && item.category === word.category);
   const generalFallback = state.words.filter((item) => item.rank !== word.rank && item.part_of_speech === word.part_of_speech);
   const pool = [...sameCategory, ...categoryFallback, ...generalFallback, ...state.words.filter((item) => item.rank !== word.rank)];
-  const seen = new Set([word.english.toLowerCase()]);
+  const seen = new Set([String(word[uniqueBy]).toLowerCase()]);
   const distractors = [];
   for (const item of pool) {
-    const key = item.english.toLowerCase();
+    const key = String(item[uniqueBy]).toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
     distractors.push(item);
@@ -337,10 +370,40 @@ function showNextContext() {
   if (mode === "recall") {
     showRecallGate(state.currentWord);
   } else {
-    state.currentChoices = makeChoices(state.currentWord);
-    renderContextQuestion();
+    state.currentChoices = makeChoices(state.currentWord, mode === "meaning" ? "vietnamese" : "english");
+    if (mode === "meaning") {
+      renderMeaningQuestion();
+    } else {
+      renderContextQuestion();
+    }
   }
   updateStatus();
+}
+
+function renderMeaningQuestion() {
+  const word = state.currentWord;
+  elements.cardPanel.innerHTML = `
+    <article class="prompt-card">
+      <p class="stage-label">Meaning Quiz · ${escapeHtml(word.category)}</p>
+      <p class="sentence">${escapeHtml(word.english)}</p>
+      <p class="word-meta">
+        ${escapeHtml(word.english_pronunciation_ipa || "")} · ${escapeHtml(word.part_of_speech || "")}
+      </p>
+      <button id="speakMeaningWord" class="pronunciation-button" type="button">Nghe phát âm</button>
+      <div class="answers">
+        ${state.currentChoices.map((choice, index) => `
+          <button class="answer-button" type="button" data-rank="${choice.rank}">
+            <strong>${index + 1}. ${escapeHtml(choice.vietnamese)}</strong>
+          </button>
+        `).join("")}
+      </div>
+      <div id="feedback" class="feedback"></div>
+    </article>
+  `;
+  elements.cardPanel.querySelectorAll("[data-rank]").forEach((button) => {
+    button.addEventListener("click", () => answerContext(Number(button.dataset.rank)));
+  });
+  document.getElementById("speakMeaningWord").addEventListener("click", () => speak(word.english));
 }
 
 function renderContextQuestion() {
@@ -374,6 +437,42 @@ function renderContextQuestion() {
   });
 }
 
+function renderRetrievalPractice(feedback, word, responseMs) {
+  const progress = state.progress.get(word.rank);
+  feedback.insertAdjacentHTML("afterend", `
+    <section class="review-panel" aria-label="Đánh giá ghi nhớ">
+      <div class="review-panel-head">
+        <div>
+          <p class="stage-label">Retrieval Practice</p>
+          <h3>Bạn nhớ từ này ở mức nào?</h3>
+        </div>
+        <span>${progress?.review_count || 0} lần ôn</span>
+      </div>
+      <div class="review-actions">
+        ${REVIEW_OPTIONS.map((option) => `
+          <button class="review-action is-${option.result}" type="button" data-review-result="${option.result}">
+            <strong>${option.label}</strong>
+            <span>${option.detail}</span>
+          </button>
+        `).join("")}
+      </div>
+    </section>
+  `);
+
+  const card = feedback.parentElement;
+  const nextButton = card.querySelector(".next-button");
+  nextButton.disabled = true;
+  card.querySelectorAll("[data-review-result]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      card.querySelectorAll("[data-review-result]").forEach((item) => { item.disabled = true; });
+      await recordReview(word, button.dataset.reviewResult, responseMs);
+      button.classList.add("is-selected");
+      nextButton.disabled = false;
+      nextButton.focus();
+    });
+  });
+}
+
 async function answerContext(rank) {
   if (state.answered) return;
   state.answered = true;
@@ -395,28 +494,36 @@ async function answerContext(rank) {
     state.combo = Math.min(2, state.combo + 0.1);
     state.recentWords.push(word);
     elements.lastFeedback.textContent = `${word.english}: ${word.vietnamese}`;
-    await recordReview(word, responseMs < 3500 ? "easy" : "good", responseMs);
   } else {
     state.wrong += 1;
     state.combo = 1;
     state.repairQueue.push({ word, due: state.missionIndex + 2 });
     state.weakWords.set(word.rank, word);
     elements.lastFeedback.textContent = `${selected?.english || "Đáp án chọn"} chưa đúng. Đáp án cần khôi phục là ${word.english}.`;
-    await recordReview(word, "forgot", responseMs);
   }
 
   const feedback = document.getElementById("feedback");
-  const sentenceMeaning = `
-    <p class="sentence-translation is-revealed">
-      <span>Nghĩa câu</span>
-      ${escapeHtml(vietnameseSentence(word))}
-    </p>
-  `;
+  const exampleEnglish = word.example_sentences?.english
+    || `The office team must restore the word ${word.english} before the deadline.`;
+  const sentenceMeaning = gameMode() === "meaning"
+    ? `
+      <div class="sentence-translation is-revealed">
+        <p><span>Câu tiếng Anh</span>${escapeHtml(exampleEnglish)}</p>
+        <p><span>Nghĩa tiếng Việt</span>${escapeHtml(vietnameseSentence(word))}</p>
+      </div>
+    `
+    : `
+      <p class="sentence-translation is-revealed">
+        <span>Nghĩa câu</span>
+        ${escapeHtml(vietnameseSentence(word))}
+      </p>
+    `;
   feedback.innerHTML = (correct
     ? `<strong>Đúng.</strong> ${escapeHtml(word.english)} ${escapeHtml(word.english_pronunciation_ipa || "")}: ${escapeHtml(word.vietnamese)}`
     : `<strong>Cần sửa.</strong> ${escapeHtml(word.english)} nghĩa là ${escapeHtml(word.vietnamese)}. Từ này đã được đưa vào Repair Queue.`) + sentenceMeaning;
   feedback.insertAdjacentHTML("afterend", `<button class="next-button" type="button">Tiếp tục</button>`);
   feedback.parentElement.querySelector(".next-button").addEventListener("click", showNextContext);
+  renderRetrievalPractice(feedback, word, responseMs);
   updateStatus();
 }
 
@@ -474,17 +581,16 @@ async function answerRecall(value) {
     state.score += state.currentHints ? 150 : 200;
     state.combo = Math.min(2, state.combo + 0.15);
     feedback.innerHTML = `<strong>Đã mở khóa.</strong> ${escapeHtml(word.english)}: ${escapeHtml(word.vietnamese)}`;
-    await recordReview(word, state.currentHints ? "good" : "easy", responseMs);
   } else {
     state.wrong += 1;
     state.combo = 1;
     state.repairQueue.push({ word, due: state.missionIndex + 2 });
     state.weakWords.set(word.rank, word);
     feedback.innerHTML = `<strong>Chưa đúng.</strong> Đáp án là ${escapeHtml(word.english)}.`;
-    await recordReview(word, "hard", responseMs);
   }
   feedback.insertAdjacentHTML("afterend", `<button class="next-button" type="button">Tiếp tục</button>`);
   feedback.parentElement.querySelector(".next-button").addEventListener("click", showNextContext);
+  renderRetrievalPractice(feedback, word, responseMs);
   updateStatus();
 }
 
