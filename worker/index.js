@@ -13,6 +13,60 @@ const SETTING_KEYS = new Set([
 const PROGRESS_STATUSES = new Set(["new", "learning", "known", "review"]);
 const REVIEW_RESULTS = new Set(["forgot", "hard", "good", "easy"]);
 const REVIEW_MODES = new Set(["flashcard", "meaning", "listening", "typing", "quiz"]);
+const ADMIN_TABLES = {
+  users: {
+    label: "Người dùng",
+    query: "SELECT id, username, display_name, is_active, is_admin, created_at FROM users ORDER BY id DESC LIMIT ?1 OFFSET ?2",
+    countQuery: "SELECT COUNT(*) AS count FROM users",
+  },
+  user_sessions: {
+    label: "Phiên đăng nhập",
+    query: "SELECT user_id, expires_at, created_at FROM user_sessions ORDER BY expires_at DESC LIMIT ?1 OFFSET ?2",
+    countQuery: "SELECT COUNT(*) AS count FROM user_sessions",
+  },
+  user_settings: {
+    label: "Thiết lập người dùng",
+    query: `SELECT user_settings.user_id, users.username, user_settings.setting_key,
+                   user_settings.setting_value, user_settings.updated_at
+            FROM user_settings
+            JOIN users ON users.id = user_settings.user_id
+            ORDER BY user_settings.updated_at DESC LIMIT ?1 OFFSET ?2`,
+    countQuery: "SELECT COUNT(*) AS count FROM user_settings",
+  },
+  vocabulary_progress: {
+    label: "Tiến độ từ vựng",
+    query: `SELECT vocabulary_progress.user_id, users.username, vocabulary_progress.dataset_id,
+                   vocabulary_progress.word_rank, vocabulary_progress.status,
+                   vocabulary_progress.correct_count, vocabulary_progress.wrong_count,
+                   vocabulary_progress.next_review_at, vocabulary_progress.review_count,
+                   vocabulary_progress.last_reviewed_at, vocabulary_progress.last_result,
+                   vocabulary_progress.last_review_mode, vocabulary_progress.last_response_ms,
+                   vocabulary_progress.interval_days, vocabulary_progress.ease_factor,
+                   vocabulary_progress.updated_at
+            FROM vocabulary_progress
+            JOIN users ON users.id = vocabulary_progress.user_id
+            ORDER BY vocabulary_progress.updated_at DESC LIMIT ?1 OFFSET ?2`,
+    countQuery: "SELECT COUNT(*) AS count FROM vocabulary_progress",
+  },
+  review_events: {
+    label: "Lịch sử ôn tập",
+    query: `SELECT review_events.id, review_events.user_id, users.username, review_events.dataset_id,
+                   review_events.word_rank, review_events.review_result, review_events.review_mode,
+                   review_events.response_ms, review_events.previous_status, review_events.next_status,
+                   review_events.previous_interval_days, review_events.next_interval_days,
+                   review_events.previous_ease_factor, review_events.next_ease_factor,
+                   review_events.created_at
+            FROM review_events
+            JOIN users ON users.id = review_events.user_id
+            ORDER BY review_events.created_at DESC LIMIT ?1 OFFSET ?2`,
+    countQuery: "SELECT COUNT(*) AS count FROM review_events",
+  },
+  login_attempts: {
+    label: "Lần đăng nhập lỗi",
+    query: "SELECT failed_count, locked_until, updated_at FROM login_attempts ORDER BY updated_at DESC LIMIT ?1 OFFSET ?2",
+    countQuery: "SELECT COUNT(*) AS count FROM login_attempts",
+  },
+};
 
 function bytesToHex(bytes) {
   return [...new Uint8Array(bytes)].map((value) => value.toString(16).padStart(2, "0")).join("");
@@ -202,7 +256,7 @@ async function currentUser(request, env) {
   if (!token) return null;
   const tokenHash = await sha256(token);
   return env.DB.prepare(
-    `SELECT users.id, users.username, users.display_name
+    `SELECT users.id, users.username, users.display_name, users.is_admin
      FROM user_sessions
      JOIN users ON users.id = user_sessions.user_id
      WHERE user_sessions.token_hash = ?1
@@ -245,7 +299,7 @@ async function handleLogin(request, env) {
   }
 
   const user = await env.DB.prepare(
-    "SELECT id, username, display_name, password_hash, password_salt FROM users WHERE username = ?1 COLLATE NOCASE AND is_active = 1",
+    "SELECT id, username, display_name, password_hash, password_salt, is_admin FROM users WHERE username = ?1 COLLATE NOCASE AND is_active = 1",
   ).bind(username).first();
   const fallbackSalt = "AAAAAAAAAAAAAAAAAAAAAA==";
   const fallbackHash = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
@@ -282,7 +336,7 @@ async function handleLogin(request, env) {
   return json(
     request,
     env,
-    { user: { id: user.id, username: user.username, displayName: user.display_name || user.username } },
+    { user: { id: user.id, username: user.username, displayName: user.display_name || user.username, isAdmin: Boolean(user.is_admin) } },
     200,
     { "Set-Cookie": sessionCookie(request, token) },
   );
@@ -350,6 +404,34 @@ async function getProgress(request, env, user, datasetId) {
      FROM vocabulary_progress WHERE user_id = ?1 AND dataset_id = ?2 ORDER BY word_rank`,
   ).bind(user.id, datasetId).all();
   return json(request, env, { datasetId, progress: result.results || [] });
+}
+
+function adminSummary(request, env) {
+  const tables = Object.entries(ADMIN_TABLES).map(([id, table]) => ({ id, label: table.label }));
+  return env.DB.batch(Object.values(ADMIN_TABLES).map((table) => env.DB.prepare(table.countQuery)))
+    .then((results) => json(request, env, {
+      tables: tables.map((table, index) => ({
+        ...table,
+        count: Number(results[index]?.results?.[0]?.count || 0),
+      })),
+      generatedAt: new Date().toISOString(),
+    }));
+}
+
+async function adminTableData(request, env, tableId, limit, offset) {
+  const table = ADMIN_TABLES[tableId];
+  if (!table) return errorResponse(request, env, "Bảng dữ liệu không hợp lệ.", 404, "table_not_found");
+  const [rows, count] = await Promise.all([
+    env.DB.prepare(table.query).bind(limit, offset).all(),
+    env.DB.prepare(table.countQuery).first(),
+  ]);
+  return json(request, env, {
+    table: { id: tableId, label: table.label },
+    limit,
+    offset,
+    total: Number(count?.count || 0),
+    rows: rows.results || [],
+  });
 }
 
 async function putProgress(request, env, user, datasetId, rank) {
@@ -483,7 +565,18 @@ async function handleApi(request, env) {
   if (userOrResponse instanceof Response) return userOrResponse;
   const user = userOrResponse;
   if (url.pathname === "/api/session" && request.method === "GET") {
-    return json(request, env, { user: { id: user.id, username: user.username, displayName: user.display_name || user.username } });
+    return json(request, env, { user: { id: user.id, username: user.username, displayName: user.display_name || user.username, isAdmin: Boolean(user.is_admin) } });
+  }
+  if (url.pathname === "/api/admin/summary" && request.method === "GET") {
+    if (!user.is_admin) return errorResponse(request, env, "Tài khoản này không có quyền quản trị.", 403, "admin_required");
+    return adminSummary(request, env);
+  }
+  if (url.pathname === "/api/admin/data" && request.method === "GET") {
+    if (!user.is_admin) return errorResponse(request, env, "Tài khoản này không có quyền quản trị.", 403, "admin_required");
+    const tableId = String(url.searchParams.get("table") || "");
+    const limit = Math.round(clampNumber(url.searchParams.get("limit"), 1, 100, 50));
+    const offset = Math.round(clampNumber(url.searchParams.get("offset"), 0, 1000000, 0));
+    return adminTableData(request, env, tableId, limit, offset);
   }
   if (url.pathname === "/api/settings" && request.method === "GET") return getSettings(request, env, user);
   if (url.pathname === "/api/settings" && ["PUT", "POST"].includes(request.method)) return putSettings(request, env, user);

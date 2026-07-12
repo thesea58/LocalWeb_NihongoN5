@@ -186,8 +186,8 @@ h1 {
 }
 
 .card-panel {
-  min-height: 360px;
-  padding: clamp(20px, 4vw, 34px);
+  min-height: 0;
+  padding: clamp(16px, 2.5vw, 24px);
   border-radius: 18px;
 }
 
@@ -212,7 +212,34 @@ h1 {
 
 .prompt-card {
   display: grid;
-  gap: 18px;
+  gap: 14px;
+}
+
+.meaning-prompt {
+  gap: 10px;
+}
+
+.meaning-prompt .stage-label {
+  margin-bottom: 0;
+}
+
+.meaning-prompt .sentence {
+  font-size: clamp(1.75rem, 3vw, 2.55rem);
+  line-height: 1.08;
+}
+
+.meaning-prompt .word-meta {
+  margin: 0;
+  line-height: 1.35;
+}
+
+.meaning-prompt .answers {
+  gap: 8px;
+}
+
+.meaning-prompt .answer-button {
+  min-height: 52px;
+  padding: 10px 12px;
 }
 
 .sentence {
@@ -271,8 +298,8 @@ h1 {
 
 .pronunciation-button {
   justify-self: start;
-  min-height: 40px;
-  padding: 0 14px;
+  min-height: 36px;
+  padding: 0 12px;
   border-color: rgba(79, 70, 229, 0.25);
   background: rgba(79, 70, 229, 0.08);
   color: var(--primary);

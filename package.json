@@ -8,8 +8,9 @@
     "db:create": "wrangler d1 create nihongo-user-data",
     "db:migrate": "wrangler d1 execute nihongo-user-data --remote --file=migrations/0001_user_storage.sql",
     "db:migrate:review": "wrangler d1 execute nihongo-user-data --remote --file=migrations/0002_review_tracking.sql",
+    "db:migrate:admin": "wrangler d1 execute nihongo-user-data --remote --file=migrations/0003_admin_access.sql",
     "user:sql": "node scripts/create-user.mjs",
-    "check": "node --check worker/index.js && node --check scripts/create-user.mjs"
+    "check": "node --check worker/index.js && node --check scripts/create-user.mjs && node --check admin/admin.js && node --check FlashCard/toeic-vocabulary/games/deadline-dash/deadline-dash.js"
   },
   "devDependencies": {
     "wrangler": "4.107.0"

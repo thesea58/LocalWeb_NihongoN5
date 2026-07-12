@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Trang quản trị dữ liệu ứng dụng học ngoại ngữ." />
+  <title>Data Admin | Nihongo Study</title>
+  <link rel="stylesheet" href="./admin.css" />
+</head>
+<body>
+  <main class="admin-shell">
+    <header class="page-header">
+      <div>
+        <a class="back-link" href="/">Nihongo Study</a>
+        <h1>Data Admin</h1>
+      </div>
+      <div class="account-area">
+        <span id="accountStatus">Đang kiểm tra phiên đăng nhập...</span>
+        <button id="logoutButton" class="quiet-button" type="button" hidden>Đăng xuất</button>
+      </div>
+    </header>
+
+    <section id="loginPanel" class="login-panel" hidden aria-labelledby="loginTitle">
+      <div>
+        <p class="section-label">Quản trị</p>
+        <h2 id="loginTitle">Đăng nhập tài khoản admin</h2>
+      </div>
+      <form id="loginForm" class="login-form">
+        <label>Tên đăng nhập<input id="usernameInput" autocomplete="username" required /></label>
+        <label>Mật khẩu<input id="passwordInput" type="password" autocomplete="current-password" required /></label>
+        <button class="primary-button" type="submit">Đăng nhập</button>
+      </form>
+      <p id="loginMessage" class="form-message" role="status"></p>
+    </section>
+
+    <section id="adminApp" hidden>
+      <nav class="source-tabs" aria-label="Nguồn dữ liệu">
+        <button class="source-tab is-active" type="button" data-source-kind="fixed">Dữ liệu cố định</button>
+        <button class="source-tab" type="button" data-source-kind="d1">Cloudflare D1</button>
+      </nav>
+
+      <div class="workspace">
+        <aside class="source-list-wrap">
+          <div class="list-heading">
+            <h2 id="sourceListTitle">Tệp JSON</h2>
+            <span id="sourceCount"></span>
+          </div>
+          <div id="sourceList" class="source-list" role="list"></div>
+        </aside>
+
+        <section class="viewer-wrap" aria-live="polite">
+          <header class="viewer-header">
+            <div>
+              <p id="viewerKind" class="section-label">JSON</p>
+              <h2 id="viewerTitle">Chọn nguồn dữ liệu</h2>
+              <p id="viewerMeta"></p>
+            </div>
+            <div class="viewer-actions">
+              <button id="tableViewButton" class="view-button is-active" type="button" hidden>Bảng</button>
+              <button id="jsonViewButton" class="view-button" type="button" hidden>JSON</button>
+              <button id="refreshButton" class="quiet-button" type="button" disabled>Làm mới</button>
+            </div>
+          </header>
+          <div id="viewerContent" class="viewer-content">
+            <p class="empty-message">Chọn một nguồn dữ liệu để xem nội dung.</p>
+          </div>
+          <footer id="pagination" class="pagination" hidden>
+            <button id="previousPageButton" class="quiet-button" type="button">Trang trước</button>
+            <span id="pageInfo"></span>
+            <button id="nextPageButton" class="quiet-button" type="button">Trang sau</button>
+          </footer>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script defer src="./admin.js"></script>
+</body>
+</html>

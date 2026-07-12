@@ -383,7 +383,7 @@ function showNextContext() {
 function renderMeaningQuestion() {
   const word = state.currentWord;
   elements.cardPanel.innerHTML = `
-    <article class="prompt-card">
+    <article class="prompt-card meaning-prompt">
       <p class="stage-label">Meaning Quiz · ${escapeHtml(word.category)}</p>
       <p class="sentence">${escapeHtml(word.english)}</p>
       <p class="word-meta">

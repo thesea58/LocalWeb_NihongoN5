@@ -40,6 +40,18 @@ npm run dev
 npm run deploy
 ```
 
+## Quyền Data Admin
+
+Trang quản trị dữ liệu nằm tại `/admin/` và chỉ đọc dữ liệu D1. Quyền admin được lưu trong cột `users.is_admin`; migration `0003_admin_access.sql` đã gán quyền này cho tài khoản `phamhai0508`.
+
+Khi triển khai database mới, chạy migration một lần trước khi dùng trang quản trị:
+
+```bash
+npm run db:migrate:admin
+```
+
+Trang không trả về hash mật khẩu, salt hoặc token phiên.
+
 ## Các URL chính
 
 - Menu trang chủ: `/`
