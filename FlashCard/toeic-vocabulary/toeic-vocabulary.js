@@ -41,6 +41,7 @@ let reviewStartedAt = Date.now();
 let sessionReviewCount = 0;
 let progressLoadToken = 0;
 let toastTimer = null;
+let quickQuiz = null;
 
 function createReviewDashboard() {
   const controls = document.querySelector(".controls");
@@ -286,6 +287,30 @@ function shuffle(items) {
   return result;
 }
 
+function createQuickQuiz(word) {
+  const distractors = shuffle(
+    vocabularies
+      .filter((item) => item.rank !== word.rank && item.vietnamese)
+      .map((item) => item.vietnamese),
+  )
+    .filter((meaning, index, items) => items.indexOf(meaning) === index)
+    .slice(0, 3);
+
+  return {
+    rank: word.rank,
+    selected: "",
+    choices: shuffle([word.vietnamese, ...distractors]),
+  };
+}
+
+function getQuickQuiz(word) {
+  if (!quickQuiz || quickQuiz.rank !== word.rank || quickQuiz.choices.length < 2) {
+    quickQuiz = createQuickQuiz(word);
+  }
+
+  return quickQuiz;
+}
+
 function persistRandomQueue() {
   sessionStore?.set(QUEUE_KEY, { total: vocabularies.length, queue: randomQueue });
 }
@@ -488,6 +513,55 @@ function renderReviewPanel(word) {
   `;
 }
 
+function renderQuickQuizPanel(word) {
+  const quiz = getQuickQuiz(word);
+  const answered = Boolean(quiz.selected);
+  const isCorrect = quiz.selected === word.vietnamese;
+
+  return `
+    <section class="quick-quiz-panel" aria-labelledby="quickQuizTitle">
+      <div class="quick-quiz-head">
+        <div>
+          <p class="section-label">Quick TOEIC drill</p>
+          <h3 id="quickQuizTitle">Chọn nghĩa đúng của từ <span>${escapeHtml(word.english)}</span></h3>
+        </div>
+        <button class="quick-quiz-reset" type="button" data-quick-quiz-reset>Đổi câu</button>
+      </div>
+      <div class="quick-quiz-prompt">
+        <span class="quick-quiz-word">${escapeHtml(word.english)}</span>
+        <small>${escapeHtml(word.japanese || "Japanese")} · ${escapeHtml(word.japanese_hiragana || "—")}</small>
+      </div>
+      <div class="quick-quiz-options" role="list" aria-label="Các đáp án nghĩa tiếng Việt">
+        ${quiz.choices.map((choice, index) => {
+          const stateClass = answered
+            ? choice === word.vietnamese
+              ? " is-correct"
+              : choice === quiz.selected
+                ? " is-wrong"
+                : ""
+            : "";
+          return `
+            <button class="quick-quiz-option${stateClass}" type="button"
+              data-quick-quiz-choice="${escapeHtml(choice)}" ${answered ? "disabled" : ""}>
+              <strong>${String.fromCharCode(65 + index)}</strong>
+              <span>${escapeHtml(choice)}</span>
+            </button>
+          `;
+        }).join("")}
+      </div>
+      ${answered ? `
+        <p class="quick-quiz-feedback ${isCorrect ? "is-correct" : "is-wrong"}">
+          ${isCorrect
+            ? "Chính xác! Nếu bạn nhớ chắc, hãy bấm “Nhớ” hoặc “Dễ” ở phần Retrieval practice."
+            : `Chưa đúng. Đáp án đúng là: ${escapeHtml(word.vietnamese)}.`}
+        </p>
+      ` : `
+        <p class="quick-quiz-feedback">Luyện nhanh theo kiểu chọn đáp án giúp nhớ nghĩa trước khi ghi nhận kết quả ôn.</p>
+      `}
+    </section>
+  `;
+}
+
 function renderCurrentWord(animate = true) {
   const word = vocabularies[currentIndex];
   if (!word) return;
@@ -533,6 +607,7 @@ function renderCurrentWord(animate = true) {
       </div>
 
       ${renderExampleSection(examples)}
+      ${renderQuickQuizPanel(word)}
       ${renderReviewPanel(word)}
     </div>
 
@@ -571,7 +646,26 @@ function renderCurrentWord(animate = true) {
   elements.cardHost.querySelectorAll("[data-review-result]").forEach((button) => {
     button.addEventListener("click", () => handleReviewResult(button.dataset.reviewResult));
   });
+  elements.cardHost.querySelectorAll("[data-quick-quiz-choice]").forEach((button) => {
+    button.addEventListener("click", () => handleQuickQuizChoice(button.dataset.quickQuizChoice));
+  });
+  elements.cardHost.querySelector("[data-quick-quiz-reset]")?.addEventListener("click", resetQuickQuiz);
   updateNavigationStatus();
+}
+
+function handleQuickQuizChoice(choice) {
+  const word = vocabularies[currentIndex];
+  if (!word || !quickQuiz || quickQuiz.rank !== word.rank || quickQuiz.selected) return;
+  quickQuiz.selected = choice;
+  renderCurrentWord(false);
+  showToast(choice === word.vietnamese ? "Quiz đúng! Tiếp tục ghi nhận mức nhớ." : "Quiz sai, hãy xem lại ví dụ và nghĩa.");
+}
+
+function resetQuickQuiz() {
+  const word = vocabularies[currentIndex];
+  if (!word) return;
+  quickQuiz = createQuickQuiz(word);
+  renderCurrentWord(false);
 }
 
 function updateNavigationStatus() {
@@ -618,6 +712,7 @@ function moveBy(offset) {
 function setCurrentIndex(nextIndex, source = "unknown") {
   if (!Number.isInteger(nextIndex) || nextIndex < 0 || nextIndex >= vocabularies.length) return;
   currentIndex = nextIndex;
+  quickQuiz = null;
   renderCurrentWord();
   document.dispatchEvent(
     new CustomEvent("toeic:word-change", {
