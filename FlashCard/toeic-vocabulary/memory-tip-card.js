@@ -19,32 +19,52 @@
     const panel = vietnameseText.closest(".translation-panel");
     if (!panel) return;
 
-    panel.querySelector(".memory-tip-vi")?.remove();
-
     const word = currentVocabulary();
     const memoryTip = typeof word?.memory_tip_vi === "string"
       ? word.memory_tip_vi.trim()
       : "";
 
-    if (!memoryTip) return;
+    let tip = panel.querySelector(".memory-tip-vi");
 
-    const tip = document.createElement("p");
-    tip.className = "memory-tip-vi";
+    if (!memoryTip) {
+      tip?.remove();
+      return;
+    }
 
-    const label = document.createElement("span");
-    label.className = "memory-tip-label";
-    label.textContent = "Mẹo nhớ";
+    if (!tip) {
+      tip = document.createElement("p");
+      tip.className = "memory-tip-vi";
 
-    const text = document.createElement("span");
-    text.className = "memory-tip-text";
-    text.textContent = memoryTip;
+      const label = document.createElement("span");
+      label.className = "memory-tip-label";
+      label.textContent = "Mẹo nhớ";
 
-    tip.append(label, text);
-    vietnameseText.insertAdjacentElement("afterend", tip);
+      const text = document.createElement("span");
+      text.className = "memory-tip-text";
+
+      tip.append(label, text);
+      vietnameseText.insertAdjacentElement("afterend", tip);
+    }
+
+    const text = tip.querySelector(".memory-tip-text");
+    if (text && text.textContent !== memoryTip) {
+      text.textContent = memoryTip;
+    }
   }
 
-  const observer = new MutationObserver(renderVietnameseMemoryTip);
-  observer.observe(cardHost, { childList: true, subtree: true });
+  const observer = new MutationObserver((mutations) => {
+    const cardWasReplaced = mutations.some((mutation) =>
+      [...mutation.addedNodes].some((node) =>
+        node.nodeType === Node.ELEMENT_NODE
+        && (node.matches?.(".card-topline, .language-section") || node.querySelector?.("#vietnameseWord")),
+      ),
+    );
 
+    if (cardWasReplaced) {
+      renderVietnameseMemoryTip();
+    }
+  });
+
+  observer.observe(cardHost, { childList: true, subtree: true });
   renderVietnameseMemoryTip();
 })();
