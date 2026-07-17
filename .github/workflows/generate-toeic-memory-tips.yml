@@ -1,0 +1,55 @@
+name: Generate TOEIC memory tips
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - scripts/add_toeic_memory_tips_vi.py
+      - FlashCard/data/Eng-Ja-Vi/toeic_600_essential_words_en_vi.json
+      - .github/workflows/generate-toeic-memory-tips.yml
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate memory tips
+        run: python scripts/add_toeic_memory_tips_vi.py
+
+      - name: Validate JSON and coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('FlashCard/data/Eng-Ja-Vi/toeic_600_essential_words_en_vi.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          words = data['vocabularies']
+          assert len(words) == 598
+          assert all(isinstance(x.get('memory_tip_vi'), str) and len(x['memory_tip_vi']) >= 35 for x in words)
+          assert len({x['rank'] for x in words}) == 598
+          print('Validated 598 Vietnamese memory tips.')
+          PY
+
+      - name: Commit generated JSON
+        run: |
+          if git diff --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add FlashCard/data/Eng-Ja-Vi/toeic_600_essential_words_en_vi.json
+          git commit -m 'feat: add Vietnamese memory tips to TOEIC vocabulary'
+          git push
