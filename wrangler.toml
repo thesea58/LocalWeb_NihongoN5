@@ -1,4 +1,4 @@
-name = "localweb-nihongo-n5"
+name = "nihongo-jlptn5"
 main = "worker/index.js"
 compatibility_date = "2026-07-07"
 workers_dev = true
