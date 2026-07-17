@@ -437,14 +437,14 @@ function renderContextQuestion() {
   });
 }
 
-function renderRetrievalPractice(feedback, word, responseMs) {
+function renderRetrievalPractice(feedback, word, responseMs, defaultResult) {
   const progress = state.progress.get(word.rank);
   feedback.insertAdjacentHTML("afterend", `
     <section class="review-panel" aria-label="Đánh giá ghi nhớ">
       <div class="review-panel-head">
         <div>
           <p class="stage-label">Retrieval Practice</p>
-          <h3>Bạn nhớ từ này ở mức nào?</h3>
+          <h3>Tự đánh giá (tùy chọn)</h3>
         </div>
         <span>${progress?.review_count || 0} lần ôn</span>
       </div>
@@ -461,16 +461,27 @@ function renderRetrievalPractice(feedback, word, responseMs) {
 
   const card = feedback.parentElement;
   const nextButton = card.querySelector(".next-button");
-  nextButton.disabled = true;
+  let reviewPromise = null;
+
+  async function commitReview(result, selectedButton = null) {
+    if (reviewPromise) return reviewPromise;
+    card.querySelectorAll("[data-review-result]").forEach((item) => { item.disabled = true; });
+    nextButton.disabled = true;
+    reviewPromise = recordReview(word, result, responseMs).then(() => {
+      selectedButton?.classList.add("is-selected");
+      nextButton.disabled = false;
+    });
+    return reviewPromise;
+  }
+
   card.querySelectorAll("[data-review-result]").forEach((button) => {
     button.addEventListener("click", async () => {
-      card.querySelectorAll("[data-review-result]").forEach((item) => { item.disabled = true; });
-      await recordReview(word, button.dataset.reviewResult, responseMs);
-      button.classList.add("is-selected");
-      nextButton.disabled = false;
+      await commitReview(button.dataset.reviewResult, button);
       nextButton.focus();
     });
   });
+
+  return () => commitReview(defaultResult);
 }
 
 async function answerContext(rank) {
@@ -503,6 +514,7 @@ async function answerContext(rank) {
   }
 
   const feedback = document.getElementById("feedback");
+  const defaultReview = correct ? (responseMs < 3500 ? "easy" : "good") : "forgot";
   const exampleEnglish = word.example_sentences?.english
     || `The office team must restore the word ${word.english} before the deadline.`;
   const sentenceMeaning = gameMode() === "meaning"
@@ -522,8 +534,12 @@ async function answerContext(rank) {
     ? `<strong>Đúng.</strong> ${escapeHtml(word.english)} ${escapeHtml(word.english_pronunciation_ipa || "")}: ${escapeHtml(word.vietnamese)}`
     : `<strong>Cần sửa.</strong> ${escapeHtml(word.english)} nghĩa là ${escapeHtml(word.vietnamese)}. Từ này đã được đưa vào Repair Queue.`) + sentenceMeaning;
   feedback.insertAdjacentHTML("afterend", `<button class="next-button" type="button">Tiếp tục</button>`);
-  feedback.parentElement.querySelector(".next-button").addEventListener("click", showNextContext);
-  renderRetrievalPractice(feedback, word, responseMs);
+  const recordBeforeNext = renderRetrievalPractice(feedback, word, responseMs, defaultReview);
+  feedback.parentElement.querySelector(".next-button").addEventListener("click", async (event) => {
+    event.currentTarget.disabled = true;
+    await recordBeforeNext();
+    showNextContext();
+  });
   updateStatus();
 }
 
@@ -561,6 +577,7 @@ function useHint(kind, word) {
   state.hints += 1;
   state.currentHints += 1;
   const feedback = document.getElementById("feedback");
+  const defaultReview = correct ? (state.currentHints ? "good" : "easy") : "hard";
   if (kind === "first") feedback.textContent = `Chữ đầu: ${word.english.slice(0, 1)}`;
   if (kind === "length") feedback.textContent = `Số ký tự: ${word.english.replace(/\s/g, "").length}`;
   if (kind === "sound") {
@@ -589,8 +606,12 @@ async function answerRecall(value) {
     feedback.innerHTML = `<strong>Chưa đúng.</strong> Đáp án là ${escapeHtml(word.english)}.`;
   }
   feedback.insertAdjacentHTML("afterend", `<button class="next-button" type="button">Tiếp tục</button>`);
-  feedback.parentElement.querySelector(".next-button").addEventListener("click", showNextContext);
-  renderRetrievalPractice(feedback, word, responseMs);
+  const recordBeforeNext = renderRetrievalPractice(feedback, word, responseMs, defaultReview);
+  feedback.parentElement.querySelector(".next-button").addEventListener("click", async (event) => {
+    event.currentTarget.disabled = true;
+    await recordBeforeNext();
+    showNextContext();
+  });
   updateStatus();
 }
 
