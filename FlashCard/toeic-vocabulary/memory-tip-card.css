@@ -1,0 +1,31 @@
+.memory-tip-vi {
+  display: grid;
+  gap: 4px;
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: clamp(0.76rem, 1.7vw, 0.92rem);
+  line-height: 1.5;
+}
+
+.memory-tip-label {
+  color: var(--secondary);
+  font-size: 0.72em;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.memory-tip-text {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .memory-tip-vi {
+    margin-top: 10px;
+    padding-top: 8px;
+    font-size: 0.76rem;
+    line-height: 1.42;
+  }
+}
