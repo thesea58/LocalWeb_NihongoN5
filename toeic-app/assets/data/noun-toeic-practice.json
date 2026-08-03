@@ -1,0 +1,479 @@
+{
+  "title": "Trắc nghiệm format TOEIC",
+  "source": {
+    "activity": "7385",
+    "note": "Dữ liệu được trích từ danh sách 19 câu của bài luyện tập Study4 do người dùng mở"
+  },
+  "questions": [
+    {
+      "sourceId": "405234",
+      "number": "107",
+      "prompt": "Because of transportation _____ due to winter weather, some conference participants may arrive late.",
+      "options": [
+        "are delayed",
+        "to delay",
+        "delays",
+        "had delayed"
+      ],
+      "answer": "C",
+      "explanation": [
+        "Giải thích: Vì theo sau giới từ ‘because of’ là một danh từ/cụm danh từ, không thể là một câu => loại đáp án A và D",
+        "*Lưu ý: chưa thể loại bỏ đáp án C vì đáp án C có thể là một danh từ số nhiều",
+        "Dựa vào nghĩa của từ, không thể sử dụng động từ nguyên mẫu có to để bổ nghĩa cho danh từ transportation (không thể là giao thông vận tải để trì hoãn) => loại đáp án B",
+        "=> đáp án đúng là C",
+        "Từ ‘delays’ trong đáp án C là một danh từ với nghĩa sự trì hoãn. Từ này kết hợp với ‘transportation’ (giao thông vận tải) tạo thành danh từ ghép ‘transportation delays’ - những sự đình trệ giao thông"
+      ],
+      "translation": "Vì những sự đình trệ giao thông gây ra bởi thời tiết mùa đông, một số người tham gia hội nghị có thể sẽ đến muộn.",
+      "vocabulary": [
+        "Participant (n): người tham dự",
+        "Conference (n): hội nghị",
+        "Delay (v): trì hoãn",
+        "Delay (n): sự trì hoãn"
+      ]
+    },
+    {
+      "sourceId": "405235",
+      "number": "117",
+      "prompt": "To receive _____, please be sure the appropriate box is checked on the magazine order form.",
+      "options": [
+        "renew",
+        "renewed",
+        "renewals",
+        "to renew"
+      ],
+      "answer": "C",
+      "explanation": [
+        "Giải thích: Vì ‘receive’ là ngoại động từ -> chỗ trống cần điền đứng sau ngoại động từ phải là một danh từ để làm tân ngữ cho động từ đó.",
+        "Trong 4 đáp án trên, đáp án C là danh từ",
+        "=> đáp án đúng là C"
+      ],
+      "translation": "Để nhận được sự gia hạn, vui lòng đảm bảo rằng ô thích hợp được đánh dấu trong đơn đặt hàng tạp chí.",
+      "vocabulary": [
+        "appropriate (adj): thích hợp/phù hợp",
+        "Renew (v): làm mới",
+        "Renewal (n): sự gia hạn",
+        "order form (n): đơn đặt hàng"
+      ]
+    },
+    {
+      "sourceId": "405236",
+      "number": "125",
+      "prompt": "The Rustic Diner's chef does allow patrons to make menu _____.",
+      "options": [
+        "substituted",
+        "substituting",
+        "substitutions",
+        "substitute"
+      ],
+      "answer": "C",
+      "explanation": [
+        "Giải thích: Ta cần tìm đúng dạng từ loại của ‘substitute’ để điền vào chỗ trống",
+        "Ta có cấu trúc make sth + adj. Tuy nhiên, ở trong câu này, nếu điền phân từ vào chỗ trống (phân từ đóng vai trò là tính từ để bổ nghĩa cho danh từ menu) thì danh từ menu cần phải có mạo từ đứng trước nó (vì menu là danh từ đếm được ở dạng số ít)",
+        "=> loại đáp án A và B",
+        "=> chọn đáp án C",
+        "Cụm \"menu substitutions\" thường có nghĩa là thay đổi món trong thực đơn, nhưng đôi khi nó cũng có nghĩa là đổi nguyên liệu đối với một món ăn, ví dụ như đổi sang loại đường dành cho người ăn kiêng hoặc yêu cầu không để cá vào bánh pizza."
+      ],
+      "translation": "Đầu bếp của Rustic Diner cho phép khách hàng đổi món thay thế trong thực đơn.",
+      "vocabulary": [
+        "Menu là danh từ số ít nhưng không có từ hạn định ở đằng trước nên một mình nó không đủ hoàn thiện về mặt ngữ pháp để đóng vai trò là tân ngữ của động từ “make” => từ cần điền phải là một danh từ mà có thể kết hợp với menu để tạo thành danh từ ghép",
+        "Có substitute là người/vật thay thế cho ai/cái gì -> đây là danh từ đếm được. Nếu dùng ‘menu substitute’ thì cụm danh từ cần phải có từ hạn định (a/an/the/…) => loại đáp án D",
+        "patron (n): khách hàng (thường là khách quen)",
+        "substitute (v): thay thế",
+        "Substitute (n): người/vật thay thế",
+        "Substitution (n): sự thay thế, sự thay đổi"
+      ]
+    },
+    {
+      "sourceId": "405237",
+      "number": "114",
+      "prompt": "Eastington University just announced the _____ of all foods containing artificial preservatives from its cafeteria menu.",
+      "options": [
+        "eliminate",
+        "eliminated",
+        "elimination",
+        "eliminates"
+      ],
+      "answer": "C",
+      "explanation": [
+        "Giải thích: Chỗ trống cần điền đứng sau mạo từ “the” và đứng trước giới từ “of” → Cần tìm một danh từ. Loại A (động từ), B (phân từ) và D (động từ thêm đuôi -s/es)",
+        "→ Chọn C",
+        "- announce (n): thông báo, công bố",
+        "- contain (v): chứa, bao gồm",
+        "- artificial (adj): nhân tạo",
+        "- preservative (n): chất bảo quản thực phẩm",
+        "- eliminate (v): loại bỏ / elimination (n): sự loại bỏ"
+      ],
+      "translation": "Đại học Eastington vừa thông báo việc loại bỏ tất cả các loại thực phẩm có chứa chất bảo quản nhân tạo từ thực đơn nhà ăn của trường.",
+      "vocabulary": []
+    },
+    {
+      "sourceId": "405238",
+      "number": "118",
+      "prompt": "The latest polling shows increased public _____ for the stadium renovation project.",
+      "options": [
+        "approve",
+        "approval",
+        "approving",
+        "approvingly"
+      ],
+      "answer": "B",
+      "explanation": [
+        "Giải thích: Ta cần điền một từ loại thích hợp vào chỗ trống mà vị trí của nó đứng sau tính từ public và cả cụm public _____ đóng vai trò là tân ngữ của động từ ‘increased’",
+        "=> từ cần điền chỉ có thể là một danh từ",
+        "=> Đáp án đúng là B. .",
+        "- renovation: (n) sự cải tạo",
+        "- project: (n) dự án",
+        "- approval (n): sự chấp thuận",
+        "- approve (v): tán thành, chấp thuận"
+      ],
+      "translation": "Cuộc thăm dò mới nhất cho thấy sự chấp thuận của công chúng tăng lên đối với dự án cải tạo sân vận động.",
+      "vocabulary": []
+    },
+    {
+      "sourceId": "405239",
+      "number": "105",
+      "prompt": "Ms. Patel is coming to Delhi today to visit possible ------- for her company's new warehouse.",
+      "options": [
+        "locating",
+        "locations",
+        "located",
+        "locate"
+      ],
+      "answer": "B",
+      "explanation": [
+        "Giải thích: Câu hỏi yêu cầu điền 1 từ loại thích hợp vào chỗ trống",
+        "Vì từ cần điền đứng sau tính từ ‘possible’ và cả cụm ‘possible + từ cần điền’ đứng sau động từ visit",
+        "=> cần phải điền một danh từ đóng vai trò tân ngữ của động từ visit",
+        "=> đáp án đúng là B"
+      ],
+      "translation": "Cô Petel sẽ đến Delhi vào hôm nay để khảo sát các địa điểm khả thi cho nhà kho mới của công ty cô ấy.",
+      "vocabulary": [
+        "warehouse (n): nhà kho",
+        "locate (v): xác định vị trí; nằm ở"
+      ]
+    },
+    {
+      "sourceId": "405240",
+      "number": "117",
+      "prompt": "Costpa Analytics Ltd. has made successful ------ in two emerging data companies.",
+      "options": [
+        "investments",
+        "invested",
+        "invest",
+        "investor"
+      ],
+      "answer": "A",
+      "explanation": [
+        "Giải thích: Ta cần tìm loại từ thích hợp để điền vào chỗ trống",
+        "Ta thấy từ cần điền đứng sau động từ ‘made’ (nguyên thể là ‘make’)",
+        "=> chỗ trống cần điền phải là một danh từ đóng vai trò là tân ngữ của động từ ‘made’ (vì động từ ‘make’ là một ngoại động từ nên cần phải có một tân ngữ theo sau)",
+        "=> loại đáp án B và C",
+        "Dựa trên nghĩa của từ",
+        "=> đáp án đúng là A",
+        "Loại đáp án D vì danh từ ‘investor’ là danh từ đếm được số ít => cụm danh từ ‘successful investor’ cần có từ hạn định ở phía trước",
+        ""
+      ],
+      "translation": "",
+      "vocabulary": [
+        "Successful (adj): thành công",
+        "Investment (n): sự đầu tư",
+        "Invest (v): đầu tư",
+        "Investor (n): nhà đầu tư",
+        "Emerging (adj): xuất hiện, nổi lên"
+      ]
+    },
+    {
+      "sourceId": "405241",
+      "number": "127",
+      "prompt": "Employee ----- at Medmile Ventures include share options and scheduled raises.",
+      "options": [
+        "beneficial",
+        "beneficially",
+        "benefits",
+        "benefited"
+      ],
+      "answer": "C",
+      "explanation": [
+        "Giải thích: Ta cần điền từ loại thích hợp vào chỗ trống",
+        "Ta thấy động từ chính của câu là động từ ‘include’ => cả cụm danh từ đứng trước động từ này ‘Employee ----- at Medmile Ventures’ đóng vai trò là chủ ngữ của câu",
+        "Loại đáp án A vì tính từ không đứng sau danh từ",
+        "Loại đáp án B vì trạng từ không đứng sau chủ ngữ mà chỉ đứng trước chủ ngữ, trước hoặc sau động từ",
+        "Loại đáp án D vì khi đó chủ ngữ của câu sẽ là ‘employee’ và đây là danh từ ở dạng số ít mà động từ chính của câu ‘include’ được chia ở số nhiều",
+        "=> đáp án đúng là C",
+        "Để ý thấy phía sau động từ include đang ở dạng số nhiều => chủ ngữ cần một danh từ đếm được số nhiều. Danh từ ‘benefits’ kết hợp với danh từ ‘employee’ tạo thành một danh từ ghép đóng vai trò là chủ ngữ của câu"
+      ],
+      "translation": "Những lợi ích của nhân viên tại Medmile Ventures bao gồm quyền chọn cổ phiếu và tăng lương theo lộ trình.",
+      "vocabulary": [
+        "Benefit (n): lợi ích",
+        "Beneficial (adj): có ích, có lợi",
+        "Share (N): cổ phiếu"
+      ]
+    },
+    {
+      "sourceId": "405242",
+      "number": "107",
+      "prompt": "The Ambury Prize recognizes research that is notable for its _____ and innovation.",
+      "options": [
+        "creative",
+        "creatively",
+        "creativity",
+        "creates"
+      ],
+      "answer": "C",
+      "explanation": [
+        "Giải thích: Chỗ trống cần điền nằm sau đại từ sở hữu “its” → cần tìm một danh từ",
+        "Loại A (tính từ đuôi -ive), B (trạng từ đuôi -ly) và D (động từ đuôi -s/es)",
+        "→ Chọn C (danh từ đuôi -ity)",
+        "- notable: (adj) đáng chú ý, nổi bật",
+        "- innovation: (n) sự đổi mới",
+        "- recognize: (v) nhận ra, thừa nhận, công nhận"
+      ],
+      "translation": "Giải thưởng Ambury công nhận nghiên cứu đó rất đáng chú ý vì sự sáng tạo và đổi mới của nó.",
+      "vocabulary": []
+    },
+    {
+      "sourceId": "405243",
+      "number": "117",
+      "prompt": "Trelmoni Corporation has just released its _____ of the global stock market.",
+      "options": [
+        "analysis",
+        "analytical",
+        "analyze",
+        "analyzed"
+      ],
+      "answer": "A",
+      "explanation": [
+        "Giải thích: Ta cần điền một từ loại thích hợp vào chỗ trống mà vị trí của nó đứng sau đại từ sở hữu its",
+        "=> từ cần điền phải là một danh từ để hoàn thiện cụm danh từ “its _____ of the global stock market\"; cụm danh từ này đóng vai trò là tân ngữ của động từ \"release",
+        "=> Đáp án đúng là A."
+      ],
+      "translation": "Trelmoni Corporation vừa công bố bản phân tích thị trường chứng khoán toàn cầu của mình.",
+      "vocabulary": [
+        "stock market: (n) thị trường chứng khoán",
+        "release: (v) phát hành, công bố",
+        "Analysis (n) sự phân tích",
+        "Analytical (adj): (thuộc) phân tích",
+        "Analyze (v): phân tích"
+      ]
+    },
+    {
+      "sourceId": "405244",
+      "number": "127",
+      "prompt": "By testing the _____ of the vehicle in desert terrain, the designers proved that it works perfectly in harsh conditions.",
+      "options": [
+        "enduring",
+        "endurance",
+        "endures",
+        "endure"
+      ],
+      "answer": "B",
+      "explanation": [
+        "Giải thích: ta cần điền một từ loại thích hợp vào chỗ trống mà vị trí của nó đứng sau mạo từ ‘the’ và trước giới từ ‘of’",
+        "=> Chỗ trống cần điền 1 danh từ chính để hoàn thiện cụm danh từ đứng sau mạo từ the ‘_____ of the vehicle’",
+        "=> Đáp đúng là B.",
+        "- condition: (n) điều kiện",
+        "- prove: (v) chứng minh",
+        "- harsh: (adj) khắc nghiệt, thô ráp, xù xì",
+        "- endurance (n): khả năng chịu đựng",
+        "- endure (v): chịu đựng"
+      ],
+      "translation": "Bằng việc thử nghiệm khả năng chịu đựng của xe địa hình sa mạc, các nhà thiết kế đã chứng minh rằng nó hoạt động hoàn hảo trong những điều kiện khắc nghiệt.",
+      "vocabulary": []
+    },
+    {
+      "sourceId": "405245",
+      "number": "109",
+      "prompt": "Following a brief _____ with the chief technician, Mr. Moore agreed to update the operations manual.",
+      "options": [
+        "converses",
+        "conversation",
+        "conversational",
+        "conversationally"
+      ],
+      "answer": "B",
+      "explanation": [
+        "Giải thích: Ta cần điền một từ loại thích hợp vào chỗ trống mà vị trí của nó đứng sau tính từ brief và nó nằm trong cụm danh từ ‘a brief _____ with the chief technician’",
+        "=> Từ cần điền đứng sau mạo từ ‘a’ nên chỗ trống cần một danh từ chính để hoàn thiện cụm danh từ ‘a brief _____ with the chief technician’ và cụm danh từ này đóng vai trò tân ngữ của giới từ following.",
+        "=> đáp án đúng là B."
+      ],
+      "translation": "Sau cuộc trò chuyện ngắn với kỹ thuật viên trưởng, ông Moore đồng ý cập nhật sổ tay hướng dẫn vận hành.",
+      "vocabulary": [
+        "Brief (adj): ngắn, vắn tắt",
+        "Converse (v): nói chuyện",
+        "Conversation (n): cuộc trò chuyện",
+        "Chief (adj): người đứng đầu, trưởng",
+        "Update (v): cập nhật"
+      ]
+    },
+    {
+      "sourceId": "405246",
+      "number": "115",
+      "prompt": "Zhang Cleaning takes great care to ensure that all its employees follow specific cleaning _____",
+      "options": [
+        "proceeds",
+        "procedures",
+        "procedural",
+        "proceeding"
+      ],
+      "answer": "B",
+      "explanation": [
+        "Giải thích: Ta cần điền một từ loại thích hợp vào chỗ trống mà vị trí của nó đứng sau danh từ cleaning và nằm trong cụm danh từ ‘specific cleaning _____’ đóng vai trò là tân ngữ của động từ follow",
+        "=> Từ cần điền là một danh từ và từ này kết hợp với danh từ cleaning trước nó tạo thành 1 danh từ ghép",
+        "=> đáp án đúng là B"
+      ],
+      "translation": "Zhang Cleaning rất cẩn thận để đảm bảo rằng tất cả nhân viên của mình tuân thủ các quy trình vệ sinh cụ thể.",
+      "vocabulary": [
+        "Ensure (v): đảm bảo",
+        "Specific (adj): cụ thể",
+        "Proceed (v): (1) tiếp tục, tiếp diễn; (2) tiến hành, thực hiện",
+        "Procedure (n): quy trình",
+        "Procedural (adj): liên quan tới thủ tục, quy trình"
+      ]
+    },
+    {
+      "sourceId": "405247",
+      "number": "121",
+      "prompt": "Before investing, Mr. Hwang will wait for greater _____ that Briomer Tech is fully committed to the project.",
+      "options": [
+        "assure",
+        "assured",
+        "assuredly",
+        "assurance"
+      ],
+      "answer": "D",
+      "explanation": [
+        "Giải thích: Ta cần điền 1 từ loại thích hợp vào chỗ trống mà vị trí của nó đứng sau tính từ greater (ở dạng so sánh hơn) và cả cụm ‘greater _____’ đóng vai trò là tân ngữ của cụm động từ ‘wait for’",
+        "=> chỗ trống cần điền là một danh từ",
+        "=> đáp án đúng là D",
+        "Trong câu này, mệnh đề that phía sau là mệnh đề danh ngữ. Nó bổ nghĩa cho danh từ assurance để cho biết sự bảo đảm này là về sự việc gì.",
+        "Lưu ý: Các danh từ như fact, notice, opinion, evidence, speculation, confirmation, assurance, confidence, notice, notification, reminder...phía sau thường có mệnh đề danh ngữ that đóng vai trò đồng vị ngữ."
+      ],
+      "translation": "Trước khi đầu tư, ông Hwang sẽ chờ đợi sự đảm bảo chắc chắn hơn rằng Briomer Tech hoàn toàn tận tâm với dự án.",
+      "vocabulary": [
+        "Invest (v): đầu tư",
+        "Wait for (someone/sth) (phrasal verb): chờ đợi (ai/điều gì)",
+        "Assure (v): đảm bảo",
+        "Assurance (n): sự đảm bảo",
+        "Committed (adj): tận tuy, tận tâm",
+        "Project (n): dự án"
+      ]
+    },
+    {
+      "sourceId": "405248",
+      "number": "108",
+      "prompt": "All flights were delayed three hours because of a heavy blanket of _____.",
+      "options": [
+        "fog",
+        "fogger",
+        "foggy",
+        "fogged"
+      ],
+      "answer": "A",
+      "explanation": [
+        "Giải thích: Chỗ trống cần có một danh từ để đóng vai trò tân ngữ của giới từ \\\"of\\\".",
+        "→ Chọn A.",
+        "- delay: (n) sự chậm trễ",
+        "- delay: (v) trì hoãn",
+        "- fog (n): sương mù"
+      ],
+      "translation": "Tất cả các chuyến bay đã bị hoãn ba giờ vì sương mù dày đặc.",
+      "vocabulary": []
+    },
+    {
+      "sourceId": "405249",
+      "number": "129",
+      "prompt": "One distinctive aspect of the painter Chapin Kurek's portrait style is her almost comic _____ of facial features.",
+      "options": [
+        "exaggerate",
+        "exaggerated",
+        "exaggeratedly",
+        "exaggeration"
+      ],
+      "answer": "D",
+      "explanation": [
+        "Giải thích: Vì từ cần tìm đứng trước giới từ “of” và đứng sau tính từ “comic”, hơn nữa vị trí từ cần tìm đứng giữa cụm “her almost comic _____ of facial features” → Ta cần tìm một danh từ chính để hoàn thiện cụm.",
+        "Dựa vào loại từ, loại đáp án A (exaggerate: động từ), đáp án B (exaggerated: tính từ) và đáp án C (exaggeratedly: trạng từ)",
+        "⇒ Chọn D (exaggeration: danh từ)",
+        "- distinctive: (adj) đặc biệt, khác biệt, riêng biệt",
+        "- aspect: (n) khía cạnh",
+        "- facial: (adj) thuộc về khuôn mặt",
+        "- feature: (n) đặc điểm, tính năng",
+        "- comic: (adj) hài hước",
+        "- comic: (n) diễn viên hài (chuyên nghiệp)",
+        "- portrait: (n) chân dung"
+      ],
+      "translation": "Một khía cạnh khác biệt trong phong cách chân dung của họa sĩ Chapin Kurek là sự phóng đại gần như hài hước của cô về các đặc điểm trên khuôn mặt.",
+      "vocabulary": []
+    },
+    {
+      "sourceId": "405250",
+      "number": "105",
+      "prompt": "The attached document shows how to report any _____ incurred during business travel.",
+      "options": [
+        "expenses",
+        "expensed",
+        "expensively",
+        "expensive"
+      ],
+      "answer": "A",
+      "explanation": [
+        "Giải thích: Ta cần tìm một từ đứng sau một ngoại động từ ‘report’ và một từ hạn định ‘any’ - từ hạn định thường xuất hiện trước một danh từ để làm rõ nghĩa của nó → Cần tìm một danh từ (đóng vai trò tân ngữ trong câu).",
+        "Loại đáp án B (hậu tố -ed → tính từ), đáp án C (hậu tố -ly → trạng từ) và đáp án D (hậu tố -sive → tính từ)",
+        "⇒ Chọn A",
+        "Tài liệu đính kèm hướng dẫn cách báo cáo mọi chi phí phát sinh trong quá trình đi công tác.",
+        "- attach (v): gắn",
+        "- attached (adj): đính kèm",
+        "- report (v): báo cáo",
+        "- incur (v): xảy ra, phát sinh"
+      ],
+      "translation": "",
+      "vocabulary": []
+    },
+    {
+      "sourceId": "405251",
+      "number": "117",
+      "prompt": "The merchandise at Logan's Clothing requires _____ at the beginning of each season.",
+      "options": [
+        "reorganize",
+        "reorganization",
+        "reorganizes",
+        "reorganized"
+      ],
+      "answer": "B",
+      "explanation": [
+        "Giải thích: Ta cần tìm một từ loại đứng sau ngoại động từ ‘requires’, xét thấy phía sau từ cần điền là cụm trạng từ bổ nghĩa cho cả câu (không liên quan đến từ loại của từ cần điền) → Cần tìm một danh từ để đóng vai trò tân ngữ đứng sau động từ.",
+        "→ Loại đáp án A và C (đều là động từ), đáp án D (vừa có thể là động từ quá khứ vừa có thể là tính từ)",
+        "⇒ Chọn B (hậu tố -tion → danh từ)",
+        "Hàng hóa tại Logan's Clothing yêu cầu sắp xếp lại vào đầu mỗi mùa.",
+        "- merchandise (n): hàng hóa",
+        "- require (v): yêu cầu",
+        "- reorganize (v): sắp xếp lại",
+        "- reorganization: (n) sự sắp xếp lại"
+      ],
+      "translation": "",
+      "vocabulary": []
+    },
+    {
+      "sourceId": "405252",
+      "number": "102",
+      "prompt": "We greatly appreciate your _____ in preparing your office for the upcoming move.",
+      "options": [
+        "cooperates",
+        "cooperated",
+        "cooperation",
+        "cooperate"
+      ],
+      "answer": "C",
+      "explanation": [
+        "Giải thích: Ta nhận thấy từ cần tìm đứng sau tính từ sở hữu ‘your’ và đứng trước giới từ in → Cần tìm một danh từ (đóng vai trò tân ngữ của động từ appreciate)",
+        "→ Chọn đáp án C (danh từ có hậu tố -tion)",
+        "- appreciate (v): cảm kích, đánh giá cao ai hoặc cái gì.",
+        "- upcoming (adj): sắp tới, đang tới",
+        "- move (n,v): sự dịch chuyển, di chuyển",
+        "- cooperation (n): sự hợp tác"
+      ],
+      "translation": "Chúng tôi đánh giá rất cao sự hợp tác của bạn trong việc chuẩn bị văn phòng cho việc chuyển chỗ sắp tới.",
+      "vocabulary": []
+    }
+  ]
+}

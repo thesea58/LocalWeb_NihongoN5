@@ -1,0 +1,1272 @@
+{
+  "title": "Complete TOEIC - List 20",
+  "source_text_entries": 55,
+  "note": "Đây là các mục có trong văn bản người dùng đã cung cấp. Không kèm ảnh hoặc dữ liệu Base64.",
+  "vocabulary": [
+    {
+      "word": "compliance",
+      "part_of_speech": "n",
+      "pronunciation": "/kəmˈplaɪ.əns/",
+      "definition": {
+        "vietnamese": "Định nghĩa: hành động tuân theo các quy tắc",
+        "english": "the act of obeying rules"
+      },
+      "examples": [
+        {
+          "english": "The company said that it had always acted in [compliance] with environmental laws.",
+          "vietnamese": "Công ty cho biết rằng họ luôn tuân thủ các luật về môi trường."
+        },
+        {
+          "english": "The law imposes significant [compliance] costs on US businesses and is a deterrent to price competition.",
+          "vietnamese": "Luật pháp áp đặt chi phí tuân thủ đáng kể cho các doanh nghiệp ở Mỹ và là một rào cản đối với cạnh tranh về giá cả."
+        },
+        {
+          "english": "He pointed to the building's lack of [compliance] with building standards for the disabled.",
+          "vietnamese": "Anh ấy chỉ ra sự thiếu tuân thủ tiêu chuẩn xây dựng dành cho người khuyết tật của tòa nhà."
+        }
+      ]
+    },
+    {
+      "word": "contraction",
+      "part_of_speech": "n",
+      "pronunciation": "/kənˈtræk.ʃən/",
+      "definition": {
+        "vietnamese": "Định nghĩa: sự co lại, sự thu nhỏ lại",
+        "english": "a tightening or squeezing movement"
+      },
+      "examples": [
+        {
+          "english": "Cold causes [contraction] of the metal.",
+          "vietnamese": "Lạnh gây ra sự co rút của kim loại."
+        },
+        {
+          "english": "Michigan's economy experienced a [contraction] last year.",
+          "vietnamese": "Nền kinh tế Michigan đã trải qua một cuộc suy thoái vào năm ngoái."
+        },
+        {
+          "english": "The manufacturing sector suffered a severe [contraction]",
+          "vietnamese": "Ngành sản xuất đã chịu một sự co lại nghiêm trọng."
+        }
+      ]
+    },
+    {
+      "word": "cookbook",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈkʊk.bʊk/",
+      "definition": {
+        "vietnamese": "Định nghĩa: một cuốn sách đưa ra hướng dẫn về cách chuẩn bị và nấu thức ăn",
+        "english": "a book that gives directions on how to prepare and cook food"
+      },
+      "examples": [
+        {
+          "english": "The recipe is in that [cookbook] and most of the ingredients are sitting out on the counter I think.",
+          "vietnamese": "Công thức nằm trong quyển sách nấu ăn đó và hầu hết các nguyên liệu đang được bày ra trên quầy, tôi nghĩ vậy."
+        },
+        {
+          "english": "This attractive hardcover [cookbook] contains interesting recipes from start to finish.",
+          "vietnamese": "Cuốn sách nấu ăn bìa cứng hấp dẫn này chứa những công thức nấu ăn thú vị từ đầu đến cuối."
+        },
+        {
+          "english": "You can find diabetic [cookbooks] that focus on foods from different cultures and ethnicities.",
+          "vietnamese": "Bạn có thể tìm thấy sách nấu ăn cho người tiểu đường tập trung vào các món ăn từ các nền văn hóa và dân tộc khác nhau."
+        }
+      ]
+    },
+    {
+      "word": "cushion",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈkʊʃ.ən/",
+      "definition": {
+        "vietnamese": "Định nghĩa: cái đệm, cái nệm",
+        "english": "a pad to make something more comfortable"
+      },
+      "examples": [
+        {
+          "english": "The new yellow [cushions] nicely set off the pale green of the chair covers.",
+          "vietnamese": "Những chiếc gối mới màu vàng làm nổi bật màu xanh nhạt của những tấm bọc ghế."
+        },
+        {
+          "english": "My aunt was busy straightening furniture and plumping [cushions].",
+          "vietnamese": "Dì của tôi đang bận rộn chỉnh lại đồ đạc và làm phồng những chiếc gối."
+        },
+        {
+          "english": "Stuff the [cushion] and then sew up the final seam.",
+          "vietnamese": "Nhồi gối vào và sau đó may đường may cuối cùng lại."
+        }
+      ]
+    },
+    {
+      "word": "dose",
+      "part_of_speech": "n",
+      "pronunciation": "/dəʊs/",
+      "definition": {
+        "vietnamese": "Định nghĩa: liều lượng",
+        "english": "the amount of medicine taken at one time"
+      },
+      "examples": [
+        {
+          "english": "The label says to take one [dose] three times a day.",
+          "vietnamese": "Nhãn ghi uống một liều ba lần một ngày."
+        },
+        {
+          "english": "It is dangerous to take more than the recommended [dose] of this medicine.",
+          "vietnamese": "Việc uống hơn liều khuyến cáo của loại thuốc này là nguy hiểm."
+        },
+        {
+          "english": "She was given large [doses] of a powerful antibiotic.",
+          "vietnamese": "Cô ấy đã được cho liều lớn của một loại kháng sinh mạnh."
+        }
+      ]
+    },
+    {
+      "word": "drum",
+      "part_of_speech": "n",
+      "pronunciation": "/drʌm/",
+      "definition": {
+        "vietnamese": "Định nghĩa: cái trống",
+        "english": "a musical instrument you hit with wooden sticks"
+      },
+      "examples": [
+        {
+          "english": "The [drums] and double bass usually form the rhythm section of a jazz group.",
+          "vietnamese": "Trống và âm trầm thường tạo thành phần nhịp điệu của một nhóm nhạc jazz."
+        },
+        {
+          "english": "The [drums] rolled as the acrobat walked along the tightrope.",
+          "vietnamese": "Trống đánh vang khi nghệ sĩ xiếc đi dọc theo dây lưng."
+        },
+        {
+          "english": "Beninese also make a wide range of handmade instruments, from twin [drums] to small Beninese guitars.",
+          "vietnamese": "Người Beninese cũng làm nhiều loại nhạc cụ thủ công, từ trống đôi đến các loại đàn guitar Beninese nhỏ."
+        }
+      ]
+    },
+    {
+      "word": "embed",
+      "part_of_speech": "v",
+      "pronunciation": "/ɪmˈbed/",
+      "definition": {
+        "vietnamese": "Định nghĩa: ấn vào, đóng vào, gắn vào",
+        "english": "to push something deep inside something else"
+      },
+      "examples": [
+        {
+          "english": "When you upload a video, you get a code to [embed] it in your site.",
+          "vietnamese": "Khi bạn tải video lên, bạn sẽ nhận được mã để nhúng nó vào trang web của bạn."
+        },
+        {
+          "english": "Microprocessors are [embedded] into products such as cars, fridges, traffic lights, and industrial equipment.",
+          "vietnamese": "Vi xử lý được nhúng vào các sản phẩm như ô tô, tủ lạnh, đèn giao thông và thiết bị công nghiệp."
+        },
+        {
+          "english": "He had an operation to remove a nail [embedded] in his chest",
+          "vietnamese": "Anh ấy đã phẫu thuật để loại bỏ một chiếc đinh bị mắc kẹt trong ngực của anh ấy."
+        }
+      ]
+    },
+    {
+      "word": "evacuate",
+      "part_of_speech": "v",
+      "pronunciation": "/ɪˈvæk.ju.eɪt/",
+      "definition": {
+        "vietnamese": "Định nghĩa: sơ tán",
+        "english": "to make people leave an area"
+      },
+      "examples": [
+        {
+          "english": "The police [evacuated] the village shortly before the explosion.",
+          "vietnamese": "Cảnh sát đã sơ tán ngôi làng ngay trước vụ nổ."
+        },
+        {
+          "english": "Fire broke out and all staff were [evacuated] from the building.",
+          "vietnamese": "Lửa bùng phát và tất cả nhân viên đã được sơ tán khỏi tòa nhà."
+        },
+        {
+          "english": "When toxic fumes began to drift toward our homes, we were told to [evacuate].",
+          "vietnamese": "Khi khói độc bắt đầu trôi về phía nhà chúng tôi, chúng tôi được yêu cầu sơ tán."
+        }
+      ]
+    },
+    {
+      "word": "expedite",
+      "part_of_speech": "v",
+      "pronunciation": "/ˈek.spə.daɪt/",
+      "definition": {
+        "vietnamese": "Định nghĩa: xúc tiến, đẩy nhanh",
+        "english": "speed up the progress of"
+      },
+      "examples": [
+        {
+          "english": "We're trying to [expedite] the process of reviewing applications.",
+          "vietnamese": "Chúng tôi đang cố gắng đẩy nhanh quá trình xem xét đơn xin."
+        },
+        {
+          "english": "We've got to [expedite] this order because they need it by tomorrow.",
+          "vietnamese": "Chúng tôi phải đẩy nhanh đơn hàng này vì họ cần nó vào ngày mai."
+        },
+        {
+          "english": "Foreign aid can also have a role, but mainly only to [expedite] this growth once it starts",
+          "vietnamese": "Viện trợ nước ngoài cũng có vai trò, nhưng chủ yếu chỉ để xúc tiến sự tăng trưởng này khi nó bắt đầu."
+        }
+      ]
+    },
+    {
+      "word": "extinguisher",
+      "part_of_speech": "n",
+      "pronunciation": "/ɪkˈstɪŋ.ɡwɪ.ʃər/",
+      "definition": {
+        "vietnamese": "Định nghĩa: bình chữa cháy",
+        "english": "Device used to put out fires"
+      },
+      "examples": [
+        {
+          "english": "Decorations must not obstruct fire escape signage, fire [extinguishers], and emergency lighting.",
+          "vietnamese": "Trang trí không được che khuất biển báo lối thoát hiểm, bình chữa cháy và đèn chiếu sáng khẩn cấp."
+        },
+        {
+          "english": "Class C [extinguishers] are used on fires that involve an electrical supply.",
+          "vietnamese": "Bình chữa cháy loại C được sử dụng cho các đám cháy liên quan đến nguồn cung cấp điện."
+        },
+        {
+          "english": "The students were taught how to put out fires in the kitchen and other places using [extinguishers].",
+          "vietnamese": "Học sinh được dạy cách dập tắt đám cháy trong bếp và những nơi khác bằng cách sử dụng bình chữa cháy."
+        }
+      ]
+    },
+    {
+      "word": "familiarity",
+      "part_of_speech": "n",
+      "pronunciation": "/fəˌmɪl.iˈær.ə.ti/",
+      "definition": {
+        "vietnamese": "Định nghĩa: sự quen thuộc",
+        "english": "the state of being used to, or comfortable with something"
+      },
+      "examples": [
+        {
+          "english": "Harry's [familiarity] with the city makes him a good tour guide.",
+          "vietnamese": "Harry quen thuộc với thành phố khiến anh ấy trở thành một hướng dẫn viên du lịch giỏi."
+        },
+        {
+          "english": "They are using the experience to gain [familiarity] with the technology, enter new markets, and meet new clients.",
+          "vietnamese": "Họ đang sử dụng kinh nghiệm để làm quen với công nghệ, thâm nhập thị trường mới và gặp gỡ khách hàng mới."
+        },
+        {
+          "english": "Job seekers' experience and their [familiarity] with the Chinese market were the focal issues for headhunters.",
+          "vietnamese": "Kinh nghiệm của những người tìm việc và sự quen thuộc của họ với thị trường Trung Quốc là những vấn đề trọng tâm đối với các nhà tuyển dụng."
+        }
+      ]
+    },
+    {
+      "word": "flaw",
+      "part_of_speech": "n",
+      "pronunciation": "/flɔː/",
+      "definition": {
+        "vietnamese": "Định nghĩa: khuyết điểm, lỗi hỏng",
+        "english": "something that is faulty in otherwise perfect person/thing"
+      },
+      "examples": [
+        {
+          "english": "A [flaw] in the steering mechanism led to a recall of 200,000 cars.",
+          "vietnamese": "Một lỗi trong cơ chế lái dẫn đến việc thu hồi 200.000 xe."
+        },
+        {
+          "english": "The company had to spend millions correcting design [flaws].",
+          "vietnamese": "Công ty đã phải chi hàng triệu đô la để sửa chữa các lỗi thiết kế."
+        },
+        {
+          "english": "There seemed to be no serious [flaws] in the proposal and it was recommended for further consideration.",
+          "vietnamese": "Dường như không có sai sót nghiêm trọng nào trong đề xuất và nó đã được khuyến nghị để xem xét thêm."
+        }
+      ]
+    },
+    {
+      "word": "fluctuate",
+      "part_of_speech": "v",
+      "pronunciation": "/ˈflʌk.tʃu.eɪt/",
+      "definition": {
+        "vietnamese": "Định nghĩa: dao động, thay đổi bất thường",
+        "english": "comes and goes stronger and weaker"
+      },
+      "examples": [
+        {
+          "english": "Vegetable prices [fluctuate] according to the season.",
+          "vietnamese": "Giá rau dao động theo mùa."
+        },
+        {
+          "english": "Over the past months, retail prices have [fluctuated] with market conditions.",
+          "vietnamese": "Trong những tháng qua, giá bán lẻ đã dao động theo tình hình thị trường."
+        },
+        {
+          "english": "Inflation has [fluctuated] in recent months along with oil prices.",
+          "vietnamese": "Lạm phát đã dao động trong những tháng gần đây cùng với giá dầu."
+        }
+      ]
+    },
+    {
+      "word": "fluent",
+      "part_of_speech": "adj",
+      "pronunciation": "/ˈfluː.ənt/",
+      "definition": {
+        "vietnamese": "Định nghĩa: lưu loát, trôi chảy",
+        "english": "able to speak a language easily and with confidence"
+      },
+      "examples": [
+        {
+          "english": "She's [fluent] in French and English and has a working knowledge of Spanish.",
+          "vietnamese": "Cô ấy thông thạo tiếng Pháp và tiếng Anh và có kiến thức làm việc về tiếng Tây Ban Nha."
+        },
+        {
+          "english": "He now writes essays full of creative ideas, and he is [fluent] in three languages.",
+          "vietnamese": "Bây giờ anh ấy viết các bài luận đầy ý tưởng sáng tạo và anh ấy thông thạo ba ngôn ngữ."
+        },
+        {
+          "english": "No formal qualifications are needed for the posts but applicants must speak excellent English and be [fluent] in the foreign language.",
+          "vietnamese": "Không cần các bằng cấp chính thức cho các vị trí nhưng ứng viên phải nói tiếng Anh xuất sắc và thông thạo ngôn ngữ nước ngoài."
+        }
+      ]
+    },
+    {
+      "word": "honestly",
+      "part_of_speech": "adv",
+      "pronunciation": "/ˈɒnɪstli/",
+      "definition": {
+        "vietnamese": "Định nghĩa: Thực sự, một cách thành thật",
+        "english": "really, truly"
+      },
+      "examples": [
+        {
+          "english": "They have always dealt [honestly] and fairly with their customers.",
+          "vietnamese": "Họ luôn xử lý một cách trung thực và công bằng với khách hàng của mình."
+        },
+        {
+          "english": "I don't mind criticism as long as it's [honestly] given and doesn't get personal.",
+          "vietnamese": "Tôi không ngại chỉ trích miễn là nó được đưa ra một cách trung thực và không mang tính cá nhân."
+        },
+        {
+          "english": "Money transactions are conducted [honestly] and according to your wishes.",
+          "vietnamese": "Giao dịch tiền bạc được tiến hành trung thực và theo ý muốn của bạn."
+        }
+      ]
+    },
+    {
+      "word": "housekeep",
+      "part_of_speech": "v",
+      "pronunciation": "/ˈhaʊs.kiːp/",
+      "definition": {
+        "vietnamese": "Định nghĩa: chăm sóc và dọn dẹp nhà cửa",
+        "english": "take care of all business related to a household"
+      },
+      "examples": [
+        {
+          "english": "My first job was in Lake Louise, Alberta, in the summer season where I [housekept] for Paradise Lodge and Bungalows.",
+          "vietnamese": "Công việc đầu tiên của tôi là ở Lake Louise, Alberta, vào mùa hè, nơi tôi làm dọn dẹp cho Paradise Lodge và Bungalows."
+        },
+        {
+          "english": "A widow from England with two sons came to [housekeep] for the family.",
+          "vietnamese": "Một góa phụ từ Anh Quốc có hai con trai đã đến để làm công việc quản gia cho gia đình."
+        },
+        {
+          "english": "This is the story of two sisters and the French woman who came to live and [housekeep] for them.",
+          "vietnamese": "Đây là câu chuyện về hai chị em gái và người phụ nữ Pháp đã đến sống và làm quản gia cho họ."
+        }
+      ]
+    },
+    {
+      "word": "hurricane",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈhʌr.ɪ.kən/, /-keɪn/",
+      "definition": {
+        "vietnamese": "Định nghĩa: bão nhiệt đới",
+        "english": "a strong often deadly storm that begins over the water"
+      },
+      "examples": [
+        {
+          "english": "The state of Florida was hit by a [hurricane] that did serious damage.",
+          "vietnamese": "Bang Florida vừa bị tấn công bởi một cơn bão gây thiệt hại nghiêm trọng."
+        },
+        {
+          "english": "The [hurricane] is predicted to reach the coast tomorrow morning.",
+          "vietnamese": "Dự báo cơn bão sẽ đến bờ biển vào sáng mai."
+        },
+        {
+          "english": "People living in the track of the [hurricane] have been advised to leave their homes until it has passed.",
+          "vietnamese": "Những người sống trong đường đi của cơn bão đã được khuyến cáo rời khỏi nhà cho đến khi nó đi qua."
+        }
+      ]
+    },
+    {
+      "word": "hygiene",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈhaɪ.dʒiːn/",
+      "definition": {
+        "vietnamese": "Định nghĩa: vệ sinh",
+        "english": "how you keep yourself and your surroundings clean and so that you stay healthy"
+      },
+      "examples": [
+        {
+          "english": "Poor standards of [hygiene] mean that the disease spreads fast.",
+          "vietnamese": "Tiêu chuẩn vệ sinh kém có nghĩa là bệnh lây lan nhanh."
+        },
+        {
+          "english": "Hospital staff blamed the spread of infections on poor [hygiene].",
+          "vietnamese": "Nhân viên bệnh viện đổ lỗi sự lan truyền nhiễm trùng cho vệ sinh kém."
+        },
+        {
+          "english": "Among the problems cited were inadequate hand-washing facilities and poor worker [hygiene].",
+          "vietnamese": "Trong số các vấn đề được nêu ra có cơ sở rửa tay không đầy đủ và vệ sinh của công nhân kém."
+        }
+      ]
+    },
+    {
+      "word": "integral",
+      "part_of_speech": "adj",
+      "pronunciation": "/ˈɪn.tɪ.ɡrəl/",
+      "definition": {
+        "vietnamese": "Định nghĩa: quan trọng, thiết yếu",
+        "english": "very important, necessary as part of the whole thing"
+      },
+      "examples": [
+        {
+          "english": "Music is an [integral] part of the school's curriculum.",
+          "vietnamese": "Âm nhạc là một phần không thể thiếu của chương trình giảng dạy của trường."
+        },
+        {
+          "english": "Practical experience is [integral] to the course.",
+          "vietnamese": "Kinh nghiệm thực tế là không thể thiếu cho khóa học."
+        },
+        {
+          "english": "Rituals and festivals form an [integral] part of every human society.",
+          "vietnamese": "Các nghi lễ và lễ hội là một phần không thể thiếu của mọi xã hội loài người."
+        }
+      ]
+    },
+    {
+      "word": "interactive",
+      "part_of_speech": "adj",
+      "pronunciation": "/ˌɪn.təˈræk.tɪv/",
+      "definition": {
+        "vietnamese": "Định nghĩa: tương tác lẫn nhau",
+        "english": "to engage with others"
+      },
+      "examples": [
+        {
+          "english": "The school believes in [interactive] teaching methods.",
+          "vietnamese": "Nhà trường tin tưởng vào các phương pháp giảng dạy tương tác."
+        },
+        {
+          "english": "A series of [interactive] exhibits will teach visitors about the history of the bridge.",
+          "vietnamese": "Một loạt các triển lãm tương tác sẽ dạy cho khách tham quan về lịch sử của cây cầu."
+        },
+        {
+          "english": "The team plans to use ICT to create an [interactive] learning experience.",
+          "vietnamese": "Nhóm dự định sử dụng ICT để tạo ra một trải nghiệm học tập tương tác."
+        }
+      ]
+    },
+    {
+      "word": "interfere",
+      "part_of_speech": "v",
+      "pronunciation": "/ˌɪntəˈfɪər/",
+      "definition": {
+        "vietnamese": "Định nghĩa: can thiệp, xen vào",
+        "english": "to take part in something that is not your business"
+      },
+      "examples": [
+        {
+          "english": "The police are very unwilling to [interfere] in family problems.",
+          "vietnamese": "Cảnh sát rất không muốn can thiệp vào các vấn đề gia đình."
+        },
+        {
+          "english": "They have no right to [interfere] in the internal affairs of other countries.",
+          "vietnamese": "Họ không có quyền can thiệp vào các vấn đề nội bộ của các nước khác."
+        },
+        {
+          "english": "Why was he constantly [interfering] in her life?",
+          "vietnamese": "Tại sao anh ấy lại liên tục can thiệp vào cuộc sống của cô ấy?"
+        }
+      ]
+    },
+    {
+      "word": "kilogram",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈkɪl.ə.ɡræm/",
+      "definition": {
+        "vietnamese": "Định nghĩa: kilôgam (một đơn vị trọng lượng; Một kg có cùng trọng lượng với 2,2 pounds",
+        "english": "a unit of weight; one kilogram is about the same weight as 2.2 pounds"
+      },
+      "examples": [
+        {
+          "english": "Flour is sold by the [kilogram].",
+          "vietnamese": "Bột mì được bán theo kilôgam."
+        },
+        {
+          "english": "...a parcel weighing around 4.5 [kilograms].",
+          "vietnamese": "...một gói hàng nặng khoảng 4,5 kilôgam."
+        },
+        {
+          "english": "...a [kilogram] of butter.",
+          "vietnamese": "...một kilogram bơ."
+        }
+      ]
+    },
+    {
+      "word": "layoff",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈleɪ.ɒf/",
+      "definition": {
+        "vietnamese": "Định nghĩa: hành động của chủ lao động đình chỉ hoặc chấm dứt công việc của một nhân viên, tạm thời hoặc vĩnh viễn, vì những lí do ngoài hiệu suất thực tế của nhân viên.",
+        "english": "the act of ending a worker's job because there is not enough work, or not enough money to pay for it"
+      },
+      "examples": [
+        {
+          "english": "Store closures will result in [layoffs] of an estimated 2,000 employees",
+          "vietnamese": "Việc đóng cửa cửa hàng sẽ dẫn đến việc sa thải khoảng 2.000 nhân viên"
+        },
+        {
+          "english": "It will close more than 200 stores nationwide resulting in the [layoffs] of an estimated 2,000 employees.",
+          "vietnamese": "Họ sẽ đóng cửa hơn 200 cửa hàng trên toàn quốc dẫn đến việc sa thải khoảng 2.000 nhân viên."
+        },
+        {
+          "english": "They stopped making new loans and announced [layoffs] of more than half of the bank's 7,200 workers.",
+          "vietnamese": "Họ đã ngừng cho vay mới và thông báo sa thải hơn một nửa trong số 7.200 nhân viên của ngân hàng."
+        }
+      ]
+    },
+    {
+      "word": "lightweight",
+      "part_of_speech": "adj",
+      "pronunciation": "/ˈlaɪt.weɪt/",
+      "definition": {
+        "vietnamese": "Định nghĩa: nhẹ cân",
+        "english": "weighing only a little or less than average"
+      },
+      "examples": [
+        {
+          "english": "By the age of sixteen he was the junior [lightweight] champion of Poland.",
+          "vietnamese": "Đến năm mười sáu tuổi, anh là nhà vô địch hạng nhẹ trẻ của Ba Lan."
+        },
+        {
+          "english": "He changed from [lightweight] (under 71kg) to light middleweight (under 78kg).",
+          "vietnamese": "Anh đã thay đổi từ hạng nhẹ (dưới 71kg) sang hạng trung nhẹ (dưới 78kg)."
+        },
+        {
+          "english": "Pale linen suits and cotton shirts are as popular as [lightweight] suits for men.",
+          "vietnamese": "Bộ vest vải lanh nhạt màu và áo sơ mi cotton phổ biến ngang với bộ vest hạng nhẹ cho nam."
+        }
+      ]
+    },
+    {
+      "word": "merit",
+      "part_of_speech": "v",
+      "pronunciation": "/ˈmer.ɪt/",
+      "definition": {
+        "vietnamese": "Định nghĩa: xứng đáng",
+        "english": "to deserve praise"
+      },
+      "examples": [
+        {
+          "english": "He claims that their success was not [merited].",
+          "vietnamese": "Anh ấy cho rằng thành công của họ không đáng có."
+        },
+        {
+          "english": "The case does not [merit] further investigation.",
+          "vietnamese": "Vụ việc không xứng đáng để điều tra thêm."
+        },
+        {
+          "english": "Their efforts [merit] recognition.",
+          "vietnamese": "Nỗ lực của họ xứng đáng được công nhận."
+        }
+      ]
+    },
+    {
+      "word": "necklace",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈnek.ləs/",
+      "definition": {
+        "vietnamese": "Định nghĩa: vòng cổ, dây chuyền",
+        "english": "a piece of jewelery, or decoration, worn around the neck"
+      },
+      "examples": [
+        {
+          "english": "...a diamond [necklace] and matching earrings.",
+          "vietnamese": "...một chiếc vòng cổ kim cương và đôi bông tai phù hợp."
+        },
+        {
+          "english": "Zion finally found the page that had the sketch of the [necklace].",
+          "vietnamese": "Zion cuối cùng đã tìm thấy trang có bản phác thảo của chiếc vòng cổ."
+        },
+        {
+          "english": "The outfit was by 4SDesigns, but that the accompanying chain around his neck was an 18-karat white gold, platinum, chalcedony, turquoise and diamond [necklace] by Cartier somewhat complicated the point.",
+          "vietnamese": "Bộ trang phục là của 4SDesigns, nhưng sợi dây chuyền đeo quanh cổ anh ấy là một chiếc vòng cổ kim cương, bạch kim, đá chalcedony, ngọc lam và vàng trắng 18 carat của Cartier hơi làm phức tạp vấn đề."
+        }
+      ]
+    },
+    {
+      "word": "needy",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈniː.di/",
+      "definition": {
+        "vietnamese": "Định nghĩa: những người nghèo và không có đủ để sống",
+        "english": "people who are poor and do not have enough to live on"
+      },
+      "examples": [
+        {
+          "english": "help for the homeless and the [needy]",
+          "vietnamese": "giúp đỡ những người vô gia cư và người nghèo"
+        },
+        {
+          "english": "Congress, meanwhile, should make clear that high-income borrowers need no more federal help and instead put the money into college finance programs tailored to aid the [needy].",
+          "vietnamese": "Trong khi đó, Quốc hội nên làm rõ rằng những người vay có thu nhập cao không cần thêm sự trợ giúp của liên bang và thay vào đó, chuyển tiền vào các chương trình tài chính đại học được thiết kế để hỗ trợ người nghèo."
+        },
+        {
+          "english": "A group of college students said preparing food for the [needy] is the best way to spend a Friday night.",
+          "vietnamese": "Một nhóm sinh viên đại học cho biết chuẩn bị thức ăn cho người nghèo là cách tốt nhất để dành buổi tối thứ Sáu."
+        }
+      ]
+    },
+    {
+      "word": "overpay",
+      "part_of_speech": "v",
+      "pronunciation": "/ˌoʊ.vɚˈpeɪ/",
+      "definition": {
+        "vietnamese": "Định nghĩa: trả tiền quá cao",
+        "english": "to hand over too much money"
+      },
+      "examples": [
+        {
+          "english": "I think he's grossly [overpaid] for what he does.",
+          "vietnamese": "Tôi nghĩ anh ta được trả lương quá cao so với những gì anh ta làm."
+        },
+        {
+          "english": "I felt I should tell my boss she'd [overpaid] me by $50.",
+          "vietnamese": "Tôi cảm thấy mình nên nói với sếp rằng cô ấy đã trả tôi thừa $50."
+        },
+        {
+          "english": "Bankers are grossly [overpaid] for what they do.",
+          "vietnamese": "Các nhân viên ngân hàng được trả lương quá cao so với những gì họ làm."
+        }
+      ]
+    },
+    {
+      "word": "pamphlet",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈpæm.flət/",
+      "definition": {
+        "vietnamese": "Định nghĩa: một quyến sách nhỏ hay một tập sách chứa đựng những thông tin chung về một chủ đề nào đấy",
+        "english": "a small paper leaflet or booklet that tells you about a single subject"
+      },
+      "examples": [
+        {
+          "english": "The government provides a [pamphlet] for all immigrants, outlining their rights.",
+          "vietnamese": "Chính phủ cung cấp một cuốn sách nhỏ cho tất cả người nhập cư, nêu rõ quyền lợi của họ."
+        },
+        {
+          "english": "The glossy [pamphlet] gives details of what the drug can do, and what its side effects are.",
+          "vietnamese": "Cuốn sách nhỏ bóng bẩy cung cấp chi tiết về những gì thuốc có thể làm, và các tác dụng phụ của nó là gì."
+        },
+        {
+          "english": "The new government [pamphlet] is entitled \"Corporate Bankruptcy\".",
+          "vietnamese": "Cuốn sách nhỏ mới của chính phủ có tựa đề 'Phá sản Doanh nghiệp'."
+        }
+      ]
+    },
+    {
+      "word": "partial",
+      "part_of_speech": "adj",
+      "pronunciation": "/ˈpɑː.ʃəl/",
+      "definition": {
+        "vietnamese": "Định nghĩa: một phần",
+        "english": "to be a part of something whole"
+      },
+      "examples": [
+        {
+          "english": "His efforts met with only [partial] success.",
+          "vietnamese": "Những nỗ lực của anh ấy chỉ đạt được thành công một phần."
+        },
+        {
+          "english": "Our success was only [partial].",
+          "vietnamese": "Thành công của chúng tôi chỉ là một phần."
+        },
+        {
+          "english": "They received [partial] compensation of £5 000.",
+          "vietnamese": "Họ đã nhận được khoản bồi thường một phần là 5.000 bảng."
+        }
+      ]
+    },
+    {
+      "word": "penalize",
+      "part_of_speech": "v",
+      "pronunciation": "/ˈpiː.nəl.aɪz/",
+      "definition": {
+        "vietnamese": "Định nghĩa: phạt",
+        "english": "to punish someone"
+      },
+      "examples": [
+        {
+          "english": "Students will be [penalized] for mistakes in spelling and grammar.",
+          "vietnamese": "Sinh viên sẽ bị phạt vì những lỗi chính tả và ngữ pháp."
+        },
+        {
+          "english": "The law is designed to reward those who conserve and [penalize] those who pollute.",
+          "vietnamese": "Luật được thiết kế để thưởng cho những người bảo vệ môi trường và xử phạt những người gây ô nhiễm."
+        },
+        {
+          "english": "I only ask that you not [penalize] my students for something for which I'm clearly to blame.",
+          "vietnamese": "Tôi chỉ yêu cầu rằng bạn không phạt học sinh của tôi vì điều gì đó mà rõ ràng tôi là người có lỗi."
+        }
+      ]
+    },
+    {
+      "word": "pollute",
+      "part_of_speech": "v",
+      "pronunciation": "/pəˈluːt/",
+      "definition": {
+        "vietnamese": "Định nghĩa: làm ô nhiễm môi trường",
+        "english": "to make the environment dirty"
+      },
+      "examples": [
+        {
+          "english": "The pesticides used on many farms are [polluting] the water supply.",
+          "vietnamese": "Các loại thuốc trừ sâu được sử dụng trên nhiều trang trại đang làm ô nhiễm nguồn nước."
+        },
+        {
+          "english": "We won't invest in any company that [pollutes] the environment.",
+          "vietnamese": "Chúng tôi sẽ không đầu tư vào bất kỳ công ty nào làm ô nhiễm môi trường."
+        },
+        {
+          "english": "Many complain that broadcasters [pollute] the airwaves with sensationalism and sleaze.",
+          "vietnamese": "Nhiều người phàn nàn rằng các đài truyền hình làm ô nhiễm sóng phát thanh với những tin giật gân và khiếm nhã."
+        }
+      ]
+    },
+    {
+      "word": "prescribe",
+      "part_of_speech": "v",
+      "pronunciation": "/prɪˈskraɪb/",
+      "definition": {
+        "vietnamese": "Định nghĩa: ra lệnh, quy định, bắt phải",
+        "english": "to formally tell someone what to do"
+      },
+      "examples": [
+        {
+          "english": "The doctor [prescribed] some pills..",
+          "vietnamese": "Bác sĩ đã kê một số viên thuốc."
+        },
+        {
+          "english": "The doctor [prescribed] some medicine and told her to have a week's rest",
+          "vietnamese": "Bác sĩ đã kê một số loại thuốc và bảo cô ấy nghỉ ngơi một tuần."
+        },
+        {
+          "english": "He wouldn't [prescribe] anything - just recommended rest.",
+          "vietnamese": "Anh ấy sẽ không kê đơn gì - chỉ đề nghị nghỉ ngơi."
+        }
+      ]
+    },
+    {
+      "word": "probable",
+      "part_of_speech": "adj",
+      "pronunciation": "/ˈprɒb.ə.bəl/",
+      "definition": {
+        "vietnamese": "Định nghĩa: có thể (nhưng không chắc chắn trở thành sự thật)",
+        "english": "possible, but not certain to be or become true or real"
+      },
+      "examples": [
+        {
+          "english": "The [probable] cause of death was heart failure.",
+          "vietnamese": "Nguyên nhân có khả năng gây ra cái chết là suy tim."
+        },
+        {
+          "english": "An election in June seems increasingly [probable].",
+          "vietnamese": "Một cuộc bầu cử vào tháng Sáu có vẻ ngày càng có khả năng xảy ra."
+        },
+        {
+          "english": "It is [probable] that share prices will fall even more.",
+          "vietnamese": "Có khả năng giá cổ phiếu sẽ còn giảm hơn nữa."
+        }
+      ]
+    },
+    {
+      "word": "prominent",
+      "part_of_speech": "adj",
+      "pronunciation": "/ˈprɒm.ɪ.nənt/",
+      "definition": {
+        "vietnamese": "Định nghĩa: quan trọng",
+        "english": "important, significant"
+      },
+      "examples": [
+        {
+          "english": "The government should be playing a more [prominent] role in promoting human rights.",
+          "vietnamese": "Chính phủ nên đóng vai trò nổi bật hơn trong việc thúc đẩy nhân quyền."
+        },
+        {
+          "english": "She is likely to play a [prominent] part in the forthcoming election campaign.",
+          "vietnamese": "Cô ấy có khả năng đóng vai trò nổi bật trong chiến dịch bầu cử sắp tới."
+        },
+        {
+          "english": "Lady Thatcher remained a [prominent] political figure.",
+          "vietnamese": "Bà Thatcher vẫn là một nhân vật chính trị nổi bật."
+        }
+      ]
+    },
+    {
+      "word": "rainfall",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈreɪn.fɔːl/",
+      "definition": {
+        "vietnamese": "Định nghĩa: lượng mưa",
+        "english": "Water that falls from the clouds in the sky, in little drops"
+      },
+      "examples": [
+        {
+          "english": "Heavy [rainfall] ruined the match.",
+          "vietnamese": "Mưa lớn đã làm hỏng trận đấu."
+        },
+        {
+          "english": "The average annual [rainfall] in this region is 750 mm.",
+          "vietnamese": "Lượng mưa trung bình hàng năm ở khu vực này là 750 mm."
+        },
+        {
+          "english": "Heavy [rainfall] is expected in the northwest.",
+          "vietnamese": "Dự báo có mưa lớn ở phía tây bắc."
+        }
+      ]
+    },
+    {
+      "word": "relocation",
+      "part_of_speech": "n",
+      "pronunciation": "/ˌriː.ləʊˈkeɪ.ʃən/",
+      "definition": {
+        "vietnamese": "Định nghĩa: sự di dời đến 1 địa điểm mới",
+        "english": "the act of moving something to a new location"
+      },
+      "examples": [
+        {
+          "english": "We are likely to see the temporary [relocation] of some of our staff.",
+          "vietnamese": "Chúng tôi có thể sẽ chứng kiến sự di chuyển tạm thời của một số nhân viên của chúng tôi."
+        },
+        {
+          "english": "The [relocation] of the memorial from the centre of Tallinn to a military cemetery on the city's outskirts provoked riots.",
+          "vietnamese": "Việc di dời đài tưởng niệm từ trung tâm Tallinn đến một nghĩa trang quân đội ở ngoại ô thành phố đã gây ra các cuộc bạo loạn."
+        },
+        {
+          "english": "Career advances can mean many [relocations].",
+          "vietnamese": "Tiến bộ trong sự nghiệp có thể đồng nghĩa với nhiều lần di dời."
+        }
+      ]
+    },
+    {
+      "word": "residence",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈrez.ɪ.dəns/",
+      "definition": {
+        "vietnamese": "Định nghĩa: nơi cư trú",
+        "english": "the house or place you live"
+      },
+      "examples": [
+        {
+          "english": "The premier left his [residence] with almost indecent haste following his resignation.",
+          "vietnamese": "Thủ tướng rời khỏi nơi ở của mình với tốc độ gần như thiếu tôn trọng sau khi từ chức."
+        },
+        {
+          "english": "Number Ten Downing Street is the British prime minister's official [residence].",
+          "vietnamese": "Số 10 Phố Downing là nơi ở chính thức của thủ tướng Anh."
+        },
+        {
+          "english": "The council was hoping to turn a children's home into a [residence] for adolescent girls.",
+          "vietnamese": "Hội đồng hy vọng biến một ngôi nhà trẻ thành nơi ở cho các thiếu nữ."
+        }
+      ]
+    },
+    {
+      "word": "retrieve",
+      "part_of_speech": "v",
+      "pronunciation": "/rɪˈtriːv/",
+      "definition": {
+        "vietnamese": "Định nghĩa: lấy lại",
+        "english": "to go and get something back"
+      },
+      "examples": [
+        {
+          "english": "This software helps firms archive and [retrieve] emails.",
+          "vietnamese": "Phần mềm này giúp các công ty lưu trữ và truy xuất email."
+        },
+        {
+          "english": "They've managed to [retrieve] most of the data.",
+          "vietnamese": "Họ đã quản lý để lấy lại phần lớn dữ liệu."
+        },
+        {
+          "english": "She bent over to [retrieve] her bag from where it had fallen under the seat.",
+          "vietnamese": "Cô ấy cúi xuống để lấy lại túi của mình từ chỗ nó đã rơi dưới ghế."
+        }
+      ]
+    },
+    {
+      "word": "rider",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈraɪ.dər/",
+      "definition": {
+        "vietnamese": "Định nghĩa: người lái",
+        "english": "someone who uses an animal or a bicycle or motorcycle for transport"
+      },
+      "examples": [
+        {
+          "english": "It's a beautiful horse but a bit too frisky for an inexperienced [rider].",
+          "vietnamese": "Đó là một con ngựa đẹp nhưng hơi quá hung hăng đối với một người cưỡi thiếu kinh nghiệm."
+        },
+        {
+          "english": "[Riders] are encouraged to wear helmets.",
+          "vietnamese": "Người cưỡi ngựa được khuyến khích đội mũ bảo hiểm."
+        },
+        {
+          "english": "The cycle [rider] was seriously injured in the crash.",
+          "vietnamese": "Người đi xe đạp bị thương nặng trong vụ tai nạn."
+        }
+      ]
+    },
+    {
+      "word": "rubber",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈrʌb.ər/",
+      "definition": {
+        "vietnamese": "Định nghĩa: cao su",
+        "english": "the stretchy material that elastic bands are made of"
+      },
+      "examples": [
+        {
+          "english": "Tyres are almost always made of [rubber].",
+          "vietnamese": "Lốp xe gần như luôn được làm từ cao su."
+        },
+        {
+          "english": "Most tyres are made of [rubber] compounded with other chemicals and materials.",
+          "vietnamese": "Hầu hết các lốp xe được làm từ cao su kết hợp với các hóa chất và vật liệu khác."
+        },
+        {
+          "english": "The chemical industry produces such things as petrochemicals, drugs, paint and [rubber].",
+          "vietnamese": "Ngành công nghiệp hóa chất sản xuất những thứ như hóa dầu, thuốc, sơn và cao su."
+        }
+      ]
+    },
+    {
+      "word": "rug",
+      "part_of_speech": "n",
+      "pronunciation": "/rʌɡ/",
+      "definition": {
+        "vietnamese": "Định nghĩa: thảm trải sàn",
+        "english": "a small loose floor covering"
+      },
+      "examples": [
+        {
+          "english": "My dog loves lying on the [rug] in front of the fire.",
+          "vietnamese": "Con chó của tôi thích nằm trên tấm thảm trước lò sưởi."
+        },
+        {
+          "english": "I was on the back doorstep shaking out a [rug].",
+          "vietnamese": "Tôi đang ở ngoài hiên sau giũ một tấm thảm."
+        },
+        {
+          "english": "The floor was partly covered with a dirty old [rug].",
+          "vietnamese": "Sàn nhà được phủ một phần bằng tấm thảm cũ bẩn."
+        }
+      ]
+    },
+    {
+      "word": "salespeople",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈseɪlzˌpiː.pəl/",
+      "definition": {
+        "vietnamese": "Định nghĩa: những người bán hàng",
+        "english": "men and women whose job it is get people to buy things from their company"
+      },
+      "examples": [
+        {
+          "english": "I've also witnessed master [salespeople] who are able to obtain far more money, talent and media attention than their product deserves.",
+          "vietnamese": "Tôi cũng đã chứng kiến những người bán hàng bậc thầy có thể thu được nhiều tiền, tài năng và sự chú ý của truyền thông hơn những gì sản phẩm của họ đáng có."
+        },
+        {
+          "english": "[Salespeople] will be very eager to sell you on a plan, so it's absolutely your right to bombard them with as many questions as you need answered before making such a big financial commitment.",
+          "vietnamese": "Người bán hàng sẽ rất háo hức bán cho bạn một kế hoạch, vì vậy bạn hoàn toàn có quyền đặt nhiều câu hỏi cần được trả lời trước khi đưa ra một cam kết tài chính lớn như vậy."
+        },
+        {
+          "english": "Read the tags and ask the [salespeople] about the durability of the clothes and whether they will shrink after the first wash.",
+          "vietnamese": "Đọc các thẻ và hỏi người bán hàng về độ bền của quần áo và liệu chúng có co lại sau lần giặt đầu tiên không."
+        }
+      ]
+    },
+    {
+      "word": "sharply",
+      "part_of_speech": "adv",
+      "pronunciation": "/ˈʃɑːp.li/",
+      "definition": {
+        "vietnamese": "Định nghĩa: một cách mạnh mẽ",
+        "english": "harshly"
+      },
+      "examples": [
+        {
+          "english": "Inflation has risen/fallen [sharply].",
+          "vietnamese": "Lạm phát đã tăng/giảm mạnh."
+        },
+        {
+          "english": "His health improved/deteriorated [sharply] this week.",
+          "vietnamese": "Sức khỏe của anh ấy đã cải thiện/xấu đi rõ rệt trong tuần này."
+        },
+        {
+          "english": "The road bends [sharply] to the left.",
+          "vietnamese": "Con đường uốn cong gắt sang trái."
+        }
+      ]
+    },
+    {
+      "word": "similarity",
+      "part_of_speech": "n",
+      "pronunciation": "/ˌsɪm.ɪˈlær.ə.ti/",
+      "definition": {
+        "vietnamese": "Định nghĩa: sự giống nhau",
+        "english": "the state of being almost the same"
+      },
+      "examples": [
+        {
+          "english": "There is a great deal of [similarity] between Caroline and her mother .",
+          "vietnamese": "Có rất nhiều điểm tương đồng giữa Caroline và mẹ cô ấy."
+        },
+        {
+          "english": "His situation has several [similarities] with our own.",
+          "vietnamese": "Tình huống của anh ấy có nhiều điểm tương đồng với tình huống của chúng ta."
+        },
+        {
+          "english": "The teacher found several suspicious [similarities] between their work.",
+          "vietnamese": "Giáo viên đã phát hiện ra nhiều điểm tương đồng đáng ngờ giữa các bài làm của họ."
+        }
+      ]
+    },
+    {
+      "word": "someday",
+      "part_of_speech": "adv",
+      "pronunciation": "/ˈsʌm.deɪ/",
+      "definition": {
+        "vietnamese": "Định nghĩa: một thời điểm nào đó",
+        "english": "At some unspecified time in the future"
+      },
+      "examples": [
+        {
+          "english": "Maybe [someday] you'll both meet again.",
+          "vietnamese": "Có lẽ một ngày nào đó các bạn sẽ gặp lại nhau."
+        },
+        {
+          "english": "[Someday] soon you're going to have to make a decision.",
+          "vietnamese": "Một ngày nào đó bạn sẽ phải đưa ra quyết định."
+        },
+        {
+          "english": "I keep thinking that maybe [someday] we'll move.",
+          "vietnamese": "Tôi cứ nghĩ rằng một ngày nào đó chúng ta sẽ chuyển đi."
+        }
+      ]
+    },
+    {
+      "word": "spectator",
+      "part_of_speech": "n",
+      "pronunciation": "/spekˈteɪ.tər/",
+      "definition": {
+        "vietnamese": "Định nghĩa: khán giả",
+        "english": "a person who watches something happening"
+      },
+      "examples": [
+        {
+          "english": "A few incredulous [spectators] watched as Paterson, ranked 23rd in the world, beat the champion.",
+          "vietnamese": "Một vài khán giả không tin nổi đã chứng kiến Paterson, xếp hạng 23 trên thế giới, đánh bại nhà vô địch."
+        },
+        {
+          "english": "Marshals struggled in vain to prevent [spectators] rushing onto the racetrack.",
+          "vietnamese": "Các cảnh sát đã cố gắng ngăn cản khán giả tràn vào đường đua trong vô vọng."
+        },
+        {
+          "english": "At the last minute, we roped in a couple of [spectators] to complete the team.",
+          "vietnamese": "Vào phút chót, chúng tôi đã nhờ một vài khán giả để hoàn thành đội."
+        }
+      ]
+    },
+    {
+      "word": "stereo",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈster.i.əʊ/",
+      "definition": {
+        "vietnamese": "Định nghĩa: máy thu phát",
+        "english": "a device that plays sound through two or more speakers"
+      },
+      "examples": [
+        {
+          "english": "The concert will be broadcast in [stereo].",
+          "vietnamese": "Buổi hòa nhạc sẽ được phát sóng bằng âm thanh nổi."
+        },
+        {
+          "english": "Loud music was coming from the car [stereo].",
+          "vietnamese": "Nhạc ồn ào phát ra từ hệ thống âm thanh trên ô tô."
+        },
+        {
+          "english": "Music was blaring from her car [stereo].",
+          "vietnamese": "Âm nhạc vang lên từ dàn âm thanh nổi trên ô tô của cô ấy."
+        }
+      ]
+    },
+    {
+      "word": "storeroom",
+      "part_of_speech": "n",
+      "pronunciation": "/ˈstɔː.ruːm/",
+      "definition": {
+        "vietnamese": "Định nghĩa: nhà kho",
+        "english": "a room where things can be kept when they are not being used"
+      },
+      "examples": [
+        {
+          "english": "You can get a mop from the school's [storeroom] downstairs.",
+          "vietnamese": "Bạn có thể lấy một cây lau nhà từ phòng kho của trường ở tầng dưới."
+        },
+        {
+          "english": "The room at the back was a [storeroom] for spare cables and lighting equipment.",
+          "vietnamese": "Căn phòng ở phía sau là một kho chứa cáp dự phòng và thiết bị chiếu sáng."
+        },
+        {
+          "english": "Where's the key to the [storeroom]?",
+          "vietnamese": "Chìa khóa của kho ở đâu?"
+        }
+      ]
+    },
+    {
+      "word": "subsidize",
+      "part_of_speech": "v",
+      "pronunciation": "/ˈsʌb.sɪ.daɪz/",
+      "definition": {
+        "vietnamese": "Định nghĩa: trợ cấp",
+        "english": "to give financial help"
+      },
+      "examples": [
+        {
+          "english": "All private universities are [subsidized] by the government.",
+          "vietnamese": "Tất cả các trường đại học tư thục đều được trợ cấp bởi chính phủ."
+        },
+        {
+          "english": "He raises the question as to whether the fine arts should be [subsidized] by public funds.",
+          "vietnamese": "Anh ấy đặt ra câu hỏi liệu các nghệ thuật thị giác có nên được trợ cấp bằng ngân sách công hay không."
+        },
+        {
+          "english": "They receive free or [subsidized] housing.",
+          "vietnamese": "Họ nhận được nhà ở miễn phí hoặc được trợ cấp."
+        }
+      ]
+    },
+    {
+      "word": "suspicious",
+      "part_of_speech": "adj",
+      "pronunciation": "/səˈspɪʃ.əs/",
+      "definition": {
+        "vietnamese": "Định nghĩa: hoài nghi, nghi ngờ",
+        "english": "the feeling that something is not right"
+      },
+      "examples": [
+        {
+          "english": "It's a little [suspicious] that no one knows where he was at the time of the murder.",
+          "vietnamese": "Có một chút đáng ngờ khi không ai biết anh ta đã ở đâu vào thời điểm xảy ra vụ án mạng."
+        },
+        {
+          "english": "There were some [suspicious] characters hanging around outside.",
+          "vietnamese": "Có vài nhân vật đáng ngờ lảng vảng bên ngoài."
+        },
+        {
+          "english": "There's a [suspicious]-looking van parked at the end of the street.",
+          "vietnamese": "Có một chiếc xe van trông đáng ngờ đỗ ở cuối đường."
+        }
+      ]
+    },
+    {
+      "word": "tasty",
+      "part_of_speech": "adj",
+      "pronunciation": "/ˈteɪ.sti/",
+      "definition": {
+        "vietnamese": "Định nghĩa: ngon",
+        "english": "delicious"
+      },
+      "examples": [
+        {
+          "english": "The food is wholesome, [tasty] and well-presented.",
+          "vietnamese": "Thức ăn lành mạnh, ngon và được trình bày đẹp mắt."
+        },
+        {
+          "english": "There is a range of [tasty] snacks available at the bar.",
+          "vietnamese": "Có một loạt các món ăn nhẹ ngon miệng có sẵn tại quầy bar."
+        },
+        {
+          "english": "This soup is very [tasty].",
+          "vietnamese": "Món súp này rất ngon."
+        }
+      ]
+    },
+    {
+      "word": "terrific",
+      "part_of_speech": "adj",
+      "pronunciation": "/təˈrɪf.ɪk/",
+      "definition": {
+        "vietnamese": "Định nghĩa: tuyệt vời",
+        "english": "very great or wonderful"
+      },
+      "examples": [
+        {
+          "english": "Mr Jones thought my history paper was [terrific].",
+          "vietnamese": "Ông Jones nghĩ bài viết lịch sử của tôi thật tuyệt vời."
+        },
+        {
+          "english": "You've passed your exam? That's [terrific]!",
+          "vietnamese": "Bạn đã qua kỳ thi? Thật tuyệt vời!"
+        },
+        {
+          "english": "The children built a [terrific] tree house.",
+          "vietnamese": "Bọn trẻ đã xây một ngôi nhà trên cây thật tuyệt vời."
+        }
+      ]
+    },
+    {
+      "word": "underground",
+      "part_of_speech": "adv/adj",
+      "pronunciation": "/ˌʌn.dəˈɡraʊnd/",
+      "definition": {
+        "vietnamese": "Định nghĩa: dưới lòng đất",
+        "english": "below the surface"
+      },
+      "examples": [
+        {
+          "english": "He suffers from claustrophobia so he never travels on [underground] trains.",
+          "vietnamese": "Anh ấy mắc chứng sợ không gian hẹp nên anh ấy không bao giờ đi tàu điện ngầm."
+        },
+        {
+          "english": "Ten miners were trapped [underground] when the roof of the tunnel fell in.",
+          "vietnamese": "Mười thợ mỏ đã bị mắc kẹt dưới lòng đất khi mái của đường hầm sụp đổ."
+        },
+        {
+          "english": "Electrical power is supplied by [underground] cables.",
+          "vietnamese": "Điện lực được cung cấp bởi các dây cáp ngầm."
+        }
+      ]
+    },
+    {
+      "word": "unpaid",
+      "part_of_speech": "adj",
+      "pronunciation": "/ʌnˈpeɪd/",
+      "definition": {
+        "vietnamese": "Định nghĩa: không lương",
+        "english": "working for no money"
+      },
+      "examples": [
+        {
+          "english": "How do you factor in [unpaid] work when planning a market economy?",
+          "vietnamese": "Làm thế nào để bạn tính đến công việc không được trả lương khi lập kế hoạch cho một nền kinh tế thị trường?"
+        },
+        {
+          "english": "[Unpaid] overtime is a violation of corporate policy.",
+          "vietnamese": "Làm thêm giờ mà không được trả lương là vi phạm chính sách công ty."
+        },
+        {
+          "english": "[unpaid] work/employment",
+          "vietnamese": "công việc/làm việc không lương"
+        }
+      ]
+    }
+  ]
+}
